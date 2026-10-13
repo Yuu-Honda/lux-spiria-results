@@ -78,21 +78,32 @@
       story.root.dataset.scrollMode = 'measuring';
       story.root.style.minHeight = '';
       story.status.textContent = labels.scroll;
-      let height = 0;
-      // Measure each scene once on layout changes, so switching never moves the page.
-      story.scenes.forEach((_, index) => {
-        story.scenes.forEach((scene, other) => { scene.hidden = other !== index; });
-        height = Math.max(height, story.root.getBoundingClientRect().height);
-      });
-      height = Math.ceil(height);
-      story.enabled = height + 32 <= window.innerHeight;
-      story.track.dataset.scrollEnabled = String(story.enabled);
-      story.root.dataset.scrollMode = story.enabled ? 'scroll' : 'reading';
-      story.pinTop = Math.max(12, Math.min(28, Math.floor((window.innerHeight - height) / 2)));
+      // Try the compact layout before pinning. A short viewport must not turn
+      // the walkthrough into a static list of every scene.
+      const sceneHeight = () => {
+        let maximum = 0;
+        story.scenes.forEach((_, index) => {
+          story.scenes.forEach((scene, other) => { scene.hidden = other !== index; });
+          maximum = Math.max(maximum, story.root.getBoundingClientRect().height);
+        });
+        return Math.ceil(maximum);
+      };
+      story.root.dataset.compact = 'false';
+      let height = sceneHeight();
+      if (height + 32 > window.innerHeight) {
+        story.root.dataset.compact = 'true';
+        height = sceneHeight();
+      }
+      story.enabled = true;
+      story.track.dataset.scrollEnabled = 'true';
+      story.root.dataset.scrollMode = 'scroll';
+      // Tall cards scroll into view naturally, then pin at their lower edge.
+      // Negative top preserves access to all text without a nested scrollbar.
+      story.pinTop = Math.min(28, Math.floor((window.innerHeight - height) / 2), window.innerHeight - height - 16);
       story.range = (story.scenes.length - 1) * Math.max(220, Math.round(window.innerHeight * .55));
       story.track.style.setProperty('--pin-top', `${story.pinTop}px`);
       story.track.style.setProperty('--story-height', `${height + story.range}px`);
-      story.root.style.minHeight = story.enabled ? `${height}px` : '';
+      story.root.style.minHeight = `${height}px`;
       story.status.textContent = story.enabled ? labels.scroll : labels.reading;
       story.step = -1;
       render(story, current);
@@ -128,6 +139,9 @@
   }
   window.addEventListener('scroll', schedule, {passive: true});
   window.addEventListener('resize', () => { needsMeasure = true; schedule(); });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => { needsMeasure = true; schedule(); });
+  }
 
   function followHash(instant = false) {
     let target;

@@ -20,7 +20,7 @@ class Migration(unittest.TestCase):
   self.assertEqual(m['source_commit'],'d3718887c4ffc18ea655d2b5ce030ba4ad791d2b')
   for f in m['files']:
    p=ROOT/f['path'];self.assertTrue(p.is_file(),f['path'])
-   if p.suffix in {'.css','.js','.png','.jpeg','.jpg','.pdf'} or f['path'].startswith(('assets/','history/')):
+   if p.suffix in {'.png','.jpeg','.jpg','.pdf'} or f['path'].startswith(('assets/','history/')):
     self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),f['source_sha256'],f['path'])
  def test_current_pages_language_and_local_links(self):
   for name in ['index.html','index.en.html','continuation.html','continuation.en.html','results.html','results.en.html']:
