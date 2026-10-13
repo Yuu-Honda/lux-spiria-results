@@ -9,7 +9,7 @@ from urllib.parse import urlsplit, unquote
 
 ROOT=Path(__file__).resolve().parents[1]
 D=json.loads((ROOT/'data/shiori-pilot-2026-10-13.json').read_text())
-PAGES=[ROOT/x for x in ('index.html','en.html','studies/2026-10-13-shiori-pilot/index.html','studies/2026-10-13-shiori-pilot/en.html')]
+PAGES=[ROOT/x for x in ('results.html','results.en.html','studies/2026-10-13-shiori-pilot/index.html','studies/2026-10-13-shiori-pilot/en.html')]
 class Markup(HTMLParser):
  def __init__(self,text):
   super().__init__(); self.ids=[]; self.refs=[]; self.lang=None; self.feed(text)
@@ -52,7 +52,7 @@ class Results(unittest.TestCase):
  def test_local_links_ids_and_language(self):
   for p in PAGES:
    m=Markup(p.read_text());self.assertEqual(len(m.ids),len(set(m.ids)))
-   self.assertEqual(m.lang,'en' if p.name=='en.html' else 'ja')
+   self.assertEqual(m.lang,'en' if p.name in {'en.html','results.en.html'} else 'ja')
    for ref in m.refs:
     u=urlsplit(ref)
     if u.scheme or u.netloc:continue
@@ -65,7 +65,8 @@ class Results(unittest.TestCase):
  def test_generated_pages_current(self):
   spec=importlib.util.spec_from_file_location('pages',ROOT/'tools/build_pages.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
   for lang,name in [('ja','index.html'),('en','en.html')]:
-   self.assertEqual((ROOT/name).read_text(),mod.landing(lang)+'\n')
+   listing = 'results.html' if lang == 'ja' else 'results.en.html'
+   self.assertEqual((ROOT/listing).read_text(),mod.landing(lang)+'\n')
    self.assertEqual((ROOT/'studies/2026-10-13-shiori-pilot'/name).read_text(),mod.study(lang)+'\n')
  def test_home_screen_icons(self):
   for name,lang in [('site.webmanifest','ja'),('site.en.webmanifest','en')]:

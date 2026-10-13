@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = 'data/shiori-pilot-2026-10-13.json'
 D = json.loads((ROOT / DATA_FILE).read_text())
 BASE = 'https://yuu-honda.github.io/lux-spiria-results/'
-HUB = 'https://yuu-honda.github.io/lux-spiria/'
+HUB = BASE
 STUDY = 'studies/2026-10-13-shiori-pilot/'
 CIDS = [c['id'] for c in D['conditions']]
 
@@ -36,14 +36,15 @@ def cards(items):
 
 def document(lang, study, title, description, body):
     prefix = '../../' if study else ''
-    home = prefix + ('index.html' if lang == 'ja' else 'en.html')
-    ja = BASE + (STUDY if study else '')
-    en = ja + 'en.html'
+    home = prefix + ('results.html' if lang == 'ja' else 'results.en.html')
+    ja = BASE + (STUDY if study else 'results.html')
+    en = ja + 'en.html' if study else BASE + 'results.en.html'
     canonical = ja if lang == 'ja' else en
-    alt = 'en.html' if lang == 'ja' else 'index.html'
+    ja_switch = 'index.html' if study else 'results.html'
+    en_switch = 'en.html' if study else 'results.en.html'
     hub = HUB + ('' if lang == 'ja' else 'index.en.html')
     nav = f'<a href="{home}#studies">{T("研究結果", "Studies", lang)}</a><a href="{home}#scope">{T("公開範囲", "Public scope", lang)}</a><a href="{hub}">{T("研究の全体像", "Project overview", lang)} ↗</a>'
-    languages = f'<span class="lang" aria-label="{T("表示言語", "Language", lang)}"><a href="index.html" lang="ja" hreflang="ja"'+(' aria-current="page"' if lang=='ja' else '')+'>日本語</a><span aria-hidden="true">/</span><a href="en.html" lang="en" hreflang="en"'+(' aria-current="page"' if lang=='en' else '')+'>EN</a></span>'
+    languages = f'<span class="lang" aria-label="{T("表示言語", "Language", lang)}"><a href="{ja_switch}" lang="ja" hreflang="ja"'+(' aria-current="page"' if lang=='ja' else '')+f'>日本語</a><span aria-hidden="true">/</span><a href="{en_switch}" lang="en" hreflang="en"'+(' aria-current="page"' if lang=='en' else '')+'>EN</a></span>'
     return f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} — LUX SPIRIA Results</title><meta name="description" content="{E(description, quote=True)}">
@@ -131,12 +132,13 @@ def study(lang):
     body+=section('verification','06 / VERIFICATION',T('何を再実行して確かめたか。','What reruns actually verified.',lang),content=verify)
     limits=[T('選択した実会話1件・研究者が作った24問の探索試験。日常会話全体の精度や統計的有意性へ一般化しません。','An exploratory test on one selected conversation and 24 researcher-authored queries. It does not estimate everyday conversation accuracy or statistical significance.',lang),T('原文は「何が語られたか」の記録です。そこで語られた製品や外部事実の正しさを独立に検証したものではありません。','The transcript records what was said; it does not independently establish the truth of product claims or external facts in that conversation.',lang),T('レビュー依存の索引、限定的なparser、上位5件の同点が残ります。人格連続性・主観的感情・自然な想起の因果効果はこの結果から導きません。','Review-dependent indexing, bounded parsing and top-five ties remain. These results do not establish personality continuity, subjective affect or a causal effect on natural recall.',lang),T('LREの全Wake、Emotion、SHIORIとの自動統合、AIの応答生成は実行していません。','Full LRE Wake, Emotion, automatic SHIORI integration and AI response generation were not run.',lang)]
     content='<div class="boundary-box"><ul>'+''.join(f'<li>{l}</li>' for l in limits)+'</ul></div>'
-    content+=f'<div class="download-links"><a href="../../{DATA_FILE}" download>{T("公開集計JSONを取得","Download public summary JSON",lang)}</a><a href="../../{ "index.html" if lang=="ja" else "en.html"}#scope">{T("公開範囲を確認","Read public scope",lang)} →</a></div>'
+    content+=f'<div class="download-links"><a href="../../{DATA_FILE}" download>{T("公開集計JSONを取得","Download public summary JSON",lang)}</a><a href="../../{ "results.html" if lang=="ja" else "results.en.html"}#scope">{T("公開範囲を確認","Read public scope",lang)} →</a></div>'
     body+=section('limits','07 / LIMITATIONS',T('示したことと、まだ示していないこと。','What is shown, and what remains untested.',lang),content=content)
     return document(lang,True,T('SHIORI実会話パイロット','SHIORI real-record pilot',lang),T('実会話42件・24問・4条件。手掛かりの合流、経路探索、失敗、速度、内部再実行確認の記録。','42 real messages, 24 queries, four conditions: cue aggregation, path traversal, failures, timing and internal reproduction checks.',lang),body)
 
 if __name__ == '__main__':
     for lang, filename in [('ja','index.html'),('en','en.html')]:
-        (ROOT/filename).write_text(landing(lang)+'\n')
+        listing = 'results.html' if lang == 'ja' else 'results.en.html'
+        (ROOT/listing).write_text(landing(lang)+'\n')
         (ROOT/STUDY/filename).write_text(study(lang)+'\n')
     print('Built 4 public pages from the public summary.')

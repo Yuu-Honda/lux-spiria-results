@@ -1,12 +1,15 @@
 # LUX SPIRIA Results
 
-Public, versioned research results for LUX SPIRIA.
+The complete public LUX SPIRIA website, with versioned research results.
 
 - [日本語](https://yuu-honda.github.io/lux-spiria-results/)
-- [English](https://yuu-honda.github.io/lux-spiria-results/en.html)
-- [Project overview and historical records](https://yuu-honda.github.io/lux-spiria/)
+- [English](https://yuu-honda.github.io/lux-spiria-results/index.en.html)
+- [Research results](https://yuu-honda.github.io/lux-spiria-results/results.html)
+- [Research repository and original records](https://github.com/Yuu-Honda/lux-spiria)
 
-This repository contains the website, its builder and **allowlisted aggregates**. It is separate from the historical `lux-spiria` repository and the private research bundle. The site displays recorded results, not a live SHIORI engine or generated demonstration.
+This repository hosts the full website: overview, scroll illustrations, LRE/SHIORI/Emotion explanations, historical pages and **allowlisted study aggregates**. The `lux-spiria` repository remains the research and historical record; its previous site URLs redirect here. Historical pages retain their original context and claims. Mechanism illustrations are labeled as explanatory; study pages display recorded results and do not execute SHIORI.
+
+The previous website source and assets are preserved byte-for-byte in the research repository at `history/pre-site-migration-2026-10-13/`. `site-migration.json` records their source commit and hashes. No private research files were imported.
 
 ## First study — 2026-10-13
 
@@ -30,7 +33,7 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8769 --bind 127.0.0.1
 ```
 
-The builder reads only `data/shiori-pilot-2026-10-13.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Generated Japanese and English pages are committed. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
+The builder reads only `data/shiori-pilot-2026-10-13.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Generated Results listings (`results.html` / `results.en.html`) and study pages are committed. The builder leaves the migrated overview and historical pages intact. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
 
 ## Preservation
 

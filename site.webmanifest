@@ -1,8 +1,9 @@
 {
   "id": "./",
-  "name": "LUX SPIRIA Results",
-  "short_name": "LUX Results",
+  "name": "LUX SPIRIA",
+  "short_name": "LUX SPIRIA",
   "lang": "ja",
+  "description": "記憶・変化・想起・連続性をめぐる研究記録。",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

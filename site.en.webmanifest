@@ -1,9 +1,10 @@
 {
   "id": "./",
-  "name": "LUX SPIRIA Results",
-  "short_name": "LUX Results",
+  "name": "LUX SPIRIA",
+  "short_name": "LUX SPIRIA",
   "lang": "en",
-  "start_url": "en.html",
+  "description": "A research record on memory, change, recall and continuity.",
+  "start_url": "./index.en.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#090d12",
