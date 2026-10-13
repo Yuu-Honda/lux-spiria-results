@@ -591,6 +591,20 @@
   :is(.mechanism-overview, .mechanism-card) .mechanism-controls { gap: 5px; }
   :is(.mechanism-overview, .mechanism-card) .mechanism-controls button { padding-inline: 7px; }
 }
+/* Compact system-specific layouts also override their later-loaded styles. */
+.mechanism-card[data-system][data-compact="true"] > .mechanism-body { min-height: 270px; }
+.mechanism-card[data-system][data-compact="true"] .mechanism-stage { min-height: 240px; padding-block: 8px 14px; }
+.mechanism-card[data-system][data-compact="true"] .mechanism-heading h3 { font-size: 22px; }
+.mechanism-card[data-system][data-compact="true"] .mechanism-scene h4 { font-size: 17px; margin-block: 9px 6px; }
+.mechanism-card[data-system][data-compact="true"] .mechanism-scene > p { font-size: 12px; line-height: 1.7; }
+@media (max-width: 600px) {
+  .mechanism-card[data-system][data-compact="true"] > .mechanism-body { min-height: 0; }
+  .mechanism-card[data-system][data-compact="true"] .mechanism-stage { min-height: 230px; }
+  .mechanism-card[data-system][data-compact="true"] .mechanism-heading h3 { font-size: 20px; }
+}
+@keyframes mechanism-step-in { from { opacity: .35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+[data-mechanism][data-scroll-mode="scroll"] .mechanism-scene:not([hidden]) { animation: mechanism-step-in .22s ease-out both; }
+
 @media (prefers-reduced-motion: reduce) {
   :is(.mechanism-overview, .mechanism-card) *,
   :is(.mechanism-overview, .mechanism-card) *::before,
