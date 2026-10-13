@@ -7,3 +7,4 @@
 - Published opaque per-query summaries, first-run local timing and the scope of internal reproduction checks.
 - Private conversation, queries, native IDs, feature terms, database and experimental code remain private. Public website rebuilds do not rerun the experiment.
 - Public wording explicitly limits old-sample overlap checks to text hashes/scenes and excludes timing equality from reproduction claims.
+- Clarified that 203 counts feature occurrences and that method equality covers 24 queries × four conditions (96 cases). Numerical results are unchanged.
