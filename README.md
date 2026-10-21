@@ -15,9 +15,19 @@ The previous website source and assets are preserved byte-for-byte in the resear
 
 A selected real-dialogue session (42 messages), 24 researcher-authored queries (22 target-bearing and two controls), and four SHIORI retrieval conditions. Default preparation yielded zero semantic features; source-only AI-assisted review supplied 203 semantic-feature occurrences before query authoring. All eight paraphrase queries yielded no cues or candidates. The pages show all four conditions, opaque per-query outcomes, timing, failures and verification boundaries.
 
+## Cross-session replication — 2026-10-21
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-21-cross-session/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-21-cross-session/en.html)
+
+Four further real conversations supplied 32 whole source messages and 32 authored queries. Original-query retrieval, AI-authored cues and a source gate were compared. Positive scene@1 hits fell from **7/16 to 5/16**, while confusable false returns fell from **6/8 to 0/8**. The earlier small-trial retrieval gain did not replicate. The AI-cue conditions stopped 23/32 queries before search, including 10/16 positive queries; an overly strict gate also removed one correct paraphrase candidate.
+
+The initial condition failed on an evidence-contract mismatch. It remains preserved. A separate technical condition removed one noncanonical context quote and received an actual source-only AI review. Source text, feature keys, bit masks and postings stayed unchanged; the same 32 questions, target labels and saved actual AI outputs were reused. Scored results were first observed after this amendment. Seven technical checks and 45 synthetic engineering checks are reported separately from retrieval outcomes. Graph expansions, edges and associated hits were zero throughout; network-traversal effects and speed were not evaluated.
+
+The new study records private LRE code deployment and the experimental SHIORI adapter separately from research performance. The maintained local LRE checkout was updated with an additive recall route preserving original-query retrieval. The operational SHIORI store remains unconfirmed. A pre-existing maintenance failure is disclosed; no full Wake or live database update is claimed. Earlier study pages and data remain unchanged.
+
 ## Public and private scope
 
-Public: frozen method description, target-hit aggregates, MRR@5, Q01–Q24 ranks/counts/tie flags, local timing, verification flags and retained-bundle identifiers.
+Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; the cross-session study reports distinct positive, absent and confusable outcomes and pre-search abstentions. Query labels are local to each study.
 
 Private: original conversations, question and evidence text, native source IDs, feature vocabulary, SQLite, experiment code and detailed execution artifacts. Public files permit aggregate recalculation, **not independent source auditing or engine reruns**. Reproduction reported here was internally verified with the same private frozen inputs. It is not external peer review, natural-conversation accuracy, a full LRE Wake/Emotion experiment, or evidence of personality continuity.
 
@@ -33,7 +43,7 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8769 --bind 127.0.0.1
 ```
 
-The builder reads only `data/shiori-pilot-2026-10-13.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Generated Results listings (`results.html` / `results.en.html`) and study pages are committed. The builder leaves the migrated overview and historical pages intact. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
+The builder reads only `data/shiori-pilot-2026-10-13.json` and `data/shiori-cross-session-2026-10-21.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Generated Results listings (`results.html` / `results.en.html`) and both dated study pages are committed. The builder leaves the migrated overview, its scroll illustrations and historical pages intact. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
 
 ## Preservation
 

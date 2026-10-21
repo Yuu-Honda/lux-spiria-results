@@ -29,12 +29,13 @@
   <link rel="stylesheet" href="mechanism.css?v=20261014-scroll">
   <link rel="stylesheet" href="shiori-network.css">
   <link rel="stylesheet" href="emotion.css">
+  <link rel="stylesheet" href="latest-study.css">
   <script src="mechanism.js?v=20261014-scroll" defer></script>
   <noscript><style>[data-mechanism-scene][hidden]{display:block!important;margin-top:28px}[data-mechanism] .mechanism-controls{display:none}</style></noscript>
   <script src="recorded-trial.js" defer></script>
   <script src="hero-visual.js" defer></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"LUX SPIRIA","url":"https://yuu-honda.github.io/lux-spiria-results/","inLanguage":"ja","description":"A continuing research record on memory, identity, change, recall and continuity.","dateModified":"2026-10-08"}
+  {"@context":"https://schema.org","@type":"WebSite","name":"LUX SPIRIA","url":"https://yuu-honda.github.io/lux-spiria-results/","inLanguage":"ja","description":"A continuing research record on memory, identity, change, recall and continuity.","dateModified":"2026-10-21"}
   </script>
   <script src="language-nav.js" defer></script>
 </head>
@@ -110,6 +111,23 @@
           <div class="neural-motion"><button type="button" id="neural-motion-toggle" hidden aria-pressed="false">動きを一時停止</button></div>
           <p class="neural-footnote">想起と判断の往復を描いた概念図。</p>
         </figure>
+      </section>
+      <section class="latest-study" aria-labelledby="latest-study-title" data-source="data/shiori-cross-session-2026-10-21.json">
+        <div class="latest-study-copy">
+          <p class="latest-study-kicker">RECORDED STUDY <span aria-hidden="true">/</span> <time datetime="2026-10-21">2026-10-21</time></p>
+          <h2 id="latest-study-title">誤候補は減った。<br>正しい取得も減った。</h2>
+          <p class="latest-study-summary">取得済みの実会話4件から作成した32問で比較。検索を止めすぎ、以前の取得改善は再現しませんでした。</p>
+          <a class="latest-study-link" href="studies/2026-10-21-cross-session/index.html">結果と、次の課題を読む <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="latest-study-results">
+          <p class="latest-study-order">元の発話で検索 <span aria-hidden="true">→</span> 意味cue＋原文条件の照合</p>
+          <dl class="latest-study-metrics">
+            <div class="latest-study-metric"><dt>正しい場面を取得<span>正解のある16問</span></dt><dd><span>7<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>5<small>/16</small></span></dd></div>
+            <div class="latest-study-metric"><dt>紛らわしい候補の誤取得<span>混同を誘う8問</span></dt><dd><span>6<small>/8</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>0<small>/8</small></span></dd></div>
+          </dl>
+          <p class="latest-study-boundary">二つの指標は対象も分母も異なります。確信度や日常会話の精度ではありません。網を辿る効果・速度はこの試験では未評価。</p>
+          <a class="latest-study-source" href="data/shiori-cross-session-2026-10-21.json">集計データ / JSON</a>
+        </div>
       </section>
       <div class="question-line"><span>THE QUESTION</span><p>記憶・変化・人格の連続性は、<br class="mobile-only">どう成立するか。</p><span>2025 — ONGOING</span></div>
 
@@ -726,7 +744,7 @@
         <p class="archive-summary">過去の主張はその時点の記録として保持。現在の実装で遡って証明するものではありません。<br><a href="continuation.html#historical-evaluation">原記録・詳しい評価を読む ↗</a></p>
       </section>
     </main>
-    <footer class="footer"><a class="symbol-brand" href="./" aria-label="LUX SPIRIA ホーム"><img src="assets/lux-symbol.png" alt="" width="54" height="54"><span class="brand-name">LUX SPIRIA</span></a><p>To create is to design continuity.<br><span>Research record / 2025–2026</span></p><nav aria-label="資料と規約"><a href="results.html">Results</a><a href="continuation.html">研究と出典</a><a href="continuation.html#rights">License / 利用方針</a><a href="https://github.com/Yuu-Honda/lux-spiria">GitHub ↗</a></nav><small>RESEARCH SNAPSHOT / 2026-10-08</small></footer>
+    <footer class="footer"><a class="symbol-brand" href="./" aria-label="LUX SPIRIA ホーム"><img src="assets/lux-symbol.png" alt="" width="54" height="54"><span class="brand-name">LUX SPIRIA</span></a><p>To create is to design continuity.<br><span>Research record / 2025–2026</span></p><nav aria-label="資料と規約"><a href="results.html">Results</a><a href="continuation.html">研究と出典</a><a href="continuation.html#rights">License / 利用方針</a><a href="https://github.com/Yuu-Honda/lux-spiria">GitHub ↗</a></nav><small>SITE UPDATE / 2026-10-21</small></footer>
   </div>
 </body>
 </html>
