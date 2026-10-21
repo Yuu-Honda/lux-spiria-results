@@ -16,6 +16,9 @@ NEW_STUDY = 'studies/2026-10-21-cross-session/'
 LATEST_DATA_FILE = 'data/shiori-retrieval-hypotheses-2026-10-21.json'
 LATEST_D = json.loads((ROOT / LATEST_DATA_FILE).read_text()) if (ROOT / LATEST_DATA_FILE).is_file() else None
 LATEST_STUDY = 'studies/2026-10-21-retrieval-hypotheses/'
+EVENT_DATA_FILE = 'data/shiori-event-compatibility-2026-10-22.json'
+EVENT_D = json.loads((ROOT / EVENT_DATA_FILE).read_text()) if (ROOT / EVENT_DATA_FILE).is_file() else None
+EVENT_STUDY = 'studies/2026-10-22-event-compatibility/'
 
 def T(ja, en, lang): return ja if lang == 'ja' else en
 
@@ -73,12 +76,12 @@ def scope(lang):
         (T('今回まだ測っていないもの','Not evaluated in this study',lang),T('LREの全Wake、Emotionの効果、応答生成、日常会話での自然な想起、人格連続性は今回の評価対象に含みません。','Full LRE Wake, Emotion effects, response generation, natural everyday recall and personality continuity were not evaluated.',lang))]))
 
 def landing(lang):
-    if LATEST_D is None:
+    if LATEST_D is None or EVENT_D is None:
         raise FileNotFoundError('Audited latest public summary is not available; no listings were written')
     studyurl = STUDY + ('index.html' if lang=='ja' else 'en.html')
     body = f'''<section class="results-hero"><p class="eyebrow">LUX SPIRIA / RESEARCH RESULTS</p><h1>{T('問いと手順を固定し、<br>結果を残す。','Fix the question.<br>Keep the result.',lang)}</h1><p class="lead">{T('記憶・感情・変化・想起・連続性。その研究で実際に何を動かし、何が起き、どこまで確かめたかを残す場所です。','Memory, affect, change, recall and continuity. A record of what was actually run, what happened, and how far verification reaches.',lang)}</p></section>
-<div class="status-strip"><span>{T('実行済み結果を公開 · 小規模な探索的試験','Recorded execution · small exploratory pilot',lang)}</span><small>UPDATED / {NEW_D['date']}</small></div>
-<div class="hero-metrics"><div class="metric"><strong>03</strong><span>{T('公開研究','Published studies',lang)}</span><small>2026-10-13 / 2026-10-21</small></div><div class="metric"><strong>4</strong><span>{T('最新試験の実会話','Real sessions in latest study',lang)}</span><small>{T('各8件・計32原文メッセージ','Eight messages each · 32 source messages',lang)}</small></div><div class="metric"><strong>32</strong><span>{T('最新試験の質問','Queries in latest study',lang)}</span><small>{T('対象あり16・対象なし8・紛らわしい8','16 positive · 8 absent · 8 confusable',lang)}</small></div></div>'''
+<div class="status-strip"><span>{T('実行済み結果を公開 · 小規模な探索的試験','Recorded execution · small exploratory pilot',lang)}</span><small>UPDATED / {EVENT_D['date']}</small></div>
+<div class="hero-metrics"><div class="metric"><strong>04</strong><span>{T('公開研究','Published studies',lang)}</span><small>2026-10-13 / 2026-10-22</small></div><div class="metric"><strong>{EVENT_D['sample']['sessions']}</strong><span>{T('最新試験の実会話','Real sessions in latest study',lang)}</span><small>{T('各8件・計32原文メッセージ','Eight messages each · 32 source messages',lang)}</small></div><div class="metric"><strong>{EVENT_D['sample']['queries']}</strong><span>{T('最新試験の質問','Queries in latest study',lang)}</span><small>{T('対象あり16・対象なし8・紛らわしい8','16 positive · 8 absent · 8 confusable',lang)}</small></div></div>'''
     card = f'''<article class="study-card"><span class="study-status">RUN 001 / EXPLORATORY PILOT</span><time datetime="{D['date']}">{D['date']}</time><h3><a href="{studyurl}">{T('SHIORI、手掛かりと経路の比較。','SHIORI: cues, paths and retrieval.',lang)} ↗</a></h3><p>{T('実会話を固定し、直接照合と1段の経路、最大値と手掛かりの合流を4条件で比較。索引のレビュー依存と、言い換えで入口が作れなかった失敗も記録しました。','A frozen real-dialogue sample compared direct versus one-hop retrieval and best-cue versus cue aggregation across four conditions. The record includes review-dependent indexing and failures to form cues for paraphrases.',lang)}</p><div class="study-stats"><span><strong>4</strong>{T('比較条件','conditions',lang)}</span><span><strong>0 → 203</strong>{T('標準解析 → レビュー後の延べ特徴数','default → reviewed feature occurrences',lang)}</span><span><strong>0 / 8</strong>{T('言い換えの対象到達','paraphrase target hits',lang)}</span></div></article>'''
     newurl = NEW_STUDY + ('index.html' if lang == 'ja' else 'en.html')
     latest = f'''<article class="study-card"><span class="study-status">STUDY / CROSS-SESSION REPLICATION</span><time datetime="{NEW_D['date']}">{NEW_D['date']}</time><h3><a href="{newurl}">{T('誤接続は減った。取得改善は再現しなかった。','Fewer false returns. No replicated retrieval gain.',lang)} ↗</a></h3><p>{T('別の実会話4件・32問で、元の発話による検索、AIが作る手掛かり、原文確認ゲートを比較。紛らわしい対象への誤接続は減りましたが、検索前の停止と厳しすぎる照合で、必要な記憶も落としました。最初の技術的失敗と、別条件での修正後の結果を併記しています。','Four further real conversations and 32 queries compared original-query retrieval, AI-authored cues and a source gate. Confusable false returns fell, but pre-search abstention and overly strict matching also lost relevant records. The initial technical failure and the separately amended scored condition are both retained.',lang)}</p><div class="study-stats"><span><strong>7/16 → 5/16</strong>{T('対象場面の取得','positive scene hits',lang)}</span><span><strong>6/8 → 0/8</strong>{T('紛らわしい候補の返却','confusable false returns',lang)}</span><span><strong>0</strong>{T('全条件の連想経路展開','graph expansions in every condition',lang)}</span></div></article>'''
@@ -86,12 +89,19 @@ def landing(lang):
     current = {c['id']:c for c in LATEST_D['conditions']}
     a, b = current['legacy_gated'], current['recovery_gated']
     newest = f'''<article class="study-card"><span class="study-status">STUDY / RETRIEVAL HYPOTHESES</span><time datetime="{LATEST_D['date']}">{LATEST_D['date']}</time><h3><a href="{newesturl}">{T('取得は増えた。取り違えは残った。','More relevant hits. Mix-ups remained.',lang)} ↗</a></h3><p>{T('さらに別の実会話4件・新規32問で、元の検索を残し、否定・仮定・不確実性を検索仮説として加える6条件を比較。原文ゲートは同じ厳格な条件です。改善方式でも、対象ありの別場面誤返却1問、紛らわしい対象への誤返却1問、対象ありの未取得1問が残りました。','Four further conversations and 32 new queries compared six conditions preserving original-query retrieval while adding negation, hypothetical cues and uncertainty as search hypotheses. The strict source gate stayed unchanged. The recovery policy still returned one wrong positive scene, returned one confusable false candidate, and missed one positive query.',lang)}</p><p>{T('網と合流は実行されましたが、独立診断では全32問・全6条件で無効化しても最終選択が同じでした。今回の取得増加を網の寄与や速度改善とは扱いません。','Traversal and convergence ran, but independent diagnostics found unchanged final selections when either was disabled, for all 32 queries in all six conditions. The retrieval increase does not demonstrate a graph contribution or a speed improvement.',lang)}</p><div class="study-stats"><span><strong>{a['positive_hits']}/16 → {b['positive_hits']}/16</strong>{T('従来方式 → 改善方式の対象取得（同じ原文ゲート）','legacy → recovery positive hits (same source gate)',lang)}</span><span><strong>{a['confusable_false_returns']}/8 → {b['confusable_false_returns']}/8</strong>{T('紛らわしい対象への誤返却','confusable false returns',lang)}</span><span><strong>{b['positive_wrong_scene_returns']}/16</strong>{T('改善方式の別場面誤返却','recovery wrong positive scenes',lang)}</span></div></article>'''
-    body += section('studies', '01 / STUDIES', T('実験の記録。','Study records.',lang), T('成功した条件だけでなく、失敗した入力と再現の範囲も残します。','Successes, failed inputs and the scope of reproduction are recorded together.',lang),newest + latest + card)
+    eventurl = EVENT_STUDY + ('index.html' if lang == 'ja' else 'en.html')
+    event_arms = {c['id']: c for c in EVENT_D['conditions']}
+    strict, reviewed = event_arms['strict_source_gate'], event_arms['strict_and_event_review']
+    expansions = sum(q['retrieval']['graph_expansions'] for q in EVENT_D['per_query'])
+    selection_changes = sum(not q['ablations'][variant][arm]['same_selection_as_normal'] for q in EVENT_D['per_query'] for variant in ('hops0', 'without_convergence') for arm in event_arms)
+    graph_note = T(f'新規32問の経路展開は{expansions}件。網・合流の無効化で最終選択が変わった問・条件・診断の組合せは{selection_changes}件でした。', f'The fresh set had {expansions} graph expansions and {selection_changes} changed query-condition-diagnostic selections when traversal or convergence was disabled.', lang)
+    event = f'''<article class="study-card"><span class="study-status">STUDY / EVENT COMPATIBILITY</span><time datetime="{EVENT_D['date']}">{EVENT_D['date']}</time><h3><a href="{eventurl}">{T(f'対象取得{reviewed["positive_hits"]}/16。誤候補を原文で確かめた。',f'{reviewed["positive_hits"]}/16 target hits. False candidates checked against source.',lang)} ↗</a></h3><p>{T('新たな実会話4件・32問で、同じ検索候補に厳格な原文ゲート、出来事の適合レビュー、両方を加える4条件を比較。AIが質問と候補の原文を読み、行為・文脈・指示対象・役割・時点・様態を照合しました。','Four further archived conversations and 32 new queries compared four conditions using the same retrieved candidates: no gate, the strict source gate, event compatibility review, and both. An AI read queries and linked originals to check action, context, referent, role, time and mode.',lang)}</p><div class="study-stats"><span><strong>{strict['positive_hits']}/16 → {reviewed['positive_hits']}/16</strong>{T('厳格な原文ゲート → 同ゲート＋出来事レビューの対象取得','strict source gate → same gate + event review: positive hits',lang)}</span><span><strong>{strict['confusable_false_returns']}/8 → {reviewed['confusable_false_returns']}/8</strong>{T('紛らわしい対象への誤返却','confusable false returns',lang)}</span><span><strong>{strict['absent_false_returns']}/8 → {reviewed['absent_false_returns']}/8</strong>{T('対象なしへの誤返却','absent false returns',lang)}</span></div><p>{graph_note} {T('既知32問の回帰とその網の診断は別に報告します。世界での真偽や回答への採用を検証した結果ではありません。','The known 32-query regression set and its graph diagnostics are reported separately. These results do not establish world-event truth or answer adoption.',lang)}</p></article>'''
+    body += section('studies', '01 / STUDIES', T('実験の記録。','Study records.',lang), T('成功した条件だけでなく、失敗した入力と再現の範囲も残します。','Successes, failed inputs and the scope of reproduction are recorded together.',lang),event + newest + latest + card)
     body += section('method', '02 / METHOD', T('結果の手前に、手順を置く。','The procedure comes before the result.',lang), content=cards([
         (T('入力を固定する','Freeze the inputs',lang),T('原文、索引、質問、対象となる出典を検索実行前に固定。検索結果を見てから都合よく手掛かりや正解を変えません。','Freeze the source, index, questions and target sources before retrieval. Do not tune cues or targets after seeing the result.',lang)),
         (T('比較条件を全部出す','Show every condition',lang),T('各試験の全比較条件を公開。対象到達、誤接続、検索前の停止を分け、経路や速度の効果は実際に測った試験でのみ報告します。','Publish every comparison condition in each study. Separate target hits, false returns and pre-search abstention; report path and speed effects only when actually measured.',lang))]))
     body += scope(lang)
-    return document(lang,False,T('研究結果','Research results',lang),T('LUX SPIRIAの実行済み研究結果。方法、全条件比較、失敗、再現確認と限界。','Recorded LUX SPIRIA research: methods, all-condition comparisons, failures, verification and limitations.',lang),body,record_date=NEW_D['date'])
+    return document(lang,False,T('研究結果','Research results',lang),T('LUX SPIRIAの実行済み研究結果。方法、全条件比較、失敗、再現確認と限界。','Recorded LUX SPIRIA research: methods, all-condition comparisons, failures, verification and limitations.',lang),body,record_date=EVENT_D['date'])
 
 def study(lang):
     body = f'''<section class="study-hero"><p class="kicker">RUN 001 / RETROSPECTIVE PILOT / v1</p><h1>{T('SHIORI、手掛かりと<br>経路の比較。','SHIORI: cues, paths<br>and retrieval.',lang)}</h1><p class="lead">{T('実会話42メッセージを保存し、レビュー済みの意味特徴を延べ203件で索引を作成。別工程で作った24問を固定し、4条件で検索しました。','42 real-dialogue messages were captured and indexed with 203 reviewed semantic-feature occurrences. 24 queries authored in a separate step were frozen and tested under four retrieval conditions.',lang)}</p><p class="note"><time datetime="{D['date']}">{D['date']}</time> · {T('保存済みの実行結果。閲覧中のエンジン実行ではありません。','Stored execution results; no engine runs while you browse.',lang)}</p></section>
@@ -262,7 +272,9 @@ def cross_session(lang):
 
 if __name__ == '__main__':
     from build_retrieval_hypotheses import build as build_latest, load_summary
+    from build_event_compatibility import build as build_event, load_summary as load_event_summary
     load_summary()
+    load_event_summary()
     for lang, filename in [('ja','index.html'),('en','en.html')]:
         listing = 'results.html' if lang == 'ja' else 'results.en.html'
         (ROOT/listing).write_text(landing(lang)+'\n')
@@ -270,4 +282,5 @@ if __name__ == '__main__':
         (ROOT/NEW_STUDY).mkdir(parents=True, exist_ok=True)
         (ROOT/NEW_STUDY/filename).write_text(cross_session(lang)+'\n')
     build_latest()
-    print('Built 8 public pages from three public summaries.')
+    build_event()
+    print('Built 10 public pages from four public summaries.')
