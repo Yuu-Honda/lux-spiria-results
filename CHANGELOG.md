@@ -22,3 +22,12 @@
 - Fixed walkthroughs becoming static lists when their cards exceeded the viewport height. The existing compact layout now runs before measurement; tall cards remain linked to document scrolling with an adjusted sticky offset.
 - Added compact styles for SHIORI/Emotion and a brief step transition that respects reduced motion. Versioned the changed assets in both language homepages.
 - Preserved research data, historical source and all four walkthroughs. Added actual-runtime scroll/resize regressions; migration hash checks continue to protect historical and data assets while allowing active site code to evolve.
+
+## 2026-10-21 — Cross-session replication, study v1
+
+- Added separate Japanese/English study pages and an allowlisted public summary for four further conversations and 32 authored queries. Prior study pages and numerical data remain byte-identical.
+- Published all three comparison arms: positive scene hits 7/16 → 6/16 → 5/16, confusable false returns 6/8 → 3/8 → 0/8. The earlier retrieval gain did not replicate; excessive abstention and an overstrict paraphrase constraint are disclosed.
+- Retained the initial technical failure and identified the separately amended scored condition. Only one context quote was removed; original text, feature keys, masks and postings stayed unchanged, and saved questions, labels and actual AI outputs were reused.
+- Added accessible static charts, all 32 opaque outcomes, selection and role-separation limits, replay scope and next research questions. No graph-traversal effect or timing claim is made.
+- Distinguished private implementation updates from measured research performance and disclosed the unconfirmed operational SHIORI store and one pre-existing maintenance failure.
+- Updated the bilingual Results listing, build documentation and sitemap. Existing overview, animations, historical assets and private research files are unchanged.

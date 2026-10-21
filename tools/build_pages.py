@@ -1,4 +1,4 @@
-"""Build public pages using only the public, allowlisted summary. Python 3 stdlib."""
+"""Build public pages using only public, allowlisted summaries. Python 3 stdlib."""
 from pathlib import Path
 import json
 from html import escape as E
@@ -10,6 +10,9 @@ BASE = 'https://yuu-honda.github.io/lux-spiria-results/'
 HUB = BASE
 STUDY = 'studies/2026-10-13-shiori-pilot/'
 CIDS = [c['id'] for c in D['conditions']]
+NEW_DATA_FILE = 'data/shiori-cross-session-2026-10-21.json'
+NEW_D = json.loads((ROOT / NEW_DATA_FILE).read_text())
+NEW_STUDY = 'studies/2026-10-21-cross-session/'
 
 def T(ja, en, lang): return ja if lang == 'ja' else en
 
@@ -34,10 +37,10 @@ def table(caption, heads, rows, cls=''):
 def cards(items):
     return '<div class="method-grid">'+''.join(f'<article><h3>{h}</h3><p>{p}</p></article>' for h,p in items)+'</div>'
 
-def document(lang, study, title, description, body):
+def document(lang, study, title, description, body, *, study_path=STUDY, record_date=None):
     prefix = '../../' if study else ''
     home = prefix + ('results.html' if lang == 'ja' else 'results.en.html')
-    ja = BASE + (STUDY if study else 'results.html')
+    ja = BASE + (study_path if study else 'results.html')
     en = ja + 'en.html' if study else BASE + 'results.en.html'
     canonical = ja if lang == 'ja' else en
     ja_switch = 'index.html' if study else 'results.html'
@@ -55,7 +58,7 @@ def document(lang, study, title, description, body):
 </head><body><a class="skip-link" href="#main">{T('本文へ', 'Skip to content', lang)}</a><div class="page">
 <header class="masthead"><a class="brand" href="{home}" aria-label="LUX SPIRIA Results"><img src="{prefix}assets/lux-symbol.png" alt="" width="44" height="44"><span class="brand-wordmark">LUX SPIRIA<span class="brand-subtitle">RESEARCH RESULTS</span></span></a><nav aria-label="{T('主なページ', 'Main navigation', lang)}">{nav}{languages}</nav></header>
 <main id="main">{body}</main>
-<footer class="footer"><nav aria-label="{T('資料と規約','Resources and terms',lang)}"><a href="{hub}">LUX SPIRIA ↗</a><a href="{prefix}LICENSE">License / LSP-1.0</a><a href="https://github.com/Yuu-Honda/lux-spiria-results">GitHub ↗</a></nav><small>RESULT RECORD / {D['date']} · v1</small></footer>
+<footer class="footer"><nav aria-label="{T('資料と規約','Resources and terms',lang)}"><a href="{hub}">LUX SPIRIA ↗</a><a href="{prefix}LICENSE">License / LSP-1.0</a><a href="https://github.com/Yuu-Honda/lux-spiria-results">GitHub ↗</a></nav><small>RESULT RECORD / {record_date or D['date']} · v1</small></footer>
 </div></body></html>'''
 
 def scope(lang):
@@ -69,15 +72,17 @@ def scope(lang):
 def landing(lang):
     studyurl = STUDY + ('index.html' if lang=='ja' else 'en.html')
     body = f'''<section class="results-hero"><p class="eyebrow">LUX SPIRIA / RESEARCH RESULTS</p><h1>{T('問いと手順を固定し、<br>結果を残す。','Fix the question.<br>Keep the result.',lang)}</h1><p class="lead">{T('記憶・感情・変化・想起・連続性。その研究で実際に何を動かし、何が起き、どこまで確かめたかを残す場所です。','Memory, affect, change, recall and continuity. A record of what was actually run, what happened, and how far verification reaches.',lang)}</p></section>
-<div class="status-strip"><span>{T('実行済み結果を公開 · 小規模な探索的試験','Recorded execution · small exploratory pilot',lang)}</span><small>UPDATED / {D['date']}</small></div>
-<div class="hero-metrics"><div class="metric"><strong>01</strong><span>{T('公開研究','Published study',lang)}</span><small>SHIORI PILOT / v1</small></div><div class="metric"><strong>42</strong><span>{T('原文メッセージ','Source messages',lang)}</span><small>{T('1つの実会話セッション','One real conversation session',lang)}</small></div><div class="metric"><strong>24</strong><span>{T('作成した試験質問','Authored test queries',lang)}</span><small>{T('対象あり22・対象なし2','22 with targets · 2 controls',lang)}</small></div></div>'''
+<div class="status-strip"><span>{T('実行済み結果を公開 · 小規模な探索的試験','Recorded execution · small exploratory pilot',lang)}</span><small>UPDATED / {NEW_D['date']}</small></div>
+<div class="hero-metrics"><div class="metric"><strong>02</strong><span>{T('公開研究','Published studies',lang)}</span><small>2026-10-13 / 2026-10-21</small></div><div class="metric"><strong>4</strong><span>{T('最新試験の実会話','Real sessions in latest study',lang)}</span><small>{T('各8件・計32原文メッセージ','Eight messages each · 32 source messages',lang)}</small></div><div class="metric"><strong>32</strong><span>{T('最新試験の質問','Queries in latest study',lang)}</span><small>{T('対象あり16・対象なし8・紛らわしい8','16 positive · 8 absent · 8 confusable',lang)}</small></div></div>'''
     card = f'''<article class="study-card"><span class="study-status">RUN 001 / EXPLORATORY PILOT</span><time datetime="{D['date']}">{D['date']}</time><h3><a href="{studyurl}">{T('SHIORI、手掛かりと経路の比較。','SHIORI: cues, paths and retrieval.',lang)} ↗</a></h3><p>{T('実会話を固定し、直接照合と1段の経路、最大値と手掛かりの合流を4条件で比較。索引のレビュー依存と、言い換えで入口が作れなかった失敗も記録しました。','A frozen real-dialogue sample compared direct versus one-hop retrieval and best-cue versus cue aggregation across four conditions. The record includes review-dependent indexing and failures to form cues for paraphrases.',lang)}</p><div class="study-stats"><span><strong>4</strong>{T('比較条件','conditions',lang)}</span><span><strong>0 → 203</strong>{T('標準解析 → レビュー後の延べ特徴数','default → reviewed feature occurrences',lang)}</span><span><strong>0 / 8</strong>{T('言い換えの対象到達','paraphrase target hits',lang)}</span></div></article>'''
-    body += section('studies', '01 / STUDIES', T('実験の記録。','Study records.',lang), T('成功した条件だけでなく、失敗した入力と再現の範囲も残します。','Successes, failed inputs and the scope of reproduction are recorded together.',lang),card)
+    newurl = NEW_STUDY + ('index.html' if lang == 'ja' else 'en.html')
+    latest = f'''<article class="study-card"><span class="study-status">STUDY / CROSS-SESSION REPLICATION</span><time datetime="{NEW_D['date']}">{NEW_D['date']}</time><h3><a href="{newurl}">{T('誤接続は減った。取得改善は再現しなかった。','Fewer false returns. No replicated retrieval gain.',lang)} ↗</a></h3><p>{T('別の実会話4件・32問で、元の発話による検索、AIが作る手掛かり、原文確認ゲートを比較。紛らわしい対象への誤接続は減りましたが、検索前の停止と厳しすぎる照合で、必要な記憶も落としました。最初の技術的失敗と、別条件での修正後の結果を併記しています。','Four further real conversations and 32 queries compared original-query retrieval, AI-authored cues and a source gate. Confusable false returns fell, but pre-search abstention and overly strict matching also lost relevant records. The initial technical failure and the separately amended scored condition are both retained.',lang)}</p><div class="study-stats"><span><strong>7/16 → 5/16</strong>{T('対象場面の取得','positive scene hits',lang)}</span><span><strong>6/8 → 0/8</strong>{T('紛らわしい候補の返却','confusable false returns',lang)}</span><span><strong>0</strong>{T('全条件の連想経路展開','graph expansions in every condition',lang)}</span></div></article>'''
+    body += section('studies', '01 / STUDIES', T('実験の記録。','Study records.',lang), T('成功した条件だけでなく、失敗した入力と再現の範囲も残します。','Successes, failed inputs and the scope of reproduction are recorded together.',lang),latest + card)
     body += section('method', '02 / METHOD', T('結果の手前に、手順を置く。','The procedure comes before the result.',lang), content=cards([
         (T('入力を固定する','Freeze the inputs',lang),T('原文、索引、質問、対象となる出典を検索実行前に固定。検索結果を見てから都合よく手掛かりや正解を変えません。','Freeze the source, index, questions and target sources before retrieval. Do not tune cues or targets after seeing the result.',lang)),
-        (T('比較条件を全部出す','Show every condition',lang),T('4条件の全集計を公開。速度と到達率を分け、手掛かりの合流と経路探索の効果も分けて読みます。','Publish all four conditions. Read timing separately from target hits, and distinguish aggregation from path traversal.',lang))]))
+        (T('比較条件を全部出す','Show every condition',lang),T('各試験の全比較条件を公開。対象到達、誤接続、検索前の停止を分け、経路や速度の効果は実際に測った試験でのみ報告します。','Publish every comparison condition in each study. Separate target hits, false returns and pre-search abstention; report path and speed effects only when actually measured.',lang))]))
     body += scope(lang)
-    return document(lang,False,T('研究結果','Research results',lang),T('LUX SPIRIAの実行済み研究結果。方法、全条件比較、失敗、再現確認と限界。','Recorded LUX SPIRIA research: methods, all-condition comparisons, failures, verification and limitations.',lang),body)
+    return document(lang,False,T('研究結果','Research results',lang),T('LUX SPIRIAの実行済み研究結果。方法、全条件比較、失敗、再現確認と限界。','Recorded LUX SPIRIA research: methods, all-condition comparisons, failures, verification and limitations.',lang),body,record_date=NEW_D['date'])
 
 def study(lang):
     body = f'''<section class="study-hero"><p class="kicker">RUN 001 / RETROSPECTIVE PILOT / v1</p><h1>{T('SHIORI、手掛かりと<br>経路の比較。','SHIORI: cues, paths<br>and retrieval.',lang)}</h1><p class="lead">{T('実会話42メッセージを保存し、レビュー済みの意味特徴を延べ203件で索引を作成。別工程で作った24問を固定し、4条件で検索しました。','42 real-dialogue messages were captured and indexed with 203 reviewed semantic-feature occurrences. 24 queries authored in a separate step were frozen and tested under four retrieval conditions.',lang)}</p><p class="note"><time datetime="{D['date']}">{D['date']}</time> · {T('保存済みの実行結果。閲覧中のエンジン実行ではありません。','Stored execution results; no engine runs while you browse.',lang)}</p></section>
@@ -136,9 +141,121 @@ def study(lang):
     body+=section('limits','07 / LIMITATIONS',T('示したことと、まだ示していないこと。','What is shown, and what remains untested.',lang),content=content)
     return document(lang,True,T('SHIORI実会話パイロット','SHIORI real-record pilot',lang),T('実会話42件・24問・4条件。手掛かりの合流、経路探索、失敗、速度、内部再実行確認の記録。','42 real messages, 24 queries, four conditions: cue aggregation, path traversal, failures, timing and internal reproduction checks.',lang),body)
 
+def cross_label(cid, lang):
+    return {
+        'baseline': T('元の発話で検索', 'Original-query baseline', lang),
+        'raw_semantic': T('AIの手掛かりで検索', 'AI cues before source gate', lang),
+        'gated_semantic': T('AIの手掛かり＋原文ゲート', 'AI cues + source gate', lang),
+    }[cid]
+
+
+def cross_chart(lang, key, denominator, title, chart_id):
+    rows = []
+    for c in NEW_D['conditions']:
+        count = c[key]
+        rows.append(f'<li class="chart-row" data-arm="{c["id"]}"><div class="chart-label"><strong>{cross_label(c["id"], lang)}</strong><small>{c["id"]}</small></div><span class="chart-track" aria-hidden="true"><span class="chart-fill" style="width:{count / denominator * 100:.4f}%"></span></span><span class="chart-value">{count} / {denominator}</span></li>')
+    return f'<figure class="summary-chart" aria-labelledby="{chart_id}"><figcaption id="{chart_id}">{title}</figcaption><ol class="chart-rows">{"".join(rows)}</ol></figure>'
+
+
+def cross_session(lang):
+    d = NEW_D
+    body = f'''<section class="study-hero"><p class="kicker">STUDY / CROSS-SESSION REPLICATION / v1</p><h1>{T('誤接続は減った。<br>取得も減った。','Fewer false returns.<br>Fewer relevant hits.',lang)}</h1><p class="lead">{T('別の実会話4件・32問で、AIが作る検索の手掛かりと、戻った原文を確認するゲートを比較しました。必要な場面の取得は7/16から5/16へ低下。紛らわしい対象への誤接続は6/8から0/8へ減りました。','Four further real conversations and 32 queries tested AI-authored retrieval cues and a gate checking returned sources. Relevant-scene hits fell from 7/16 to 5/16. Confusable false returns fell from 6/8 to 0/8.',lang)}</p><p class="note"><time datetime="{d['date']}">{d['date']}</time> · {T('修正条件で得た保存済みの実行結果。閲覧中にエンジンやAIを動かしません。','Stored results from a technically amended condition. Browsing does not run the engine or an AI.',lang)}</p></section>
+<div class="finding-callout"><h2>{T('取り違えを減らしても、取り出せなければ十分ではない。','Fewer mix-ups are not enough if relevant records are lost.',lang)}</h2><p>{T('以前の小規模試験で見えた取得改善は、この別会話の試験では再現しませんでした。今回確認できたのは、誤候補の削減と、検索を止めすぎる問題が同時にあることです。','The retrieval gain observed in an earlier small trial did not replicate on these further conversations. This study found both fewer false candidates and excessive suppression of retrieval.',lang)}</p></div>'''
+
+    results = cross_chart(lang, 'positive_hits', d['sample']['positive_queries'], T('最終的に返した1件が対象場面 / 対象あり16問','Final single candidate matched target scene / 16 positive queries',lang), 'positive-chart-title')
+    results += cross_chart(lang, 'confusable_false_returns', d['sample']['confusable_queries'], T('紛らわしい対象に候補を返した / 8問','Candidate returned for a confusable target / 8 queries',lang), 'false-chart-title')
+    rows = [[cross_label(c['id'],lang), f'{c["positive_hits"]} / 16', f'{c["literal_hits"]} / 4', f'{c["paraphrase_hits"]} / 12', f'{c["confusable_false_returns"]} / 8', f'{c["absent_false_returns"]} / 8', f'{c["pre_search_abstentions"]} / 32'] for c in d['conditions']]
+    results += table(T('全3条件：異なる母数を混ぜずに比較','All three conditions: distinct denominators',lang), [T('条件','Condition',lang),T('対象場面の取得','Positive scene hits',lang),T('文字一致の取得','Literal hits',lang),T('言い換えの取得','Paraphrase hits',lang),T('紛らわしい対象への誤返却','Confusable false returns',lang),T('対象なしへの誤返却','Absent false returns',lang),T('検索前に停止','Pre-search abstentions',lang)], rows)
+    results += f'<p class="note">{T("評価対象は、最終的に選んで返した1件が、事前に指定した原文場面か（scene@1）です。回答の正確さや、人のように思い出したかは評価していません。棒はそれぞれ別の母数を示し、上昇・低下を一つの総合点へまとめません。原文の出来事そのものの同一性も、この数値だけでは確定しません。","The endpoint is whether the final single selected candidate matches a predesignated original-source scene (scene@1). Answer correctness and human-like recollection were not evaluated. The charts have different denominators; rises and falls are not combined into an overall score. These numbers alone do not establish source-event identity.",lang)}</p>'
+    results += f'<p class="note">{T("原文ゲートは、実際のAIが保存した要件に対し、原文リンク、原文内の文字、特徴の整合性をコードで確認します。検索のたびにAIが意味を再レビューする仕組みではありません。この確認だけで、同じ人物・対象・出来事への到達が確定するわけではありません。","The source gate uses code to check original-source links, source text and feature compatibility against requirements saved by an actual AI. It does not perform a new AI semantic review for each query. These checks do not establish that the same person, object or event has been reached.",lang)}</p>'
+    body += section('results','01 / ALL THREE CONDITIONS',T('届いた記憶と、返してしまった候補。','Relevant scenes and false candidates.',lang),content=results)
+
+    failures = cards([
+        (T('検索前に23/32問を止めた','23/32 queries stopped before search',lang),T('AIの手掛かりを使う両条件では、対象あり16問のうち10問も検索前に停止しました。内訳は、否定・不明状態の手掛かり7問、不確実性2問、手掛かりなし1問です。失敗した過去や仮定を含む相談まで探せなくなるため、局所的な否定や不確実性で検索全体を止める設計に課題があります。','Both AI-cue conditions abstained before search on 10 of 16 positive queries: seven for nonpositive or unknown cue state, two for uncertainty and one for no cues. Past failures and hypothetical consultations can still have relevant records. Local negation or uncertainty should not automatically close the whole retrieval route.',lang)),
+        (T('ゲートは誤候補3件と正解1件を落とした','The gate removed three false and one correct candidate',lang),T('検索された9候補のうち4件を棄却。3件は紛らわしい対象への誤候補でしたが、1件は正しい場面でした。一般的な言い換えにも厳密な文字の存在を要求し、正しい候補を落としました。言い換えと、人物・対象・出来事の同一性を分けて扱う必要があります。','Of nine retrieved candidates, four were rejected: three confusable false candidates and one correct scene. Requiring an exact textual form for a generic paraphrase lost a relevant record. Paraphrase matching needs to be distinguished from person, object and event identity.',lang)),
+    ])
+    failures += f'<div class="boundary-box"><h3>{T("今回は、網を辿る効果を検証できていない。","Network traversal was not exercised in this study.",lang)}</h3><p>{T("全3条件でgraph expansions、graph edges、associated hitsはすべて0でした。二進数の索引を使った検索は実行しましたが、連想経路や複数経路の合流が効いたという結果ではありません。保存・検索速度の計時も今回は行っていません。","Graph expansions, graph edges and associated hits were all zero in every condition. Retrieval used the binary index, but these results do not show an effect of associative traversal or converging paths. Storage and retrieval speed were not timed here.",lang)}</p></div>'
+    body += section('failures','02 / FAILURE ANALYSIS',T('検索を守る仕組みが、検索も止めていた。','The safeguards also suppressed retrieval.',lang),content=failures)
+
+    method = cards([
+        (T('01 別の会話を選ぶ','01 Select further conversations',lang),T('保存済み171セッションから、過去8研究で使用・閲覧が記録された会話を除外。8〜60件の対象発話を持つ18候補を時刻とIDで並べ、本文の適性や成績を見る前に最初の4件を選びました。各会話の先頭8件を全文のまま保存し、計32メッセージを使いました。','From 171 archived sessions, conversations with recorded use or exposure in eight prior studies were excluded. Eighteen sessions with 8–60 eligible messages were sorted by time and ID; the first four were selected before judging content suitability or performance. The first eight whole messages per session supplied 32 source messages.',lang)),
+        (T('02 原文だけで索引を作る','02 Build an index from source alone',lang),T('1会話の8メッセージを1場面として扱い、実際のAIが原文だけから53特徴を付け、別のAIがレビューしました。検索用の概念は52。索引作成者には質問や正解を渡さず、質問作成前に固定しました。これは粗い場面単位の取得評価です。','Eight messages from each conversation formed one scene. An actual AI authored 53 source-only features and another reviewed them; the retrieval inventory contained 52 cue concepts. Indexing did not receive queries or targets and was frozen before query authoring. The endpoint is coarse scene-level retrieval.',lang)),
+        (T('03 質問・対象・AIの判断を残す','03 Retain queries, targets and actual AI choices',lang),T('対象あり16問（文字一致4・言い換え12）、対象なし8問、紛らわしい対象8問を作成。別工程で全32問の対象指定を照合しました。検索手掛かりのAIには語彙と質問だけを渡し、原文・対象・検索結果は見せませんでした。実際の出力とレビューを保存しています。','Sixteen positive queries (four literal, twelve paraphrase), eight absent and eight confusable queries were authored. A separate step checked all 32 target labels. The cue-authoring AI saw the vocabulary and queries, but not sources, target labels or retrieval results. Actual outputs and reviews were retained.',lang)),
+        (T('04 3条件を同じ入力で比較','04 Compare three conditions on fixed inputs',lang),T('元の発話による検索、AIの手掛かりによる検索、その結果に原文ゲートを加えた検索を比較。後二者は同じ検索候補を使い、ゲートの有無を分けました。全32問を採点し、結果を見た後の除外や正解の付け替えはありません。','The original-query baseline, AI-cue retrieval and AI cues with a source gate were compared. The latter two shared the same retrieved candidates, isolating the gate. All 32 original labels were scored, with no post-result exclusions or relabeling.',lang)),
+    ])
+    method += f'<p class="note">{T("選定前の方針は実際の作業ログにありますが、本文を読む前の独立したファイル固定はありません。「未使用」は保持されたローカル記録で過去の使用が見つからなかった意味で、未記録の閲覧やモデルの学習履歴まで保証しません。役割分担は同じホスト上の指示による分離で、外部の盲検評価やアクセス隔離ではありません。使用モデルの識別情報は取得できていません。","The selection policy is recorded in the work log, but there was no separate on-disk freeze before reading source bodies. Unused means no prior use was found in retained local records; it does not guarantee absence of undocumented exposure or model-training overlap. Roles were separated by instructions on a shared host, not external blinding or access isolation. Model identifiers were unavailable.",lang)}</p>'
+    body += section('method','03 / FIXED INPUTS',T('どの会話と、どの手順を使ったか。','Which conversations and procedure were used.',lang),content=method)
+
+    amendment = cards([
+        (T('最初の条件：技術的失敗','Initial condition: technical failure',lang),T('原文の索引は保存できましたが、ゲートが要求する厳密な証拠形式との不一致で実行が止まりました。一つの特徴に、正規の語を含まない補助的な文脈引用が付いていたためです。この失敗を保持し、採点済みの結果は得られていないと記録しました。','The source index was saved, but execution stopped on a mismatch with the gate’s stricter evidence contract. One feature included a secondary context quote without its canonical term. This failure is retained; no scored results were observed from that condition.',lang)),
+        (T('別条件：証拠の形式だけを修正','Separate condition: evidence-only amendment',lang),T('該当する文脈引用1件だけを除き、原文だけを見る実際のAIが再レビューしました。原文、特徴のキー、bit mask、逆引き索引は同じ。32問・対象指定・保存済みのAI出力も同じものを再利用し、修正条件で初めて採点結果を得ました。新しい質問を作り直した試験ではありません。','Only the one context quote was removed, followed by an actual source-only AI review. Source text, feature keys, bit masks and postings stayed unchanged. The same 32 queries, labels and saved AI outputs were reused. Scored results were first observed after this amendment; questions were not freshly authored again.',lang)),
+    ])
+    body += section('amendment','04 / RETAINED TECHNICAL FAILURE',T('失敗を消さず、修正条件を分ける。','Retain the failure and separate the amendment.',lang),content=amendment)
+
+    checks = [
+        T('別のPythonプロセスで、保存済みAI出力を使った検索結果とゲート判断が一致。','Separate Python processes reproduced retrieval and gate decisions using the same saved AI outputs.',lang),
+        T('独立した再計算とcold replayで、全32問・3条件の結果を照合。','A separate recalculation and cold replay checked all 32 queries across three conditions.',lang),
+        T('技術確認7件は成功。45件の人工入力による工学チェックは、実会話32問とは別に実行。','Seven technical checks passed. Forty-five synthetic engineering checks were separate from the 32 real-source queries.',lang),
+        T('元の失敗条件、修正条件、原文選定、索引、質問、実際のAI出力、レビューを非公開の固定記録として保持。','The original failed condition, amendment, source selection, index, queries, actual AI outputs and reviews remain in private frozen records.',lang),
+    ]
+    verification = '<div class="boundary-box"><ul>' + ''.join(f'<li>{x}</li>' for x in checks) + '</ul></div>'
+    verification += f'<p class="note">{T("一致したのは保存済み入力での再生です。AIを再度呼び出して同じ意味判断になるかは試していません。技術確認の成功は、取得精度、人格連続性、感情、脳の再現の証明ではありません。原文照合は内部確認で、公開ファイルだけで第三者が意味索引の妥当性やエンジンを再検証できるデータセットではありません。","The matching runs replayed saved inputs. Regenerating AI interpretations was not tested. Technical checks do not prove retrieval accuracy, personality continuity, affect or brain reproduction. Source checks were internal; public files do not enable independent semantic-index auditing or engine reruns.",lang)}</p>'
+    body += section('verification','05 / VERIFICATION',T('再現した範囲を限定する。','State exactly what replay reproduced.',lang),content=verification)
+
+    cat = {'literal':T('文字一致','Literal',lang),'paraphrase':T('言い換え','Paraphrase',lang),'absent':T('対象なし','Absent',lang),'confusable':T('紛らわしい対象','Confusable',lang)}
+    rows = []
+    for q in d['per_query']:
+        cells = [q['id'], cat[q['category']]]
+        for c in d['conditions']:
+            outcome = q['conditions'][c['id']]
+            if not outcome['search_executed']:
+                text = T('検索前に停止','Stopped before search',lang)
+            elif outcome['target_hit']:
+                text = T('対象場面を取得','Target scene hit',lang)
+            elif outcome['returned_candidate']:
+                text = T('対象外候補を返却','Non-target candidate returned',lang)
+            elif c['id'] == 'gated_semantic' and q['conditions']['raw_semantic']['returned_candidate']:
+                text = T('候補を棄却','Candidate rejected',lang)
+            else:
+                text = T('候補なし','No candidate',lang)
+            cells.append(text)
+        rows.append(cells)
+    outcomes = table(T('今回専用の公開ラベルQ01〜Q32：全問の結果','Study-specific opaque labels Q01–Q32: every outcome',lang), ['ID',T('種別','Category',lang)] + [cross_label(c['id'],lang) for c in d['conditions']], rows, 'run-table')
+    body += section('queries','06 / ALL 32 QUERIES',T('停止と棄却を、取得失敗と分けて残す。','Distinguish abstention, rejection and retrieval misses.',lang),T('ラベルは今回専用です。質問本文・原文・人物名・出典ID・特徴語は公開しません。','These labels belong to this study only. Query text, source text, personal names, source IDs and feature terms are not published.',lang),f'<details><summary>{T("全32問の内訳を見る","View all 32 outcomes",lang)}</summary>{outcomes}</details>')
+
+    implementation = cards([
+        (T('LRE：追加する検索経路を反映','LRE: an additive recall route deployed',lang),T('2026-10-21時点で、非公開正本のmainと維持しているローカルruntimeを更新しました。元の発話による検索を残し、AIの検索仮説を追加する方式です。研究の厳格な全停止ゲートを、そのまま既存検索の置き換えにはしていません。この32問の成績を実機の成績とは扱いません。','As of 2026-10-21, canonical private main and the maintained local runtime checkout were updated. AI search hypotheses are added while retaining original-query retrieval. The study’s strict all-or-nothing gate does not replace the existing route. These 32-query results are not deployed-runtime performance measurements.',lang)),
+        (T('SHIORI：実験ブランチまで反映','SHIORI: experimental adapter updated',lang),T('非公開の実験ブランチへ、既存の原文リンクを使う明示的なadapterと、入力時の証拠形式確認を反映しました。LRE mainへの統合はしていません。稼働中のSQLiteの場所は未確認で、その実機DBへの適用や全Wakeの完了は確認していません。','An explicit adapter using original-source links and an input-evidence preflight were merged into the private experimental branch. SHIORI is not merged into LRE main. The operational SQLite location remains unconfirmed; its update and a full Wake completion have not been established.',lang)),
+    ])
+    implementation += f'<details><summary>{T("実装確認と残る既存エラー","Implementation checks and an existing failure",lang)}</summary><div class="source-note"><p>{T("LREの検索関連83チェックと、実験adapterを含む96工学チェックは成功。LRE保守チェック468件は467成功・既存失敗1件で、変更前の正本でも同じ失敗を確認しました。CURRENT文書の世代・継続先の整合性に関するものです。記憶を書き換えて成功扱いにはしていません。","The 83 LRE recall checks and 96 engineering checks including the experimental adapter passed. LRE maintenance reported 467 passes and one existing failure out of 468; the same failure was reproduced on the pre-change canonical version. It concerns generation and continuation-edge consistency in CURRENT documents. Memory was not rewritten to make the check pass.",lang)}</p><p>{T("これらは別の実装検証です。研究の45人工チェック、7技術確認、32問の結果とは合算しません。","These are separate implementation validations. They are not pooled with the 45 synthetic study checks, seven technical checks or 32-query outcomes.",lang)}</p></div></details>'
+    body += section('implementation','07 / IMPLEMENTATION STATUS',T('研究結果と、実機への反映を分ける。','Separate study findings from deployment.',lang),content=implementation)
+
+    next_steps = cards([
+        (T('検索と回答への採用を分ける','Separate retrieval from answer adoption',lang),T('否定・失敗・仮定を含む記録も検索候補に残し、戻った原文を読んでから、答えに使えるかを判断する。','Keep records of negation, failure and hypothetical discussion retrievable, then inspect the returned source before deciding whether it supports an answer.',lang)),
+        (T('言い換えと対象同一性を分ける','Separate paraphrases from entity identity',lang),T('一般的な言い換えへの文字制約を緩める一方で、人・対象・出来事の混同を原文単位で確かめる。','Avoid overconstraining generic paraphrases while checking person, object and event identity within the original source.',lang)),
+        (T('網の効果と速度を別々に測る','Measure network effects and speed separately',lang),T('経路・合流を有効／無効にした比較と、条件を揃えた保存・検索時間の測定を行う。今回は未検証だった部分を次の評価対象にする。','Compare traversal and convergence enabled versus disabled, and measure storage and recall timing under matched conditions. Evaluate what this study did not exercise.',lang)),
+    ])
+    next_steps += f'<p class="note">{T("今回の32問は修正確認用の既知の回帰問題として残し、改善の評価には別の未使用会話と新しい質問を使います。","Keep these 32 queries as known regression cases. Evaluate improvements on further unused conversations with newly authored queries.",lang)}</p>'
+    body += section('next','08 / NEXT RESEARCH',T('次は、取りこぼしを減らせるか。','Next: can relevant recall be recovered?',lang),content=next_steps)
+
+    limits = [
+        T('選定した4会話・最初の8件ずつ・研究用32問の小規模評価。日常会話全体への精度推定や統計的な一般化は行いません。','A small evaluation on four selected conversations, their first eight messages each and 32 research queries; it does not estimate everyday accuracy or support statistical generalization.',lang),
+        T('自然な想起への因果効果、最終回答の正確さ、LREの全Wake、Emotion、人格連続性、主観的経験、生物学的脳の再現は測定していません。','Causal effects on natural recall, final-answer accuracy, full LRE Wake, Emotion, personality continuity, subjective experience and biological brain reproduction were not measured.',lang),
+        T('公開するのは匿名化した集計と問別の結果です。会話原文、証拠引用、質問、原文のID、特徴語、SQLite、私的な実行コード・詳細ログは非公開で保持します。','Only opaque aggregates and per-query outcomes are public. Original conversations, evidence quotes, queries, native source IDs, feature vocabulary, SQLite, private execution code and detailed logs remain private.',lang),
+        T('公開JSONから集計を再計算できます。原文の照合やエンジンの再実行には、公開していない入力が必要です。','The public JSON permits aggregate recalculation. Source auditing and engine reruns require inputs that are not published.',lang),
+    ]
+    limits_html = '<div class="boundary-box"><ul>' + ''.join(f'<li>{x}</li>' for x in limits) + '</ul></div>'
+    limits_html += f'<details><summary>{T("保持した研究記録の識別子","Retained study identifiers",lang)}</summary><div class="source-note"><p>Study manifest SHA-256: <code>{d["provenance"]["study_manifest_sha256"]}</code></p><p>Scored condition manifest SHA-256: <code>{d["provenance"]["scored_condition_manifest_sha256"]}</code></p><p>Report SHA-256: <code>{d["provenance"]["report_sha256"]}</code></p><p>{T("hashは記録の識別子です。科学的妥当性や公開再現性そのものを証明しません。","Hashes identify retained records; they do not themselves establish scientific validity or public reproducibility.",lang)}</p></div></details>'
+    limits_html += f'<div class="download-links"><a href="../../{NEW_DATA_FILE}" download>{T("公開集計JSONを取得","Download public summary JSON",lang)}</a><a href="../../{ "results.html" if lang=="ja" else "results.en.html"}#studies">{T("過去の研究結果も見る","View earlier study records",lang)} →</a></div>'
+    body += section('limits','09 / PUBLIC SCOPE AND LIMITS',T('結果の範囲を、記録と一緒に残す。','Retain the limits alongside the result.',lang),content=limits_html)
+    return document(lang, True, T('SHIORI 別会話での再検証','SHIORI cross-session replication',lang), T('別の実会話4件・32問。対象取得7/16から5/16、紛らわしい候補6/8から0/8。技術的失敗と修正条件、限界、次の課題を記録。','Four further real conversations, 32 queries: positive hits fell from 7/16 to 5/16; confusable false returns fell from 6/8 to 0/8. Technical failure, amendment, limits and next steps.',lang), body, study_path=NEW_STUDY, record_date=d['date'])
+
+
 if __name__ == '__main__':
     for lang, filename in [('ja','index.html'),('en','en.html')]:
         listing = 'results.html' if lang == 'ja' else 'results.en.html'
         (ROOT/listing).write_text(landing(lang)+'\n')
         (ROOT/STUDY/filename).write_text(study(lang)+'\n')
-    print('Built 4 public pages from the public summary.')
+        (ROOT/NEW_STUDY).mkdir(parents=True, exist_ok=True)
+        (ROOT/NEW_STUDY/filename).write_text(cross_session(lang)+'\n')
+    print('Built 6 public pages from two public summaries.')
