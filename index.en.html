@@ -112,21 +112,22 @@
           <p class="neural-footnote">A concept illustration of the exchange between recall and judgment.</p>
         </figure>
       </section>
-      <section class="latest-study" aria-labelledby="latest-study-title" data-source="data/shiori-cross-session-2026-10-21.json">
+      <section class="latest-study" aria-labelledby="latest-study-title" data-source="data/shiori-retrieval-hypotheses-2026-10-21.json">
         <div class="latest-study-copy">
           <p class="latest-study-kicker">RECORDED STUDY <span aria-hidden="true">/</span> <time datetime="2026-10-21">2026-10-21</time></p>
-          <h2 id="latest-study-title">Fewer false returns.<br>Fewer correct returns, too.</h2>
-          <p class="latest-study-summary">32 authored queries from four actual archived conversations. Too many searches were withheld; the earlier retrieval gain did not replicate.</p>
-          <a class="latest-study-link" href="studies/2026-10-21-cross-session/en.html">Read the results and next steps <span aria-hidden="true">↗</span></a>
+          <h2 id="latest-study-title">More correct returns.<br>Mix-ups remained.</h2>
+          <p class="latest-study-summary">Six conditions on 32 authored queries from four further archived conversations. The recovery condition still failed three expectations: one positive miss, one wrong-scene return with a target present, and one false return on a confusable query.</p>
+          <a class="latest-study-link" href="studies/2026-10-21-retrieval-hypotheses/en.html">Read the results and next steps <span aria-hidden="true">↗</span></a>
         </div>
         <div class="latest-study-results">
-          <p class="latest-study-order">Original query <span aria-hidden="true">→</span> Semantic cues + source constraints</p>
+          <p class="latest-study-order">Legacy (legacy_gated) <span aria-hidden="true">→</span> Recovery (recovery_gated), same source gate</p>
           <dl class="latest-study-metrics">
-            <div class="latest-study-metric"><dt>Correct source scene returned<span>16 queries with a target</span></dt><dd><span>7<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>5<small>/16</small></span></dd></div>
-            <div class="latest-study-metric"><dt>False return on confusable queries<span>8 confusable queries</span></dt><dd><span>6<small>/8</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>0<small>/8</small></span></dd></div>
+            <div class="latest-study-metric"><dt>Correct source scene returned<span>16 queries with a target</span></dt><dd><span>12<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>14<small>/16</small></span></dd></div>
+            <div class="latest-study-metric"><dt>Wrong scene returned with a target present<span>16 queries with a target</span></dt><dd><span>1<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>1<small>/16</small></span></dd></div>
+            <div class="latest-study-metric"><dt>False return on confusable queries<span>8 confusable queries</span></dt><dd><span>1<small>/8</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>1<small>/8</small></span></dd></div>
           </dl>
-          <p class="latest-study-boundary">The metrics use different query sets and denominators. They are not confidence scores or daily-conversation accuracy. Graph traversal effects and speed were not evaluated here.</p>
-          <a class="latest-study-source" href="data/shiori-cross-session-2026-10-21.json">Aggregate data / JSON</a>
+          <p class="latest-study-boundary">The metrics use different query sets and denominators. Graph traversal ran, but independent comparisons with traversal off (hops=0) and convergence off selected the same scene for all 32 queries in all six conditions. No top-one selection contribution was observed on this sample; speed was not measured.</p>
+          <a class="latest-study-source" href="data/shiori-retrieval-hypotheses-2026-10-21.json">Aggregate data / JSON</a>
         </div>
       </section>
       <div class="question-line"><span>THE QUESTION</span><p>How do memory, change and continuity of identity <br class="mobile-only">come about?</p><span>2025 — ONGOING</span></div>

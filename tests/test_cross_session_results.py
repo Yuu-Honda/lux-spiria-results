@@ -129,13 +129,12 @@ class CrossSessionResults(unittest.TestCase):
                     self.assertIn(u.fragment, Page(dest).ids, ref)
         self.assertEqual(set(pages[0].ids), set(pages[1].ids))
 
-    def test_home_and_listings_link_latest_without_replacing_walkthroughs(self):
+    def test_listings_retain_prior_study_and_home_walkthroughs(self):
         for home, listing, detail in [('index.html', 'results.html', 'index.html'), ('index.en.html', 'results.en.html', 'en.html')]:
-            for name in (home, listing):
-                self.assertIn(f'studies/2026-10-21-cross-session/{detail}', (ROOT / name).read_text())
+            self.assertIn(f'studies/2026-10-21-cross-session/{detail}', (ROOT / listing).read_text())
             html = (ROOT / home).read_text()
             self.assertEqual(html.count('data-mechanism '), 4)
-            text = re.sub(r'\s+', '', ''.join(Page(ROOT / home).text))
+            text = re.sub(r'\s+', '', ''.join(Page(ROOT / listing).text))
             for count in ('7/16', '5/16', '6/8', '0/8'):
                 self.assertIn(count, text)
 

@@ -1,0 +1,15 @@
+/* Only the six-condition study opts into these styles. */
+.retrieval-study .six-arm-table { min-width: 1040px; }
+.retrieval-study .six-arm-table.run-table { min-width: 1360px; }
+.retrieval-study .chart-label strong { overflow-wrap: anywhere; }
+.retrieval-study [data-arm="baseline"] { --condition-color: #a4afc3; }
+.retrieval-study [data-arm="legacy_gated"] { --condition-color: #c2afe0; }
+.retrieval-study [data-arm="original_gated"] { --condition-color: #88bccf; }
+.retrieval-study [data-arm="positive_union_gated"] { --condition-color: #b3d8df; }
+.retrieval-study [data-arm="recovery_raw"] { --condition-color: #c8bc91; }
+.retrieval-study [data-arm="recovery_gated"] { --condition-color: #b8ceac; }
+@media print {
+  .retrieval-study .six-arm-table,
+  .retrieval-study .six-arm-table.run-table { min-width: 0; table-layout: fixed; }
+  .retrieval-study .six-arm-table :is(th, td) { overflow-wrap: anywhere; }
+}

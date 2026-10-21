@@ -25,9 +25,23 @@ The initial condition failed on an evidence-contract mismatch. It remains preser
 
 The new study records private LRE code deployment and the experimental SHIORI adapter separately from research performance. The maintained local LRE checkout was updated with an additive recall route preserving original-query retrieval. The operational SHIORI store remains unconfirmed. A pre-existing maintenance failure is disclosed; no full Wake or live database update is claimed. Earlier study pages and data remain unchanged.
 
+## Retrieval hypotheses — 2026-10-21
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-21-retrieval-hypotheses/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-21-retrieval-hypotheses/en.html)
+
+Four further archived conversations supplied 32 whole messages and 32 new queries. Six conditions shared one frozen database and saved actual AI outputs. Retaining original-query retrieval and allowing non-unknown negated or hypothetical cues and uncertainty as search hypotheses increased positive scene@1 hits from **12/16 with legacy cues and the strict source gate to 14/16 with the recovery policy and the same gate**. Confusable false returns stayed at **1/8**. The recovery gated condition still had three failed expectations: one wrong-scene return on a positive query, one confusable false return, and one positive query with no returned candidate. Retrieval hypotheses are not truth judgments or automatic answer adoption.
+
+The diagnostic original-query gated and positive-cue union gated conditions separate restoring the original route from the search-hypothesis policy. The prior known 32-query set is reported only as a regression check, separate from the fresh evaluation. All six conditions include positive wrong-scene returns, absent false returns and pre-search abstentions; distinct denominators are not pooled into an overall score.
+
+Graph traversal ran, but independent normal, `hops=0` and `convergence=false` comparisons selected the same source in **all 32 queries across all six conditions**. This sample shows no top-one selection contribution from traversal or convergence. Counters sum normal route outputs, including routes shared across conditions, and are not independent evidence, unique selected scenes or speed measurements.
+
+Selection was durably fixed after mechanical counting and before semantic reading of selected bodies; counting decoded the body strings. A failed 101-session exclusion lock was corrected to 91 after mechanically repairing a `not_needed` flag misclassified as reviewed. Failed artifacts remain retained; source suitability and retrieval results did not drive reselection. Source-only indexing supplied 64 features and 58 concepts before query authoring. The query author read the full protocol and was not blind to algorithm design, while remaining blind to the index and retrieval or regression results. The first actual semantic review rejected five arbitrary literal requirements; only those requirements were removed before fresh scoring. Roles were instruction-separated on a shared host; model identifiers were unavailable.
+
+Saved actual outputs were replayed, rather than regenerated. Fifty-eight synthetic engineering checks are separate from both 32-query sets. The new policy was merged only into the private experimental branch as an explicit opt-in; the legacy default remains. It has not been introduced into the operational memory database, an automatic model caller or full Wake. Event identity, natural everyday recall, biological brain reproduction and Emotion effects remain unverified. Both earlier dated studies and their data retain their original bytes.
+
 ## Public and private scope
 
-Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; the cross-session study reports distinct positive, absent and confusable outcomes and pre-search abstentions. Query labels are local to each study.
+Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis study separately reports wrong-scene returns on positive queries. Query labels are local to each study.
 
 Private: original conversations, question and evidence text, native source IDs, feature vocabulary, SQLite, experiment code and detailed execution artifacts. Public files permit aggregate recalculation, **not independent source auditing or engine reruns**. Reproduction reported here was internally verified with the same private frozen inputs. It is not external peer review, natural-conversation accuracy, a full LRE Wake/Emotion experiment, or evidence of personality continuity.
 
@@ -43,7 +57,7 @@ python3 -m unittest discover -s tests -v
 python3 -m http.server 8769 --bind 127.0.0.1
 ```
 
-The builder reads only `data/shiori-pilot-2026-10-13.json` and `data/shiori-cross-session-2026-10-21.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Generated Results listings (`results.html` / `results.en.html`) and both dated study pages are committed. The builder leaves the migrated overview, its scroll illustrations and historical pages intact. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
+The builder reads only the three public summaries: `data/shiori-pilot-2026-10-13.json`, `data/shiori-cross-session-2026-10-21.json` and `data/shiori-retrieval-hypotheses-2026-10-21.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Results listings (`results.html` / `results.en.html`) and all three dated JA/EN study pairs are generated. `python3 tools/build_retrieval_hypotheses.py` rebuilds only the latest dated pair and refuses to write pages if its audited public data is missing or inconsistent. The builders leave the migrated overview, its scroll illustrations and historical pages intact. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
 
 ## Preservation
 
