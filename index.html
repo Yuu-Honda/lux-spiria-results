@@ -112,21 +112,22 @@
           <p class="neural-footnote">想起と判断の往復を描いた概念図。</p>
         </figure>
       </section>
-      <section class="latest-study" aria-labelledby="latest-study-title" data-source="data/shiori-cross-session-2026-10-21.json">
+      <section class="latest-study" aria-labelledby="latest-study-title" data-source="data/shiori-retrieval-hypotheses-2026-10-21.json">
         <div class="latest-study-copy">
           <p class="latest-study-kicker">RECORDED STUDY <span aria-hidden="true">/</span> <time datetime="2026-10-21">2026-10-21</time></p>
-          <h2 id="latest-study-title">誤候補は減った。<br>正しい取得も減った。</h2>
-          <p class="latest-study-summary">取得済みの実会話4件から作成した32問で比較。検索を止めすぎ、以前の取得改善は再現しませんでした。</p>
-          <a class="latest-study-link" href="studies/2026-10-21-cross-session/index.html">結果と、次の課題を読む <span aria-hidden="true">↗</span></a>
+          <h2 id="latest-study-title">取得は増えた。<br>取り違えは残った。</h2>
+          <p class="latest-study-summary">別の実会話4件から作成した32問で6条件を比較。回復条件でも、対象ありの未取得1件と別場面の誤返却1件、紛らわしい問いの誤取得1件、計3件の期待未達が残りました。</p>
+          <a class="latest-study-link" href="studies/2026-10-21-retrieval-hypotheses/index.html">結果と、次の課題を読む <span aria-hidden="true">↗</span></a>
         </div>
         <div class="latest-study-results">
-          <p class="latest-study-order">元の発話で検索 <span aria-hidden="true">→</span> 意味cue＋原文条件の照合</p>
+          <p class="latest-study-order">従来方式（legacy_gated） <span aria-hidden="true">→</span> 改善方式（recovery_gated）・同じ原文ゲート</p>
           <dl class="latest-study-metrics">
-            <div class="latest-study-metric"><dt>正しい場面を取得<span>正解のある16問</span></dt><dd><span>7<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>5<small>/16</small></span></dd></div>
-            <div class="latest-study-metric"><dt>紛らわしい候補の誤取得<span>混同を誘う8問</span></dt><dd><span>6<small>/8</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>0<small>/8</small></span></dd></div>
+            <div class="latest-study-metric"><dt>正しい場面を取得<span>正解のある16問</span></dt><dd><span>12<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>14<small>/16</small></span></dd></div>
+            <div class="latest-study-metric"><dt>対象ありで別場面を誤返却<span>正解のある16問</span></dt><dd><span>1<small>/16</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>1<small>/16</small></span></dd></div>
+            <div class="latest-study-metric"><dt>紛らわしい候補の誤取得<span>混同を誘う8問</span></dt><dd><span>1<small>/8</small></span><span class="latest-study-arrow" aria-hidden="true">→</span><span>1<small>/8</small></span></dd></div>
           </dl>
-          <p class="latest-study-boundary">二つの指標は対象も分母も異なります。確信度や日常会話の精度ではありません。網を辿る効果・速度はこの試験では未評価。</p>
-          <a class="latest-study-source" href="data/shiori-cross-session-2026-10-21.json">集計データ / JSON</a>
+          <p class="latest-study-boundary">指標は対象・分母が異なります。グラフ探索は実行されましたが、探索なし（hops=0）・収束なしとの独立比較では、全32問×6条件で選択場面が同じでした。この標本で最上位選択への寄与は観測されず、速度は未測定です。</p>
+          <a class="latest-study-source" href="data/shiori-retrieval-hypotheses-2026-10-21.json">集計データ / JSON</a>
         </div>
       </section>
       <div class="question-line"><span>THE QUESTION</span><p>記憶・変化・人格の連続性は、<br class="mobile-only">どう成立するか。</p><span>2025 — ONGOING</span></div>

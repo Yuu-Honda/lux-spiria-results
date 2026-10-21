@@ -1,0 +1,1343 @@
+{
+  "schema_version": 1,
+  "study_id": "shiori-retrieval-hypotheses-2026-10-21",
+  "date": "2026-10-21",
+  "endpoint": "relevant_original_source_scene_at_1",
+  "provenance": {
+    "protocol_sha256": "7e556ef67db7e94197f111b19344b738781023084ed674d3814d253e6e9b40c4",
+    "code_candidate_lock_sha256": "fc97114c8ae07798093e8466010884e2dd60b1fee67f4062b826af49cf1c44e8",
+    "source_selection_effective_sha256": "eda781859b55506cbec1d6581c2c11890e14a056c79203768e6bb58fc8beb4f7",
+    "source_packet_sha256": "86f31df8437188a764e31db705e722408e8277a31f977d2fd0ffc6a2f8a57565",
+    "source_index_sha256": "7fca5ac0e7affac351a38e37afdf8f33b92a7713bce8abd8f11912739f00aafe",
+    "semantic_analysis_sha256": "515113e8c862ca8c3b88a5e5ad238938b068e49024c1b301424fbf65180731da",
+    "semantic_review_sha256": "49135d2a14f9d0e03e4ef53ca97a4793211df67fb090a8d528a8bbd486bc1613",
+    "evaluation_sha256": "5438f2dd3a5f73c7693d41f707200a9167cde39a0c578d9e0f84dc8600e64262",
+    "known_regression_evaluation_sha256": "1982c8099695968b621e6c8a13706bc71a91f463635545117642c8ea6bb1e94d",
+    "ablation_diagnostics_sha256": "61bbda4a8dbdad76176d2accb7793d265b3e9d15adb84b969ffee60d94de6716",
+    "sealed_study_manifest_sha256": "6aabc72057b49e84a4e36c5db12a9bfa607b798bfbc62c9f21cfc926eae294ec",
+    "sealed_known_regression_manifest_sha256": "ac0fd78e4b2545c46099d6e18257ceb5547e52aeb9b64b4e6fde139c4fa9ea4f",
+    "private_report_sha256": "434995fc2675d427b972cb5e636e02573758beef6a5c46759caa8765a9183312",
+    "final_independent_audit_sha256": "544eab7e49d01e6dd130e1b56e87ad14a1fbebfdd5d35197c1833c79a02f2aaf",
+    "report_projection_audit_sha256": "206bad380c86a1a9e3d66b01b1a683cbe3e9113ea76665c8029a8f2d6a46f37d"
+  },
+  "sample": {
+    "sessions": 4,
+    "source_messages": 32,
+    "messages_per_session": 8,
+    "queries": 32,
+    "positive_queries": 16,
+    "literal_queries": 4,
+    "paraphrase_queries": 12,
+    "confusable_queries": 8,
+    "absent_queries": 8,
+    "reviewed_features": 64,
+    "cue_concepts": 58,
+    "archive_sessions": 171,
+    "excluded_sessions": 91,
+    "eligible_sessions": 14
+  },
+  "conditions": [
+    {
+      "id": "baseline",
+      "positive_hits": 4,
+      "positive_wrong_scene_returns": 0,
+      "literal_hits": 4,
+      "paraphrase_hits": 0,
+      "confusable_false_returns": 7,
+      "absent_false_returns": 0,
+      "native_searches": 32,
+      "pre_search_abstentions": 0,
+      "graph_expansions": 88,
+      "graph_edges": 16,
+      "associated_hits": 11
+    },
+    {
+      "id": "legacy_gated",
+      "positive_hits": 12,
+      "positive_wrong_scene_returns": 1,
+      "literal_hits": 4,
+      "paraphrase_hits": 8,
+      "confusable_false_returns": 1,
+      "absent_false_returns": 0,
+      "native_searches": 20,
+      "pre_search_abstentions": 12,
+      "graph_expansions": 176,
+      "graph_edges": 32,
+      "associated_hits": 18
+    },
+    {
+      "id": "original_gated",
+      "positive_hits": 4,
+      "positive_wrong_scene_returns": 0,
+      "literal_hits": 4,
+      "paraphrase_hits": 0,
+      "confusable_false_returns": 0,
+      "absent_false_returns": 0,
+      "native_searches": 32,
+      "pre_search_abstentions": 0,
+      "graph_expansions": 88,
+      "graph_edges": 16,
+      "associated_hits": 11
+    },
+    {
+      "id": "positive_union_gated",
+      "positive_hits": 12,
+      "positive_wrong_scene_returns": 1,
+      "literal_hits": 4,
+      "paraphrase_hits": 8,
+      "confusable_false_returns": 1,
+      "absent_false_returns": 0,
+      "native_searches": 32,
+      "pre_search_abstentions": 0,
+      "graph_expansions": 264,
+      "graph_edges": 48,
+      "associated_hits": 29
+    },
+    {
+      "id": "recovery_raw",
+      "positive_hits": 15,
+      "positive_wrong_scene_returns": 1,
+      "literal_hits": 4,
+      "paraphrase_hits": 11,
+      "confusable_false_returns": 8,
+      "absent_false_returns": 0,
+      "native_searches": 32,
+      "pre_search_abstentions": 0,
+      "graph_expansions": 322,
+      "graph_edges": 57,
+      "associated_hits": 32
+    },
+    {
+      "id": "recovery_gated",
+      "positive_hits": 14,
+      "positive_wrong_scene_returns": 1,
+      "literal_hits": 4,
+      "paraphrase_hits": 10,
+      "confusable_false_returns": 1,
+      "absent_false_returns": 0,
+      "native_searches": 32,
+      "pre_search_abstentions": 0,
+      "graph_expansions": 322,
+      "graph_edges": 57,
+      "associated_hits": 32
+    }
+  ],
+  "per_query": [
+    {
+      "id": "Q01",
+      "category": "literal",
+      "conditions": {
+        "baseline": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q02",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q03",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q04",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q05",
+      "category": "literal",
+      "conditions": {
+        "baseline": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "literal",
+      "conditions": {
+        "baseline": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q11",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q12",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q13",
+      "category": "literal",
+      "conditions": {
+        "baseline": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q14",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q15",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "paraphrase",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": true,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q17",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q18",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q19",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q20",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q21",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q22",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q23",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q24",
+      "category": "absent",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q25",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q26",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q27",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q28",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q29",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": false
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q30",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q31",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    },
+    {
+      "id": "Q32",
+      "category": "confusable",
+      "conditions": {
+        "baseline": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "legacy_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "original_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "positive_union_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        },
+        "recovery_raw": {
+          "target_hit": false,
+          "returned_candidate": true,
+          "search_executed": true
+        },
+        "recovery_gated": {
+          "target_hit": false,
+          "returned_candidate": false,
+          "search_executed": true
+        }
+      }
+    }
+  ],
+  "known_regression": {
+    "queries": 32,
+    "positive_queries": 16,
+    "confusable_queries": 8,
+    "conditions": [
+      {
+        "id": "baseline",
+        "positive_hits": 7,
+        "confusable_false_returns": 6
+      },
+      {
+        "id": "legacy_gated",
+        "positive_hits": 5,
+        "confusable_false_returns": 0
+      },
+      {
+        "id": "original_gated",
+        "positive_hits": 6,
+        "confusable_false_returns": 0
+      },
+      {
+        "id": "positive_union_gated",
+        "positive_hits": 8,
+        "confusable_false_returns": 0
+      },
+      {
+        "id": "recovery_raw",
+        "positive_hits": 13,
+        "confusable_false_returns": 8
+      },
+      {
+        "id": "recovery_gated",
+        "positive_hits": 11,
+        "confusable_false_returns": 0
+      }
+    ]
+  },
+  "verification": {
+    "saved_actual_ai_outputs_replayed": true,
+    "independent_replay_verified": true,
+    "synthetic_engineering_tests": 58,
+    "synthetic_engineering_passed": 58,
+    "pre_body_selection_locked": true,
+    "mechanical_metadata_repair_preserved": true,
+    "query_author_read_full_protocol": true,
+    "role_isolation_instruction_only": true,
+    "model_identity_recorded": false,
+    "semantic_review_repairs": 1,
+    "pre_score_literal_requirements_removed": 5,
+    "source_event_identity_verified": false,
+    "model_regeneration_tested": false,
+    "timing_measured": false,
+    "daily_brain_verified": false,
+    "emotion_verified": false,
+    "full_wake_verified": false,
+    "external_source_audit_possible_from_public_data": false
+  },
+  "boundaries": [
+    "Four further archived conversations and 32 newly authored queries, not a population estimate. Sources, queries, target labels and saved actual AI outputs were fixed before fresh retrieval.",
+    "The selected final source was unchanged in all 32 queries in all six arms when graph traversal was disabled (hops=0) or convergence was disabled. Traversal occurred, but these diagnostics show no top-one selection benefit from the graph or convergence on this sample.",
+    "Traversal counters sum normal route outputs, including shared routes across conditions; they are neither unique selected scenes nor timing or independent evidence counts.",
+    "The improved gated condition retained one positive miss, one wrong-scene return on a positive query and one false return on a confusable query. Source compatibility does not establish event identity.",
+    "No operational memory database, LRE main state, Emotion state or full Wake was modified by this study."
+  ]
+}

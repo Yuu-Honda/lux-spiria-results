@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-21 — Retrieval hypotheses, study v1
+
+- Added separate Japanese/English pages and an allowlisted public summary for four further conversations, 32 new queries and all six comparison conditions. Earlier dated study HTML and JSON remain byte-identical.
+- Compared legacy gated retrieval with the recovery policy under the same strict source gate: positive hits 12/16 → 14/16, confusable false returns 1/8 → 1/8. Separately disclosed one positive wrong-scene return, one confusable false return and one positive miss: three failed expectations remain.
+- Published diagnostic original-query gated and positive-cue union gated conditions, plus the raw recovery condition. Kept the prior known 32-query regression set separate from fresh performance and from 58 synthetic engineering checks.
+- Traversal executed, but disabling traversal or convergence left the selected scene unchanged in every one of 32 queries × six conditions. Shared normal-route counters are not unique scenes, independent evidence or timing; no top-one graph contribution or speed improvement is claimed.
+- Disclosed mechanical counting before the durable pre-semantic selection lock, retained failed exclusion-metadata locks, full-protocol exposure by the query author, instruction-only role separation and a pre-score repair removing five arbitrary literal requirements.
+- Updated the latest-results cards, Results listing, build documentation and sitemap. Kept all four walkthroughs, Emotion observations and historical assets intact. The new policy is an explicit opt-in on the private experimental branch; legacy defaults and operational memory state remain unchanged.
+
 ## 2026-10-13 — Initial public results, study v1
 
 - Separate Japanese/English Results site; original LUX SPIRIA history remains in its repository.
