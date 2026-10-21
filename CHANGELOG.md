@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-22 — Event compatibility review, study v1
+
+- Added a fourth dated Japanese/English study and strictly allowlisted public JSON for four further archived conversations, 32 whole messages and 32 newly authored queries. All three prior dated study pairs and their JSON summaries remain byte-identical.
+- Compared four conditions sharing unchanged original-first candidate retrieval. Strict source gate → same gate plus event review retained positive scene@1 hits at 16/16 → 16/16, while confusable false returns fell 7/8 → 0/8 and absent false returns fell 1/8 → 0/8. Event review alone had the same fresh outcomes. No world-event truth, answer adoption or broad accuracy claim is made.
+- Separated original-route native top-20 coverage (15/16), recovery-semantic coverage (16/16), full candidate-union coverage (16/16) and final scene@1 selection. Published all four conditions’ positive wrong-scene returns and all 32 opaque query outcomes.
+- Kept the known 32-query regression set separate: strict gate 14/16 positive hits versus event review alone 16/16; the combined gate reached 15/16. Disabling traversal lost one positive target in each event-review arm on the known set. Fresh traversal counters were zero and all fresh selections were unchanged under either ablation; no fresh graph benefit is established.
+- Documented actual source-aware AI judgments and independent bound-artifact review, hidden native ranking/gate information, zero pre-score repairs, first-passing native-order selection, protocol-not-provided query authoring and instruction-only role separation. Retained the initial partial-write index failure and its three artifacts, with corrected preflight behavior disclosed.
+- Kept 128 code checks, 60 synthetic research checks, primary native calls and three separate replay stages distinct from retrieval outcomes. Replays used saved actual outputs; AI regeneration and storage/search timing were not tested.
+- Updated both overview cards, Results listings, sitemap and build documentation. Preserved all four scroll animations, Emotion observations, historical pages, logos and PWA assets. Browsing remains a static display of recorded results.
+
 ## 2026-10-21 — Retrieval hypotheses, study v1
 
 - Added separate Japanese/English pages and an allowlisted public summary for four further conversations, 32 new queries and all six comparison conditions. Earlier dated study HTML and JSON remain byte-identical.

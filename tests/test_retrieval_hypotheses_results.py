@@ -128,19 +128,16 @@ class RetrievalResults(unittest.TestCase):
         self.assertEqual(v['semantic_review_repairs'], 1)
         self.assertEqual(v['pre_score_literal_requirements_removed'], 5)
 
-    def test_latest_home_and_results_listing_match_public_conditions(self):
+    def test_prior_results_listing_retains_public_conditions(self):
         c = {x['id']:x for x in self.d['conditions']}
         legacy, recovery = c['legacy_gated'], c['recovery_gated']
         for home, listing, detail in [('index.html', 'results.html', 'index.html'), ('index.en.html', 'results.en.html', 'en.html')]:
             html = (ROOT / home).read_text()
-            module = re.search(r'<section class="latest-study".*?</section>', html, re.S).group()
-            text = re.sub(r'\s+', '', ''.join(Page(module).text))
-            for aid in ('legacy_gated', 'recovery_gated'):
-                self.assertIn(aid, text)
-            for key, denominator in [('positive_hits',16), ('positive_wrong_scene_returns',16), ('confusable_false_returns',8)]:
+            text = re.sub(r'\s+', '', ''.join(Page((ROOT / listing).read_text()).text))
+            for key, denominator in [('positive_hits',16), ('confusable_false_returns',8)]:
                 self.assertIn(f'{legacy[key]}/{denominator}→{recovery[key]}/{denominator}', text)
-            for path in (home, listing):
-                self.assertIn(f'studies/2026-10-21-retrieval-hypotheses/{detail}', (ROOT / path).read_text())
+            self.assertIn(f'{recovery["positive_wrong_scene_returns"]}/16', text)
+            self.assertIn(f'studies/2026-10-21-retrieval-hypotheses/{detail}', (ROOT / listing).read_text())
             self.assertEqual(html.count('data-mechanism '), 4)
 
     def test_bilingual_pages_routes_and_static_chart_accessibility(self):

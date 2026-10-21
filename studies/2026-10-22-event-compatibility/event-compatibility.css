@@ -1,0 +1,15 @@
+/* Scoped to this dated study; overview animations and earlier studies opt out. */
+.event-study .four-arm-table { min-width: 1080px; }
+.event-study .diagnostic-table { min-width: 1020px; }
+.event-study .per-query-table { min-width: 1000px; }
+.event-study .method-grid article { min-width: 0; }
+.event-study .method-grid h3,
+.event-study .fact-list dd { overflow-wrap: anywhere; }
+.event-study .boundary-box + .boundary-box { margin-top: 1rem; }
+@media print {
+  .event-study :is(.four-arm-table, .diagnostic-table, .per-query-table) {
+    min-width: 0;
+    table-layout: fixed;
+  }
+  .event-study :is(th, td) { overflow-wrap: anywhere; }
+}
