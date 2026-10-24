@@ -53,9 +53,30 @@ Source selection was locked after mechanical counting decoded body strings and b
 
 The 128 code engineering checks and 60 synthetic research-procedure checks are separate from each other and from both 32-query sets. Primary evaluation, preparation replay, initial independent replay and the final audit’s additional replay each used 171 fresh-set native calls and 165 known-set native calls, recorded separately. Saved actual AI outputs were replayed; fresh AI regeneration was not tested. Public data permits aggregate recalculation, not external source auditing or engine reruns. Storage/search timing, natural everyday recall, biological brain reproduction, Emotion and full Wake were not evaluated. All three earlier dated JA/EN study pairs and JSON summaries retain their original bytes.
 
+<!-- EVENT_ADOPTION_STUDY_START -->
+## Event answer adoption — 2026-10-24
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-24-event-adoption/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-24-event-adoption/en.html)
+
+Four archived conversations supplied all 95 retained messages and 32 frozen new queries: four literal, 12 paraphrase, eight confusable and eight absent. Answer correctness is separate from native source scene@1. The five exclusive answer outcomes sum to 32 per condition; supported answers and correct abstentions each use their own denominator of 16. Four source clusters are not 32 independent conversation episodes.
+
+| Normal retrieval condition | Correct supported / 16 | Correct abstention / 16 | Partial supported | Missed answer | Wrong / unsupported |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Recovery retrieval · no gate / Normal | 11 | 16 | 2 | 3 | 0 |
+| Strict source gate / Normal | 6 | 16 | 0 | 10 | 0 |
+| Event compatibility review / Normal | 12 | 16 | 2 | 2 | 0 |
+| Source + event review / Normal | 6 | 16 | 0 | 10 | 0 |
+
+All four retrieval arms report normal, `hops=0` and `convergence=false` variants. The additional designated-source ceiling supplies the author-associated source as a privileged diagnostic; it is not deployable retrieval, a mathematical upper bound or a guarantee of maximum accuracy. Full pages and JSON retain all 13 conditions, overlapping failure diagnostics, support-available denominators, query-kind strata and opaque C01–C04 source-cluster strata. Native retrieval diagnostics cover only the 12 retrieval conditions.
+
+The actual answer pool contains 62 unique query/source answer items. Conditions use 62 unique items in 416 lookups, including 354 reused lookups. These are saved actual AI answers, not fresh generations or independent repeated answer samples. The record separately reports 4 successful reader contexts, 0 retained failed collection attempts, actual distinct calls or unavailable call metadata, one primary assessor call and separate final-audit calls.
+
+Source-only AI indexing and review retained 344 literal witness occurrences, 284 unique native feature entries and 230 canonical concepts. These are different units, not automatic learning. Roles were separated by instructions on the same host. Pre-score failures and the single repaired event review are disclosed in the dated pages. Public aggregates permit consistency checks, not source auditing or engine reruns. Fresh AI regeneration, natural daily recall, brain reproduction, AGI, Emotion and full Wake remain unverified. All four earlier study pairs and their data keep their original bytes.
+<!-- EVENT_ADOPTION_STUDY_END -->
+
 ## Public and private scope
 
-Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The latest study also includes native route coverage and separate fresh/known ablation outcomes without scene IDs. Query labels are local to each study.
+Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
 
 Private: original conversations, question and evidence text, native source IDs, feature vocabulary, SQLite, experiment code and detailed execution artifacts. Public files permit aggregate recalculation, **not independent source auditing or engine reruns**. Reproduction reported here was internally verified with the same private frozen inputs. It is not external peer review, natural-conversation accuracy, a full LRE Wake/Emotion experiment, or evidence of personality continuity.
 
@@ -66,12 +87,14 @@ No private repository credentials, source files or runtime fetches are required 
 Python 3 standard library only:
 
 ```sh
-python3 tools/build_pages.py
-python3 -m unittest discover -s tests -v
-python3 -m http.server 8769 --bind 127.0.0.1
+PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_pages.py
+PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v
+PYTHONDONTWRITEBYTECODE=1 python3 -B -m http.server 8769 --bind 127.0.0.1
 ```
 
-The builder reads only four public summaries: `data/shiori-pilot-2026-10-13.json`, `data/shiori-cross-session-2026-10-21.json`, `data/shiori-retrieval-hypotheses-2026-10-21.json` and `data/shiori-event-compatibility-2026-10-22.json`. These commands rebuild and verify the **public website**, not the private SHIORI experiment. Results listings (`results.html` / `results.en.html`) and all four dated JA/EN study pairs are generated. `python3 tools/build_event_compatibility.py` rebuilds only the latest dated pair and refuses to write pages if its audited public data is missing or inconsistent. `python3 tools/build_retrieval_hypotheses.py` remains available for the preceding pair. The builders leave the migrated overview, its scroll illustrations and historical pages intact. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
+The main builder reads only the five public summaries under `data/`, including `data/shiori-event-adoption-2026-10-24.json`. It validates the optional event-adoption export before any publication update. When the export is absent, the four earlier studies remain the current public listing; no new study or placeholder numbers are generated. When present and audited, it adds the fifth dated JA/EN pair, updates the results listings and only the overview's latest-study panel, and updates this README and sitemap. Earlier dated studies, data and all four overview scroll illustrations remain unchanged.
+
+`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_event_adoption.py` rebuilds only the new dated pair and refuses missing or inconsistent data. The earlier standalone builders remain available. These commands rebuild and verify the **public website**, not the private SHIORI experiment. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
 
 ## Preservation
 

@@ -274,17 +274,20 @@ class EventActualResults(unittest.TestCase):
     def test_latest_home_and_listing_match_the_actual_public_conditions(self):
         arms = {row['id']: row for row in self.d['conditions']}
         strict, reviewed = arms['strict_source_gate'], arms['strict_and_event_review']
+        adoption_published = (ROOT / 'data/shiori-event-adoption-2026-10-24.json').is_file()
         for home, listing, detail in [('index.html', 'results.html', 'index.html'), ('index.en.html', 'results.en.html', 'en.html')]:
             home_html = (ROOT / home).read_text()
             module = re.search(r'<section class="latest-study".*?</section>', home_html, re.S).group()
             text = re.sub(r'\s+', '', ''.join(Page(module).text))
-            for arm in ('strict_source_gate', 'strict_and_event_review'):
-                self.assertIn(arm, text)
+            if not adoption_published:
+                for arm in ('strict_source_gate', 'strict_and_event_review'):
+                    self.assertIn(arm, text)
             for metric, denominator in [('positive_hits', 16), ('confusable_false_returns', 8), ('absent_false_returns', 8)]:
                 pair = f'{strict[metric]}/{denominator}→{reviewed[metric]}/{denominator}'
-                self.assertIn(pair, text)
+                if not adoption_published:
+                    self.assertIn(pair, text)
                 self.assertIn(pair, re.sub(r'\s+', '', ''.join(Page((ROOT / listing).read_text()).text)))
-            for path in (home, listing):
+            for path in ((listing,) if adoption_published else (home, listing)):
                 self.assertIn(f'studies/2026-10-22-event-compatibility/{detail}', (ROOT / path).read_text())
             self.assertEqual(home_html.count('data-mechanism '), 4)
 
