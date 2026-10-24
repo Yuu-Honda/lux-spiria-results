@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 from html import escape as E
+import importlib.util
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = 'data/shiori-pilot-2026-10-13.json'
@@ -19,6 +20,10 @@ LATEST_STUDY = 'studies/2026-10-21-retrieval-hypotheses/'
 EVENT_DATA_FILE = 'data/shiori-event-compatibility-2026-10-22.json'
 EVENT_D = json.loads((ROOT / EVENT_DATA_FILE).read_text()) if (ROOT / EVENT_DATA_FILE).is_file() else None
 EVENT_STUDY = 'studies/2026-10-22-event-compatibility/'
+_adoption_spec = importlib.util.spec_from_file_location('event_adoption_publication', ROOT / 'tools/event_adoption_publication.py')
+ADOPTION_PUBLICATION = importlib.util.module_from_spec(_adoption_spec)
+_adoption_spec.loader.exec_module(ADOPTION_PUBLICATION)
+ADOPTION_D = ADOPTION_PUBLICATION.optional_summary(ROOT)
 
 def T(ja, en, lang): return ja if lang == 'ja' else en
 
@@ -101,7 +106,8 @@ def landing(lang):
         (T('入力を固定する','Freeze the inputs',lang),T('原文、索引、質問、対象となる出典を検索実行前に固定。検索結果を見てから都合よく手掛かりや正解を変えません。','Freeze the source, index, questions and target sources before retrieval. Do not tune cues or targets after seeing the result.',lang)),
         (T('比較条件を全部出す','Show every condition',lang),T('各試験の全比較条件を公開。対象到達、誤接続、検索前の停止を分け、経路や速度の効果は実際に測った試験でのみ報告します。','Publish every comparison condition in each study. Separate target hits, false returns and pre-search abstention; report path and speed effects only when actually measured.',lang))]))
     body += scope(lang)
-    return document(lang,False,T('研究結果','Research results',lang),T('LUX SPIRIAの実行済み研究結果。方法、全条件比較、失敗、再現確認と限界。','Recorded LUX SPIRIA research: methods, all-condition comparisons, failures, verification and limitations.',lang),body,record_date=EVENT_D['date'])
+    html = document(lang,False,T('研究結果','Research results',lang),T('LUX SPIRIAの実行済み研究結果。方法、全条件比較、失敗、再現確認と限界。','Recorded LUX SPIRIA research: methods, all-condition comparisons, failures, verification and limitations.',lang),body,record_date=EVENT_D['date'])
+    return ADOPTION_PUBLICATION.integrate_listing(html, lang, ADOPTION_D)
 
 def study(lang):
     body = f'''<section class="study-hero"><p class="kicker">RUN 001 / RETROSPECTIVE PILOT / v1</p><h1>{T('SHIORI、手掛かりと<br>経路の比較。','SHIORI: cues, paths<br>and retrieval.',lang)}</h1><p class="lead">{T('実会話42メッセージを保存し、レビュー済みの意味特徴を延べ203件で索引を作成。別工程で作った24問を固定し、4条件で検索しました。','42 real-dialogue messages were captured and indexed with 203 reviewed semantic-feature occurrences. 24 queries authored in a separate step were frozen and tested under four retrieval conditions.',lang)}</p><p class="note"><time datetime="{D['date']}">{D['date']}</time> · {T('保存済みの実行結果。閲覧中のエンジン実行ではありません。','Stored execution results; no engine runs while you browse.',lang)}</p></section>
@@ -275,6 +281,7 @@ if __name__ == '__main__':
     from build_event_compatibility import build as build_event, load_summary as load_event_summary
     load_summary()
     load_event_summary()
+    adoption_updates = ADOPTION_PUBLICATION.prepare_updates(ROOT, ADOPTION_D) if ADOPTION_D is not None else {}
     for lang, filename in [('ja','index.html'),('en','en.html')]:
         listing = 'results.html' if lang == 'ja' else 'results.en.html'
         (ROOT/listing).write_text(landing(lang)+'\n')
@@ -283,4 +290,8 @@ if __name__ == '__main__':
         (ROOT/NEW_STUDY/filename).write_text(cross_session(lang)+'\n')
     build_latest()
     build_event()
-    print('Built 10 public pages from four public summaries.')
+    for relative, text in adoption_updates.items():
+        destination = ROOT / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(text, encoding='utf-8')
+    print('Built 14 public pages from five public summaries; README and sitemap updated.' if adoption_updates else 'Built 10 public pages from four public summaries.')

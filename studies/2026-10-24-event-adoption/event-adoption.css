@@ -1,0 +1,28 @@
+/* This dated study alone; overview motion and historical pages do not opt in. */
+.adoption-study .answer-table { min-width: 900px; }
+.adoption-study .error-table { min-width: 1420px; }
+.adoption-study .native-table { min-width: 1080px; }
+.adoption-study .digest-table { table-layout: fixed; }
+.adoption-study .digest-table th:first-child { width: 35%; }
+.adoption-study .digest-table td { font-family: var(--mono); font-size: .78rem; }
+.adoption-study .adoption-chart { margin: 28px 0; }
+.adoption-study .adoption-chart figcaption { color: var(--muted); font-size: .85rem; }
+.adoption-study .adoption-chart ol { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; list-style: none; padding: 0; }
+.adoption-study .adoption-chart li { min-width: 0; padding-top: 10px; border-top: 1px solid var(--line); }
+.adoption-study .adoption-chart h3 { margin: 0 0 14px; font-size: .9rem; }
+.adoption-study .adoption-bar { display: grid; grid-template-columns: 1fr 1.2fr auto; gap: 10px; align-items: center; margin: 10px 0; font-size: .78rem; }
+.adoption-study .adoption-bar strong { min-width: 4.5em; text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.adoption-study .adoption-track { display: block; height: 8px; background: var(--panel); }
+.adoption-study .adoption-track > span { display: block; height: 100%; background: var(--cyan); }
+.adoption-study .adoption-bar + .adoption-bar .adoption-track > span { background: var(--violet); }
+.adoption-study details > .table-wrap { margin-inline: 0; }
+.adoption-study summary { overflow-wrap: anywhere; }
+@media (max-width: 680px) {
+  .adoption-study .adoption-chart ol { grid-template-columns: 1fr; }
+  .adoption-study .adoption-bar { grid-template-columns: 1fr 1fr auto; }
+}
+@media print {
+  .adoption-study :is(.answer-table, .error-table, .native-table) { min-width: 0; table-layout: fixed; }
+  .adoption-study :is(th, td) { overflow-wrap: anywhere; }
+  .adoption-study .adoption-track { print-color-adjust: exact; }
+}
