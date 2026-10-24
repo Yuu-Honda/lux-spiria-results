@@ -1,0 +1,19 @@
+/* This dated study alone; historical studies and overview motion stay separate. */
+.wm-study .wm-outcomes { min-width: 840px; }
+.wm-study .wm-errors { min-width: 800px; }
+.wm-study .wm-transitions { min-width: 760px; }
+.wm-study .wm-costs { min-width: 1500px; }
+.wm-study :is(.wm-outcomes, .wm-errors, .wm-transitions, .wm-costs) td { font-variant-numeric: tabular-nums; }
+.wm-study details { margin: 20px 0; }
+.wm-study details > .table-wrap { margin-inline: 0; }
+.wm-study summary { color: var(--accent); cursor: pointer; overflow-wrap: anywhere; }
+.wm-study .wm-digests { table-layout: fixed; }
+.wm-study .wm-digests th:first-child { width: 35%; }
+.wm-study .wm-digests td { font-family: var(--mono); font-size: .78rem; overflow-wrap: anywhere; }
+@media (max-width: 680px) {
+  .wm-study .study-hero h1 { font-size: clamp(2.3rem, 8vw, 3.5rem); }
+}
+@media print {
+  .wm-study :is(.wm-outcomes, .wm-errors, .wm-transitions, .wm-costs) { min-width: 0; table-layout: fixed; }
+  .wm-study :is(th, td) { overflow-wrap: anywhere; }
+}

@@ -74,6 +74,41 @@ The actual answer pool contains 62 unique query/source answer items. Conditions 
 Source-only AI indexing and review retained 344 literal witness occurrences, 284 unique native feature entries and 230 canonical concepts. These are different units, not automatic learning. Roles were separated by instructions on the same host. Pre-score failures and the single repaired event review are disclosed in the dated pages. Public aggregates permit consistency checks, not source auditing or engine reruns. Fresh AI regeneration, natural daily recall, brain reproduction, AGI, Emotion and full Wake remain unverified. All four earlier study pairs and their data keep their original bytes.
 <!-- EVENT_ADOPTION_STUDY_END -->
 
+<!-- WORKING_MEMORY_STUDY_START -->
+## Source-fixed working memory — 2026-10-24
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-24-working-memory/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-24-working-memory/en.html)
+
+The primary comparison is **ordinary reread → structured working state**. Both arms start from the same frozen first answer and unchanged original bodies, then execute a query-only plan, source critique/reread and final answer. The common first pass is a lower-stage diagnostic. Shared stages, permitted caps and evidence do not verify equal provider tokens or compute; model identity/settings and provider request counts were unavailable.
+
+Fresh 12 queries were newly authored from two unused archived sources and all 78 retained messages (50 + 28), with six supported and six bounded corpus-unsupported queries. The separate known eight-query regression set deliberately selects three prior partial answers, three prior complete answers, one confusable and one absent case from four older sources and all 95 retained messages. All messages retained in each archived source row were used; the archives are partial relative to the platform history. Six sources and 173 messages are not 20 independent source episodes. Source selection is privileged and fixed; this is not a retrieval evaluation.
+
+### Fresh 12 queries
+
+| Condition | Correct supported / 6 | Correct abstention / 6 | Partial | Missed | Wrong / unsupported |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Shared first answer (diagnostic) | 6 | 6 | 0 | 0 | 0 |
+| Ordinary reread | 6 | 6 | 0 | 0 | 0 |
+| Structured working state | 6 | 6 | 0 | 0 | 0 |
+
+Ordinary reread → structured working state: 0 corrected to a complete correct answer or correct abstention; 0 regressed from those outcomes. Full paired transition tables and support partitions are in the dated study and JSON.
+### Known 8 queries · selected regressions
+
+| Condition | Correct supported / 6 | Correct abstention / 2 | Partial | Missed | Wrong / unsupported |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Shared first answer (diagnostic) | 3 | 2 | 3 | 0 | 0 |
+| Ordinary reread | 3 | 2 | 3 | 0 | 0 |
+| Structured working state | 3 | 2 | 3 | 0 | 0 |
+
+Ordinary reread → structured working state: 0 corrected to a complete correct answer or correct abstention; 0 regressed from those outcomes. Full paired transition tables and support partitions are in the dated study and JSON.
+
+Actual AI roles produced plans, critiques, answers and independent grades; Python verified bindings, quotes, freezes, caps and counts. There are 140 actual per-item production records (40 plans, 20 common first answers, 40 critiques, 40 finals), emitted in 12 producer contexts, not 140 provider requests. Every critique finished before any final answer. All 60 answers were frozen before one blind primary-assessment context. Actual payloads are counted in canonical JSON with Unicode retained, sorted keys and compact separators; serialization formatting is standardized while original string text is unchanged. These counts are not raw indented output-file lengths or provider tokens. Character counts, cap violations and role counts are separate from semantic outcomes. A budget overrun alone is not a semantic error; invalid source grounding prevents a complete source-bound answer.
+
+The final controller version ran its full 27-test unit suite. The separate 70 procedure checks comprise 57 on the retained predecessor and 13 timestamp-input cases on the final version; the intervening controller change was timestamp validation only. These are engineering and procedure checks, not memory-accuracy measurements.
+
+Reader inputs retained unchanged body text and allowlisted role/text/order/time plus opaque IDs, with trace/case UUID/path metadata stripped. Bodies may identify sources; this is not full anonymity. Meaning roles received no parent-task history and were instruction-separated on a shared host. Retrieval improvements, SHIORI speed, graph effects, real-action feedback learning, full Wake, Emotion, natural daily recall, brain reproduction and AGI were not verified. Prediction → actual action/result → next choice → retained history is **proposed, not executed**. Public data contains allowlisted counts, enums and audit digests, not originals, queries, source IDs or private experiment code. All five older studies, their data and four overview scroll stories retain their original bytes.
+<!-- WORKING_MEMORY_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -92,9 +127,9 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v
 PYTHONDONTWRITEBYTECODE=1 python3 -B -m http.server 8769 --bind 127.0.0.1
 ```
 
-The main builder reads only the five public summaries under `data/`, including `data/shiori-event-adoption-2026-10-24.json`. It validates the optional event-adoption export before any publication update. When the export is absent, the four earlier studies remain the current public listing; no new study or placeholder numbers are generated. When present and audited, it adds the fifth dated JA/EN pair, updates the results listings and only the overview's latest-study panel, and updates this README and sitemap. Earlier dated studies, data and all four overview scroll illustrations remain unchanged.
+The main builder reads only public summaries under `data/`. It validates the optional `data/working-memory-source-fixed-2026-10-24.json` before publication writes. If this export is absent, the five older studies remain current and the working-memory integration produces no changes or placeholder outcomes. An existing invalid export fails closed. An audited actual export adds the sixth dated JA/EN study, updates result listings, only the overview latest-study panel, this README and the sitemap. Five older dated studies and their data, and all four overview scroll stories/assets, remain unchanged.
 
-`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_event_adoption.py` rebuilds only the new dated pair and refuses missing or inconsistent data. The earlier standalone builders remain available. These commands rebuild and verify the **public website**, not the private SHIORI experiment. GitHub Pages serves `main` at the repository root; no dependencies or CI secrets are used.
+`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_working_memory.py` rebuilds only its dated pages and refuses missing or invalid data before writes. These commands rebuild the public website, not the private experiment. Earlier standalone builders remain available. GitHub Pages serves `main` at the repository root.
 
 ## Preservation
 

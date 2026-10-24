@@ -413,7 +413,7 @@ class EventAdoptionPublicationPreparation(unittest.TestCase):
         pages_spec.loader.exec_module(pages)
         before, after = publication._comparison(self.d)
         for lang in ('ja', 'en'):
-            with patch.object(pages, 'ADOPTION_D', None):
+            with patch.object(pages, 'ADOPTION_D', None), patch.object(pages, 'WORKING_D', None):
                 original = pages.landing(lang)
             updated = publication.integrate_listing(original, lang, self.d)
             parsed = Page(updated)
@@ -439,9 +439,23 @@ class EventAdoptionActualData(unittest.TestCase):
 
     def test_actual_publication_home_readme_sitemap_and_latest_listing_match(self):
         data = mod.load_summary()
-        expected = publication.prepare_updates(ROOT, data)
-        for name in ('index.html', 'index.en.html', 'README.md', 'sitemap.xml'):
-            self.assertEqual((ROOT / name).read_text(encoding='utf-8'), expected[name])
+        if not (ROOT / 'data/working-memory-source-fixed-2026-10-24.json').is_file():
+            expected = publication.prepare_updates(ROOT, data)
+            for name in ('index.html', 'index.en.html', 'README.md', 'sitemap.xml'):
+                self.assertEqual((ROOT / name).read_text(encoding='utf-8'), expected[name])
+        else:
+            # A later study owns latest metadata; retain this historical block
+            # and both dated URLs while its own tests verify current metadata.
+            readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+            expected = publication.integrate_readme(readme, data)
+            for text in (readme, expected):
+                self.assertIn(publication.README_START, text)
+                self.assertIn(publication.README_END, text)
+            self.assertEqual(readme.split(publication.README_START)[1].split(publication.README_END)[0],
+                             expected.split(publication.README_START)[1].split(publication.README_END)[0])
+            sitemap = (ROOT / 'sitemap.xml').read_text(encoding='utf-8')
+            for url in (mod.BASE + mod.STUDY, mod.BASE + mod.STUDY + 'en.html'):
+                self.assertEqual(sitemap.count('<loc>' + url + '</loc>'), 1)
         for name in ('results.html', 'results.en.html'):
             self.assertIn(mod.STUDY, (ROOT / name).read_text(encoding='utf-8'))
 
