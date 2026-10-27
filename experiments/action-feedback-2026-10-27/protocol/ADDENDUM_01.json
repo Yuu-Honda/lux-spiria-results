@@ -1,0 +1,32 @@
+{
+  "schema": "action-feedback-prospective-addendum.v1",
+  "created_at_utc": "2026-10-27T11:59:15.643920+00:00",
+  "before_all_actor_creation_and_execution": true,
+  "parent_protocol_sha256": "13544e423b51fc61c8bd3acf37e9ed80f6a26dc50ec9f5abc00f8178c9bd1783",
+  "later_task_order_all_arms": [
+    "T01",
+    "R01",
+    "T02",
+    "T03",
+    "R02",
+    "T04",
+    "T05",
+    "R03",
+    "T06"
+  ],
+  "arm_dispatch_order": [
+    "raw_feedback",
+    "raw_feedback_and_review",
+    "prior_plan_only"
+  ],
+  "practice_task_order": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06"
+  ],
+  "clarification": "Same fixed interleaving in every later arm, not a counterbalanced task-order study. One context per arm, fixed dispatch order; provider/time effects remain uncontrolled. The ambiguous counterbalanced-order phrase in v1 is superseded prospectively by this explicit fixed common order. No source/task/outcome replacement based on performance.",
+  "negative_instruction_clarification": "Requesting absent quantities must be explicitly conditional, not presuppose a measurement or generation occurred. One allowed source-author revision may clarify P02/P04 after complete rejection; expected unavailable is preserved if source reviewer confirms."
+}

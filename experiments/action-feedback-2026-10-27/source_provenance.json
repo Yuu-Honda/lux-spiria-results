@@ -1,0 +1,22 @@
+{
+  "commit": "b64cccdef802969607a8c1bfdb1624e9563787a7",
+  "full_public_source_files": true,
+  "repository": "https://github.com/Yuu-Honda/lux-spiria-results",
+  "sources": {
+    "D01": {
+      "path": "sources/D01.json",
+      "public_path": "data/shiori-pilot-2026-10-13.json",
+      "sha256": "5f1a09df554ac6a57b0ead347ae4f3bbd4ec9ed4866fc44e96f82926194f21c7"
+    },
+    "D02": {
+      "path": "sources/D02.json",
+      "public_path": "data/shiori-cross-session-2026-10-21.json",
+      "sha256": "09f075d9f84bfb336912946b6f268056e2c0b1b8fd6ca8e58eb28d3d1ab34c99"
+    },
+    "D03": {
+      "path": "sources/D03.json",
+      "public_path": "data/working-memory-source-fixed-2026-10-24.json",
+      "sha256": "a7ce1a4553cd7b85f0780bf9f178c6940c2300461caaa90ade6025736f80a8b6"
+    }
+  }
+}

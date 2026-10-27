@@ -1,0 +1,42 @@
+{
+  "P01": {
+    "status": "ok",
+    "values": {
+      "direct_max_top3_hit_fraction": 0.22727272727272727,
+      "path_sum_top3_hit_fraction": 0.45454545454545453,
+      "path_sum_minus_direct_max_top3_hits": 5,
+      "path_sum_rank4_or5_hit_count": 1
+    }
+  },
+  "P02": {
+    "status": "unavailable",
+    "values": null
+  },
+  "P03": {
+    "status": "ok",
+    "values": {
+      "baseline_positive_hit_fraction": 0.4375,
+      "gated_positive_hit_fraction": 0.3125,
+      "raw_confusable_false_return_fraction": 0.375,
+      "gated_confusable_false_return_fraction": 0.0,
+      "raw_minus_gated_positive_hits": 1
+    }
+  },
+  "P04": {
+    "status": "unavailable",
+    "values": null
+  },
+  "P05": {
+    "status": "ok",
+    "values": {
+      "known_first_supported_full_fraction": 0.5,
+      "known_plain_all_query_full_fraction": 0.625,
+      "fresh_plain_all_query_full_fraction": 1.0,
+      "pooled_structured_supported_full_fraction": 0.75
+    }
+  },
+  "P06": {
+    "status": "unavailable",
+    "values": null
+  }
+}

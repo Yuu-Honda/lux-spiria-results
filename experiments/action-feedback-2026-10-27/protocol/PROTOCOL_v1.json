@@ -1,0 +1,60 @@
+{
+  "schema": "prospective-action-feedback-protocol.v1",
+  "created_at_utc": "2026-10-27T11:53:49.455333+00:00",
+  "status": "FROZEN_BEFORE_TASK_AUTHORING_AND_ALL_ACTIONS",
+  "question": "Can access to actual prior execution feedback and an AI-authored judgment review improve the next real data-processing action beyond access to the same raw feedback alone?",
+  "domain": "Engineered extraction work items over three unchanged, real, previously published Results JSON files. Declarative AI actions run against the actual files and write new machine-readable artifacts. This is not new natural conversation or an ecological brain task.",
+  "source_scope": "Three full public files chosen for compact differing schemas, not held-out previously unseen sources. Transfer means new task objectives over the same available files; repeated positive tasks are same-run regression checks, not delayed or autonomous retention.",
+  "sample": {
+    "sources": 3,
+    "practice": 6,
+    "practice_supported": 3,
+    "practice_unavailable": 3,
+    "transfer": 6,
+    "transfer_supported": 3,
+    "transfer_unavailable": 3,
+    "repeated_practice": 3,
+    "later_tasks_per_arm": 9,
+    "later_arms": 3,
+    "total_actual_actions": 33
+  },
+  "authoring": "New source-only actual AI authors one supported (3-5 requested numeric fields) and one source-unavailable work item per source for practice, and separate new supported (3-5 numeric fields) and unavailable task per source for transfer. No paraphrase-only same-result transfer, no fake data, no false claims of observed real-world episodes. Each expected artifact and exact source-path calculation fixed by author and approved by independent new reviewer before any actor. Three repeated-practice items copy the positive practice objectives/expected artifacts exactly with neutral new IDs.",
+  "arms": {
+    "prior_plan_only": "All previous practice task texts and AI actions/predictions, no execution results, validation verdicts or review.",
+    "raw_feedback": "Same practice task texts/actions/predictions plus complete actual execution outputs/artifacts/validation feedback.",
+    "raw_feedback_and_review": "Identical raw_feedback bundle plus actual AI-authored post-outcome judgment-change/confirmation record."
+  },
+  "comparisons": "Primary raw_feedback_and_review vs raw_feedback isolates added review access, not feedback itself. Raw_feedback vs prior_plan_only diagnostic isolates explicit feedback access while prior actions are shared. All arms get the same current full sources, tasks, DSL, action opportunity and per-item cap. They can recompute earlier actions from current sources; no assertion of hidden information or equal input length/compute.",
+  "order": [
+    "Freeze protocol before authoring.",
+    "Approve and freeze task/gold, implementation and source hashes before actions.",
+    "One fresh fork-none AI context writes six practice actions and predictions without gold; freeze all before running.",
+    "Execute all six actions as actual artifact writes, keep success/failure without selecting or repairing semantic outputs.",
+    "One new fork-none AI writes bounded <=6000 canonical characters of observational memory with old judgment, actual outcome, new judgment/confirmation, why, uncertainty and future test, actual event IDs. No unsupported causal or learning claim.",
+    "Three fresh fork-none contexts receive counterbalanced-order matched nine later tasks in order: transfer/repeat interleaved. Dispatch raw_feedback, raw_feedback_and_review, prior_plan_only; no later outcomes available to any actor until all27 actions frozen.",
+    "Run all27 actions, no retry, repair, task replacement or memory updating on their outcomes. Independently audit counts and meaning/limits before results publication."
+  ],
+  "actions": "Public deterministic DSL op=get(source alias,path array),sum(args),sub(left,right),div(left,right), or source-unavailable artifact. Actual AI selects operation/path/status and prediction/rationale. Code resolves paths, calculates, writes artifact and compares it with prelocked independent-AI expected artifact; it never authors task meanings, memories, predictions or semantic explanations.",
+  "outcomes": [
+    "actual artifact correct by frozen expected typed values",
+    "execution failure and schema error separately",
+    "supported artifact completion / supported denominator",
+    "source-unavailable artifact abstention / unavailable denominator",
+    "paired corrected/regressed for identical later tasks",
+    "prediction accepted/rejected/uncertain versus actual validator verdict",
+    "per-item canonical output character cost and cap violations"
+  ],
+  "grade_boundary": "Mechanical exact artifact validation is appropriate for this numerical data-processing contract, not semantic memory comprehension, autonomous meaningful judgment or psychological learning. Independent AI input review is required for task meaning and expected artifact. Final interpretation audited; no controller-authored meaning grades.",
+  "limits": [
+    "Only three schema sources and six distinct new transfer tasks; descriptive bounded pilot, no significance/population rates.",
+    "No forced failures. If practice succeeds, error-correction learning is untested.",
+    "A memory record is an external input; different fresh AI contexts, no model parameter updates or continuous identity demonstrated.",
+    "No source retrieval selection, SHIORI graph/binary speed, complete LRE Wake, Emotion effect, native ChatGPT integration, biological brain/AGI/consciousness proof.",
+    "Context/task IDs orchestration only; modelidentity/settings/provider request counts and tokencompute unavailable:null.",
+    "All roles share host with instruction-limited file access, not OS isolation. Input lengths can differ; measured and reported.",
+    "Public existing data may have prior training exposure; task objective held-out from actors until packet delivery only."
+  ],
+  "collection": "All authored first actions retained. Max one format-only collection repair if unreadable JSON prevents ingestion, retain original and disclose; no semantic retry, truncation or score-based exclusion. If authored query/gold rejected pre-execution, retain rejection and at most one source-author revision. Never execute actions before code engineering tests and task review approval.",
+  "protection": "Read-only all13 earlier study roots and production3816 tracked files; no canonical memory, Emotion, Reflection, SELF_STATE, Wake changes. No private conversation source reads, no hosted workflow/billing changes.",
+  "publication": "Append actual JA/EN results only after independent source/count/privacy audit. Engineered task instructions/expected/actions/results and public sources can be published for deterministic replay after audit. Replaying saved AI actions is not fresh AI regeneration. Preserve all old studies/data/animations/history. No private paths or user details in public artifacts."
+}

@@ -460,6 +460,7 @@ class WorkingMemoryEngineering(unittest.TestCase):
     def test_listing_integration_preserves_each_previous_card_and_is_idempotent(self):
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
             html = (ROOT / name).read_text(encoding='utf-8')
+            html = re.sub(r'<article class="study-card" data-study="action-feedback">.*?</article>', '', html, flags=re.S)
             # If actual publication exists, its sixth card is replaced as intended.
             old_cards = [card for card in re.findall(r'<article class="study-card".*?</article>', html, re.S) if 'data-study="working-memory-source-fixed"' not in card]
             self.assertEqual(len(old_cards), 5)
@@ -520,8 +521,16 @@ class WorkingMemoryEngineering(unittest.TestCase):
         if not (ROOT / mod.DATA_FILE).is_file():
             self.skipTest('Actual independently audited public export has not been supplied')
         d = mod.load_summary()
-        for name, expected in pub.prepare_updates(ROOT, d).items():
-            self.assertEqual((ROOT / name).read_text(encoding='utf-8'), expected)
+        if not (ROOT / 'data/action-feedback-2026-10-27.json').is_file():
+            for name, expected in pub.prepare_updates(ROOT, d).items():
+                self.assertEqual((ROOT / name).read_text(encoding='utf-8'), expected)
+        else:
+            # Later publication owns the latest panel/build instructions; this
+            # study's dated pages and historical README block remain exact.
+            readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+            updated = pub.integrate_readme(readme, d)
+            self.assertEqual(readme.split(pub.README_START)[1].split(pub.README_END)[0],
+                             updated.split(pub.README_START)[1].split(pub.README_END)[0])
         pages = module('working_actual_listing', 'tools/build_pages.py')
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
             self.assertEqual((ROOT / name).read_text(encoding='utf-8'), pages.landing(lang) + '\n')

@@ -1,0 +1,1 @@
+{"status":"ok","values":{"direct_sum_bitmap_median_ms":0.15810449999999998,"path_minus_direct_bitmap_median_ms":0.21574950000000004,"path_sum_bitmap_median_ms":0.373854,"path_to_direct_bitmap_p95_ratio":6.686771755076106}}

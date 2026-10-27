@@ -1,5 +1,6 @@
 """Verify public numerical consistency, generated parity and publication boundaries."""
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -44,6 +45,12 @@ class Results(unittest.TestCase):
    for c in q['conditions'].values():self.assertEqual(set(c),{'target_rank_at_5','candidate_count','cue_count','has_ties_at_5'})
   for p in ROOT.rglob('*'):
    if not p.is_file() or '.git' in p.parts or '__pycache__' in p.parts:continue
+   if p.suffix.lower()=='.zip':
+    # The audited public-data replay is the sole ZIP publication exception.
+    self.assertEqual(p.relative_to(ROOT).as_posix(),'downloads/action-feedback-2026-10-27.zip')
+    replay_summary=json.loads((ROOT/'data/action-feedback-2026-10-27.json').read_text())
+    self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),replay_summary['replay']['zip_sha256'])
+    continue
    self.assertNotIn(p.suffix.lower(),{'.db','.sqlite','.sqlite3','.zip','.jsonl'})
    if p.suffix.lower() in {'.html','.json','.js','.css','.md','.py','.webmanifest'}:
     s=p.read_text()

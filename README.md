@@ -109,6 +109,30 @@ The final controller version ran its full 27-test unit suite. The separate 70 pr
 Reader inputs retained unchanged body text and allowlisted role/text/order/time plus opaque IDs, with trace/case UUID/path metadata stripped. Bodies may identify sources; this is not full anonymity. Meaning roles received no parent-task history and were instruction-separated on a shared host. Retrieval improvements, SHIORI speed, graph effects, real-action feedback learning, full Wake, Emotion, natural daily recall, brain reproduction and AGI were not verified. Prediction → actual action/result → next choice → retained history is **proposed, not executed**. Public data contains allowlisted counts, enums and audit digests, not originals, queries, source IDs or private experiment code. All five older studies, their data and four overview scroll stories retain their original bytes.
 <!-- WORKING_MEMORY_STUDY_END -->
 
+<!-- ACTION_FEEDBACK_STUDY_START -->
+## Prospective action feedback — 2026-10-27
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-27-action-feedback/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-27-action-feedback/en.html)
+
+The primary comparison is **raw execution feedback → the same feedback plus an actual AI review**. Prior plan only is a separate diagnostic. Six practice tasks (three supported, three unavailable) precede six new objectives (three + three) and three exact positive practice repeats per arm. All 33 actual actions are retained. The new objectives use the same three current complete public files, not unseen files. All arms can recompute previous actions.
+
+Actual AI roles author objectives and typed expectations, choose DSL paths/calculations/abstention, predict validation and write the post-outcome judgment review. Code executes the chosen get/sum/sub/div operations against real public files, writes actual JSON artifacts and mechanically compares types and values with the frozen expected artifact. All 27 later actions are frozen before any later outcomes are returned. This is a numerical contract, not a semantic-memory or psychological-learning grade.
+
+| Arm | New supported / 3 | New unavailable / 3 | Exact positive repeats / 3 |
+| --- | ---: | ---: | ---: |
+| Prior plan only | 3 | 3 | 3 |
+| Raw execution feedback | 3 | 3 | 3 |
+| Same feedback + AI review | 3 | 3 | 3 |
+
+Across the same nine later tasks, feedback → feedback + review corrected 0 validator outcomes and regressed 0. New objectives and exact repeats remain separate in the full phase-stratified and paired tables. Execution failures, schema errors, predictions and all 33 item records are reported independently. A character-cap overrun alone does not make an artifact value incorrect.
+
+The six external AI-review entries contain 6 confirmations, 0 revisions and 0 deferred judgments. The review is fresh-context external input, not continuous identity or model-parameter learning. Every action and the review share a 6,000-canonical-character cap. Actual input-packet length, raw output length and per-item canonical JSON characters are distinct measurements; input lengths differ and equal provider compute is unverified. Model identity, settings, provider request counts and token compute remain null.
+
+Task order in every arm is T01, R01, T02, T03, R02, T04, T05, R03, T06. Fixed arm dispatch is raw feedback, feedback + review, then prior plan only; there is no counterbalancing. Roles share one host with instruction-limited access. Before actions, draft one was rejected for measurement-presupposing unavailable instructions; only P02/P04 conditional wording changed and gold bytes stayed identical. All 38 expected numeric fields were checked. Practice errors are not forced; if practice succeeds, error-correction learning remains untested. Three schema sources and six new task objectives do not support population accuracy, general superiority, natural memory, brain/AGI/consciousness, SHIORI speed, full Wake or Emotion claims.
+
+[Public replay instructions](https://yuu-honda.github.io/lux-spiria-results/experiments/action-feedback-2026-10-27/README.md) / [Replay ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/action-feedback-2026-10-27.zip). The workbench publishes public sources, engineered objectives, expected artifacts, saved AI actions, results and DSL code for deterministic replay. Saved-action replay is not fresh AI regeneration. All six earlier dated studies/data and four overview stories/assets retain their original bytes and publication boundaries.
+<!-- ACTION_FEEDBACK_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -116,6 +140,10 @@ Public: study-specific method descriptions, target-hit aggregates, opaque per-qu
 Private: original conversations, question and evidence text, native source IDs, feature vocabulary, SQLite, experiment code and detailed execution artifacts. Public files permit aggregate recalculation, **not independent source auditing or engine reruns**. Reproduction reported here was internally verified with the same private frozen inputs. It is not external peer review, natural-conversation accuracy, a full LRE Wake/Emotion experiment, or evidence of personality continuity.
 
 No private repository credentials, source files or runtime fetches are required by this website.
+
+<!-- ACTION_FEEDBACK_PUBLIC_SCOPE_START -->
+The preceding private-source restriction applies to the six earlier archived-conversation studies. The action-feedback public-data workbench is an explicit exception: its already-public files, engineered tasks, expected values, saved AI actions, actual artifacts and DSL code are available for deterministic saved-action replay. This does not provide fresh AI regeneration or change earlier private-source publication boundaries.
+<!-- ACTION_FEEDBACK_PUBLIC_SCOPE_END -->
 
 ## Build and verify the website
 
@@ -127,9 +155,9 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v
 PYTHONDONTWRITEBYTECODE=1 python3 -B -m http.server 8769 --bind 127.0.0.1
 ```
 
-The main builder reads only public summaries under `data/`. It validates the optional `data/working-memory-source-fixed-2026-10-24.json` before publication writes. If this export is absent, the five older studies remain current and the working-memory integration produces no changes or placeholder outcomes. An existing invalid export fails closed. An audited actual export adds the sixth dated JA/EN study, updates result listings, only the overview latest-study panel, this README and the sitemap. Five older dated studies and their data, and all four overview scroll stories/assets, remain unchanged.
+The main builder reads only audited public summaries under `data/`. Optional `data/action-feedback-2026-10-27.json` activates the seventh dated JA/EN study only after validation and matching public source/README/ZIP hashes. Missing data leaves the six older studies current without placeholder outcomes. Invalid data or unavailable replay files fail before publication writes. It updates results listings, only the overview latest-study panel, this README and sitemap. Six older dated studies/data and all four overview scroll stories/assets remain unchanged.
 
-`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_working_memory.py` rebuilds only its dated pages and refuses missing or invalid data before writes. These commands rebuild the public website, not the private experiment. Earlier standalone builders remain available. GitHub Pages serves `main` at the repository root.
+`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_action_feedback.py` rebuilds only its dated pair after the same checks. The public replay bundle has separate instructions. Saved-action replay is distinct from rebuilding this website and from fresh AI generation. GitHub Pages serves `main` at the repository root.
 
 ## Preservation
 
