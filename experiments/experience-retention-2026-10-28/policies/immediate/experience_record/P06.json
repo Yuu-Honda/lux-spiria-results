@@ -1,0 +1,1 @@
+{"id":"P06","decision":"inspect","rationale":"The digest matches the recorded T03 root layout, but the experience record establishes only baseline and recovery_raw. The requested recovery_gated ID, its index, and the confusable return field paths have not been verified. Inspect once to bind both exact condition IDs and all required scalar paths."}

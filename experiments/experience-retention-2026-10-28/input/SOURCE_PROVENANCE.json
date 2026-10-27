@@ -1,0 +1,19 @@
+{
+  "commit": "e2436c52a4ecbd39bf042c95ba346abed49fd176",
+  "note": "Previously public numerical exports, newly used as file-operation families in this series; no new dialogue or production memory.",
+  "repository": "https://github.com/Yuu-Honda/lux-spiria-results",
+  "sources": {
+    "X01": {
+      "public_path": "data/shiori-event-adoption-2026-10-24.json",
+      "sha256": "fc7bfaed1b721a8d6fb95609b8edaa74c8cce1a9d10a238cf4b85083fededffe"
+    },
+    "X02": {
+      "public_path": "data/shiori-event-compatibility-2026-10-22.json",
+      "sha256": "da314ce28940785dac7b097f07ab028b378757f1af6efbfe32d7867be3c3c2bd"
+    },
+    "X03": {
+      "public_path": "data/shiori-retrieval-hypotheses-2026-10-21.json",
+      "sha256": "54c09696c06e5ddcc0031d73663fc4d46e82d3b79e8aa4223d15449d4edd7680"
+    }
+  }
+}

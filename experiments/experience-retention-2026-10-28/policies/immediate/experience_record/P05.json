@@ -1,0 +1,1 @@
+{"id":"P05","decision":"inspect","rationale":"The assigned digest matches the observed C01 payload layout and condition order, but the requested query_kind_strata literal/paraphrase count and denominator paths were not established by that experience. Inspect the current structure to verify those stratum fields and scalar types before constructing the four expressions."}

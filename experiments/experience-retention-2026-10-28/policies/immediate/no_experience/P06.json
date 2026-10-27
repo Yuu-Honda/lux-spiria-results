@@ -1,0 +1,1 @@
+{"id":"P06","decision":"inspect","rationale":"The requested fractions and signed differences are supported, but the source paths and condition ordering are unknown. Inspect the assigned structure to locate sample.confusable_queries and both condition records before authoring the artifact action."}

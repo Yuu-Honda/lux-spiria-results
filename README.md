@@ -157,6 +157,27 @@ Actors receive shared actual schema observations and handles, not full current J
 [Public replay instructions](https://yuu-honda.github.io/lux-spiria-results/experiments/conditional-revision-2026-10-27/README.md) / [Replay ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/conditional-revision-2026-10-27.zip). Replay executes saved operations without regenerating fresh AI decisions. All seven earlier dated studies/data/replay and four overview stories/assets retain their bytes and publication boundaries.
 <!-- CONDITIONAL_REVISION_STUDY_END -->
 
+<!-- EXPERIENCE_RETENTION_STUDY_START -->
+## Own experience-record use — immediate phase, 2026-10-28
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-28-experience-retention/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-28-experience-retention/en.html)
+
+An actual AI chose six own initial operations on three known public numeric source families, first original then deliberately wrapped under `payload`. Only failed initials permitted at most one actual repair. The same fresh training context authored and froze three experience entries. Actual labels: 3 conditional_update, 0 confirmation, 0 deferred; 5627/6000 canonical characters. Own errors or update labels were never guaranteed.
+
+The primary comparison is availability of the whole frozen experience record versus no record, rather than review isolated from raw experience. Every arm/item uses a fresh context with the same current task, opaque source handle/family/raw hash and optional real schema inspection. No current schema or format answer is pre-supplied. Common probe instructions give no direct legacy-preservation instruction. The training-record template does request legacy_scope (applicability of earlier conditions); the AI chooses its contents. Three held-out objectives × two formats give six items per arm, not six independent objectives. All 12 policies freeze before any inspection output and all 12 actions before execution feedback. One action and at most one inspection per probe; no probe repairs or feedback updates.
+
+| Arm / immediate | Accepted | Additional inspections | Inspection raw bytes | Returned projection chars |
+| --- | ---: | ---: | ---: | ---: |
+| No experience record | 6/6 | 6 | 477221 | 168282 |
+| Same frozen experience record | 6/6 | 5 | 401142 | 90822 |
+
+No record → record: paired corrected 0, regressed 0. The predeclared efficient-use criterion requires equal accepted counts, fewer actual additional schema inspections and no added execution errors, invalid actions or abstentions. Inspection raw bytes/projection characters concern additional structural reads only. Both arms' executor also reads the assigned source when computing each artifact, so zero inspections does not mean zero total source I/O. Latency, token, compute and spend savings are unmeasured; actual input lengths differ and provider metadata remains null.
+
+**Delayed ≥24-hour phase: uncollected, no results.** Actual memory freeze: 2026-10-27T16:12:30.470580Z; not before 2026-10-28T16:12:30.470580Z (86400 seconds). Further tasks/gold are frozen but only commitment hashes are public. Scheduling is not execution. A later real trial will append a separate dated page/data/root, preserving this phase-one at-publication pending state. Fresh contexts rereading the same external record tests persistence and portability, not psychological retention, continuous identity, weight learning, native Wake, SHIORI mechanism/speed, brains or a forgetting curve.
+
+[Public replay](https://yuu-honda.github.io/lux-spiria-results/experiments/experience-retention-2026-10-28/README.md) / [Replay ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/experience-retention-2026-10-28.zip). Saved-action replay does not regenerate fresh AI choices and excludes future tasks/gold. This is the third public-data workbench exception to the earlier six private-conversation studies; all eight earlier study/data/replay/download bytes and four overview stories remain unchanged.
+<!-- EXPERIENCE_RETENTION_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -179,9 +200,9 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v
 PYTHONDONTWRITEBYTECODE=1 python3 -B -m http.server 8769 --bind 127.0.0.1
 ```
 
-Optional `data/conditional-revision-2026-10-27.json` activates the eighth JA/EN study only after strict validation and matching original-source, public manifest/README and external ZIP hashes. Missing export makes no new publication changes or placeholder results. Invalid data or missing replay files fails before writes. The builder updates only listings, the overview latest-study panel, README and sitemap, and adds the new dated pair. Seven older studies/data/replay and four overview stories/assets remain unchanged.
+Optional `data/experience-retention-2026-10-28.json` activates the ninth JA/EN immediate study after exact schema/count/role/clock validation and matching original-source, replay manifest/README and external ZIP hashes. Missing export produces no new publication or placeholder results; invalid data/replay refuses writes. Only latest panels/listings, README and sitemap change alongside the new dated pair. Eight earlier dated studies/data/replay/downloads and four overview stories/assets remain unchanged. The delayed phase remains uncollected in this immutable immediate publication.
 
-`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_conditional_revision.py` rebuilds only its dated pair after the same checks. Public workbench replay has separate instructions and does not regenerate fresh AI. GitHub Pages serves `main` at the repository root.
+`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_experience_retention.py` rebuilds only its dated pair after the same checks. Public replay executes saved choices without fresh AI generation. GitHub Pages serves `main` at the repository root.
 
 ## Preservation
 

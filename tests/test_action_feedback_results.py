@@ -345,6 +345,7 @@ class ActionFeedbackEngineering(unittest.TestCase):
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
             before = pub.CARD.sub('', (ROOT / name).read_text(encoding='utf-8'))
             before = re.sub(r'<article class="study-card" data-study="conditional-revision">.*?</article>', '', before, flags=re.S)
+            before = re.sub(r'<article class="study-card" data-study="experience-retention">.*?</article>', '', before, flags=re.S)
             cards = re.findall(r'<article class="study-card".*?</article>', before, re.S)
             self.assertEqual(len(cards), 6)
             after = pub.integrate_listing(before, lang, self.d)

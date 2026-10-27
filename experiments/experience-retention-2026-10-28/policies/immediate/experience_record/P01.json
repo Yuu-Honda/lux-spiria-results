@@ -1,0 +1,1 @@
+{"id":"P01","decision":"inspect","rationale":"The source digest matches the C02 experience, supporting a payload prefix and condition order, but that record does not verify the newly requested native_searches and sample.queries paths and scalar types. Inspect these before constructing the workload expressions."}

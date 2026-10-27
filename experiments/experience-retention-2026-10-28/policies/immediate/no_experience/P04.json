@@ -1,0 +1,1 @@
+{"id":"P04","decision":"inspect","rationale":"The comparison requires counts for two named conditions and sample.queries, but their source paths and the condition container structure are unknown. A structural inspection will identify the correct paths and condition entries before I submit the expressions."}
