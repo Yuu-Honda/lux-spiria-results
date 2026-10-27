@@ -1,0 +1,963 @@
+{
+  "schema_version": 1,
+  "study_id": "lux-shiori-real-record-pilot-20261013-v1",
+  "date": "2026-10-13",
+  "provenance": {
+    "engine_commit": "20546a987c07146b1e0e0e524b207d6bd99c2dcc",
+    "snapshot_state": "experimental draft prototype snapshot",
+    "freeze_sha256": "9b3df5613bf73a3c9f64ebd1ed543c02f951314f8083df7b9c63326bcf8cbd42",
+    "experiment_manifest_sha256": "5d18613addf948dfde8f6fa7f09c44549064e8f43e0bdb4c0cb5e2b395ac581b"
+  },
+  "sample": {
+    "sessions": 1,
+    "export_records": 47,
+    "dialogue_messages": 42,
+    "constructed_queries": 24,
+    "answerable_queries": 22,
+    "no_answer_controls": 2,
+    "query_categories": {
+      "direct_source_question": 8,
+      "paraphrase_question": 8,
+      "two_clue_question": 6,
+      "no_answer_control": 2
+    },
+    "unique_target_messages": 24
+  },
+  "indexing": {
+    "default_semantic_feature_occurrences": 0,
+    "reviewed_semantic_feature_occurrences": 203,
+    "manual_review": true,
+    "annotation_frozen_before_query_authoring": true
+  },
+  "conditions": [
+    {
+      "id": "direct_max",
+      "hops": 0,
+      "aggregation": "single_best",
+      "answerable_queries": 22,
+      "target_hits": {
+        "at_1": 2,
+        "at_3": 5,
+        "at_5": 5
+      },
+      "mrr_at_5": 0.14393939393939395,
+      "no_answer_controls_with_candidates": 2
+    },
+    {
+      "id": "direct_sum",
+      "hops": 0,
+      "aggregation": "sum_best_per_cue",
+      "answerable_queries": 22,
+      "target_hits": {
+        "at_1": 8,
+        "at_3": 10,
+        "at_5": 10
+      },
+      "mrr_at_5": 0.4090909090909091,
+      "no_answer_controls_with_candidates": 2
+    },
+    {
+      "id": "path_max",
+      "hops": 1,
+      "aggregation": "single_best",
+      "answerable_queries": 22,
+      "target_hits": {
+        "at_1": 2,
+        "at_3": 5,
+        "at_5": 6
+      },
+      "mrr_at_5": 0.1553030303030303,
+      "no_answer_controls_with_candidates": 2
+    },
+    {
+      "id": "path_sum",
+      "hops": 1,
+      "aggregation": "sum_best_per_cue",
+      "answerable_queries": 22,
+      "target_hits": {
+        "at_1": 8,
+        "at_3": 10,
+        "at_5": 11
+      },
+      "mrr_at_5": 0.42045454545454547,
+      "no_answer_controls_with_candidates": 2
+    }
+  ],
+  "per_query": [
+    {
+      "id": "Q01",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": 1,
+          "candidate_count": 2,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 2,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q02",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q03",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": 1,
+          "candidate_count": 1,
+          "cue_count": 1,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 1,
+          "cue_count": 1,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q04",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q05",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": 3,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 2,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": 3,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 2,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "direct_source_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q11",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q12",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q13",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q14",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q15",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "paraphrase_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 0,
+          "cue_count": 0,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q17",
+      "category": "two_clue_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q18",
+      "category": "two_clue_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": 3,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": 3,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q19",
+      "category": "two_clue_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 3,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 3,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": 4,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 4,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q20",
+      "category": "two_clue_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 2,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q21",
+      "category": "two_clue_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 5,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 2,
+          "candidate_count": 5,
+          "cue_count": 5,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 5,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 2,
+          "candidate_count": 5,
+          "cue_count": 5,
+          "has_ties_at_5": false
+        }
+      }
+    },
+    {
+      "id": "Q22",
+      "category": "two_clue_question",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": 2,
+          "candidate_count": 2,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 2,
+          "cue_count": 3,
+          "has_ties_at_5": false
+        },
+        "path_max": {
+          "target_rank_at_5": 2,
+          "candidate_count": 5,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": 1,
+          "candidate_count": 5,
+          "cue_count": 3,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q23",
+      "category": "no_answer_control",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    },
+    {
+      "id": "Q24",
+      "category": "no_answer_control",
+      "conditions": {
+        "direct_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "direct_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_max": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        },
+        "path_sum": {
+          "target_rank_at_5": null,
+          "candidate_count": 5,
+          "cue_count": 1,
+          "has_ties_at_5": true
+        }
+      }
+    }
+  ],
+  "timing": {
+    "scope": "First recorded run: warm local recall including query parsing; no raw-source lookup or serialization.",
+    "repeats_per_query": 21,
+    "includes_zero_cue_queries": true,
+    "samples": [
+      {
+        "condition": "direct_max",
+        "method": "binary",
+        "n": 504,
+        "median_ms": 0.16047899999999998,
+        "p95_ms": 0.231042
+      },
+      {
+        "condition": "direct_max",
+        "method": "tags",
+        "n": 504,
+        "median_ms": 0.1568545,
+        "p95_ms": 0.215959
+      },
+      {
+        "condition": "direct_max",
+        "method": "bitmap",
+        "n": 504,
+        "median_ms": 0.159208,
+        "p95_ms": 0.226167
+      },
+      {
+        "condition": "direct_sum",
+        "method": "binary",
+        "n": 504,
+        "median_ms": 0.15889599999999998,
+        "p95_ms": 0.227084
+      },
+      {
+        "condition": "direct_sum",
+        "method": "tags",
+        "n": 504,
+        "median_ms": 0.15574949999999999,
+        "p95_ms": 0.211458
+      },
+      {
+        "condition": "direct_sum",
+        "method": "bitmap",
+        "n": 504,
+        "median_ms": 0.15810449999999998,
+        "p95_ms": 0.214042
+      },
+      {
+        "condition": "path_max",
+        "method": "binary",
+        "n": 504,
+        "median_ms": 0.384729,
+        "p95_ms": 1.410542
+      },
+      {
+        "condition": "path_max",
+        "method": "tags",
+        "n": 504,
+        "median_ms": 0.38081299999999996,
+        "p95_ms": 1.436375
+      },
+      {
+        "condition": "path_max",
+        "method": "bitmap",
+        "n": 504,
+        "median_ms": 0.3793545,
+        "p95_ms": 1.420334
+      },
+      {
+        "condition": "path_sum",
+        "method": "binary",
+        "n": 504,
+        "median_ms": 0.3789165,
+        "p95_ms": 1.427709
+      },
+      {
+        "condition": "path_sum",
+        "method": "tags",
+        "n": 504,
+        "median_ms": 0.376792,
+        "p95_ms": 1.441125
+      },
+      {
+        "condition": "path_sum",
+        "method": "bitmap",
+        "n": 504,
+        "median_ms": 0.373854,
+        "p95_ms": 1.43125
+      }
+    ]
+  },
+  "verification": {
+    "frozen_inputs_intact": true,
+    "artifact_hashes_intact": true,
+    "fresh_process_database_exact_results_equal": true,
+    "source_return_exact": true,
+    "independent_metric_recalculation_equal": true,
+    "execution_completed": true,
+    "all_methods_equal": true,
+    "exact_raw_reread": true,
+    "reopened_recall_equal": true,
+    "recall_read_only": true,
+    "fresh_rebuild_verification_passed": true,
+    "timing_values_reproduction_claimed": false
+  },
+  "findings": {
+    "aggregation_only_hit_at_3_gain_queries": [
+      "Q04",
+      "Q08",
+      "Q17",
+      "Q20",
+      "Q21"
+    ],
+    "additional_hop_hit_at_5_queries": [
+      "Q19"
+    ],
+    "hop_hit_at_3_gain_count": 0,
+    "zero_cue_queries": [
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16"
+    ]
+  },
+  "boundaries": {
+    "local_selected_single_session_pilot": true,
+    "same_team_ai_assisted": true,
+    "external_peer_review": false,
+    "response_model_generation_run": false,
+    "full_lre_wake_run": false,
+    "emotion_effect_experiment_run": false,
+    "personality_continuity_inferred": false,
+    "notes": [
+      "Descriptive results on one selected archived real-dialogue session, not population accuracy, statistical significance or everyday memory improvement.",
+      "Questions were authored for this experiment; they are not naturally occurring test utterances or proof of model-training novelty.",
+      "The transcript establishes what was said, not independently verified product facts. Qrels identify sufficient sources rather than exhaustive relevance.",
+      "No-answer controls count returned candidates, not fabricated model answers. Source return does not establish answerability.",
+      "Ties are observed only within the returned top five; tied ordering uses episode-root hashes.",
+      "The additional hop hit came from one cue path, not multiple-cue convergence. The five additional top-three hits already occurred without hops.",
+      "Source proposals and queries use the same bounded parser with different available lexicons; reviewed indexing is manual assistance, not automatic learning.",
+      "Timing values are from the first run; repeated-process checks establish retrieval/source/metric equality, not timing equality.",
+      "No subjective-experience, hidden-memory-pathway, downstream-response or full-system causal claim is made."
+    ]
+  },
+  "retrieval_config": {
+    "method": "bitmap",
+    "limit": 5,
+    "hub_limit": 32,
+    "lexical": false,
+    "explicit_cues": false
+  }
+}

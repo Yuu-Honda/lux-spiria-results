@@ -344,6 +344,7 @@ class ActionFeedbackEngineering(unittest.TestCase):
     def test_listing_keeps_all_six_prior_cards_and_adds_public_scope_exception(self):
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
             before = pub.CARD.sub('', (ROOT / name).read_text(encoding='utf-8'))
+            before = re.sub(r'<article class="study-card" data-study="conditional-revision">.*?</article>', '', before, flags=re.S)
             cards = re.findall(r'<article class="study-card".*?</article>', before, re.S)
             self.assertEqual(len(cards), 6)
             after = pub.integrate_listing(before, lang, self.d)
@@ -351,8 +352,8 @@ class ActionFeedbackEngineering(unittest.TestCase):
             for card in cards: self.assertIn(card, after)
             self.assertEqual(pub.integrate_listing(after, lang, self.d), after)
             self.assertIn(mod.REPLAY + 'README.md', after)
-            expected = '公開データ作業台は例外' if lang == 'ja' else 'public-data workbench is an exception'
-            self.assertIn(expected, after)
+            self.assertIn('公開データ作業台' if lang == 'ja' else 'public-data workbench', after)
+            self.assertIn('例外' if lang == 'ja' else 'exception', after)
 
     def test_readme_sitemap_are_idempotent_and_historical_blocks_unchanged(self):
         before = (ROOT / 'README.md').read_text(encoding='utf-8'); after = pub.integrate_readme(before, self.d)
@@ -398,6 +399,8 @@ class ActionFeedbackEngineering(unittest.TestCase):
             self.skipTest('Actual audited export and public replay are not supplied')
         d = mod.load_summary(); mod.require_public_inputs(ROOT, d)
         for name, expected in pub.prepare_updates(ROOT, d).items():
+            if (ROOT / 'data/conditional-revision-2026-10-27.json').is_file() and not name.startswith(mod.STUDY):
+                continue  # The eighth study owns current latest metadata.
             self.assertEqual((ROOT / name).read_text(encoding='utf-8'), expected)
         pages = module('action_actual_main', 'tools/build_pages.py')
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:

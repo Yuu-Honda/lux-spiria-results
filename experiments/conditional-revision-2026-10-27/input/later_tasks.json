@@ -1,0 +1,68 @@
+[
+  {
+    "id": "F01",
+    "source": "S01",
+    "instruction": "Compare the effect of sum_best_per_cue aggregation relative to single_best aggregation on mrr_at_5, separately for the direct and one-hop retrieval settings. Return direct_sum_minus_direct_max_mrr_at_5, path_sum_minus_path_max_mrr_at_5, direct_sum_to_direct_max_mrr_at_5_ratio, and path_sum_to_path_max_mrr_at_5_ratio. For each difference subtract the named max condition from the named sum condition; for each ratio divide the named sum condition by the named max condition. Do not round calculated values.",
+    "field_names": [
+      "direct_sum_minus_direct_max_mrr_at_5",
+      "path_sum_minus_path_max_mrr_at_5",
+      "direct_sum_to_direct_max_mrr_at_5_ratio",
+      "path_sum_to_path_max_mrr_at_5_ratio"
+    ]
+  },
+  {
+    "id": "F02",
+    "source": "S04",
+    "instruction": "Compare the literal-versus-paraphrase retrieval gap across baseline, raw_semantic, and gated_semantic. A literal hit fraction is literal_hits divided by the sample literal_queries count; a paraphrase hit fraction is paraphrase_hits divided by the sample paraphrase_queries count. Return baseline_literal_minus_paraphrase_hit_fraction, raw_literal_minus_paraphrase_hit_fraction, and gated_literal_minus_paraphrase_hit_fraction, each condition's literal hit fraction minus its paraphrase hit fraction; also return raw_to_baseline_paraphrase_hit_fraction_ratio, the raw_semantic paraphrase hit fraction divided by the baseline paraphrase hit fraction. Do not round calculated values.",
+    "field_names": [
+      "baseline_literal_minus_paraphrase_hit_fraction",
+      "raw_literal_minus_paraphrase_hit_fraction",
+      "gated_literal_minus_paraphrase_hit_fraction",
+      "raw_to_baseline_paraphrase_hit_fraction_ratio"
+    ]
+  },
+  {
+    "id": "F03",
+    "source": "S05",
+    "instruction": "Using the study sample counts, compare source-pool and authored-query density between the fresh and known cohorts. Return fresh_retained_messages_per_source_session and known_retained_messages_per_source_session, each cohort's retained-message count divided by its source-session count; fresh_to_known_retained_messages_per_source_session_ratio, the fresh density divided by the known density; and known_minus_fresh_queries_per_source_session, the known queries per source session minus the fresh queries per source session. Do not round calculated values.",
+    "field_names": [
+      "fresh_retained_messages_per_source_session",
+      "known_retained_messages_per_source_session",
+      "fresh_to_known_retained_messages_per_source_session_ratio",
+      "known_minus_fresh_queries_per_source_session"
+    ]
+  },
+  {
+    "id": "F04",
+    "source": "S02",
+    "instruction": "Compare the effect of sum_best_per_cue aggregation relative to single_best aggregation on mrr_at_5, separately for the direct and one-hop retrieval settings. Return direct_sum_minus_direct_max_mrr_at_5, path_sum_minus_path_max_mrr_at_5, direct_sum_to_direct_max_mrr_at_5_ratio, and path_sum_to_path_max_mrr_at_5_ratio. For each difference subtract the named max condition from the named sum condition; for each ratio divide the named sum condition by the named max condition. Do not round calculated values.",
+    "field_names": [
+      "direct_sum_minus_direct_max_mrr_at_5",
+      "path_sum_minus_path_max_mrr_at_5",
+      "direct_sum_to_direct_max_mrr_at_5_ratio",
+      "path_sum_to_path_max_mrr_at_5_ratio"
+    ]
+  },
+  {
+    "id": "F05",
+    "source": "S03",
+    "instruction": "Compare the literal-versus-paraphrase retrieval gap across baseline, raw_semantic, and gated_semantic. A literal hit fraction is literal_hits divided by the sample literal_queries count; a paraphrase hit fraction is paraphrase_hits divided by the sample paraphrase_queries count. Return baseline_literal_minus_paraphrase_hit_fraction, raw_literal_minus_paraphrase_hit_fraction, and gated_literal_minus_paraphrase_hit_fraction, each condition's literal hit fraction minus its paraphrase hit fraction; also return raw_to_baseline_paraphrase_hit_fraction_ratio, the raw_semantic paraphrase hit fraction divided by the baseline paraphrase hit fraction. Do not round calculated values.",
+    "field_names": [
+      "baseline_literal_minus_paraphrase_hit_fraction",
+      "raw_literal_minus_paraphrase_hit_fraction",
+      "gated_literal_minus_paraphrase_hit_fraction",
+      "raw_to_baseline_paraphrase_hit_fraction_ratio"
+    ]
+  },
+  {
+    "id": "F06",
+    "source": "S06",
+    "instruction": "Using the study sample counts, compare source-pool and authored-query density between the fresh and known cohorts. Return fresh_retained_messages_per_source_session and known_retained_messages_per_source_session, each cohort's retained-message count divided by its source-session count; fresh_to_known_retained_messages_per_source_session_ratio, the fresh density divided by the known density; and known_minus_fresh_queries_per_source_session, the known queries per source session minus the fresh queries per source session. Do not round calculated values.",
+    "field_names": [
+      "fresh_retained_messages_per_source_session",
+      "known_retained_messages_per_source_session",
+      "fresh_to_known_retained_messages_per_source_session_ratio",
+      "known_minus_fresh_queries_per_source_session"
+    ]
+  }
+]

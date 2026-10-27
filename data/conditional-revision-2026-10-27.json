@@ -1,0 +1,532 @@
+{
+  "counts": {
+    "legacy": {
+      "accepted": 3,
+      "artifacts_written": 3,
+      "budget_exceeded": 0,
+      "execution_errors": 0,
+      "invalid_actions": 0,
+      "items": 3,
+      "rejected": 0
+    },
+    "raw_observations": {
+      "accepted": 6,
+      "artifacts_written": 6,
+      "budget_exceeded": 0,
+      "execution_errors": 0,
+      "invalid_actions": 0,
+      "items": 6,
+      "rejected": 0
+    },
+    "raw_observations_and_conditional_review": {
+      "accepted": 6,
+      "artifacts_written": 6,
+      "budget_exceeded": 0,
+      "execution_errors": 0,
+      "invalid_actions": 0,
+      "items": 6,
+      "rejected": 0
+    },
+    "repair": {
+      "accepted": 3,
+      "artifacts_written": 3,
+      "budget_exceeded": 0,
+      "execution_errors": 0,
+      "invalid_actions": 0,
+      "items": 3,
+      "rejected": 0
+    },
+    "wrapped": {
+      "accepted": 0,
+      "artifacts_written": 0,
+      "budget_exceeded": 0,
+      "execution_errors": 3,
+      "invalid_actions": 0,
+      "items": 3,
+      "rejected": 3
+    }
+  },
+  "date": "2026-10-27",
+  "items": [
+    {
+      "action_sha256": "97187c2c6715d593ddce3c1a42272664707444d76ec1e5c72b1ec7208fc5ac26",
+      "artifact_sha256": "8b2bace3741bb405d779b2a6d2a769c7dd287a0731309c36479dd3dddef35151",
+      "budget_exceeded": false,
+      "canonical_characters": 1165,
+      "condition": "legacy",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "P01",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": null,
+      "prediction_scored": false,
+      "source": "D01",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "969f022fa92c112235cce81fba682c6c5a46f26a9abe58ea22f80fb83be18d85",
+      "artifact_sha256": "0425d11bcb13149d8acec4a07e8c317279ec7cd781e331869448c3d35edc927c",
+      "budget_exceeded": false,
+      "canonical_characters": 1384,
+      "condition": "legacy",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "P03",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": null,
+      "prediction_scored": false,
+      "source": "D02",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "b30cfca3fc443011e883a14746a3d2842682f630b8669485a3fb9a7880a47a11",
+      "artifact_sha256": "b3ded4c125a883aed208900d9a717d2d18f09b58803d6735a0cde22d5b732ed5",
+      "budget_exceeded": false,
+      "canonical_characters": 2270,
+      "condition": "legacy",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "P05",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": null,
+      "prediction_scored": false,
+      "source": "D03",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "97187c2c6715d593ddce3c1a42272664707444d76ec1e5c72b1ec7208fc5ac26",
+      "artifact_sha256": null,
+      "budget_exceeded": false,
+      "canonical_characters": 1165,
+      "condition": "wrapped",
+      "error": {
+        "sha256": "e3507a1f782e9cef51ff0a32a8cc265602c2059977f9d2589bd7d75e2737fa4d",
+        "type": "ActionError"
+      },
+      "execution_status": "execution_error",
+      "format": "wrapped_v2",
+      "id": "P01",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": null,
+      "prediction_scored": false,
+      "source": "D01",
+      "validation_status": "rejected"
+    },
+    {
+      "action_sha256": "969f022fa92c112235cce81fba682c6c5a46f26a9abe58ea22f80fb83be18d85",
+      "artifact_sha256": null,
+      "budget_exceeded": false,
+      "canonical_characters": 1384,
+      "condition": "wrapped",
+      "error": {
+        "sha256": "e3507a1f782e9cef51ff0a32a8cc265602c2059977f9d2589bd7d75e2737fa4d",
+        "type": "ActionError"
+      },
+      "execution_status": "execution_error",
+      "format": "wrapped_v2",
+      "id": "P03",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": null,
+      "prediction_scored": false,
+      "source": "D02",
+      "validation_status": "rejected"
+    },
+    {
+      "action_sha256": "b30cfca3fc443011e883a14746a3d2842682f630b8669485a3fb9a7880a47a11",
+      "artifact_sha256": null,
+      "budget_exceeded": false,
+      "canonical_characters": 2270,
+      "condition": "wrapped",
+      "error": {
+        "sha256": "e3507a1f782e9cef51ff0a32a8cc265602c2059977f9d2589bd7d75e2737fa4d",
+        "type": "ActionError"
+      },
+      "execution_status": "execution_error",
+      "format": "wrapped_v2",
+      "id": "P05",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": null,
+      "prediction_scored": false,
+      "source": "D03",
+      "validation_status": "rejected"
+    },
+    {
+      "action_sha256": "7d2b6dc293acb5b95e1590bcf22b23e0da59c567c764a754df7adc786c5fc104",
+      "artifact_sha256": "8b2bace3741bb405d779b2a6d2a769c7dd287a0731309c36479dd3dddef35151",
+      "budget_exceeded": false,
+      "canonical_characters": 1387,
+      "condition": "repair",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "P01",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "D01",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "91ec5efb200a7810a75cea18ebf6140c3cadfbe08da440db23f24bb6bb0ad85d",
+      "artifact_sha256": "0425d11bcb13149d8acec4a07e8c317279ec7cd781e331869448c3d35edc927c",
+      "budget_exceeded": false,
+      "canonical_characters": 1629,
+      "condition": "repair",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "P03",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "D02",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "cc9be307ffda8de40f4bd4d66d0c4ebe7fd49a4b02b637e5c3ef85cd886d504e",
+      "artifact_sha256": "b3ded4c125a883aed208900d9a717d2d18f09b58803d6735a0cde22d5b732ed5",
+      "budget_exceeded": false,
+      "canonical_characters": 2451,
+      "condition": "repair",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "P05",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "D03",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "bcbc934dba51b9347fade30ce91779eabf6285caf571be0905a974ba0597d09c",
+      "artifact_sha256": "5ac9a07f739e8a2f3c22de5c062648a042aa64634e2a5bfa1c45f7f2ff151f9a",
+      "budget_exceeded": false,
+      "canonical_characters": 1223,
+      "condition": "raw_observations",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "F01",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S01",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "22535b7eb9361b1cae485a7958432aa186157c6c04167bb91ee381bf833ebbfd",
+      "artifact_sha256": "84eeb5832f5e079a9731b45fa3138332bd3c5d3500552c7b128ea7978b68404b",
+      "budget_exceeded": false,
+      "canonical_characters": 2297,
+      "condition": "raw_observations",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "F02",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S04",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "c22a2aed70d0e9389a0dd5565e604d0217de6293fb263615c58587d22eac438f",
+      "artifact_sha256": "21e5bdb72aa7c78b8ab9ecbbd7b1d3d531254a23aa1f3239cbc52973f9c7fc99",
+      "budget_exceeded": false,
+      "canonical_characters": 1789,
+      "condition": "raw_observations",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "F03",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S05",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "d44761cd603fdd685c10091948f0225d5ab81f805d40837124a21882ba68cdd6",
+      "artifact_sha256": "5ac9a07f739e8a2f3c22de5c062648a042aa64634e2a5bfa1c45f7f2ff151f9a",
+      "budget_exceeded": false,
+      "canonical_characters": 1328,
+      "condition": "raw_observations",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "F04",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S02",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "572aef8214e340d4b97b4ee2ef1de654215f787a0be367dfea36722c209be889",
+      "artifact_sha256": "84eeb5832f5e079a9731b45fa3138332bd3c5d3500552c7b128ea7978b68404b",
+      "budget_exceeded": false,
+      "canonical_characters": 2126,
+      "condition": "raw_observations",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "F05",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S03",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "5596a7b970baf678083882ee2affc5259fd847e598d2fb1c4fb802592f11e998",
+      "artifact_sha256": "21e5bdb72aa7c78b8ab9ecbbd7b1d3d531254a23aa1f3239cbc52973f9c7fc99",
+      "budget_exceeded": false,
+      "canonical_characters": 1875,
+      "condition": "raw_observations",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "F06",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S06",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "fdaa7a60dcda4c24863889963020c66cf55bcd714624075e3d7a66024ed6ee69",
+      "artifact_sha256": "5ac9a07f739e8a2f3c22de5c062648a042aa64634e2a5bfa1c45f7f2ff151f9a",
+      "budget_exceeded": false,
+      "canonical_characters": 1258,
+      "condition": "raw_observations_and_conditional_review",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "F01",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S01",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "55a949d6f507fc9e51a2eb62dbfd1295a7a2c593b0eefe56aee1dd8b212f9078",
+      "artifact_sha256": "84eeb5832f5e079a9731b45fa3138332bd3c5d3500552c7b128ea7978b68404b",
+      "budget_exceeded": false,
+      "canonical_characters": 2360,
+      "condition": "raw_observations_and_conditional_review",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "F02",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S04",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "42b174ab953bcf28ba48933e4f9e764e4f35a4b1642ebc9f4c102fa7165e4cd0",
+      "artifact_sha256": "21e5bdb72aa7c78b8ab9ecbbd7b1d3d531254a23aa1f3239cbc52973f9c7fc99",
+      "budget_exceeded": false,
+      "canonical_characters": 1798,
+      "condition": "raw_observations_and_conditional_review",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "F03",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S05",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "36968b020ff354989f63ff1d855a597b6b4245f0755ab04fde1e16a95cfb0cda",
+      "artifact_sha256": "5ac9a07f739e8a2f3c22de5c062648a042aa64634e2a5bfa1c45f7f2ff151f9a",
+      "budget_exceeded": false,
+      "canonical_characters": 1362,
+      "condition": "raw_observations_and_conditional_review",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "F04",
+      "origin_alias": "D01",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S02",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "dcb48caa303f7e93455218a953cc7902a07e24b078545f00b6a2d008faddb342",
+      "artifact_sha256": "84eeb5832f5e079a9731b45fa3138332bd3c5d3500552c7b128ea7978b68404b",
+      "budget_exceeded": false,
+      "canonical_characters": 2176,
+      "condition": "raw_observations_and_conditional_review",
+      "error": null,
+      "execution_status": "ok",
+      "format": "legacy_root",
+      "id": "F05",
+      "origin_alias": "D02",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S03",
+      "validation_status": "accepted"
+    },
+    {
+      "action_sha256": "0df5fcaa2b1ecf54129bb158717b2c29137448c7c82c8ce5494d8ddedd1af4e9",
+      "artifact_sha256": "21e5bdb72aa7c78b8ab9ecbbd7b1d3d531254a23aa1f3239cbc52973f9c7fc99",
+      "budget_exceeded": false,
+      "canonical_characters": 1965,
+      "condition": "raw_observations_and_conditional_review",
+      "error": null,
+      "execution_status": "ok",
+      "format": "wrapped_v2",
+      "id": "F06",
+      "origin_alias": "D03",
+      "prediction": "accepted",
+      "prediction_agreement": true,
+      "prediction_scored": true,
+      "source": "S06",
+      "validation_status": "accepted"
+    }
+  ],
+  "packets": {
+    "later_raw": {
+      "canonical_characters": 56833,
+      "raw_sha256": "4c7d544a03ea180d7142daf5d8c385e057b351fac687cb24a40f836e7ce45536"
+    },
+    "later_review": {
+      "canonical_characters": 62717,
+      "raw_sha256": "c4c40f7e3b4f4a2010ad0bd5ed40c592b0cfb8b8f8b1d75233c5ddbc6578e05c"
+    },
+    "repair_after": {
+      "canonical_characters": 2293,
+      "raw_sha256": "4ff9932278da28038a80c4ac2acdf5f3e616bfb206674bc062b2ebd0911cfb74"
+    },
+    "repair_before": {
+      "canonical_characters": 44857,
+      "raw_sha256": "366c7171cc79121bb9102ffbb79bda5fe5fe7595d8dc530fbf0e932b26cad77e"
+    }
+  },
+  "paired": [
+    {
+      "classification": "both_correct",
+      "format": "legacy_root",
+      "id": "F01"
+    },
+    {
+      "classification": "both_correct",
+      "format": "wrapped_v2",
+      "id": "F02"
+    },
+    {
+      "classification": "both_correct",
+      "format": "legacy_root",
+      "id": "F03"
+    },
+    {
+      "classification": "both_correct",
+      "format": "wrapped_v2",
+      "id": "F04"
+    },
+    {
+      "classification": "both_correct",
+      "format": "legacy_root",
+      "id": "F05"
+    },
+    {
+      "classification": "both_correct",
+      "format": "wrapped_v2",
+      "id": "F06"
+    }
+  ],
+  "provenance": {
+    "code_sha256": "61495538507742ab5c3d55721a4115bf9fb24542b605525c63edc6b8f4cb7297",
+    "final_audit_sha256": "649da9a2be00dfec5feb76eefebfdce8802bfb9fa31ba960dcdd1c3233de6890",
+    "input_freeze_sha256": "85bf3865e440fef1cd2b5253f43ed85f4c2a76e283579fec524ce616411add9e",
+    "later_action_freeze_sha256": "e02899ef8ee6cd7f56848cfd85f702884da5b5464bdd5d2ecb28c06bc75a6e60",
+    "protocol_sha256": "3d93a91dbc93b6528ee65179e9f753041ce211ef9a2e073802377d7e0c4c6e8b",
+    "repair_action_sha256": "5c3bbdf312ca1dda6a22251371597725a3d1011898865ac6fd089a75b30646b4",
+    "results_sha256": "1d7a2600b85bc31eeab1cf45eedce5b2461501d298e5ec333c1da7584a046bda",
+    "review_sha256": "7620d08bd53e4938dd46b3fd028ea4367a22f2e287203cabc0f757df3ca2c49d",
+    "saved_action_sha256": "d7f8fdb47c512e4d2c4fbcd81c30d431e933f0c78cdb7dcd6f94ae15c18a233f",
+    "source_derivation_sha256": "2f4303f8f588ce1c1bf3b72bcaa4d62198960bf0760fbaa03651aa006137d237"
+  },
+  "replay": {
+    "manifest_sha256": "c195546ad8605fe46260d062b464b518a10a9893285d4696f1d2732714376858",
+    "readme_sha256": "39a5f8b0b3616e3c9d5c2ddd9e7ede30080a327afd649f6a9c631afbee08a5b0",
+    "zip_sha256": "5c982dcf2ac14244bae4435e6ac86fcf6a625a655093e8a6f4bcd9d5b2877f9e"
+  },
+  "review": {
+    "canonical_characters": 5862,
+    "change_types": [
+      "confirmation",
+      "confirmation",
+      "confirmation"
+    ],
+    "grounded": [
+      true,
+      true,
+      true
+    ],
+    "legacy_rule_preserved": [
+      true,
+      true,
+      true
+    ],
+    "sha256": "7620d08bd53e4938dd46b3fd028ea4367a22f2e287203cabc0f757df3ca2c49d"
+  },
+  "sample": {
+    "actual_ai_repair_actions": 3,
+    "diagnostic_legacy_replays": 3,
+    "diagnostic_wrapped_replays": 3,
+    "formats_per_objective": 2,
+    "later_actual_actions": 12,
+    "later_arms": 2,
+    "later_tasks_per_arm": 6,
+    "new_objectives": 3,
+    "public_source_families": 3,
+    "saved_successful_actions": 3,
+    "total_execution_items": 21
+  },
+  "schema_version": 1,
+  "scope": {
+    "all12_later_actions_frozen_before_feedback": true,
+    "engineered_migration": true,
+    "fixed_task_and_dispatch_order": true,
+    "fresh_ai_regeneration_in_replay": false,
+    "full_current_json_provided": false,
+    "independent_final_audit_approved": true,
+    "independent_input_review_approved": true,
+    "provider_metadata": null,
+    "repair_and_review_same_context": true,
+    "saved_actions_from_separate_prior_context": true,
+    "shared_raw_observations": true
+  },
+  "study_id": "conditional-revision-2026-10-27"
+}

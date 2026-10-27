@@ -133,6 +133,30 @@ Task order in every arm is T01, R01, T02, T03, R02, T04, T05, R03, T06. Fixed ar
 [Public replay instructions](https://yuu-honda.github.io/lux-spiria-results/experiments/action-feedback-2026-10-27/README.md) / [Replay ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/action-feedback-2026-10-27.zip). The workbench publishes public sources, engineered objectives, expected artifacts, saved AI actions, results and DSL code for deterministic replay. Saved-action replay is not fresh AI regeneration. All six earlier dated studies/data and four overview stories/assets retain their original bytes and publication boundaries.
 <!-- ACTION_FEEDBACK_STUDY_END -->
 
+<!-- CONDITIONAL_REVISION_STUDY_START -->
+## Controlled conditional compatibility — 2026-10-27
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-27-conditional-revision/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-27-conditional-revision/en.html)
+
+The same three known public sources were deliberately moved under `payload` in an `artifact-container.v2` wrapper. Parsed original types/values and original raw bytes were preserved. Saved operations were replayed, an actual AI chose compatible new reads, and the original method remained applicable to legacy files. This is an engineered surface-schema change, not a natural outage, belief revision, spontaneous concept learning or brain reproduction.
+
+| Condition | Accepted | Execution errors | Written artifacts |
+| --- | ---: | ---: | ---: |
+| Saved action · legacy replay | 3/3 | 0 | 3 |
+| Saved action · wrapped replay | 0/3 | 3 | 0 |
+| Actual AI compatibility repair | 3/3 | 0 | 3 |
+| Same raw observations | 6/6 | 0 | 6 |
+| Same observations + conditional review | 6/6 | 0 | 6 |
+
+The 21 execution items comprise six saved replays, three new AI repairs and 12 later actions. Saved predictions belong to an earlier v1 context and are excluded from current prediction scores in both diagnostic replays. Current repair choice and post-outcome review reuse the same fresh context over two turns; the two later arms are fresh contexts. The primary comparison is identical raw observations versus those same observations plus conditional review, not feedback versus no feedback. All 12 later actions are frozen before feedback.
+
+The later six items per arm are three new objectives in two formats, not six independent objectives. Raw → review corrected 0 items and regressed 0. Actual review classifications are 0 conditional_update, 3 confirmation and 0 deferred. Repairing saved external operations is distinct from revising one's own mistaken judgment; actual confirmation labels are not recoded as updates.
+
+Actors receive shared actual schema observations and handles, not full current JSON. Observations retain keys/array order and condition-id strings, replace other scalars by type markers, and explicitly omit per_query/provenance. The contract explains formats and instructs legacy preservation, so appropriate conditional branching is not spontaneous discovery. Task order and dispatch are fixed; provider/time effects and equal compute are unverified. Review grounding and retained legacy scope are independently assessed. Canonical input/output characters, actual errors and all retained items remain distinct from model learning or psychological accuracy.
+
+[Public replay instructions](https://yuu-honda.github.io/lux-spiria-results/experiments/conditional-revision-2026-10-27/README.md) / [Replay ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/conditional-revision-2026-10-27.zip). Replay executes saved operations without regenerating fresh AI decisions. All seven earlier dated studies/data/replay and four overview stories/assets retain their bytes and publication boundaries.
+<!-- CONDITIONAL_REVISION_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -155,9 +179,9 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v
 PYTHONDONTWRITEBYTECODE=1 python3 -B -m http.server 8769 --bind 127.0.0.1
 ```
 
-The main builder reads only audited public summaries under `data/`. Optional `data/action-feedback-2026-10-27.json` activates the seventh dated JA/EN study only after validation and matching public source/README/ZIP hashes. Missing data leaves the six older studies current without placeholder outcomes. Invalid data or unavailable replay files fail before publication writes. It updates results listings, only the overview latest-study panel, this README and sitemap. Six older dated studies/data and all four overview scroll stories/assets remain unchanged.
+Optional `data/conditional-revision-2026-10-27.json` activates the eighth JA/EN study only after strict validation and matching original-source, public manifest/README and external ZIP hashes. Missing export makes no new publication changes or placeholder results. Invalid data or missing replay files fails before writes. The builder updates only listings, the overview latest-study panel, README and sitemap, and adds the new dated pair. Seven older studies/data/replay and four overview stories/assets remain unchanged.
 
-`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_action_feedback.py` rebuilds only its dated pair after the same checks. The public replay bundle has separate instructions. Saved-action replay is distinct from rebuilding this website and from fresh AI generation. GitHub Pages serves `main` at the repository root.
+`PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_conditional_revision.py` rebuilds only its dated pair after the same checks. Public workbench replay has separate instructions and does not regenerate fresh AI. GitHub Pages serves `main` at the repository root.
 
 ## Preservation
 

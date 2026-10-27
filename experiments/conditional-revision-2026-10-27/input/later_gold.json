@@ -1,0 +1,56 @@
+{
+  "F01": {
+    "status": "ok",
+    "values": {
+      "direct_sum_minus_direct_max_mrr_at_5": 0.26515151515151514,
+      "path_sum_minus_path_max_mrr_at_5": 0.26515151515151514,
+      "direct_sum_to_direct_max_mrr_at_5_ratio": 2.8421052631578947,
+      "path_sum_to_path_max_mrr_at_5_ratio": 2.707317073170732
+    }
+  },
+  "F02": {
+    "status": "ok",
+    "values": {
+      "baseline_literal_minus_paraphrase_hit_fraction": 0.75,
+      "raw_literal_minus_paraphrase_hit_fraction": 0.16666666666666669,
+      "gated_literal_minus_paraphrase_hit_fraction": 0.25,
+      "raw_to_baseline_paraphrase_hit_fraction_ratio": 1.3333333333333333
+    }
+  },
+  "F03": {
+    "status": "ok",
+    "values": {
+      "fresh_retained_messages_per_source_session": 39.0,
+      "known_retained_messages_per_source_session": 23.75,
+      "fresh_to_known_retained_messages_per_source_session_ratio": 1.6421052631578947,
+      "known_minus_fresh_queries_per_source_session": -4.0
+    }
+  },
+  "F04": {
+    "status": "ok",
+    "values": {
+      "direct_sum_minus_direct_max_mrr_at_5": 0.26515151515151514,
+      "path_sum_minus_path_max_mrr_at_5": 0.26515151515151514,
+      "direct_sum_to_direct_max_mrr_at_5_ratio": 2.8421052631578947,
+      "path_sum_to_path_max_mrr_at_5_ratio": 2.707317073170732
+    }
+  },
+  "F05": {
+    "status": "ok",
+    "values": {
+      "baseline_literal_minus_paraphrase_hit_fraction": 0.75,
+      "raw_literal_minus_paraphrase_hit_fraction": 0.16666666666666669,
+      "gated_literal_minus_paraphrase_hit_fraction": 0.25,
+      "raw_to_baseline_paraphrase_hit_fraction_ratio": 1.3333333333333333
+    }
+  },
+  "F06": {
+    "status": "ok",
+    "values": {
+      "fresh_retained_messages_per_source_session": 39.0,
+      "known_retained_messages_per_source_session": 23.75,
+      "fresh_to_known_retained_messages_per_source_session_ratio": 1.6421052631578947,
+      "known_minus_fresh_queries_per_source_session": -4.0
+    }
+  }
+}
