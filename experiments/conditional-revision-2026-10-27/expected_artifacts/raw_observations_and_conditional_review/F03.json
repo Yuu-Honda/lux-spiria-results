@@ -1,0 +1,1 @@
+{"status":"ok","values":{"fresh_retained_messages_per_source_session":39.0,"fresh_to_known_retained_messages_per_source_session_ratio":1.6421052631578947,"known_minus_fresh_queries_per_source_session":-4.0,"known_retained_messages_per_source_session":23.75}}

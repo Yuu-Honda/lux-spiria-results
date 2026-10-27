@@ -1,0 +1,77 @@
+{
+  "actual_results": [
+    {
+      "artifact": {
+        "status": "ok",
+        "values": {
+          "direct_max_top3_hit_fraction": 0.22727272727272727,
+          "path_sum_minus_direct_max_top3_hits": 5,
+          "path_sum_rank4_or5_hit_count": 1,
+          "path_sum_top3_hit_fraction": 0.45454545454545453
+        }
+      },
+      "artifact_sha256": "8b2bace3741bb405d779b2a6d2a769c7dd287a0731309c36479dd3dddef35151",
+      "execution_error": null,
+      "execution_status": "ok",
+      "id": "P01",
+      "validation_status": "accepted"
+    },
+    {
+      "artifact": {
+        "status": "ok",
+        "values": {
+          "baseline_positive_hit_fraction": 0.4375,
+          "gated_confusable_false_return_fraction": 0.0,
+          "gated_positive_hit_fraction": 0.3125,
+          "raw_confusable_false_return_fraction": 0.375,
+          "raw_minus_gated_positive_hits": 1
+        }
+      },
+      "artifact_sha256": "0425d11bcb13149d8acec4a07e8c317279ec7cd781e331869448c3d35edc927c",
+      "execution_error": null,
+      "execution_status": "ok",
+      "id": "P03",
+      "validation_status": "accepted"
+    },
+    {
+      "artifact": {
+        "status": "ok",
+        "values": {
+          "fresh_plain_all_query_full_fraction": 1.0,
+          "known_first_supported_full_fraction": 0.5,
+          "known_plain_all_query_full_fraction": 0.625,
+          "pooled_structured_supported_full_fraction": 0.75
+        }
+      },
+      "artifact_sha256": "b3ded4c125a883aed208900d9a717d2d18f09b58803d6735a0cde22d5b732ed5",
+      "execution_error": null,
+      "execution_status": "ok",
+      "id": "P05",
+      "validation_status": "accepted"
+    }
+  ],
+  "instruction": "Write your own three conditional entries keyed event_id P01/P03/P05, classify honestly conditional_update/confirmation/deferred. Distinguish external earlier successful legacy choice from YOUR actual repair choice. Ground each statement in actual outcomes and preserve correct legacy scope. All3 total canonical chars<=6000. No futuretask/outcome/code/fullsource access; do not write new actions. This is a local engineeredformat study, no weights/psychological/nativeWake learning proof.",
+  "review_contract": {
+    "change_type": [
+      "conditional_update",
+      "confirmation",
+      "deferred"
+    ],
+    "entries": 3,
+    "fields": [
+      "event_id",
+      "old_judgment",
+      "changed_condition",
+      "observed_failure",
+      "repair_choice",
+      "observed_repair_result",
+      "current_judgment",
+      "preserved_legacy_rule",
+      "uncertainty",
+      "future_check",
+      "change_type"
+    ],
+    "meaning": "Actual AI classifies after its repair outcomes, no forced update/growth. Different earlier saved-action context, same new repaircontext for choice then post-outcome review; no continuous model identity claim."
+  },
+  "role": "same_repair_context_post_actual_outcome_review"
+}

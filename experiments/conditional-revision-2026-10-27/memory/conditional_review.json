@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "event_id": "P01",
+      "old_judgment": "The external saved action used root-level conditions and was accepted on the legacy source. That earlier choice was authored in another context. My own pre-execution repair judgment predicted acceptance with payload-prefixed paths.",
+      "changed_condition": "The observed current D01 schema has payload.conditions; observed ordered ids identify direct_max at index 0 and path_sum at index 3.",
+      "observed_failure": "The external action executed unchanged against wrapped D01 and failed with ActionError: object path key is missing; validation rejected it.",
+      "repair_choice": "I authored payload-prefixed reads for the same requested hit counts and each condition's answerable-query denominator, retaining division and the two requested subtractions.",
+      "observed_repair_result": "My repair executed once with status ok and validation accepted. Fractions were direct_max 0.22727272727272727 and path_sum 0.45454545454545453; the top-three hit difference was 5 and rank-four-or-five count was 1. Artifact SHA matched the successful legacy artifact.",
+      "current_judgment": "The actual result confirms my repair prediction for this observed wrapped D01. The condition-sensitive path rule is supported locally; the external legacy choice remains valid within its tested legacy scope.",
+      "preserved_legacy_rule": "For the tested legacy_root schema, retain root-level conditions paths and the original metric definitions. Use payload only where the observed source structure requires it.",
+      "uncertainty": "I did not inspect full numeric sources. This result establishes the tested format repair, not correctness for arbitrary future schemas or any model-weight, psychological, or native Wake learning claim.",
+      "future_check": "Before reusing paths under a changed schema, inspect the available structure and condition ids, retain the requested denominators, and validate the resulting artifact if execution is authorized.",
+      "change_type": "confirmation"
+    },
+    {
+      "event_id": "P03",
+      "old_judgment": "The external saved root-level conditions/sample action was accepted on legacy D02; it was not my own earlier authored choice. My own repair judgment predicted acceptance after adding the observed payload prefix.",
+      "changed_condition": "D02 independently shows payload.conditions and payload.sample; ordered ids are baseline, raw_semantic, and gated_semantic at indexes 0, 1, and 2.",
+      "observed_failure": "The unchanged external action failed on wrapped D02 with ActionError: object path key is missing and was rejected.",
+      "repair_choice": "I authored payload-prefixed condition and sample reads. Positive-hit fractions retain the full positive-query denominator; false-return fractions retain the confusable-query denominator; the count difference remains raw minus gated.",
+      "observed_repair_result": "My one executed repair returned status ok and was accepted: baseline positive fraction 0.4375, gated positive fraction 0.3125, raw confusable false-return fraction 0.375, gated fraction 0.0, and raw-minus-gated positive hits 1. Artifact SHA matched the successful legacy artifact.",
+      "current_judgment": "Execution confirms my accepted prediction for these observed wrapped D02 paths and metric expressions. It does not overturn the earlier external action's accepted legacy result.",
+      "preserved_legacy_rule": "Keep root-level conditions/sample paths for the tested legacy_root format, with the same condition identities, sample denominators, and subtraction direction.",
+      "uncertainty": "The successful execution is bounded to the supplied source and requested metrics. I did not read full sources or test other formats; no continuous model identity or broader learning mechanism is established.",
+      "future_check": "On a new structural change, check D02's own wrapper, condition order, and denominator locations before reusing the expressions; do not infer its format solely from another handle.",
+      "change_type": "confirmation"
+    },
+    {
+      "event_id": "P05",
+      "old_judgment": "The external saved cohort action was accepted using legacy root-level cohorts. Its earlier authorship belongs to another context. My own pre-result repair prediction was accepted using observed payload.cohorts.",
+      "changed_condition": "The D03 observation places fresh/known cohorts under payload and retains condition-specific metrics and supported-stratum query counts.",
+      "observed_failure": "The unchanged external cohort action failed against wrapped D03 with ActionError: object path key is missing and validation rejected it.",
+      "repair_choice": "I authored payload-prefixed cohort reads, preserving supported-only denominators, correct_supported plus correct_abstention over all plain_reread queries, and pooled structured supported counts. I excluded partial_supported.",
+      "observed_repair_result": "The repair executed once with status ok and validation accepted. Known first supported fraction was 0.5, known plain all-query fraction 0.625, fresh plain all-query fraction 1.0, and pooled structured supported fraction 0.75. Artifact SHA matched the successful legacy artifact.",
+      "current_judgment": "The observed result confirms my proposed repair on this wrapped D03. It supports conditional source-path selection while preserving the separately evidenced legacy rule.",
+      "preserved_legacy_rule": "For tested legacy_root D03, retain root-level cohorts paths and the original numerator/denominator formulas; do not add a wrapper without structural evidence.",
+      "uncertainty": "This is a local engineered-format result based on supplied schema observations and actual artifacts. It does not test unseen schemas, full-source semantics, model weights, psychological change, or native Wake learning.",
+      "future_check": "If D03 changes again, check its cohort and condition structure and supported-stratum denominator locations before choosing paths, and separately verify any authorized execution.",
+      "change_type": "confirmation"
+    }
+  ]
+}

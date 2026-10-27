@@ -1,0 +1,3669 @@
+{
+  "catalog": {
+    "S01": {
+      "format": "legacy_root",
+      "origin_alias": "D01"
+    },
+    "S02": {
+      "format": "wrapped_v2",
+      "origin_alias": "D01"
+    },
+    "S03": {
+      "format": "legacy_root",
+      "origin_alias": "D02"
+    },
+    "S04": {
+      "format": "wrapped_v2",
+      "origin_alias": "D02"
+    },
+    "S05": {
+      "format": "legacy_root",
+      "origin_alias": "D03"
+    },
+    "S06": {
+      "format": "wrapped_v2",
+      "origin_alias": "D03"
+    }
+  },
+  "contract": "Actual action contract v1\nSubmit a JSON array of actions, one for every task id, no omissions or extras.\nEach action has exactly: id:string, prediction:accepted|rejected|uncertain (predict whether the resulting artifact will satisfy requested contract), rationale:string, status:write|unavailable, fields:object.\nFor write, each field value is an expression. {\"op\":\"get\",\"source\":\"D01\",\"path\":[\"sample\",\"sessions\"]}; {\"op\":\"sum\",\"args\":[expr,expr]}; {\"op\":\"sub\",\"left\":expr,\"right\":expr}; {\"op\":\"div\",\"left\":expr,\"right\":expr}. No literal-value operation or executable code. Array indexes integer; object keys strings.\nFor unavailable use status unavailable and fields {}. Explain why the source lacks the requested quantity in rationale; do not substitute zero, false, another denominator, or a different metric.\nThe actual tool will read frozen public sources and write artifact.json: {\"status\":\"ok\",\"values\":{requested names:computed leaves}} or {\"status\":\"unavailable\",\"values\":null}. Numeric tasks require exact requested values; ratio is division without rounding.\nDo not execute, preview or simulate tool outcomes during action authoring; you may read assigned JSON sources and reason. Do not read gold, other roles, future tasks or private repositories. Canonical compact JSON character cap6000 per action; exceeding is recorded, never silently fixed. Source absence is bounded to the assigned public file, not absence in the world.\n\nThis study supplies source handles/format catalog and actually observed structural schema metadata instead of full current numeric JSON. $type/$omitted/observed_value are observation annotations, not keys to use in source paths. Keep legacy_root paths unchanged; determine changed-format paths from evidence rather than assuming all handles share one format. These are experimental conditions, not a changed original historical source.\n",
+  "output": "Exactly6actions for F01..F06 in assignedorder. Do not execute or read source files/gold/otherroles/internet. Harness alone reads numeric current sources. One attempt; honest prediction, retain all firstchoices.",
+  "raw_observations": {
+    "actual_ai_repair_choices": [
+      {
+        "fields": {
+          "direct_max_top3_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                0,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                0,
+                "answerable_queries"
+              ],
+              "source": "D01"
+            }
+          },
+          "path_sum_minus_direct_max_top3_hits": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                3,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            },
+            "op": "sub",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                0,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            }
+          },
+          "path_sum_rank4_or5_hit_count": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                3,
+                "target_hits",
+                "at_5"
+              ],
+              "source": "D01"
+            },
+            "op": "sub",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                3,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            }
+          },
+          "path_sum_top3_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                3,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                3,
+                "answerable_queries"
+              ],
+              "source": "D01"
+            }
+          }
+        },
+        "id": "P01",
+        "prediction": "accepted",
+        "rationale": "The observed D01 structure places conditions under payload; its ordered condition ids identify direct_max at index 0 and path_sum at index 3. The repaired expressions read those observed numeric leaves, divide by each condition's answerable-query count, and subtract the requested hit counts. The successful legacy result supports the same metric definitions, but this is a prediction pending execution.",
+        "status": "write"
+      },
+      {
+        "fields": {
+          "baseline_positive_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                0,
+                "positive_hits"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "sample",
+                "positive_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "gated_confusable_false_return_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                2,
+                "confusable_false_returns"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "sample",
+                "confusable_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "gated_positive_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                2,
+                "positive_hits"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "sample",
+                "positive_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "raw_confusable_false_return_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                1,
+                "confusable_false_returns"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "sample",
+                "confusable_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "raw_minus_gated_positive_hits": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                1,
+                "positive_hits"
+              ],
+              "source": "D02"
+            },
+            "op": "sub",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "conditions",
+                2,
+                "positive_hits"
+              ],
+              "source": "D02"
+            }
+          }
+        },
+        "id": "P03",
+        "prediction": "accepted",
+        "rationale": "The D02 observation independently shows payload containing conditions and sample. Ordered ids identify baseline, raw_semantic, and gated_semantic at indexes 0, 1, and 2. Positive-hit fractions use sample.positive_queries; confusable false-return fractions use sample.confusable_queries. The subtraction uses raw minus gated positive hits. The numeric leaves are observed structurally, and acceptance remains a prediction until the tool runs.",
+        "status": "write"
+      },
+      {
+        "fields": {
+          "fresh_plain_all_query_full_fraction": {
+            "left": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_abstention"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "cohorts",
+                "fresh",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "queries"
+              ],
+              "source": "D03"
+            }
+          },
+          "known_first_supported_full_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "first_pass",
+                "metrics",
+                "correct_supported"
+              ],
+              "source": "D03"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "first_pass",
+                "support_strata",
+                "supported",
+                "queries"
+              ],
+              "source": "D03"
+            }
+          },
+          "known_plain_all_query_full_fraction": {
+            "left": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_abstention"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "queries"
+              ],
+              "source": "D03"
+            }
+          },
+          "pooled_structured_supported_full_fraction": {
+            "left": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "structured_state",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "structured_state",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            },
+            "op": "div",
+            "right": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "structured_state",
+                    "support_strata",
+                    "supported",
+                    "queries"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "payload",
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "structured_state",
+                    "support_strata",
+                    "supported",
+                    "queries"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            }
+          }
+        },
+        "id": "P05",
+        "prediction": "accepted",
+        "rationale": "The D03 observation shows payload.cohorts with fresh and known condition-specific metrics and supported-stratum query counts. The repair prefixes those observed paths with payload. Supported-only fractions use supported query denominators; all-query plain_reread fractions add correct_supported and correct_abstention over metrics.queries. Pooling adds both structured_state supported numerators and denominators. No partial_supported count or metadata marker is used. Acceptance is predicted, not an executed result.",
+        "status": "write"
+      }
+    ],
+    "actual_legacy_results": [
+      {
+        "artifact": {
+          "status": "ok",
+          "values": {
+            "direct_max_top3_hit_fraction": 0.22727272727272727,
+            "path_sum_minus_direct_max_top3_hits": 5,
+            "path_sum_rank4_or5_hit_count": 1,
+            "path_sum_top3_hit_fraction": 0.45454545454545453
+          }
+        },
+        "artifact_sha256": "8b2bace3741bb405d779b2a6d2a769c7dd287a0731309c36479dd3dddef35151",
+        "execution_error": null,
+        "execution_status": "ok",
+        "id": "P01",
+        "validation_status": "accepted"
+      },
+      {
+        "artifact": {
+          "status": "ok",
+          "values": {
+            "baseline_positive_hit_fraction": 0.4375,
+            "gated_confusable_false_return_fraction": 0.0,
+            "gated_positive_hit_fraction": 0.3125,
+            "raw_confusable_false_return_fraction": 0.375,
+            "raw_minus_gated_positive_hits": 1
+          }
+        },
+        "artifact_sha256": "0425d11bcb13149d8acec4a07e8c317279ec7cd781e331869448c3d35edc927c",
+        "execution_error": null,
+        "execution_status": "ok",
+        "id": "P03",
+        "validation_status": "accepted"
+      },
+      {
+        "artifact": {
+          "status": "ok",
+          "values": {
+            "fresh_plain_all_query_full_fraction": 1.0,
+            "known_first_supported_full_fraction": 0.5,
+            "known_plain_all_query_full_fraction": 0.625,
+            "pooled_structured_supported_full_fraction": 0.75
+          }
+        },
+        "artifact_sha256": "b3ded4c125a883aed208900d9a717d2d18f09b58803d6735a0cde22d5b732ed5",
+        "execution_error": null,
+        "execution_status": "ok",
+        "id": "P05",
+        "validation_status": "accepted"
+      }
+    ],
+    "actual_repair_results": [
+      {
+        "artifact": {
+          "status": "ok",
+          "values": {
+            "direct_max_top3_hit_fraction": 0.22727272727272727,
+            "path_sum_minus_direct_max_top3_hits": 5,
+            "path_sum_rank4_or5_hit_count": 1,
+            "path_sum_top3_hit_fraction": 0.45454545454545453
+          }
+        },
+        "artifact_sha256": "8b2bace3741bb405d779b2a6d2a769c7dd287a0731309c36479dd3dddef35151",
+        "execution_error": null,
+        "execution_status": "ok",
+        "id": "P01",
+        "validation_status": "accepted"
+      },
+      {
+        "artifact": {
+          "status": "ok",
+          "values": {
+            "baseline_positive_hit_fraction": 0.4375,
+            "gated_confusable_false_return_fraction": 0.0,
+            "gated_positive_hit_fraction": 0.3125,
+            "raw_confusable_false_return_fraction": 0.375,
+            "raw_minus_gated_positive_hits": 1
+          }
+        },
+        "artifact_sha256": "0425d11bcb13149d8acec4a07e8c317279ec7cd781e331869448c3d35edc927c",
+        "execution_error": null,
+        "execution_status": "ok",
+        "id": "P03",
+        "validation_status": "accepted"
+      },
+      {
+        "artifact": {
+          "status": "ok",
+          "values": {
+            "fresh_plain_all_query_full_fraction": 1.0,
+            "known_first_supported_full_fraction": 0.5,
+            "known_plain_all_query_full_fraction": 0.625,
+            "pooled_structured_supported_full_fraction": 0.75
+          }
+        },
+        "artifact_sha256": "b3ded4c125a883aed208900d9a717d2d18f09b58803d6735a0cde22d5b732ed5",
+        "execution_error": null,
+        "execution_status": "ok",
+        "id": "P05",
+        "validation_status": "accepted"
+      }
+    ],
+    "actual_wrapped_results": [
+      {
+        "artifact": null,
+        "artifact_sha256": null,
+        "execution_error": {
+          "message": "object path key is missing",
+          "type": "ActionError"
+        },
+        "execution_status": "execution_error",
+        "id": "P01",
+        "validation_status": "rejected"
+      },
+      {
+        "artifact": null,
+        "artifact_sha256": null,
+        "execution_error": {
+          "message": "object path key is missing",
+          "type": "ActionError"
+        },
+        "execution_status": "execution_error",
+        "id": "P03",
+        "validation_status": "rejected"
+      },
+      {
+        "artifact": null,
+        "artifact_sha256": null,
+        "execution_error": {
+          "message": "object path key is missing",
+          "type": "ActionError"
+        },
+        "execution_status": "execution_error",
+        "id": "P05",
+        "validation_status": "rejected"
+      }
+    ],
+    "actually_read_schema_observation": {
+      "observation_metadata": {
+        "omission_convention": "At every object depth, each omitted member is replaced by an omission marker and the whole member's actual JSON type; its contents are not traversed.",
+        "omission_marker_key": "$omitted",
+        "omitted_dictionary_keys": [
+          "per_query",
+          "provenance"
+        ],
+        "projection_convention": "Objects retain source keys; arrays retain element order; scalars become type markers. Marker keys describe observations and are not claims about source keys.",
+        "projection_input": "Each parsed wrapped file read back after it was written.",
+        "scalar_marker_key": "$type",
+        "scalar_type_labels": [
+          "integer",
+          "number",
+          "string",
+          "boolean",
+          "null"
+        ],
+        "string_id_convention": "Only an immediate object member named id whose value is a string also has observed_value; array elements do not inherit this exception.",
+        "value_marker_key": "observed_value"
+      },
+      "observations": {
+        "D01": {
+          "payload": {
+            "boundaries": {
+              "emotion_effect_experiment_run": {
+                "$type": "boolean"
+              },
+              "external_peer_review": {
+                "$type": "boolean"
+              },
+              "full_lre_wake_run": {
+                "$type": "boolean"
+              },
+              "local_selected_single_session_pilot": {
+                "$type": "boolean"
+              },
+              "notes": [
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                }
+              ],
+              "personality_continuity_inferred": {
+                "$type": "boolean"
+              },
+              "response_model_generation_run": {
+                "$type": "boolean"
+              },
+              "same_team_ai_assisted": {
+                "$type": "boolean"
+              }
+            },
+            "conditions": [
+              {
+                "aggregation": {
+                  "$type": "string"
+                },
+                "answerable_queries": {
+                  "$type": "integer"
+                },
+                "hops": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "direct_max"
+                },
+                "mrr_at_5": {
+                  "$type": "number"
+                },
+                "no_answer_controls_with_candidates": {
+                  "$type": "integer"
+                },
+                "target_hits": {
+                  "at_1": {
+                    "$type": "integer"
+                  },
+                  "at_3": {
+                    "$type": "integer"
+                  },
+                  "at_5": {
+                    "$type": "integer"
+                  }
+                }
+              },
+              {
+                "aggregation": {
+                  "$type": "string"
+                },
+                "answerable_queries": {
+                  "$type": "integer"
+                },
+                "hops": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "direct_sum"
+                },
+                "mrr_at_5": {
+                  "$type": "number"
+                },
+                "no_answer_controls_with_candidates": {
+                  "$type": "integer"
+                },
+                "target_hits": {
+                  "at_1": {
+                    "$type": "integer"
+                  },
+                  "at_3": {
+                    "$type": "integer"
+                  },
+                  "at_5": {
+                    "$type": "integer"
+                  }
+                }
+              },
+              {
+                "aggregation": {
+                  "$type": "string"
+                },
+                "answerable_queries": {
+                  "$type": "integer"
+                },
+                "hops": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "path_max"
+                },
+                "mrr_at_5": {
+                  "$type": "number"
+                },
+                "no_answer_controls_with_candidates": {
+                  "$type": "integer"
+                },
+                "target_hits": {
+                  "at_1": {
+                    "$type": "integer"
+                  },
+                  "at_3": {
+                    "$type": "integer"
+                  },
+                  "at_5": {
+                    "$type": "integer"
+                  }
+                }
+              },
+              {
+                "aggregation": {
+                  "$type": "string"
+                },
+                "answerable_queries": {
+                  "$type": "integer"
+                },
+                "hops": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "path_sum"
+                },
+                "mrr_at_5": {
+                  "$type": "number"
+                },
+                "no_answer_controls_with_candidates": {
+                  "$type": "integer"
+                },
+                "target_hits": {
+                  "at_1": {
+                    "$type": "integer"
+                  },
+                  "at_3": {
+                    "$type": "integer"
+                  },
+                  "at_5": {
+                    "$type": "integer"
+                  }
+                }
+              }
+            ],
+            "date": {
+              "$type": "string"
+            },
+            "findings": {
+              "additional_hop_hit_at_5_queries": [
+                {
+                  "$type": "string"
+                }
+              ],
+              "aggregation_only_hit_at_3_gain_queries": [
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                }
+              ],
+              "hop_hit_at_3_gain_count": {
+                "$type": "integer"
+              },
+              "zero_cue_queries": [
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                },
+                {
+                  "$type": "string"
+                }
+              ]
+            },
+            "indexing": {
+              "annotation_frozen_before_query_authoring": {
+                "$type": "boolean"
+              },
+              "default_semantic_feature_occurrences": {
+                "$type": "integer"
+              },
+              "manual_review": {
+                "$type": "boolean"
+              },
+              "reviewed_semantic_feature_occurrences": {
+                "$type": "integer"
+              }
+            },
+            "per_query": {
+              "$omitted": true,
+              "$type": "array"
+            },
+            "provenance": {
+              "$omitted": true,
+              "$type": "object"
+            },
+            "retrieval_config": {
+              "explicit_cues": {
+                "$type": "boolean"
+              },
+              "hub_limit": {
+                "$type": "integer"
+              },
+              "lexical": {
+                "$type": "boolean"
+              },
+              "limit": {
+                "$type": "integer"
+              },
+              "method": {
+                "$type": "string"
+              }
+            },
+            "sample": {
+              "answerable_queries": {
+                "$type": "integer"
+              },
+              "constructed_queries": {
+                "$type": "integer"
+              },
+              "dialogue_messages": {
+                "$type": "integer"
+              },
+              "export_records": {
+                "$type": "integer"
+              },
+              "no_answer_controls": {
+                "$type": "integer"
+              },
+              "query_categories": {
+                "direct_source_question": {
+                  "$type": "integer"
+                },
+                "no_answer_control": {
+                  "$type": "integer"
+                },
+                "paraphrase_question": {
+                  "$type": "integer"
+                },
+                "two_clue_question": {
+                  "$type": "integer"
+                }
+              },
+              "sessions": {
+                "$type": "integer"
+              },
+              "unique_target_messages": {
+                "$type": "integer"
+              }
+            },
+            "schema_version": {
+              "$type": "integer"
+            },
+            "study_id": {
+              "$type": "string"
+            },
+            "timing": {
+              "includes_zero_cue_queries": {
+                "$type": "boolean"
+              },
+              "repeats_per_query": {
+                "$type": "integer"
+              },
+              "samples": [
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                },
+                {
+                  "condition": {
+                    "$type": "string"
+                  },
+                  "median_ms": {
+                    "$type": "number"
+                  },
+                  "method": {
+                    "$type": "string"
+                  },
+                  "n": {
+                    "$type": "integer"
+                  },
+                  "p95_ms": {
+                    "$type": "number"
+                  }
+                }
+              ],
+              "scope": {
+                "$type": "string"
+              }
+            },
+            "verification": {
+              "all_methods_equal": {
+                "$type": "boolean"
+              },
+              "artifact_hashes_intact": {
+                "$type": "boolean"
+              },
+              "exact_raw_reread": {
+                "$type": "boolean"
+              },
+              "execution_completed": {
+                "$type": "boolean"
+              },
+              "fresh_process_database_exact_results_equal": {
+                "$type": "boolean"
+              },
+              "fresh_rebuild_verification_passed": {
+                "$type": "boolean"
+              },
+              "frozen_inputs_intact": {
+                "$type": "boolean"
+              },
+              "independent_metric_recalculation_equal": {
+                "$type": "boolean"
+              },
+              "recall_read_only": {
+                "$type": "boolean"
+              },
+              "reopened_recall_equal": {
+                "$type": "boolean"
+              },
+              "source_return_exact": {
+                "$type": "boolean"
+              },
+              "timing_values_reproduction_claimed": {
+                "$type": "boolean"
+              }
+            }
+          },
+          "schema_version": {
+            "$type": "string"
+          }
+        },
+        "D02": {
+          "payload": {
+            "boundaries": {
+              "daily_recall_causal_effect_not_evaluated": {
+                "$type": "boolean"
+              },
+              "final_answer_accuracy_not_evaluated": {
+                "$type": "boolean"
+              },
+              "graphs_effect_not_evaluated": {
+                "$type": "boolean"
+              },
+              "personality_affect_or_brain_claims_not_supported": {
+                "$type": "boolean"
+              },
+              "private_source_and_query_text_not_published": {
+                "$type": "boolean"
+              },
+              "public_outcomes_allow_aggregate_recalculation_only": {
+                "$type": "boolean"
+              }
+            },
+            "conditions": [
+              {
+                "absent_false_returns": {
+                  "$type": "integer"
+                },
+                "associated_hits": {
+                  "$type": "integer"
+                },
+                "confusable_false_returns": {
+                  "$type": "integer"
+                },
+                "graph_edges": {
+                  "$type": "integer"
+                },
+                "graph_expansions": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "baseline"
+                },
+                "literal_hits": {
+                  "$type": "integer"
+                },
+                "native_searches": {
+                  "$type": "integer"
+                },
+                "paraphrase_hits": {
+                  "$type": "integer"
+                },
+                "positive_hits": {
+                  "$type": "integer"
+                },
+                "pre_search_abstentions": {
+                  "$type": "integer"
+                }
+              },
+              {
+                "absent_false_returns": {
+                  "$type": "integer"
+                },
+                "associated_hits": {
+                  "$type": "integer"
+                },
+                "confusable_false_returns": {
+                  "$type": "integer"
+                },
+                "graph_edges": {
+                  "$type": "integer"
+                },
+                "graph_expansions": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "raw_semantic"
+                },
+                "literal_hits": {
+                  "$type": "integer"
+                },
+                "native_searches": {
+                  "$type": "integer"
+                },
+                "paraphrase_hits": {
+                  "$type": "integer"
+                },
+                "positive_hits": {
+                  "$type": "integer"
+                },
+                "pre_search_abstentions": {
+                  "$type": "integer"
+                }
+              },
+              {
+                "absent_false_returns": {
+                  "$type": "integer"
+                },
+                "associated_hits": {
+                  "$type": "integer"
+                },
+                "confusable_false_returns": {
+                  "$type": "integer"
+                },
+                "graph_edges": {
+                  "$type": "integer"
+                },
+                "graph_expansions": {
+                  "$type": "integer"
+                },
+                "id": {
+                  "$type": "string",
+                  "observed_value": "gated_semantic"
+                },
+                "literal_hits": {
+                  "$type": "integer"
+                },
+                "native_searches": {
+                  "$type": "integer"
+                },
+                "paraphrase_hits": {
+                  "$type": "integer"
+                },
+                "positive_hits": {
+                  "$type": "integer"
+                },
+                "pre_search_abstentions": {
+                  "$type": "integer"
+                }
+              }
+            ],
+            "date": {
+              "$type": "string"
+            },
+            "endpoint": {
+              "$type": "string"
+            },
+            "failure_analysis": {
+              "correct_candidates_removed": {
+                "$type": "integer"
+              },
+              "false_candidates_removed": {
+                "$type": "integer"
+              },
+              "gate_candidates_checked": {
+                "$type": "integer"
+              },
+              "gate_candidates_rejected": {
+                "$type": "integer"
+              },
+              "positive_abstention_reasons": {
+                "analysis_uncertainty": {
+                  "$type": "integer"
+                },
+                "no_semantic_cues": {
+                  "$type": "integer"
+                },
+                "nonpositive_or_unknown_cue_state": {
+                  "$type": "integer"
+                }
+              },
+              "positive_abstentions": {
+                "$type": "integer"
+              },
+              "semantic_abstentions": {
+                "$type": "integer"
+              }
+            },
+            "implementation": {
+              "date": {
+                "$type": "string"
+              },
+              "experimental_engineering_checks_passed": {
+                "$type": "integer"
+              },
+              "full_wake_completed_in_smoke": {
+                "$type": "boolean"
+              },
+              "local_lre_checkout_updated": {
+                "$type": "boolean"
+              },
+              "lre_main_code_merged": {
+                "$type": "boolean"
+              },
+              "lre_preserves_original_query_route": {
+                "$type": "boolean"
+              },
+              "main_recall_checks_passed": {
+                "$type": "integer"
+              },
+              "maintenance_passed": {
+                "$type": "integer"
+              },
+              "maintenance_preexisting_failures": {
+                "$type": "integer"
+              },
+              "maintenance_tests": {
+                "$type": "integer"
+              },
+              "operational_shiori_store_location_confirmed": {
+                "$type": "boolean"
+              },
+              "operational_shiori_store_updated": {
+                "$type": "boolean"
+              },
+              "shiori_experimental_adapter_merged": {
+                "$type": "boolean"
+              },
+              "shiori_merged_into_lre_main": {
+                "$type": "boolean"
+              }
+            },
+            "per_query": {
+              "$omitted": true,
+              "$type": "array"
+            },
+            "provenance": {
+              "$omitted": true,
+              "$type": "object"
+            },
+            "sample": {
+              "absent_queries": {
+                "$type": "integer"
+              },
+              "archive_sessions": {
+                "$type": "integer"
+              },
+              "confusable_queries": {
+                "$type": "integer"
+              },
+              "cue_concepts": {
+                "$type": "integer"
+              },
+              "eligible_sessions": {
+                "$type": "integer"
+              },
+              "literal_queries": {
+                "$type": "integer"
+              },
+              "messages_per_session": {
+                "$type": "integer"
+              },
+              "paraphrase_queries": {
+                "$type": "integer"
+              },
+              "positive_queries": {
+                "$type": "integer"
+              },
+              "prior_studies_checked": {
+                "$type": "integer"
+              },
+              "queries": {
+                "$type": "integer"
+              },
+              "reviewed_features": {
+                "$type": "integer"
+              },
+              "sessions": {
+                "$type": "integer"
+              },
+              "source_messages": {
+                "$type": "integer"
+              }
+            },
+            "schema_version": {
+              "$type": "integer"
+            },
+            "study_id": {
+              "$type": "string"
+            },
+            "verification": {
+              "actual_ai_query_interpretation_and_review": {
+                "$type": "boolean"
+              },
+              "actual_ai_source_index_and_review": {
+                "$type": "boolean"
+              },
+              "all_original_labels_scored": {
+                "$type": "boolean"
+              },
+              "external_source_audit_possible_from_public_data": {
+                "$type": "boolean"
+              },
+              "independent_cold_replay_equal": {
+                "$type": "boolean"
+              },
+              "initial_condition_failed": {
+                "$type": "boolean"
+              },
+              "initial_scored_results_observed": {
+                "$type": "boolean"
+              },
+              "model_regeneration_tested": {
+                "$type": "boolean"
+              },
+              "native_lre_state_written": {
+                "$type": "boolean"
+              },
+              "post_score_exclusions": {
+                "$type": "integer"
+              },
+              "same_saved_ai_outputs_replayed": {
+                "$type": "boolean"
+              },
+              "source_event_identity_verified": {
+                "$type": "boolean"
+              },
+              "source_feature_keys_masks_postings_unchanged": {
+                "$type": "boolean"
+              },
+              "synthetic_engineering_tests": {
+                "$type": "integer"
+              },
+              "technical_amendment_removed_context_quotes": {
+                "$type": "integer"
+              },
+              "technical_checks": {
+                "$type": "integer"
+              },
+              "technical_failures": {
+                "$type": "integer"
+              },
+              "timing_measured": {
+                "$type": "boolean"
+              }
+            }
+          },
+          "schema_version": {
+            "$type": "string"
+          }
+        },
+        "D03": {
+          "payload": {
+            "cohorts": {
+              "fresh": {
+                "conditions": {
+                  "first_pass": {
+                    "metrics": {
+                      "binding_errors": {
+                        "$type": "integer"
+                      },
+                      "correct_abstention": {
+                        "$type": "integer"
+                      },
+                      "correct_supported": {
+                        "$type": "integer"
+                      },
+                      "mechanical_evidence_error_items": {
+                        "$type": "integer"
+                      },
+                      "missed_answer": {
+                        "$type": "integer"
+                      },
+                      "partial_supported": {
+                        "$type": "integer"
+                      },
+                      "proposal_completion_errors": {
+                        "$type": "integer"
+                      },
+                      "queries": {
+                        "$type": "integer"
+                      },
+                      "unsupported_claim_items": {
+                        "$type": "integer"
+                      },
+                      "wrong_or_unsupported": {
+                        "$type": "integer"
+                      }
+                    },
+                    "support_strata": {
+                      "supported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "unsupported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "plain_reread": {
+                    "metrics": {
+                      "binding_errors": {
+                        "$type": "integer"
+                      },
+                      "correct_abstention": {
+                        "$type": "integer"
+                      },
+                      "correct_supported": {
+                        "$type": "integer"
+                      },
+                      "mechanical_evidence_error_items": {
+                        "$type": "integer"
+                      },
+                      "missed_answer": {
+                        "$type": "integer"
+                      },
+                      "partial_supported": {
+                        "$type": "integer"
+                      },
+                      "proposal_completion_errors": {
+                        "$type": "integer"
+                      },
+                      "queries": {
+                        "$type": "integer"
+                      },
+                      "unsupported_claim_items": {
+                        "$type": "integer"
+                      },
+                      "wrong_or_unsupported": {
+                        "$type": "integer"
+                      }
+                    },
+                    "support_strata": {
+                      "supported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "unsupported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "structured_state": {
+                    "metrics": {
+                      "binding_errors": {
+                        "$type": "integer"
+                      },
+                      "correct_abstention": {
+                        "$type": "integer"
+                      },
+                      "correct_supported": {
+                        "$type": "integer"
+                      },
+                      "mechanical_evidence_error_items": {
+                        "$type": "integer"
+                      },
+                      "missed_answer": {
+                        "$type": "integer"
+                      },
+                      "partial_supported": {
+                        "$type": "integer"
+                      },
+                      "proposal_completion_errors": {
+                        "$type": "integer"
+                      },
+                      "queries": {
+                        "$type": "integer"
+                      },
+                      "unsupported_claim_items": {
+                        "$type": "integer"
+                      },
+                      "wrong_or_unsupported": {
+                        "$type": "integer"
+                      }
+                    },
+                    "support_strata": {
+                      "supported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "unsupported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "paired": {
+                  "first_to_plain": {
+                    "corrected": {
+                      "$type": "integer"
+                    },
+                    "matrix": {
+                      "correct_abstention": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "correct_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "missed_answer": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "partial_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "wrong_or_unsupported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    },
+                    "regressed": {
+                      "$type": "integer"
+                    }
+                  },
+                  "first_to_structured": {
+                    "corrected": {
+                      "$type": "integer"
+                    },
+                    "matrix": {
+                      "correct_abstention": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "correct_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "missed_answer": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "partial_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "wrong_or_unsupported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    },
+                    "regressed": {
+                      "$type": "integer"
+                    }
+                  },
+                  "plain_to_structured": {
+                    "corrected": {
+                      "$type": "integer"
+                    },
+                    "matrix": {
+                      "correct_abstention": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "correct_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "missed_answer": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "partial_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "wrong_or_unsupported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    },
+                    "regressed": {
+                      "$type": "integer"
+                    }
+                  }
+                }
+              },
+              "known": {
+                "conditions": {
+                  "first_pass": {
+                    "metrics": {
+                      "binding_errors": {
+                        "$type": "integer"
+                      },
+                      "correct_abstention": {
+                        "$type": "integer"
+                      },
+                      "correct_supported": {
+                        "$type": "integer"
+                      },
+                      "mechanical_evidence_error_items": {
+                        "$type": "integer"
+                      },
+                      "missed_answer": {
+                        "$type": "integer"
+                      },
+                      "partial_supported": {
+                        "$type": "integer"
+                      },
+                      "proposal_completion_errors": {
+                        "$type": "integer"
+                      },
+                      "queries": {
+                        "$type": "integer"
+                      },
+                      "unsupported_claim_items": {
+                        "$type": "integer"
+                      },
+                      "wrong_or_unsupported": {
+                        "$type": "integer"
+                      }
+                    },
+                    "support_strata": {
+                      "supported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "unsupported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "plain_reread": {
+                    "metrics": {
+                      "binding_errors": {
+                        "$type": "integer"
+                      },
+                      "correct_abstention": {
+                        "$type": "integer"
+                      },
+                      "correct_supported": {
+                        "$type": "integer"
+                      },
+                      "mechanical_evidence_error_items": {
+                        "$type": "integer"
+                      },
+                      "missed_answer": {
+                        "$type": "integer"
+                      },
+                      "partial_supported": {
+                        "$type": "integer"
+                      },
+                      "proposal_completion_errors": {
+                        "$type": "integer"
+                      },
+                      "queries": {
+                        "$type": "integer"
+                      },
+                      "unsupported_claim_items": {
+                        "$type": "integer"
+                      },
+                      "wrong_or_unsupported": {
+                        "$type": "integer"
+                      }
+                    },
+                    "support_strata": {
+                      "supported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "unsupported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "structured_state": {
+                    "metrics": {
+                      "binding_errors": {
+                        "$type": "integer"
+                      },
+                      "correct_abstention": {
+                        "$type": "integer"
+                      },
+                      "correct_supported": {
+                        "$type": "integer"
+                      },
+                      "mechanical_evidence_error_items": {
+                        "$type": "integer"
+                      },
+                      "missed_answer": {
+                        "$type": "integer"
+                      },
+                      "partial_supported": {
+                        "$type": "integer"
+                      },
+                      "proposal_completion_errors": {
+                        "$type": "integer"
+                      },
+                      "queries": {
+                        "$type": "integer"
+                      },
+                      "unsupported_claim_items": {
+                        "$type": "integer"
+                      },
+                      "wrong_or_unsupported": {
+                        "$type": "integer"
+                      }
+                    },
+                    "support_strata": {
+                      "supported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "unsupported": {
+                        "binding_errors": {
+                          "$type": "integer"
+                        },
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "mechanical_evidence_error_items": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "proposal_completion_errors": {
+                          "$type": "integer"
+                        },
+                        "queries": {
+                          "$type": "integer"
+                        },
+                        "unsupported_claim_items": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "paired": {
+                  "first_to_plain": {
+                    "corrected": {
+                      "$type": "integer"
+                    },
+                    "matrix": {
+                      "correct_abstention": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "correct_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "missed_answer": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "partial_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "wrong_or_unsupported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    },
+                    "regressed": {
+                      "$type": "integer"
+                    }
+                  },
+                  "first_to_structured": {
+                    "corrected": {
+                      "$type": "integer"
+                    },
+                    "matrix": {
+                      "correct_abstention": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "correct_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "missed_answer": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "partial_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "wrong_or_unsupported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    },
+                    "regressed": {
+                      "$type": "integer"
+                    }
+                  },
+                  "plain_to_structured": {
+                    "corrected": {
+                      "$type": "integer"
+                    },
+                    "matrix": {
+                      "correct_abstention": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "correct_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "missed_answer": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "partial_supported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      },
+                      "wrong_or_unsupported": {
+                        "correct_abstention": {
+                          "$type": "integer"
+                        },
+                        "correct_supported": {
+                          "$type": "integer"
+                        },
+                        "missed_answer": {
+                          "$type": "integer"
+                        },
+                        "partial_supported": {
+                          "$type": "integer"
+                        },
+                        "wrong_or_unsupported": {
+                          "$type": "integer"
+                        }
+                      }
+                    },
+                    "regressed": {
+                      "$type": "integer"
+                    }
+                  }
+                }
+              }
+            },
+            "costs": {
+              "first_pass:final": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              },
+              "plain_reread:critic": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              },
+              "plain_reread:final": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              },
+              "plain_reread:plan": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              },
+              "structured_state:critic": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              },
+              "structured_state:final": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              },
+              "structured_state:plan": {
+                "answer_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "answer_characters": {
+                  "$type": "integer"
+                },
+                "claim_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "contexts": {
+                  "$type": "integer"
+                },
+                "emitted_payload_characters": {
+                  "$type": "integer"
+                },
+                "evidence_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "maximum_answer_characters": {
+                  "$type": "integer"
+                },
+                "maximum_payload_characters": {
+                  "$type": "integer"
+                },
+                "payload_cap_violation_records": {
+                  "$type": "integer"
+                },
+                "records": {
+                  "$type": "integer"
+                },
+                "slot_cap_violation_records": {
+                  "$type": "integer"
+                }
+              }
+            },
+            "date": {
+              "$type": "string"
+            },
+            "design": {
+              "answer_character_cap": {
+                "$type": "integer"
+              },
+              "assessed_answer_items": {
+                "$type": "integer"
+              },
+              "claim_cap": {
+                "$type": "integer"
+              },
+              "critic_payload_character_cap": {
+                "$type": "integer"
+              },
+              "evidence_entry_cap": {
+                "$type": "integer"
+              },
+              "final_payload_character_cap": {
+                "$type": "integer"
+              },
+              "plan_payload_character_cap": {
+                "$type": "integer"
+              },
+              "primary_assessor_contexts": {
+                "$type": "integer"
+              },
+              "producer_contexts": {
+                "$type": "integer"
+              },
+              "production_records": {
+                "$type": "integer"
+              },
+              "shared_first_answers": {
+                "$type": "integer"
+              },
+              "working_state_slot_cap": {
+                "$type": "integer"
+              }
+            },
+            "limits": {
+              "agi_verified": {
+                "$type": "boolean"
+              },
+              "biological_brain_verified": {
+                "$type": "boolean"
+              },
+              "emotion_effect_verified": {
+                "$type": "boolean"
+              },
+              "external_source_audit_possible_from_public_data": {
+                "$type": "boolean"
+              },
+              "full_wake_verified": {
+                "$type": "boolean"
+              },
+              "graph_benefit_verified": {
+                "$type": "boolean"
+              },
+              "natural_daily_recall_verified": {
+                "$type": "boolean"
+              },
+              "private_experiment_rerun_possible_from_public_data": {
+                "$type": "boolean"
+              },
+              "real_action_feedback_learning_executed": {
+                "$type": "boolean"
+              },
+              "retrieval_improvement_verified": {
+                "$type": "boolean"
+              },
+              "shiori_speed_verified": {
+                "$type": "boolean"
+              }
+            },
+            "method": {
+              "all_answers_frozen_before_blind_assessment": {
+                "$type": "boolean"
+              },
+              "all_critics_before_any_final": {
+                "$type": "boolean"
+              },
+              "all_meaning_roles_actual_ai": {
+                "$type": "boolean"
+              },
+              "collection_counterbalanced": {
+                "$type": "boolean"
+              },
+              "controller_authored_semantics": {
+                "$type": "boolean"
+              },
+              "fresh_per_condition_first_pass": {
+                "$type": "boolean"
+              },
+              "fully_anonymous_bodies": {
+                "$type": "boolean"
+              },
+              "instruction_separated_roles_same_host": {
+                "$type": "boolean"
+              },
+              "original_bodies_preserved": {
+                "$type": "boolean"
+              },
+              "prelocked_item_orders": {
+                "$type": "boolean"
+              },
+              "provider_identity_settings_and_request_counts_unavailable": {
+                "$type": "boolean"
+              },
+              "query_only_plans": {
+                "$type": "boolean"
+              },
+              "same_originals_and_first_answers": {
+                "$type": "boolean"
+              },
+              "same_stage_caps_and_evidence": {
+                "$type": "boolean"
+              },
+              "shared_first_answers_frozen": {
+                "$type": "boolean"
+              },
+              "source_fixed_privileged": {
+                "$type": "boolean"
+              },
+              "trace_and_path_metadata_stripped": {
+                "$type": "boolean"
+              },
+              "verified_equal_provider_tokens_or_compute": {
+                "$type": "boolean"
+              }
+            },
+            "provenance": {
+              "$omitted": true,
+              "$type": "object"
+            },
+            "sample": {
+              "fresh_queries": {
+                "$type": "integer"
+              },
+              "fresh_retained_messages": {
+                "$type": "integer"
+              },
+              "fresh_source_sessions": {
+                "$type": "integer"
+              },
+              "fresh_supported_queries": {
+                "$type": "integer"
+              },
+              "fresh_unsupported_queries": {
+                "$type": "integer"
+              },
+              "known_queries": {
+                "$type": "integer"
+              },
+              "known_retained_messages": {
+                "$type": "integer"
+              },
+              "known_source_sessions": {
+                "$type": "integer"
+              },
+              "known_supported_queries": {
+                "$type": "integer"
+              },
+              "known_unsupported_queries": {
+                "$type": "integer"
+              },
+              "whole_retained_messages": {
+                "$type": "integer"
+              },
+              "whole_source_sessions": {
+                "$type": "integer"
+              }
+            },
+            "schema_version": {
+              "$type": "integer"
+            },
+            "study_id": {
+              "$type": "string"
+            },
+            "verification": {
+              "code_engineering_checks": {
+                "$type": "integer"
+              },
+              "code_engineering_passed": {
+                "$type": "integer"
+              },
+              "independent_audit_verified": {
+                "$type": "boolean"
+              },
+              "synthetic_procedure_checks": {
+                "$type": "integer"
+              },
+              "synthetic_procedure_passed": {
+                "$type": "integer"
+              }
+            }
+          },
+          "schema_version": {
+            "$type": "string"
+          }
+        }
+      }
+    },
+    "external_saved_actions": [
+      {
+        "fields": {
+          "direct_max_top3_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                0,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "conditions",
+                0,
+                "answerable_queries"
+              ],
+              "source": "D01"
+            }
+          },
+          "path_sum_minus_direct_max_top3_hits": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                3,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            },
+            "op": "sub",
+            "right": {
+              "op": "get",
+              "path": [
+                "conditions",
+                0,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            }
+          },
+          "path_sum_rank4_or5_hit_count": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                3,
+                "target_hits",
+                "at_5"
+              ],
+              "source": "D01"
+            },
+            "op": "sub",
+            "right": {
+              "op": "get",
+              "path": [
+                "conditions",
+                3,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            }
+          },
+          "path_sum_top3_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                3,
+                "target_hits",
+                "at_3"
+              ],
+              "source": "D01"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "conditions",
+                3,
+                "answerable_queries"
+              ],
+              "source": "D01"
+            }
+          }
+        },
+        "id": "P01",
+        "prediction": "accepted",
+        "rationale": "D01 conditions index 0 is direct_max and index 3 is path_sum. The expressions use each condition's own answerable-query denominator, subtract the requested top-three hit counts, and obtain rank-four-or-five hits by subtracting top-three hits from top-five hits.",
+        "status": "write"
+      },
+      {
+        "fields": {
+          "baseline_positive_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                0,
+                "positive_hits"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "sample",
+                "positive_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "gated_confusable_false_return_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                2,
+                "confusable_false_returns"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "sample",
+                "confusable_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "gated_positive_hit_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                2,
+                "positive_hits"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "sample",
+                "positive_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "raw_confusable_false_return_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                1,
+                "confusable_false_returns"
+              ],
+              "source": "D02"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "sample",
+                "confusable_queries"
+              ],
+              "source": "D02"
+            }
+          },
+          "raw_minus_gated_positive_hits": {
+            "left": {
+              "op": "get",
+              "path": [
+                "conditions",
+                1,
+                "positive_hits"
+              ],
+              "source": "D02"
+            },
+            "op": "sub",
+            "right": {
+              "op": "get",
+              "path": [
+                "conditions",
+                2,
+                "positive_hits"
+              ],
+              "source": "D02"
+            }
+          }
+        },
+        "id": "P03",
+        "prediction": "accepted",
+        "rationale": "D02 conditions indexes 0, 1, and 2 identify baseline, raw_semantic, and gated_semantic. Positive-hit fractions use the full positive-query sample, confusable false-return fractions use the confusable-query sample, and the final subtraction compares raw_semantic with gated_semantic positive hits.",
+        "status": "write"
+      },
+      {
+        "fields": {
+          "fresh_plain_all_query_full_fraction": {
+            "left": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_abstention"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "cohorts",
+                "fresh",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "queries"
+              ],
+              "source": "D03"
+            }
+          },
+          "known_first_supported_full_fraction": {
+            "left": {
+              "op": "get",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "first_pass",
+                "metrics",
+                "correct_supported"
+              ],
+              "source": "D03"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "first_pass",
+                "support_strata",
+                "supported",
+                "queries"
+              ],
+              "source": "D03"
+            }
+          },
+          "known_plain_all_query_full_fraction": {
+            "left": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "plain_reread",
+                    "metrics",
+                    "correct_abstention"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            },
+            "op": "div",
+            "right": {
+              "op": "get",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "queries"
+              ],
+              "source": "D03"
+            }
+          },
+          "pooled_structured_supported_full_fraction": {
+            "left": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "structured_state",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "structured_state",
+                    "metrics",
+                    "correct_supported"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            },
+            "op": "div",
+            "right": {
+              "args": [
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "fresh",
+                    "conditions",
+                    "structured_state",
+                    "support_strata",
+                    "supported",
+                    "queries"
+                  ],
+                  "source": "D03"
+                },
+                {
+                  "op": "get",
+                  "path": [
+                    "cohorts",
+                    "known",
+                    "conditions",
+                    "structured_state",
+                    "support_strata",
+                    "supported",
+                    "queries"
+                  ],
+                  "source": "D03"
+                }
+              ],
+              "op": "sum"
+            }
+          }
+        },
+        "id": "P05",
+        "prediction": "accepted",
+        "rationale": "D03 provides condition-specific cohort metrics and supported-stratum query counts. The first fraction uses known first_pass fully supported answers over supported queries; each plain_reread fraction includes fully correct supported answers and correct abstentions over all condition queries. The pooled structured fraction sums fully supported answers and supported-query denominators across fresh and known cohorts. No partial_supported count is included.",
+        "status": "write"
+      }
+    ],
+    "old_goals": [
+      {
+        "field_names": [
+          "direct_max_top3_hit_fraction",
+          "path_sum_top3_hit_fraction",
+          "path_sum_minus_direct_max_top3_hits",
+          "path_sum_rank4_or5_hit_count"
+        ],
+        "id": "P01",
+        "instruction": "Build a top-k retrieval comparison. Return direct_max_top3_hit_fraction (direct_max top-three target hits divided by that condition's answerable-query count), path_sum_top3_hit_fraction (the corresponding fraction for path_sum), path_sum_minus_direct_max_top3_hits (path_sum top-three target-hit count minus direct_max top-three target-hit count), and path_sum_rank4_or5_hit_count (path_sum top-five target hits minus its top-three target hits). Do not round fractions.",
+        "source": "D01"
+      },
+      {
+        "field_names": [
+          "baseline_positive_hit_fraction",
+          "gated_positive_hit_fraction",
+          "raw_confusable_false_return_fraction",
+          "gated_confusable_false_return_fraction",
+          "raw_minus_gated_positive_hits"
+        ],
+        "id": "P03",
+        "instruction": "Compare retrieval effectiveness and confusable false returns. Return baseline_positive_hit_fraction and gated_positive_hit_fraction, each using the full positive-query sample as its denominator; raw_confusable_false_return_fraction and gated_confusable_false_return_fraction, each using the confusable-query sample as its denominator; and raw_minus_gated_positive_hits, the raw_semantic positive-hit count minus the gated_semantic positive-hit count. Use raw_semantic for raw fields and gated_semantic for gated fields. Do not round fractions.",
+        "source": "D02"
+      },
+      {
+        "field_names": [
+          "known_first_supported_full_fraction",
+          "known_plain_all_query_full_fraction",
+          "fresh_plain_all_query_full_fraction",
+          "pooled_structured_supported_full_fraction"
+        ],
+        "id": "P05",
+        "instruction": "Summarize answer correctness with the requested denominators. Return known_first_supported_full_fraction, the known cohort's first_pass correct_supported count divided by its supported-stratum query count; known_plain_all_query_full_fraction and fresh_plain_all_query_full_fraction, each cohort's plain_reread sum of correct_supported and correct_abstention divided by all queries for that cohort and condition; and pooled_structured_supported_full_fraction, the sum of fresh and known structured_state correct_supported counts divided by the sum of their supported-stratum query counts. Exclude partial_supported from fully correct counts. Do not round fractions.",
+        "source": "D03"
+      }
+    ]
+  },
+  "role": "later_actual_action_operator",
+  "tasks": [
+    {
+      "field_names": [
+        "direct_sum_minus_direct_max_mrr_at_5",
+        "path_sum_minus_path_max_mrr_at_5",
+        "direct_sum_to_direct_max_mrr_at_5_ratio",
+        "path_sum_to_path_max_mrr_at_5_ratio"
+      ],
+      "id": "F01",
+      "instruction": "Compare the effect of sum_best_per_cue aggregation relative to single_best aggregation on mrr_at_5, separately for the direct and one-hop retrieval settings. Return direct_sum_minus_direct_max_mrr_at_5, path_sum_minus_path_max_mrr_at_5, direct_sum_to_direct_max_mrr_at_5_ratio, and path_sum_to_path_max_mrr_at_5_ratio. For each difference subtract the named max condition from the named sum condition; for each ratio divide the named sum condition by the named max condition. Do not round calculated values.",
+      "source": "S01"
+    },
+    {
+      "field_names": [
+        "baseline_literal_minus_paraphrase_hit_fraction",
+        "raw_literal_minus_paraphrase_hit_fraction",
+        "gated_literal_minus_paraphrase_hit_fraction",
+        "raw_to_baseline_paraphrase_hit_fraction_ratio"
+      ],
+      "id": "F02",
+      "instruction": "Compare the literal-versus-paraphrase retrieval gap across baseline, raw_semantic, and gated_semantic. A literal hit fraction is literal_hits divided by the sample literal_queries count; a paraphrase hit fraction is paraphrase_hits divided by the sample paraphrase_queries count. Return baseline_literal_minus_paraphrase_hit_fraction, raw_literal_minus_paraphrase_hit_fraction, and gated_literal_minus_paraphrase_hit_fraction, each condition's literal hit fraction minus its paraphrase hit fraction; also return raw_to_baseline_paraphrase_hit_fraction_ratio, the raw_semantic paraphrase hit fraction divided by the baseline paraphrase hit fraction. Do not round calculated values.",
+      "source": "S04"
+    },
+    {
+      "field_names": [
+        "fresh_retained_messages_per_source_session",
+        "known_retained_messages_per_source_session",
+        "fresh_to_known_retained_messages_per_source_session_ratio",
+        "known_minus_fresh_queries_per_source_session"
+      ],
+      "id": "F03",
+      "instruction": "Using the study sample counts, compare source-pool and authored-query density between the fresh and known cohorts. Return fresh_retained_messages_per_source_session and known_retained_messages_per_source_session, each cohort's retained-message count divided by its source-session count; fresh_to_known_retained_messages_per_source_session_ratio, the fresh density divided by the known density; and known_minus_fresh_queries_per_source_session, the known queries per source session minus the fresh queries per source session. Do not round calculated values.",
+      "source": "S05"
+    },
+    {
+      "field_names": [
+        "direct_sum_minus_direct_max_mrr_at_5",
+        "path_sum_minus_path_max_mrr_at_5",
+        "direct_sum_to_direct_max_mrr_at_5_ratio",
+        "path_sum_to_path_max_mrr_at_5_ratio"
+      ],
+      "id": "F04",
+      "instruction": "Compare the effect of sum_best_per_cue aggregation relative to single_best aggregation on mrr_at_5, separately for the direct and one-hop retrieval settings. Return direct_sum_minus_direct_max_mrr_at_5, path_sum_minus_path_max_mrr_at_5, direct_sum_to_direct_max_mrr_at_5_ratio, and path_sum_to_path_max_mrr_at_5_ratio. For each difference subtract the named max condition from the named sum condition; for each ratio divide the named sum condition by the named max condition. Do not round calculated values.",
+      "source": "S02"
+    },
+    {
+      "field_names": [
+        "baseline_literal_minus_paraphrase_hit_fraction",
+        "raw_literal_minus_paraphrase_hit_fraction",
+        "gated_literal_minus_paraphrase_hit_fraction",
+        "raw_to_baseline_paraphrase_hit_fraction_ratio"
+      ],
+      "id": "F05",
+      "instruction": "Compare the literal-versus-paraphrase retrieval gap across baseline, raw_semantic, and gated_semantic. A literal hit fraction is literal_hits divided by the sample literal_queries count; a paraphrase hit fraction is paraphrase_hits divided by the sample paraphrase_queries count. Return baseline_literal_minus_paraphrase_hit_fraction, raw_literal_minus_paraphrase_hit_fraction, and gated_literal_minus_paraphrase_hit_fraction, each condition's literal hit fraction minus its paraphrase hit fraction; also return raw_to_baseline_paraphrase_hit_fraction_ratio, the raw_semantic paraphrase hit fraction divided by the baseline paraphrase hit fraction. Do not round calculated values.",
+      "source": "S03"
+    },
+    {
+      "field_names": [
+        "fresh_retained_messages_per_source_session",
+        "known_retained_messages_per_source_session",
+        "fresh_to_known_retained_messages_per_source_session_ratio",
+        "known_minus_fresh_queries_per_source_session"
+      ],
+      "id": "F06",
+      "instruction": "Using the study sample counts, compare source-pool and authored-query density between the fresh and known cohorts. Return fresh_retained_messages_per_source_session and known_retained_messages_per_source_session, each cohort's retained-message count divided by its source-session count; fresh_to_known_retained_messages_per_source_session_ratio, the fresh density divided by the known density; and known_minus_fresh_queries_per_source_session, the known queries per source session minus the fresh queries per source session. Do not round calculated values.",
+      "source": "S06"
+    }
+  ]
+}

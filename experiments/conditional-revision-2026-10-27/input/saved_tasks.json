@@ -1,0 +1,36 @@
+[
+  {
+    "id": "P01",
+    "source": "D01",
+    "instruction": "Build a top-k retrieval comparison. Return direct_max_top3_hit_fraction (direct_max top-three target hits divided by that condition's answerable-query count), path_sum_top3_hit_fraction (the corresponding fraction for path_sum), path_sum_minus_direct_max_top3_hits (path_sum top-three target-hit count minus direct_max top-three target-hit count), and path_sum_rank4_or5_hit_count (path_sum top-five target hits minus its top-three target hits). Do not round fractions.",
+    "field_names": [
+      "direct_max_top3_hit_fraction",
+      "path_sum_top3_hit_fraction",
+      "path_sum_minus_direct_max_top3_hits",
+      "path_sum_rank4_or5_hit_count"
+    ]
+  },
+  {
+    "id": "P03",
+    "source": "D02",
+    "instruction": "Compare retrieval effectiveness and confusable false returns. Return baseline_positive_hit_fraction and gated_positive_hit_fraction, each using the full positive-query sample as its denominator; raw_confusable_false_return_fraction and gated_confusable_false_return_fraction, each using the confusable-query sample as its denominator; and raw_minus_gated_positive_hits, the raw_semantic positive-hit count minus the gated_semantic positive-hit count. Use raw_semantic for raw fields and gated_semantic for gated fields. Do not round fractions.",
+    "field_names": [
+      "baseline_positive_hit_fraction",
+      "gated_positive_hit_fraction",
+      "raw_confusable_false_return_fraction",
+      "gated_confusable_false_return_fraction",
+      "raw_minus_gated_positive_hits"
+    ]
+  },
+  {
+    "id": "P05",
+    "source": "D03",
+    "instruction": "Summarize answer correctness with the requested denominators. Return known_first_supported_full_fraction, the known cohort's first_pass correct_supported count divided by its supported-stratum query count; known_plain_all_query_full_fraction and fresh_plain_all_query_full_fraction, each cohort's plain_reread sum of correct_supported and correct_abstention divided by all queries for that cohort and condition; and pooled_structured_supported_full_fraction, the sum of fresh and known structured_state correct_supported counts divided by the sum of their supported-stratum query counts. Exclude partial_supported from fully correct counts. Do not round fractions.",
+    "field_names": [
+      "known_first_supported_full_fraction",
+      "known_plain_all_query_full_fraction",
+      "fresh_plain_all_query_full_fraction",
+      "pooled_structured_supported_full_fraction"
+    ]
+  }
+]

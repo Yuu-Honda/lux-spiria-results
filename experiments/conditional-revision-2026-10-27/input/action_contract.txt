@@ -1,0 +1,9 @@
+Actual action contract v1
+Submit a JSON array of actions, one for every task id, no omissions or extras.
+Each action has exactly: id:string, prediction:accepted|rejected|uncertain (predict whether the resulting artifact will satisfy requested contract), rationale:string, status:write|unavailable, fields:object.
+For write, each field value is an expression. {"op":"get","source":"D01","path":["sample","sessions"]}; {"op":"sum","args":[expr,expr]}; {"op":"sub","left":expr,"right":expr}; {"op":"div","left":expr,"right":expr}. No literal-value operation or executable code. Array indexes integer; object keys strings.
+For unavailable use status unavailable and fields {}. Explain why the source lacks the requested quantity in rationale; do not substitute zero, false, another denominator, or a different metric.
+The actual tool will read frozen public sources and write artifact.json: {"status":"ok","values":{requested names:computed leaves}} or {"status":"unavailable","values":null}. Numeric tasks require exact requested values; ratio is division without rounding.
+Do not execute, preview or simulate tool outcomes during action authoring; you may read assigned JSON sources and reason. Do not read gold, other roles, future tasks or private repositories. Canonical compact JSON character cap6000 per action; exceeding is recorded, never silently fixed. Source absence is bounded to the assigned public file, not absence in the world.
+
+This study supplies source handles/format catalog and actually observed structural schema metadata instead of full current numeric JSON. $type/$omitted/observed_value are observation annotations, not keys to use in source paths. Keep legacy_root paths unchanged; determine changed-format paths from evidence rather than assuming all handles share one format. These are experimental conditions, not a changed original historical source.

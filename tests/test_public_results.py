@@ -46,9 +46,12 @@ class Results(unittest.TestCase):
   for p in ROOT.rglob('*'):
    if not p.is_file() or '.git' in p.parts or '__pycache__' in p.parts:continue
    if p.suffix.lower()=='.zip':
-    # The audited public-data replay is the sole ZIP publication exception.
-    self.assertEqual(p.relative_to(ROOT).as_posix(),'downloads/action-feedback-2026-10-27.zip')
-    replay_summary=json.loads((ROOT/'data/action-feedback-2026-10-27.json').read_text())
+    # Only exact audited public-data replay paths and matching summary hashes qualify.
+    allowed_archives={'downloads/action-feedback-2026-10-27.zip':'data/action-feedback-2026-10-27.json',
+                      'downloads/conditional-revision-2026-10-27.zip':'data/conditional-revision-2026-10-27.json'}
+    relative=p.relative_to(ROOT).as_posix()
+    self.assertIn(relative,allowed_archives)
+    replay_summary=json.loads((ROOT/allowed_archives[relative]).read_text())
     self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),replay_summary['replay']['zip_sha256'])
     continue
    self.assertNotIn(p.suffix.lower(),{'.db','.sqlite','.sqlite3','.zip','.jsonl'})

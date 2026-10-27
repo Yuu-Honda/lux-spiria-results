@@ -1,0 +1,143 @@
+{
+  "schema": "prospective-conditional-revision-protocol.v1",
+  "created_at_utc": "2026-10-27T14:36:30.295831+00:00",
+  "status": "FROZEN_BEFORE_NEW_TASK_AUTHORING_AND_ALL_NEW_EXECUTIONS",
+  "question": "Can an actual AI repair failed saved operations after an explicitly engineered source-format change, preserve the valid legacy rule, and use the resulting conditional record on matched new objectives? Is added conditional review useful beyond identical raw feedback?",
+  "domain": "Actual file processing over three known previously public Results JSON sources. Controlled copies wrap the entire unchanged parsed original under payload with schema_version artifact-container.v2. This manipulation is declared, not a natural outage or new dialogue. No fabricated tool outcomes.",
+  "conditions": {
+    "legacy_root": "Unchanged full public source file copy.",
+    "wrapped_v2": "Exactly {schema_version:artifact-container.v2,payload:original}. Parsed payload types/values equal original; original raw bytes remain untouched."
+  },
+  "sample": {
+    "public_source_families": 3,
+    "saved_successful_actions": 3,
+    "diagnostic_legacy_replays": 3,
+    "diagnostic_wrapped_replays": 3,
+    "actual_ai_repair_actions": 3,
+    "new_objectives": 3,
+    "formats_per_objective": 2,
+    "later_tasks_per_arm": 6,
+    "later_arms": 2,
+    "later_actual_actions": 12,
+    "total_execution_items": 21
+  },
+  "saved_selection": "Prior published practice P01/P03/P05, one supported successful action per source. Selection fixed now, no outcome-based choice. Preserve actual saved JSON action content and original gold/goal. Old predictions belonged to v1; v2 incompatibility must never be scored as a new AI error or miscalibration.",
+  "input_authoring": "A fresh source-only actual AI authors three meaningfully new numeric work objectives, 3-5 named fields each, distinct from all15 prior study tasks; each objective is repeated exactly over its legacy/wrapped handles, making six items but only three distinct objectives. Freeze independently reviewed numeric typed expected artifacts before all6 diagnostic replays and new actions. Code cannot author semantic questions or gold.",
+  "catalog": {
+    "S01": {
+      "origin_alias": "D01",
+      "format": "legacy_root"
+    },
+    "S02": {
+      "origin_alias": "D01",
+      "format": "wrapped_v2"
+    },
+    "S03": {
+      "origin_alias": "D02",
+      "format": "legacy_root"
+    },
+    "S04": {
+      "origin_alias": "D02",
+      "format": "wrapped_v2"
+    },
+    "S05": {
+      "origin_alias": "D03",
+      "format": "legacy_root"
+    },
+    "S06": {
+      "origin_alias": "D03",
+      "format": "wrapped_v2"
+    }
+  },
+  "later_task_order": [
+    {
+      "id": "F01",
+      "source": "S01"
+    },
+    {
+      "id": "F02",
+      "source": "S04"
+    },
+    {
+      "id": "F03",
+      "source": "S05"
+    },
+    {
+      "id": "F04",
+      "source": "S02"
+    },
+    {
+      "id": "F05",
+      "source": "S03"
+    },
+    {
+      "id": "F06",
+      "source": "S06"
+    }
+  ],
+  "actors_interface": "Explicitly limited engineered tool interface. Actor packets contain current task, source handle/origin/format catalog and the same actually observed prior evidence. Harness alone reads current source values. No per-arm fullcurrentJSON bypass. Original public values can be inferred from previous exposure; prior training unknown. Actors do not independently fetch source files/internet, gold or current outcomes.",
+  "schema_observation": "Actual deterministic readback of three written wrapped files before action, source-independent structural projection: retain keys/array order, replace scalar values with type markers, retain only string id values for condition binding; omit per_query/provenance branches with explicit omission markers. No numeric scalar values or other prose. Projection is metadata, not source JSON to execute against. Same full observations delivered to both later arms; author/reviewer ensure task paths lie in retained projection.",
+  "arms": [
+    "raw_observations",
+    "raw_observations_and_conditional_review"
+  ],
+  "primary_comparison": "Both later arms receive identical old goals/actions, actual legacy and wrapped replay results, actual schema observations, AI repair actions and actual repair results. Review arm additionally receives the actual AI-authored conditional review. Review may synthesize observed mapping, not add private facts or future answers. Not a comparison of feedback versus no feedback; old diagnostic replays are not fresh AI controls.",
+  "collection_order": [
+    "Freeze protocol before source-only task authoring.",
+    "Approve and freeze tasks/gold/code/derived-source invariants before all new executions.",
+    "Execute saved P01/P03/P05 exactly once on original copies and exactly once on wrapped copies; retain all real artifacts/errors regardless of expected result.",
+    "One fresh fork-none AI sees old actions/goals, actual replay outputs/errors and actual schema observations. It proposes3repair actions+predictions for wrapped handles D01/D02/D03. Freeze all3 before execution; one attempt only, no success-seeking repair retries.",
+    "Execute3actualAIrepairactions. Send only actual execution/artifacts/validation back to the SAME repaircontext, which writes3conditional-review entries. It must separate prior external saved action from its own new choice, and preserve v1 applicability.",
+    "Two fresh fork-none contexts receive matched6new task items in fixed order. Dispatch raw_observations, then raw_observations_and_conditional_review. All12actions frozen before any later execution feedback.",
+    "Execute all12once; no retries, task/gold changes, source pruning or new memory updates on later outcomes. Independently audit actual outcomes/scope, append JAEN results and public replay after privacy audit."
+  ],
+  "action_contract": "Copied unchanged prior action_loop.py SHA61495538507742ab5c3d55721a4115bf9fb24542b605525c63edc6b8f4cb7297: actual AI selects get/sum/sub/div paths or unavailable, prediction accepted/rejected/uncertain and rationale; code writes realartifact and typed-compares frozen expected values. Exact JSON types, float absolute tolerance1e-12; old actual saved prediction validity scoped to v1.",
+  "review_contract": {
+    "entries": 3,
+    "fields": [
+      "event_id",
+      "old_judgment",
+      "changed_condition",
+      "observed_failure",
+      "repair_choice",
+      "observed_repair_result",
+      "current_judgment",
+      "preserved_legacy_rule",
+      "uncertainty",
+      "future_check",
+      "change_type"
+    ],
+    "change_type": [
+      "conditional_update",
+      "confirmation",
+      "deferred"
+    ],
+    "meaning": "Actual AI classifies after its repair outcomes, no forced update/growth. Different earlier saved-action context, same new repaircontext for choice then post-outcome review; no continuous model identity claim."
+  },
+  "budgets": {
+    "canonical_action_characters_per_item": 6000,
+    "canonical_review_characters_total": 6000,
+    "repair_contexts": 1,
+    "repair_context_turns": 2,
+    "later_contexts": 2,
+    "later_context_turns": 1,
+    "semantic_retry_after_outcomes": 0,
+    "provider_identity_settings_requests_tokens_compute": null,
+    "note": "Equal action opportunities/caps and shared evidence, different actual input lengths; no equal compute/provider/time claim."
+  },
+  "outcomes": [
+    "Old v1/v2 replay raw execution status and typed artifact acceptance, not new-AI prediction scores.",
+    "New3repair rawstatus/typedacceptance and actual new preexecution prediction agreement.",
+    "Later6perarm correctness split legacy3/wrapped3 and per paired objective; preserve all12firstoutputs.",
+    "Paired raw→review corrected/regressed/bothcorrect/bothwrong performat andall.",
+    "Legacy failures tracked separately as potential overgeneralization; wrong output alone cannot establish subjective cause.",
+    "Review3 actual change-type/grounding/retainedv1scope; no numeric psychological learning score.",
+    "Actual canonical input/outputchars, action/memory caps and source/record hashes."
+  ],
+  "null_and_failure": "New-AI failures or an arm difference are NOT guaranteed. If both arms succeed, report bounded adaptation+legacy scope and no observed added-review benefit. Failed repair stays failed/deferred; no instruction to fake a correction, no escalating edits until success. Model-weight learning, delayed retention, nativeChatGPT/fullLREWake, SHIORIgraph/binaryspeed, Emotion and biologicalbrain are not tested.",
+  "roles": "Taskauthor/reviewer/repairactor/lateractors fresh fork_turns:none with explicit files only. The repair actor followup reuses that samecontext for post-outcome review. Shared host instruction separation, not OSsandbox or authenticated provider identity.",
+  "engineering": "Copied controller unchanged; existing20engineeringtests plus small new source-migration/projection tests are apparatus checks, not memoryaccuracy. Helpers can select predeclared IDs, transform copies, show schema, hash/freeze/typedcompare/aggregate actual authored records. Helpers cannot author semantic tasks, repair choices, reviews or grades of understanding.",
+  "collection_repairs": "Atmost1format-only actor collection repair overall if JSONunreadable, original retained/disclosed, never semanticcorrection. Atmost1taskauthor revision after independent pre-execution rejection, original retained. No postscore task/gold relabel/exclusion.",
+  "protection": "All14earliersealedroots+production3816baselinefiles remain byte-preserved. No original research/readme/release changes, canonical memory/Emotion/Reflection/SELF_STATE/Wake writes, private conversation reads, private hostedworkflow dispatch or spending changes.",
+  "publication": "Append actual current JAEN study, public source copies/declaredmigration/oldactualactions/newactualAIchoices/realoutputs/review and deterministic saved-action replay after independent privacy/count audit. Preserve7earlierdatedstudies/data and4overviewstories/assets. Replaying saved actions does not regenerate fresh AI decisions or prove native/bio learning."
+}

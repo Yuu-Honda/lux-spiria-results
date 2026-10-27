@@ -1,0 +1,23 @@
+[
+  {
+    "artifact_sha256": "8b2bace3741bb405d779b2a6d2a769c7dd287a0731309c36479dd3dddef35151",
+    "error": null,
+    "execution_status": "ok",
+    "id": "P01",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "0425d11bcb13149d8acec4a07e8c317279ec7cd781e331869448c3d35edc927c",
+    "error": null,
+    "execution_status": "ok",
+    "id": "P03",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "b3ded4c125a883aed208900d9a717d2d18f09b58803d6735a0cde22d5b732ed5",
+    "error": null,
+    "execution_status": "ok",
+    "id": "P05",
+    "validation_status": "accepted"
+  }
+]

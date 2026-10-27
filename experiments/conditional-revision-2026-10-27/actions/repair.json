@@ -1,0 +1,426 @@
+[
+  {
+    "id": "P01",
+    "prediction": "accepted",
+    "rationale": "The observed D01 structure places conditions under payload; its ordered condition ids identify direct_max at index 0 and path_sum at index 3. The repaired expressions read those observed numeric leaves, divide by each condition's answerable-query count, and subtract the requested hit counts. The successful legacy result supports the same metric definitions, but this is a prediction pending execution.",
+    "status": "write",
+    "fields": {
+      "direct_max_top3_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            0,
+            "target_hits",
+            "at_3"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            0,
+            "answerable_queries"
+          ]
+        }
+      },
+      "path_sum_top3_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            3,
+            "target_hits",
+            "at_3"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            3,
+            "answerable_queries"
+          ]
+        }
+      },
+      "path_sum_minus_direct_max_top3_hits": {
+        "op": "sub",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            3,
+            "target_hits",
+            "at_3"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            0,
+            "target_hits",
+            "at_3"
+          ]
+        }
+      },
+      "path_sum_rank4_or5_hit_count": {
+        "op": "sub",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            3,
+            "target_hits",
+            "at_5"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "payload",
+            "conditions",
+            3,
+            "target_hits",
+            "at_3"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "P03",
+    "prediction": "accepted",
+    "rationale": "The D02 observation independently shows payload containing conditions and sample. Ordered ids identify baseline, raw_semantic, and gated_semantic at indexes 0, 1, and 2. Positive-hit fractions use sample.positive_queries; confusable false-return fractions use sample.confusable_queries. The subtraction uses raw minus gated positive hits. The numeric leaves are observed structurally, and acceptance remains a prediction until the tool runs.",
+    "status": "write",
+    "fields": {
+      "baseline_positive_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "conditions",
+            0,
+            "positive_hits"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "sample",
+            "positive_queries"
+          ]
+        }
+      },
+      "gated_positive_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "conditions",
+            2,
+            "positive_hits"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "sample",
+            "positive_queries"
+          ]
+        }
+      },
+      "raw_confusable_false_return_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "conditions",
+            1,
+            "confusable_false_returns"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "sample",
+            "confusable_queries"
+          ]
+        }
+      },
+      "gated_confusable_false_return_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "conditions",
+            2,
+            "confusable_false_returns"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "sample",
+            "confusable_queries"
+          ]
+        }
+      },
+      "raw_minus_gated_positive_hits": {
+        "op": "sub",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "conditions",
+            1,
+            "positive_hits"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "payload",
+            "conditions",
+            2,
+            "positive_hits"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "P05",
+    "prediction": "accepted",
+    "rationale": "The D03 observation shows payload.cohorts with fresh and known condition-specific metrics and supported-stratum query counts. The repair prefixes those observed paths with payload. Supported-only fractions use supported query denominators; all-query plain_reread fractions add correct_supported and correct_abstention over metrics.queries. Pooling adds both structured_state supported numerators and denominators. No partial_supported count or metadata marker is used. Acceptance is predicted, not an executed result.",
+    "status": "write",
+    "fields": {
+      "known_first_supported_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "payload",
+            "cohorts",
+            "known",
+            "conditions",
+            "first_pass",
+            "metrics",
+            "correct_supported"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "payload",
+            "cohorts",
+            "known",
+            "conditions",
+            "first_pass",
+            "support_strata",
+            "supported",
+            "queries"
+          ]
+        }
+      },
+      "known_plain_all_query_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_supported"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_abstention"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "payload",
+            "cohorts",
+            "known",
+            "conditions",
+            "plain_reread",
+            "metrics",
+            "queries"
+          ]
+        }
+      },
+      "fresh_plain_all_query_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "fresh",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_supported"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "fresh",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_abstention"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "payload",
+            "cohorts",
+            "fresh",
+            "conditions",
+            "plain_reread",
+            "metrics",
+            "queries"
+          ]
+        }
+      },
+      "pooled_structured_supported_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "fresh",
+                "conditions",
+                "structured_state",
+                "metrics",
+                "correct_supported"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "structured_state",
+                "metrics",
+                "correct_supported"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "fresh",
+                "conditions",
+                "structured_state",
+                "support_strata",
+                "supported",
+                "queries"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "payload",
+                "cohorts",
+                "known",
+                "conditions",
+                "structured_state",
+                "support_strata",
+                "supported",
+                "queries"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "artifact_sha256": "5ac9a07f739e8a2f3c22de5c062648a042aa64634e2a5bfa1c45f7f2ff151f9a",
+    "error": null,
+    "execution_status": "ok",
+    "id": "F01",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "84eeb5832f5e079a9731b45fa3138332bd3c5d3500552c7b128ea7978b68404b",
+    "error": null,
+    "execution_status": "ok",
+    "id": "F02",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "21e5bdb72aa7c78b8ab9ecbbd7b1d3d531254a23aa1f3239cbc52973f9c7fc99",
+    "error": null,
+    "execution_status": "ok",
+    "id": "F03",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "5ac9a07f739e8a2f3c22de5c062648a042aa64634e2a5bfa1c45f7f2ff151f9a",
+    "error": null,
+    "execution_status": "ok",
+    "id": "F04",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "84eeb5832f5e079a9731b45fa3138332bd3c5d3500552c7b128ea7978b68404b",
+    "error": null,
+    "execution_status": "ok",
+    "id": "F05",
+    "validation_status": "accepted"
+  },
+  {
+    "artifact_sha256": "21e5bdb72aa7c78b8ab9ecbbd7b1d3d531254a23aa1f3239cbc52973f9c7fc99",
+    "error": null,
+    "execution_status": "ok",
+    "id": "F06",
+    "validation_status": "accepted"
+  }
+]

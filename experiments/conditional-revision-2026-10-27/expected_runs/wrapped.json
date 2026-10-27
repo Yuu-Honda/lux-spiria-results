@@ -1,0 +1,32 @@
+[
+  {
+    "artifact_sha256": null,
+    "error": {
+      "message": "object path key is missing",
+      "type": "ActionError"
+    },
+    "execution_status": "execution_error",
+    "id": "P01",
+    "validation_status": "rejected"
+  },
+  {
+    "artifact_sha256": null,
+    "error": {
+      "message": "object path key is missing",
+      "type": "ActionError"
+    },
+    "execution_status": "execution_error",
+    "id": "P03",
+    "validation_status": "rejected"
+  },
+  {
+    "artifact_sha256": null,
+    "error": {
+      "message": "object path key is missing",
+      "type": "ActionError"
+    },
+    "execution_status": "execution_error",
+    "id": "P05",
+    "validation_status": "rejected"
+  }
+]

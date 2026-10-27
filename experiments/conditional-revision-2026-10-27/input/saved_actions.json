@@ -1,0 +1,396 @@
+[
+  {
+    "id": "P01",
+    "prediction": "accepted",
+    "rationale": "D01 conditions index 0 is direct_max and index 3 is path_sum. The expressions use each condition's own answerable-query denominator, subtract the requested top-three hit counts, and obtain rank-four-or-five hits by subtracting top-three hits from top-five hits.",
+    "status": "write",
+    "fields": {
+      "direct_max_top3_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            0,
+            "target_hits",
+            "at_3"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            0,
+            "answerable_queries"
+          ]
+        }
+      },
+      "path_sum_top3_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            3,
+            "target_hits",
+            "at_3"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            3,
+            "answerable_queries"
+          ]
+        }
+      },
+      "path_sum_minus_direct_max_top3_hits": {
+        "op": "sub",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            3,
+            "target_hits",
+            "at_3"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            0,
+            "target_hits",
+            "at_3"
+          ]
+        }
+      },
+      "path_sum_rank4_or5_hit_count": {
+        "op": "sub",
+        "left": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            3,
+            "target_hits",
+            "at_5"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D01",
+          "path": [
+            "conditions",
+            3,
+            "target_hits",
+            "at_3"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "P03",
+    "prediction": "accepted",
+    "rationale": "D02 conditions indexes 0, 1, and 2 identify baseline, raw_semantic, and gated_semantic. Positive-hit fractions use the full positive-query sample, confusable false-return fractions use the confusable-query sample, and the final subtraction compares raw_semantic with gated_semantic positive hits.",
+    "status": "write",
+    "fields": {
+      "baseline_positive_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "conditions",
+            0,
+            "positive_hits"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "sample",
+            "positive_queries"
+          ]
+        }
+      },
+      "gated_positive_hit_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "conditions",
+            2,
+            "positive_hits"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "sample",
+            "positive_queries"
+          ]
+        }
+      },
+      "raw_confusable_false_return_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "conditions",
+            1,
+            "confusable_false_returns"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "sample",
+            "confusable_queries"
+          ]
+        }
+      },
+      "gated_confusable_false_return_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "conditions",
+            2,
+            "confusable_false_returns"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "sample",
+            "confusable_queries"
+          ]
+        }
+      },
+      "raw_minus_gated_positive_hits": {
+        "op": "sub",
+        "left": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "conditions",
+            1,
+            "positive_hits"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D02",
+          "path": [
+            "conditions",
+            2,
+            "positive_hits"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "P05",
+    "prediction": "accepted",
+    "rationale": "D03 provides condition-specific cohort metrics and supported-stratum query counts. The first fraction uses known first_pass fully supported answers over supported queries; each plain_reread fraction includes fully correct supported answers and correct abstentions over all condition queries. The pooled structured fraction sums fully supported answers and supported-query denominators across fresh and known cohorts. No partial_supported count is included.",
+    "status": "write",
+    "fields": {
+      "known_first_supported_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "cohorts",
+            "known",
+            "conditions",
+            "first_pass",
+            "metrics",
+            "correct_supported"
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "cohorts",
+            "known",
+            "conditions",
+            "first_pass",
+            "support_strata",
+            "supported",
+            "queries"
+          ]
+        }
+      },
+      "known_plain_all_query_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_supported"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_abstention"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "cohorts",
+            "known",
+            "conditions",
+            "plain_reread",
+            "metrics",
+            "queries"
+          ]
+        }
+      },
+      "fresh_plain_all_query_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "fresh",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_supported"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "fresh",
+                "conditions",
+                "plain_reread",
+                "metrics",
+                "correct_abstention"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "op": "get",
+          "source": "D03",
+          "path": [
+            "cohorts",
+            "fresh",
+            "conditions",
+            "plain_reread",
+            "metrics",
+            "queries"
+          ]
+        }
+      },
+      "pooled_structured_supported_full_fraction": {
+        "op": "div",
+        "left": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "fresh",
+                "conditions",
+                "structured_state",
+                "metrics",
+                "correct_supported"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "structured_state",
+                "metrics",
+                "correct_supported"
+              ]
+            }
+          ]
+        },
+        "right": {
+          "op": "sum",
+          "args": [
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "fresh",
+                "conditions",
+                "structured_state",
+                "support_strata",
+                "supported",
+                "queries"
+              ]
+            },
+            {
+              "op": "get",
+              "source": "D03",
+              "path": [
+                "cohorts",
+                "known",
+                "conditions",
+                "structured_state",
+                "support_strata",
+                "supported",
+                "queries"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]
