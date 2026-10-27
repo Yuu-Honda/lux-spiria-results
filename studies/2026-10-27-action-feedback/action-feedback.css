@@ -1,0 +1,26 @@
+/* This dated study alone; six older studies and overview motion do not opt in. */
+.af-study .af-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 0; list-style: none; }
+.af-study .af-flow li { border-top: 1px solid var(--line); padding-top: 18px; min-width: 0; }
+.af-study .af-flow li > span { font-family: var(--mono); color: var(--accent); font-size: .8rem; }
+.af-study .af-flow h3 { font-size: 1.05rem; margin: 12px 0; }
+.af-study .af-flow p { color: var(--muted); font-size: .9rem; }
+.af-study .af-arms { min-width: 700px; }
+.af-study .af-outcomes { min-width: 930px; }
+.af-study .af-paired { min-width: 1100px; }
+.af-study .af-items { min-width: 1420px; }
+.af-study .af-costs { min-width: 1240px; }
+.af-study :is(.af-outcomes, .af-paired, .af-items, .af-costs) td { font-variant-numeric: tabular-nums; }
+.af-study details { margin: 24px 0; }
+.af-study details > .table-wrap { margin-inline: 0; }
+.af-study summary { color: var(--accent); cursor: pointer; overflow-wrap: anywhere; }
+.af-study .af-digests { table-layout: fixed; }
+.af-study .af-digests td { font-family: var(--mono); font-size: .75rem; overflow-wrap: anywhere; }
+@media (max-width: 780px) { .af-study .af-flow { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) {
+  .af-study .af-flow { grid-template-columns: 1fr; }
+  .af-study .study-hero h1 { font-size: clamp(2.3rem, 8vw, 3.5rem); }
+}
+@media print {
+  .af-study :is(.af-arms, .af-outcomes, .af-paired, .af-items, .af-costs) { min-width: 0; table-layout: fixed; }
+  .af-study :is(th, td) { overflow-wrap: anywhere; }
+}

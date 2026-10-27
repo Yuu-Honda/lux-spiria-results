@@ -1,0 +1,151 @@
+[
+  {
+    "id": "P01",
+    "source": "D01",
+    "instruction": "Build a top-k retrieval comparison. Return direct_max_top3_hit_fraction (direct_max top-three target hits divided by that condition's answerable-query count), path_sum_top3_hit_fraction (the corresponding fraction for path_sum), path_sum_minus_direct_max_top3_hits (path_sum top-three target-hit count minus direct_max top-three target-hit count), and path_sum_rank4_or5_hit_count (path_sum top-five target hits minus its top-three target hits). Do not round fractions.",
+    "field_names": [
+      "direct_max_top3_hit_fraction",
+      "path_sum_top3_hit_fraction",
+      "path_sum_minus_direct_max_top3_hits",
+      "path_sum_rank4_or5_hit_count"
+    ]
+  },
+  {
+    "id": "P02",
+    "source": "D01",
+    "instruction": "Using only the assigned public file, check whether it reports sufficient measurements to supply a median latency in milliseconds from query receipt through completion of a generated natural-language answer for path_sum. If supported, return that median as end_to_end_answer_median_ms; otherwise report source-unavailable. Retrieval-only timing does not supply this end-to-end answer latency.",
+    "field_names": [
+      "end_to_end_answer_median_ms"
+    ]
+  },
+  {
+    "id": "P03",
+    "source": "D02",
+    "instruction": "Compare retrieval effectiveness and confusable false returns. Return baseline_positive_hit_fraction and gated_positive_hit_fraction, each using the full positive-query sample as its denominator; raw_confusable_false_return_fraction and gated_confusable_false_return_fraction, each using the confusable-query sample as its denominator; and raw_minus_gated_positive_hits, the raw_semantic positive-hit count minus the gated_semantic positive-hit count. Use raw_semantic for raw fields and gated_semantic for gated fields. Do not round fractions.",
+    "field_names": [
+      "baseline_positive_hit_fraction",
+      "gated_positive_hit_fraction",
+      "raw_confusable_false_return_fraction",
+      "gated_confusable_false_return_fraction",
+      "raw_minus_gated_positive_hits"
+    ]
+  },
+  {
+    "id": "P04",
+    "source": "D02",
+    "instruction": "Using only the assigned public file, check whether it reports sufficient native-search duration measurements to supply the median wall-clock duration in milliseconds for gated_semantic in this cross-session study. If supported, return that median as gated_native_search_median_ms; otherwise report source-unavailable. Search counts alone do not supply a duration.",
+    "field_names": [
+      "gated_native_search_median_ms"
+    ]
+  },
+  {
+    "id": "P05",
+    "source": "D03",
+    "instruction": "Summarize answer correctness with the requested denominators. Return known_first_supported_full_fraction, the known cohort's first_pass correct_supported count divided by its supported-stratum query count; known_plain_all_query_full_fraction and fresh_plain_all_query_full_fraction, each cohort's plain_reread sum of correct_supported and correct_abstention divided by all queries for that cohort and condition; and pooled_structured_supported_full_fraction, the sum of fresh and known structured_state correct_supported counts divided by the sum of their supported-stratum query counts. Exclude partial_supported from fully correct counts. Do not round fractions.",
+    "field_names": [
+      "known_first_supported_full_fraction",
+      "known_plain_all_query_full_fraction",
+      "fresh_plain_all_query_full_fraction",
+      "pooled_structured_supported_full_fraction"
+    ]
+  },
+  {
+    "id": "P06",
+    "source": "D03",
+    "instruction": "Return the total provider input tokens consumed in producing the structured_state final records in this study, as structured_final_provider_input_tokens. Payload character counts are a different measurement.",
+    "field_names": [
+      "structured_final_provider_input_tokens"
+    ]
+  },
+  {
+    "id": "T01",
+    "source": "D01",
+    "instruction": "Compare warm local recall timing for direct_sum and path_sum using the bitmap method in the first recorded timing run. Return direct_sum_bitmap_median_ms, path_sum_bitmap_median_ms, path_minus_direct_bitmap_median_ms (path_sum median minus direct_sum median), and path_to_direct_bitmap_p95_ratio (path_sum p95 divided by direct_sum p95). Do not round calculated values.",
+    "field_names": [
+      "direct_sum_bitmap_median_ms",
+      "path_sum_bitmap_median_ms",
+      "path_minus_direct_bitmap_median_ms",
+      "path_to_direct_bitmap_p95_ratio"
+    ]
+  },
+  {
+    "id": "T02",
+    "source": "D01",
+    "instruction": "Return the measured peak resident memory usage in bytes for the bitmap retrieval process during the first timing run, as bitmap_peak_resident_memory_bytes.",
+    "field_names": [
+      "bitmap_peak_resident_memory_bytes"
+    ]
+  },
+  {
+    "id": "T03",
+    "source": "D02",
+    "instruction": "Quantify semantic-search workload and gate rejection composition. Return raw_native_search_fraction (raw_semantic native searches divided by all study queries), gated_pre_search_abstention_fraction (gated_semantic pre-search abstentions divided by all study queries), rejected_gate_candidate_fraction (gate candidates rejected divided by gate candidates checked), and false_share_of_rejected_gate_candidates (false candidates removed divided by all gate candidates rejected). Do not round fractions.",
+    "field_names": [
+      "raw_native_search_fraction",
+      "gated_pre_search_abstention_fraction",
+      "rejected_gate_candidate_fraction",
+      "false_share_of_rejected_gate_candidates"
+    ]
+  },
+  {
+    "id": "T04",
+    "source": "D02",
+    "instruction": "Return the total billed provider input tokens used by the actual AI source indexing and review in this cross-session study, as source_index_review_billed_input_tokens.",
+    "field_names": [
+      "source_index_review_billed_input_tokens"
+    ]
+  },
+  {
+    "id": "T05",
+    "source": "D03",
+    "instruction": "Compare emitted-payload character costs across stages. Return plain_final_payload_characters_per_record and structured_final_payload_characters_per_record, dividing each condition's final-stage emitted payload characters by its final-stage record count; structured_minus_plain_critic_payload_characters, the structured_state critic-stage emitted payload characters minus plain_reread critic-stage emitted payload characters; and structured_to_plain_plan_payload_character_ratio, the structured_state plan-stage emitted payload characters divided by plain_reread plan-stage emitted payload characters. These concern whole emitted payloads, not answer text alone. Do not round calculated values.",
+    "field_names": [
+      "plain_final_payload_characters_per_record",
+      "structured_final_payload_characters_per_record",
+      "structured_minus_plain_critic_payload_characters",
+      "structured_to_plain_plan_payload_character_ratio"
+    ]
+  },
+  {
+    "id": "T06",
+    "source": "D03",
+    "instruction": "Return the measured mean wall-clock duration in milliseconds for producing a plain_reread critic record in this study, as plain_critic_mean_duration_ms.",
+    "field_names": [
+      "plain_critic_mean_duration_ms"
+    ]
+  },
+  {
+    "id": "R01",
+    "source": "D01",
+    "instruction": "Build a top-k retrieval comparison. Return direct_max_top3_hit_fraction (direct_max top-three target hits divided by that condition's answerable-query count), path_sum_top3_hit_fraction (the corresponding fraction for path_sum), path_sum_minus_direct_max_top3_hits (path_sum top-three target-hit count minus direct_max top-three target-hit count), and path_sum_rank4_or5_hit_count (path_sum top-five target hits minus its top-three target hits). Do not round fractions.",
+    "field_names": [
+      "direct_max_top3_hit_fraction",
+      "path_sum_top3_hit_fraction",
+      "path_sum_minus_direct_max_top3_hits",
+      "path_sum_rank4_or5_hit_count"
+    ]
+  },
+  {
+    "id": "R02",
+    "source": "D02",
+    "instruction": "Compare retrieval effectiveness and confusable false returns. Return baseline_positive_hit_fraction and gated_positive_hit_fraction, each using the full positive-query sample as its denominator; raw_confusable_false_return_fraction and gated_confusable_false_return_fraction, each using the confusable-query sample as its denominator; and raw_minus_gated_positive_hits, the raw_semantic positive-hit count minus the gated_semantic positive-hit count. Use raw_semantic for raw fields and gated_semantic for gated fields. Do not round fractions.",
+    "field_names": [
+      "baseline_positive_hit_fraction",
+      "gated_positive_hit_fraction",
+      "raw_confusable_false_return_fraction",
+      "gated_confusable_false_return_fraction",
+      "raw_minus_gated_positive_hits"
+    ]
+  },
+  {
+    "id": "R03",
+    "source": "D03",
+    "instruction": "Summarize answer correctness with the requested denominators. Return known_first_supported_full_fraction, the known cohort's first_pass correct_supported count divided by its supported-stratum query count; known_plain_all_query_full_fraction and fresh_plain_all_query_full_fraction, each cohort's plain_reread sum of correct_supported and correct_abstention divided by all queries for that cohort and condition; and pooled_structured_supported_full_fraction, the sum of fresh and known structured_state correct_supported counts divided by the sum of their supported-stratum query counts. Exclude partial_supported from fully correct counts. Do not round fractions.",
+    "field_names": [
+      "known_first_supported_full_fraction",
+      "known_plain_all_query_full_fraction",
+      "fresh_plain_all_query_full_fraction",
+      "pooled_structured_supported_full_fraction"
+    ]
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "T01": {
+    "status": "ok",
+    "values": {
+      "direct_sum_bitmap_median_ms": 0.15810449999999998,
+      "path_sum_bitmap_median_ms": 0.373854,
+      "path_minus_direct_bitmap_median_ms": 0.21574950000000004,
+      "path_to_direct_bitmap_p95_ratio": 6.686771755076106
+    }
+  },
+  "R01": {
+    "status": "ok",
+    "values": {
+      "direct_max_top3_hit_fraction": 0.22727272727272727,
+      "path_sum_top3_hit_fraction": 0.45454545454545453,
+      "path_sum_minus_direct_max_top3_hits": 5,
+      "path_sum_rank4_or5_hit_count": 1
+    }
+  },
+  "T02": {
+    "status": "unavailable",
+    "values": null
+  },
+  "T03": {
+    "status": "ok",
+    "values": {
+      "raw_native_search_fraction": 0.28125,
+      "gated_pre_search_abstention_fraction": 0.71875,
+      "rejected_gate_candidate_fraction": 0.4444444444444444,
+      "false_share_of_rejected_gate_candidates": 0.75
+    }
+  },
+  "R02": {
+    "status": "ok",
+    "values": {
+      "baseline_positive_hit_fraction": 0.4375,
+      "gated_positive_hit_fraction": 0.3125,
+      "raw_confusable_false_return_fraction": 0.375,
+      "gated_confusable_false_return_fraction": 0.0,
+      "raw_minus_gated_positive_hits": 1
+    }
+  },
+  "T04": {
+    "status": "unavailable",
+    "values": null
+  },
+  "T05": {
+    "status": "ok",
+    "values": {
+      "plain_final_payload_characters_per_record": 1132.75,
+      "structured_final_payload_characters_per_record": 1109.95,
+      "structured_minus_plain_critic_payload_characters": 15231,
+      "structured_to_plain_plan_payload_character_ratio": 2.724844493230882
+    }
+  },
+  "R03": {
+    "status": "ok",
+    "values": {
+      "known_first_supported_full_fraction": 0.5,
+      "known_plain_all_query_full_fraction": 0.625,
+      "fresh_plain_all_query_full_fraction": 1.0,
+      "pooled_structured_supported_full_fraction": 0.75
+    }
+  },
+  "T06": {
+    "status": "unavailable",
+    "values": null
+  }
+}
