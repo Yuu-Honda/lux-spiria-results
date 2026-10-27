@@ -48,7 +48,8 @@ class Results(unittest.TestCase):
    if p.suffix.lower()=='.zip':
     # Only exact audited public-data replay paths and matching summary hashes qualify.
     allowed_archives={'downloads/action-feedback-2026-10-27.zip':'data/action-feedback-2026-10-27.json',
-                      'downloads/conditional-revision-2026-10-27.zip':'data/conditional-revision-2026-10-27.json'}
+                      'downloads/conditional-revision-2026-10-27.zip':'data/conditional-revision-2026-10-27.json',
+                      'downloads/experience-retention-2026-10-28.zip':'data/experience-retention-2026-10-28.json'}
     relative=p.relative_to(ROOT).as_posix()
     self.assertIn(relative,allowed_archives)
     replay_summary=json.loads((ROOT/allowed_archives[relative]).read_text())

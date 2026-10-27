@@ -1,0 +1,56 @@
+{
+  "T01": {
+    "status": "ok",
+    "values": {
+      "recovery_correct_supported": 11,
+      "review_correct_supported": 12,
+      "review_minus_recovery_correct_supported": 1,
+      "review_supported_correct_fraction": 0.75
+    }
+  },
+  "T02": {
+    "status": "ok",
+    "values": {
+      "recovery_unsupported_false_returns": 8,
+      "review_unsupported_false_returns": 0,
+      "false_return_count_reduction": 8,
+      "recovery_unsupported_false_return_fraction": 0.5
+    }
+  },
+  "T03": {
+    "status": "ok",
+    "values": {
+      "baseline_positive_hits": 4,
+      "recovery_positive_hits": 15,
+      "recovery_minus_baseline_positive_hits": 11,
+      "recovery_positive_hit_fraction": 0.9375
+    }
+  },
+  "C01": {
+    "status": "ok",
+    "values": {
+      "recovery_correct_supported": 11,
+      "review_correct_supported": 12,
+      "review_minus_recovery_correct_supported": 1,
+      "review_supported_correct_fraction": 0.75
+    }
+  },
+  "C02": {
+    "status": "ok",
+    "values": {
+      "recovery_unsupported_false_returns": 8,
+      "review_unsupported_false_returns": 0,
+      "false_return_count_reduction": 8,
+      "recovery_unsupported_false_return_fraction": 0.5
+    }
+  },
+  "C03": {
+    "status": "ok",
+    "values": {
+      "baseline_positive_hits": 4,
+      "recovery_positive_hits": 15,
+      "recovery_minus_baseline_positive_hits": 11,
+      "recovery_positive_hit_fraction": 0.9375
+    }
+  }
+}

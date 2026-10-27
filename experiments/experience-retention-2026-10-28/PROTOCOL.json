@@ -1,0 +1,150 @@
+{
+  "actor_current_interface": "Every actor receives actualcurrent task and one relevant neutral handle/family/currentrawSHA256, sharedaction/inspectioncontract. No pre-supplied fullnumericJSON or schemas, no actualformat label or wrapperhint, no instructionto preservelegacy. Formatbinding inthis protocol/maps is hiddenfromactors byexplicitreadallowlist. Current evidence availability and realinspection opportunity are equal acrossarms. Trainingactorseesall3itemsperstage; probeactors each seeoneitem only.",
+  "budgets": {
+    "canonical_action_characters_each": 6000,
+    "canonical_review_characters_total": 6000,
+    "collection_format_only_repairs_total": 1,
+    "note": "Samecurrent evidenceavailability/toolopportunities/caps, differentactualinputlengthsandchoseninspectionuse. Noequalcompute/latency/spendclaim.",
+    "probe_actions_each": 1,
+    "probe_inspections_each": 1,
+    "provider_identity_settings_requests_tokens_compute": null,
+    "semantic_outcome_based_retries": 0,
+    "task_author_preexecution_revision_maximum": 1,
+    "training_repairs_per_failed_initial": 1
+  },
+  "conditions": {
+    "changed": "Exactly {schema_version:artifact-container.v2,payload:entire parsedoriginal}; originalrawbytes unchanged. This is an explicitly engineered sourceformat intervention, not a natural outage.",
+    "original": "Full unchanged original JSON sourcecopy."
+  },
+  "created_at_utc": "2026-10-27T15:56:22.458455+00:00",
+  "delay": {
+    "clock_start": "Actual UTCtime and wallclock Unixseconds in protocol/MEMORY_FREEZE_01.json, afteractualtrainingmemoryfinalized and hashed.",
+    "minimum_elapsed_seconds": 86400,
+    "not_before": "Compute exactclockstart+86400; engineguard refusesdelayedaction/inspectioncollectionbeforethat. Schedulethisthreadfollowup afterdue, donot fakeclock or data. Actualelapsed measuredatstart ofeachdelayedactorcollection.",
+    "scope": "Freshcontexts rereadingexternallystoredrecord afteractual24h tests externalpersistence andportability, notcontinuoussame-model psychologicalretention, weightlearning or a biologicalforgettingcurve. Provider/config/timeeffects unmeasured; no time-onlycausalclaim.",
+    "status_until_execution": "UNCOLECTED_PENDING; schedulingisnotexecution. Ifhost/app unavailable, delayedendpoint remainsuncollected untilrealrun.",
+    "storage": "Seal immediate-root afterphase1. Delayedwork in a new siblingresearchroot, neverwriteinsidepriorsealedroot. Freeze delayedtasks/goldnow beforetraining anduseexactbyteslater."
+  },
+  "domain": "Three existing previouslypublic numerical Results exports, newly used here as file-operation source families. Originals preserved; controlled exact-value/type-preserving wrappers. No fictional dialogue, fabricated tool results, source-specific code semantic choices or production memory writes.",
+  "grading": "Unchanged action_loop.py SHA61495538507742ab5c3d55721a4115bf9fb24542b605525c63edc6b8f4cb7297 executesactualget/sum/sub/div andwritesactualJSONartifact. Independentlyauthoredgold; exactJSONtypes and floatabsolutetolerance1e-12. Codecannotauthor semanticquestions/answers/reviews orcallgrowth.",
+  "initial_policy_contract": "Exactly one initial policy perassigneditem, either {id,decision:inspect,rationale} or {id,decision:submit,action:<completeactualaction>}. Choosing inspection generates oneactualread then samecontext authorsaction. A submitted initialaction is byte-locked and cannot be revised after otherinspection results. Unavailable/uncertain permitted and retained; numericgold means incomplete artifacts reject, without turning unobservedsource into factualnonexistence.",
+  "inspection_interface": "Actual optional deterministic schemaread selectedbytheactualAI, not coordinator. ReportactualrawsourceSHA andbytesread. Keepalltop-levelkeys as metadata, traverse only sample/conditions and payload containers; otherbranches explicitlyomitted. Within retainedbranches preservekeys/arraypositions and string id values only; replace allother scalars withtype markers. Omit per_query/provenance atanydepth. Annotationkeys $type/$omitted/observed_value arenotactualsourcekeys. No numericalleafvalues returned. Alltaskpaths mustsurvive independentreview. No additionalcurrentknowledge/formatinstructions toexperiencearm.",
+  "null": "NoAIerror, accuracygap, inspectioncostbenefit or change_type isguaranteed. Nevermanufacturefailure or escalate untilbenefit. This is a narrow controlledfile-task study over knownpublicsources and exacthash reuse, not generalnaturalrecall, SHIORIbinaryspeed/graphcontribution, nativeChatGPT/fullLREWake, biologicalbrain/AGI/consciousness proof.",
+  "outcomes": [
+    "Firstartifacttypedacceptance eacharm/format, all6items, retainallfailures/abstentions.",
+    "ActualAI-requested inspections count, actualsourcebytesread andreturned canonicalprojectioncharacters; actual executionerrors/invalidactions/abstentions separately, notartificialweightedsuccessscore.",
+    "Experience efficient-use criterion: equal acceptedcounts with feweractualinspections and noadditionalexecutionerrors/invalidactions/abstentions; otherwise report tradeoffs/null withoutrelabeling.",
+    "Paired corrected/regressed/bothcorrect/bothwrong eachformat/all;3unique objectives perblock.",
+    "Training ownfailedinitialaction→actualrepair result; predictedaccepted failure separately fromuncertain orabstention; zeroownfailures means no evidenceofown-errorcorrection.",
+    "Reviewactual classifications/grounding/previousscope, no automaticpsychologicalmeaninggrade.",
+    "Short-versus24h recordreuse describedseparately, retain actualelapsed and nullprovidermetadata."
+  ],
+  "preexecution_semantic_authority": "One fresh source-only actual AI authors3training objectives,3meaningfully different immediate objectives,3further different delayed objectives, each3-4namednumericfields; only sample/conditions paths. Training3objectives repeat unchanged afterformat change. Immediate3objectives eachrepeated bothformats=6items. Delayed3objectives eachrepeated bothformats=6items. Independent fresh reviewer verifies semantic clarity/typedgold/retainedpaths before any training action. Helpers calculate only actual authored arithmetic. Nine distinct objectives total, not30independentepisodes.",
+  "probe_design": {
+    "action_cap_per_probe": 1,
+    "arms": [
+      "no_experience",
+      "experience_record"
+    ],
+    "contexts": "Fresh fork_turns:none context for EACH arm/item; no crossprobeconversationor feedback. 12freshcontexts perblock. ActualAI chooses optionalschema inspection thenoneartifactaction. Atmost2turns perprobe. No repairs or postscorememoryupdates.",
+    "delayed_items_per_arm": 6,
+    "dispatch_order": "ForodditemIDs no_experience thenexperience_record; forevenIDs experience_record thenno_experience. FixedpairedorderP01..6/Q01..6, no provider/timecounterbalancingclaim.",
+    "freeze": "All12initialpolicies frozen beforeanyprobeinspectionoutputs; submitactionslocked. Then onlyrequestedinspectresults tosameindividualcontexts. Freezeall12finalactions beforeanyprobeexecutionfeedback. Inspectorsoperateonrealcurrentfilebindings.",
+    "immediate_items_per_arm": 6,
+    "inspection_cap_per_probe": 1,
+    "intervention": "Experiencearm alone receives the SAMEfrozen6000char-or-less AIrecord derivedfromactualtrainingexperience. Controlhasno trainingrecord. This testsavailability ofthewhole externalexperience record, not addedreviewisolated fromrawhistory or a particularLRE/SHIORIarchitecture.",
+    "probe_feedback": "Never deliveredtothetrainingmemoryauthor/probeactors forfurtherlearninginthisstudy. Frozenexperience record unchanged throughimmediate anddelayedblocks."
+  },
+  "protection": "All15priorsealedroots2227files andproduction3816trackedfiles+HEAD baseline kept. No privateconversation/state reads needed. No originalREADME/release/history rewrites, productionWake/Emotion/Reflection/SELF_STATE memorywrites, hostedprivateworkflowdispatch/spendingchanges. Roleallowlists onsharedhost, notOSsandbox.",
+  "publication": "Append current JAEN9thstudy with actualphase1counts, inspectioncosts, ownchoices/errors/repairs, replay andstrictprivacyfiltering afterindependentaudit. Preserveall8olderdatedstudies/data/rawreplays/downloads and4overviewstories/assets. Phase2 stayspendingwithoutnumbers untilactual≥24htrial, thenappendseparatedatedresults/data withoutrewritingphase1. PR/main/siteverification authorized byongoinguserinstruction.",
+  "question": "Does an actual AI-authored record of its own file-operation experience improve correct execution or reduce real current-source inspection cost on held-out objectives, while preserving original-format applicability after a declared format change? Does the same frozen external record remain usable after at least24 actual elapsed hours?",
+  "schema": "prospective-experience-retention-protocol.v1",
+  "source_bindings": {
+    "delayed": {
+      "Q01": "A01",
+      "Q02": "A02",
+      "Q03": "A03",
+      "Q04": "A04",
+      "Q05": "A05",
+      "Q06": "A06"
+    },
+    "immediate": {
+      "P01": "A01",
+      "P02": "A02",
+      "P03": "A03",
+      "P04": "A04",
+      "P05": "A05",
+      "P06": "A06"
+    },
+    "probe_catalog": {
+      "A01": [
+        "X02",
+        "changed"
+      ],
+      "A02": [
+        "X01",
+        "original"
+      ],
+      "A03": [
+        "X03",
+        "changed"
+      ],
+      "A04": [
+        "X02",
+        "original"
+      ],
+      "A05": [
+        "X01",
+        "changed"
+      ],
+      "A06": [
+        "X03",
+        "original"
+      ]
+    },
+    "training_changed": {
+      "C01": "X01",
+      "C02": "X02",
+      "C03": "X03"
+    },
+    "training_original": {
+      "T01": "X01",
+      "T02": "X02",
+      "T03": "X03"
+    }
+  },
+  "sources": [
+    "X01 shiori-event-adoption-2026-10-24.json",
+    "X02 shiori-event-compatibility-2026-10-22.json",
+    "X03 shiori-retrieval-hypotheses-2026-10-21.json"
+  ],
+  "status": "FROZEN_BEFORE_TASK_AUTHORING_AND_ALL_RESEARCH_ACTIONS",
+  "training": {
+    "contexts": 1,
+    "initial_items": 6,
+    "inspection_cap_per_initial_or_repair_action": 1,
+    "maximum_repair_actions": 6,
+    "record_root": "{entries:[three actual AI-authored family entries]}",
+    "review_exact_entry_fields": [
+      "family",
+      "episodes",
+      "earlier_action_and_result",
+      "changed_condition_observed",
+      "later_action_and_result",
+      "repair_and_result",
+      "current_rule",
+      "legacy_scope",
+      "uncertainty",
+      "future_check",
+      "change_type"
+    ],
+    "review_total_canonical_character_cap": 6000,
+    "stages": [
+      "ActualfreshAI chooses3original-source initialpolicies; selectedinspections only; freeze3initialactions thenexecute3once.",
+      "Returnactual outcomes to SAMEcontext. For each failedinitial item allowatmost1repair; optional actualinspection beforeit, thenfreeze/execute. Successfulitems cannotbe retried.",
+      "Samecontext now encounters3currenttasks C01..3 with changed-sourceSHA, same3objectives but no format revelation. It chooses currentpolicies itself; no automaticallyreplayingoldchoicesasnewAIjudgment. Select actualinspections, freeze3initialactions thenexecute3once.",
+      "Samecontext receives actualchangedoutcomes; atmost1repair eachfaileditem, no success-seekingfurtherretry.",
+      "Samecontext authors3family reviewentries from itsownactualchoices/inspections/feedback/repairs, preservinggrounding and priorobservations. It chooses change_type conditional_update|confirmation|deferred; no forcederror/update/growth."
+    ]
+  }
+}

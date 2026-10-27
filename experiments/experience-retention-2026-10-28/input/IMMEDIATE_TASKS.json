@@ -1,0 +1,68 @@
+[
+  {
+    "id": "P01",
+    "source": "A01",
+    "instruction": "Compare native-search workload for conditions recovery_raw and event_review_only. Return recovery_native_searches and review_native_searches as their native_searches counts. Return review_minus_recovery_native_searches as the review count minus the recovery count. Return review_native_search_fraction as event_review_only native_searches divided by sample.queries, without rounding. Equality or an unchanged workload is a valid comparison result.",
+    "field_names": [
+      "recovery_native_searches",
+      "review_native_searches",
+      "review_minus_recovery_native_searches",
+      "review_native_search_fraction"
+    ]
+  },
+  {
+    "id": "P02",
+    "source": "A02",
+    "instruction": "Decompose the supported-answer comparison between recovery_raw:normal and event_review_only:normal by query kind. Return literal_correct_supported_change as event_review_only:normal query_kind_strata.literal.correct_supported minus the corresponding recovery_raw:normal count; return paraphrase_correct_supported_change by the same subtraction for paraphrase. Return review_literal_correct_fraction and review_paraphrase_correct_fraction as event_review_only:normal correct_supported divided by queries within each respective literal or paraphrase stratum. Return both fractions without rounding.",
+    "field_names": [
+      "literal_correct_supported_change",
+      "paraphrase_correct_supported_change",
+      "review_literal_correct_fraction",
+      "review_paraphrase_correct_fraction"
+    ]
+  },
+  {
+    "id": "P03",
+    "source": "A03",
+    "instruction": "Quantify the target-hit and confusable-return tradeoff between recovery_raw and recovery_gated. Return raw_confusable_false_return_fraction and gated_confusable_false_return_fraction as each condition’s confusable_false_returns divided by sample.confusable_queries. Return gated_minus_raw_positive_hits as recovery_gated positive_hits minus recovery_raw positive_hits, and gated_minus_raw_confusable_false_returns as recovery_gated confusable_false_returns minus recovery_raw confusable_false_returns. Return fractions without rounding and retain signed differences.",
+    "field_names": [
+      "raw_confusable_false_return_fraction",
+      "gated_confusable_false_return_fraction",
+      "gated_minus_raw_positive_hits",
+      "gated_minus_raw_confusable_false_returns"
+    ]
+  },
+  {
+    "id": "P04",
+    "source": "A04",
+    "instruction": "Compare native-search workload for conditions recovery_raw and event_review_only. Return recovery_native_searches and review_native_searches as their native_searches counts. Return review_minus_recovery_native_searches as the review count minus the recovery count. Return review_native_search_fraction as event_review_only native_searches divided by sample.queries, without rounding. Equality or an unchanged workload is a valid comparison result.",
+    "field_names": [
+      "recovery_native_searches",
+      "review_native_searches",
+      "review_minus_recovery_native_searches",
+      "review_native_search_fraction"
+    ]
+  },
+  {
+    "id": "P05",
+    "source": "A05",
+    "instruction": "Decompose the supported-answer comparison between recovery_raw:normal and event_review_only:normal by query kind. Return literal_correct_supported_change as event_review_only:normal query_kind_strata.literal.correct_supported minus the corresponding recovery_raw:normal count; return paraphrase_correct_supported_change by the same subtraction for paraphrase. Return review_literal_correct_fraction and review_paraphrase_correct_fraction as event_review_only:normal correct_supported divided by queries within each respective literal or paraphrase stratum. Return both fractions without rounding.",
+    "field_names": [
+      "literal_correct_supported_change",
+      "paraphrase_correct_supported_change",
+      "review_literal_correct_fraction",
+      "review_paraphrase_correct_fraction"
+    ]
+  },
+  {
+    "id": "P06",
+    "source": "A06",
+    "instruction": "Quantify the target-hit and confusable-return tradeoff between recovery_raw and recovery_gated. Return raw_confusable_false_return_fraction and gated_confusable_false_return_fraction as each condition’s confusable_false_returns divided by sample.confusable_queries. Return gated_minus_raw_positive_hits as recovery_gated positive_hits minus recovery_raw positive_hits, and gated_minus_raw_confusable_false_returns as recovery_gated confusable_false_returns minus recovery_raw confusable_false_returns. Return fractions without rounding and retain signed differences.",
+    "field_names": [
+      "raw_confusable_false_return_fraction",
+      "gated_confusable_false_return_fraction",
+      "gated_minus_raw_positive_hits",
+      "gated_minus_raw_confusable_false_returns"
+    ]
+  }
+]

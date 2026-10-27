@@ -413,7 +413,7 @@ class EventAdoptionPublicationPreparation(unittest.TestCase):
         pages_spec.loader.exec_module(pages)
         before, after = publication._comparison(self.d)
         for lang in ('ja', 'en'):
-            with patch.object(pages, 'ADOPTION_D', None), patch.object(pages, 'WORKING_D', None), patch.object(pages, 'ACTION_D', None), patch.object(pages, 'CONDITIONAL_D', None):
+            with patch.object(pages, 'ADOPTION_D', None), patch.object(pages, 'WORKING_D', None), patch.object(pages, 'ACTION_D', None), patch.object(pages, 'CONDITIONAL_D', None), patch.object(pages, 'EXPERIENCE_D', None):
                 original = pages.landing(lang)
             updated = publication.integrate_listing(original, lang, self.d)
             parsed = Page(updated)

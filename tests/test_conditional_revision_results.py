@@ -250,6 +250,7 @@ class ConditionalRevisionEngineering(unittest.TestCase):
             self.assertEqual(pub.integrate_home(after, lang, self.d), after)
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
             before = pub.CARD.sub('', (ROOT / name).read_text())
+            before = re.sub(r'<article class="study-card" data-study="experience-retention">.*?</article>', '', before, flags=re.S)
             cards = re.findall(r'<article class="study-card".*?</article>', before, re.S)
             self.assertEqual(len(cards), 7); after = pub.integrate_listing(before, lang, self.d)
             self.assertEqual(after.count('<article class="study-card"'), 8)
@@ -280,6 +281,8 @@ class ConditionalRevisionEngineering(unittest.TestCase):
         if not (ROOT / mod.DATA_FILE).is_file(): self.skipTest('Actual audited export not supplied')
         d = mod.load_summary(); mod.require_public_inputs(ROOT, d)
         for name, expected in pub.prepare_updates(ROOT, d).items():
+            if (ROOT / 'data/experience-retention-2026-10-28.json').is_file() and not name.startswith(mod.STUDY):
+                continue  # The ninth study owns current latest metadata.
             self.assertEqual((ROOT / name).read_text(), expected, name)
         pages = module('conditional_actual_main', 'tools/build_pages.py')
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:

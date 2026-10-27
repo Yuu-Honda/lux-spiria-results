@@ -1,0 +1,1 @@
+{"id":"P01","decision":"inspect","rationale":"I need the actual locations of sample.queries and the recovery_raw and event_review_only native_searches counts to construct the requested comparison without guessing paths or array positions."}

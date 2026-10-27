@@ -1,0 +1,14 @@
+/* Scoped to the immediate dated study; earlier assets/motion stay untouched. */
+.er-study .er-sequence li { margin: 15px 0; padding-left: 6px; }
+.er-study .er-wide { min-width: 1150px; }
+.er-study .er-items { min-width: 1450px; }
+.er-study .er-digests { table-layout: fixed; }
+.er-study .er-digests td { font-family: var(--mono); font-size: .75rem; overflow-wrap: anywhere; }
+.er-study details { margin: 24px 0; }
+.er-study details > .table-wrap { margin-inline: 0; }
+.er-study summary { color: var(--accent); cursor: pointer; overflow-wrap: anywhere; }
+.er-study td { font-variant-numeric: tabular-nums; }
+.er-study .er-clock { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px 24px; }
+.er-study .er-clock dd { margin: 0; overflow-wrap: anywhere; font-family: var(--mono); }
+@media (max-width: 560px) { .er-study .er-clock { grid-template-columns: 1fr; gap: 8px; } .er-study .er-clock dd { margin-bottom: 18px; } }
+@media print { .er-study :is(.er-wide,.er-items) { min-width: 0; table-layout: fixed; } .er-study :is(th,td) { overflow-wrap: anywhere; } }

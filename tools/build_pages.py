@@ -36,6 +36,10 @@ _conditional_spec = importlib.util.spec_from_file_location('conditional_revision
 CONDITIONAL_PUBLICATION = importlib.util.module_from_spec(_conditional_spec)
 _conditional_spec.loader.exec_module(CONDITIONAL_PUBLICATION)
 CONDITIONAL_D = CONDITIONAL_PUBLICATION.optional_summary(ROOT)
+_experience_spec = importlib.util.spec_from_file_location('experience_retention_publication', ROOT / 'tools/experience_retention_publication.py')
+EXPERIENCE_PUBLICATION = importlib.util.module_from_spec(_experience_spec)
+_experience_spec.loader.exec_module(EXPERIENCE_PUBLICATION)
+EXPERIENCE_D = EXPERIENCE_PUBLICATION.optional_summary(ROOT)
 
 def T(ja, en, lang): return ja if lang == 'ja' else en
 
@@ -122,7 +126,8 @@ def landing(lang):
     html = ADOPTION_PUBLICATION.integrate_listing(html, lang, ADOPTION_D)
     html = WORKING_PUBLICATION.integrate_listing(html, lang, WORKING_D)
     html = ACTION_PUBLICATION.integrate_listing(html, lang, ACTION_D)
-    return CONDITIONAL_PUBLICATION.integrate_listing(html, lang, CONDITIONAL_D)
+    html = CONDITIONAL_PUBLICATION.integrate_listing(html, lang, CONDITIONAL_D)
+    return EXPERIENCE_PUBLICATION.integrate_listing(html, lang, EXPERIENCE_D)
 
 def study(lang):
     body = f'''<section class="study-hero"><p class="kicker">RUN 001 / RETROSPECTIVE PILOT / v1</p><h1>{T('SHIORI、手掛かりと<br>経路の比較。','SHIORI: cues, paths<br>and retrieval.',lang)}</h1><p class="lead">{T('実会話42メッセージを保存し、レビュー済みの意味特徴を延べ203件で索引を作成。別工程で作った24問を固定し、4条件で検索しました。','42 real-dialogue messages were captured and indexed with 203 reviewed semantic-feature occurrences. 24 queries authored in a separate step were frozen and tested under four retrieval conditions.',lang)}</p><p class="note"><time datetime="{D['date']}">{D['date']}</time> · {T('保存済みの実行結果。閲覧中のエンジン実行ではありません。','Stored execution results; no engine runs while you browse.',lang)}</p></section>
@@ -300,6 +305,7 @@ if __name__ == '__main__':
     working_updates = WORKING_PUBLICATION.prepare_updates(ROOT, WORKING_D) if WORKING_D is not None else {}
     action_updates = ACTION_PUBLICATION.prepare_updates(ROOT, ACTION_D) if ACTION_D is not None else {}
     conditional_updates = CONDITIONAL_PUBLICATION.prepare_updates(ROOT, CONDITIONAL_D) if CONDITIONAL_D is not None else {}
+    experience_updates = EXPERIENCE_PUBLICATION.prepare_updates(ROOT, EXPERIENCE_D) if EXPERIENCE_D is not None else {}
     for lang, filename in [('ja','index.html'),('en','en.html')]:
         listing = 'results.html' if lang == 'ja' else 'results.en.html'
         (ROOT/listing).write_text(landing(lang)+'\n')
@@ -324,4 +330,8 @@ if __name__ == '__main__':
         destination = ROOT / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(text, encoding='utf-8')
-    print('Built 20 public pages from eight public summaries; README and sitemap updated.' if conditional_updates else 'Built 18 public pages from seven public summaries; README and sitemap updated.' if action_updates else 'Built 16 public pages from six public summaries; README and sitemap updated.' if working_updates else 'Built 14 public pages from five public summaries; README and sitemap updated.' if adoption_updates else 'Built 10 public pages from four public summaries.')
+    for relative, text in experience_updates.items():
+        destination = ROOT / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(text, encoding='utf-8')
+    print('Built 22 public pages from nine public summaries; README and sitemap updated.' if experience_updates else 'Built 20 public pages from eight public summaries; README and sitemap updated.' if conditional_updates else 'Built 18 public pages from seven public summaries; README and sitemap updated.' if action_updates else 'Built 16 public pages from six public summaries; README and sitemap updated.' if working_updates else 'Built 14 public pages from five public summaries; README and sitemap updated.' if adoption_updates else 'Built 10 public pages from four public summaries.')

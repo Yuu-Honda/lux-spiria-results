@@ -1,0 +1,68 @@
+[
+  {
+    "id": "T01",
+    "source": "X01",
+    "instruction": "Compare fully correct supported answers for conditions recovery_raw:normal and event_review_only:normal. Return recovery_correct_supported and review_correct_supported as their respective correct_supported counts; review_minus_recovery_correct_supported as the latter count minus the former; and review_supported_correct_fraction as event_review_only:normal correct_supported divided by its primary_denominators.supported_queries. Return the unrounded fraction.",
+    "field_names": [
+      "recovery_correct_supported",
+      "review_correct_supported",
+      "review_minus_recovery_correct_supported",
+      "review_supported_correct_fraction"
+    ]
+  },
+  {
+    "id": "T02",
+    "source": "X02",
+    "instruction": "Compare unsupported-query false returns for conditions recovery_raw and event_review_only. For each condition, total confusable_false_returns plus absent_false_returns into recovery_unsupported_false_returns and review_unsupported_false_returns respectively. Return false_return_count_reduction as the recovery total minus the review total. Return recovery_unsupported_false_return_fraction as the recovery total divided by the sum of sample.confusable_queries and sample.absent_queries, without rounding.",
+    "field_names": [
+      "recovery_unsupported_false_returns",
+      "review_unsupported_false_returns",
+      "false_return_count_reduction",
+      "recovery_unsupported_false_return_fraction"
+    ]
+  },
+  {
+    "id": "T03",
+    "source": "X03",
+    "instruction": "Compare positive-query target hits for conditions baseline and recovery_raw. Return baseline_positive_hits and recovery_positive_hits from their positive_hits counts; recovery_minus_baseline_positive_hits as recovery_raw positive_hits minus baseline positive_hits; and recovery_positive_hit_fraction as recovery_raw positive_hits divided by sample.positive_queries. Return the unrounded fraction.",
+    "field_names": [
+      "baseline_positive_hits",
+      "recovery_positive_hits",
+      "recovery_minus_baseline_positive_hits",
+      "recovery_positive_hit_fraction"
+    ]
+  },
+  {
+    "id": "C01",
+    "source": "X01",
+    "instruction": "Compare fully correct supported answers for conditions recovery_raw:normal and event_review_only:normal. Return recovery_correct_supported and review_correct_supported as their respective correct_supported counts; review_minus_recovery_correct_supported as the latter count minus the former; and review_supported_correct_fraction as event_review_only:normal correct_supported divided by its primary_denominators.supported_queries. Return the unrounded fraction.",
+    "field_names": [
+      "recovery_correct_supported",
+      "review_correct_supported",
+      "review_minus_recovery_correct_supported",
+      "review_supported_correct_fraction"
+    ]
+  },
+  {
+    "id": "C02",
+    "source": "X02",
+    "instruction": "Compare unsupported-query false returns for conditions recovery_raw and event_review_only. For each condition, total confusable_false_returns plus absent_false_returns into recovery_unsupported_false_returns and review_unsupported_false_returns respectively. Return false_return_count_reduction as the recovery total minus the review total. Return recovery_unsupported_false_return_fraction as the recovery total divided by the sum of sample.confusable_queries and sample.absent_queries, without rounding.",
+    "field_names": [
+      "recovery_unsupported_false_returns",
+      "review_unsupported_false_returns",
+      "false_return_count_reduction",
+      "recovery_unsupported_false_return_fraction"
+    ]
+  },
+  {
+    "id": "C03",
+    "source": "X03",
+    "instruction": "Compare positive-query target hits for conditions baseline and recovery_raw. Return baseline_positive_hits and recovery_positive_hits from their positive_hits counts; recovery_minus_baseline_positive_hits as recovery_raw positive_hits minus baseline positive_hits; and recovery_positive_hit_fraction as recovery_raw positive_hits divided by sample.positive_queries. Return the unrounded fraction.",
+    "field_names": [
+      "baseline_positive_hits",
+      "recovery_positive_hits",
+      "recovery_minus_baseline_positive_hits",
+      "recovery_positive_hit_fraction"
+    ]
+  }
+]
