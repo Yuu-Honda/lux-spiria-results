@@ -178,6 +178,30 @@ No record → record: paired corrected 0, regressed 0. The predeclared efficient
 [Public replay](https://yuu-honda.github.io/lux-spiria-results/experiments/experience-retention-2026-10-28/README.md) / [Replay ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/experience-retention-2026-10-28.zip). Saved-action replay does not regenerate fresh AI choices and excludes future tasks/gold. This is the third public-data workbench exception to the earlier six private-conversation studies; all eight earlier study/data/replay/download bytes and four overview stories remain unchanged.
 <!-- EXPERIENCE_RETENTION_STUDY_END -->
 
+<!-- TOOL_OBSERVATION_LOOP_STUDY_START -->
+## Typed tool-observation integration pilot — 2026-10-28
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-28-tool-observation-loop/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-28-tool-observation-loop/en.html)
+
+Actual subprocess observations and separate AI judgments were connected through isolated native LRE capture/review and native SHIORI cued recall. The pilot records 27 worker operations: 27 exit zero and 0 nonzero. Process exit is not semantic success, memory growth, or answer adequacy. The semantic index source set has 1 tool observations and 1 AI judgments about 1 independent tool events; a receipt and its interpretation of the same event are not two experiences.
+
+| Context | First operation | Exit | Tool source returned | Judgment returned | Earlier retained |
+| --- | ---: | ---: | --- | --- | --- |
+| C01 | O013 lre_read | 0 | True | True | True |
+| C02 | O018 lre_read | 0 | True | True | True |
+| C03 | O025 lre_read | 0 | True | True | True |
+
+These are three bounded functional context checks, with an engineered change and legacy return, not an accuracy-benefit or psychological-retention trial. Continuations choose from a disclosed finite vocabulary of eight reviewed cue labels without source mappings, bodies or IDs; this does not demonstrate unconstrained language comprehension. Exact evidence return, native read-state equality, graph support paths, hops-zero and convergence-off diagnostics remain separate outcomes.
+
+The changed copy saved a new condition-bound judgment in native LRE, but that new judgment was neither indexed nor subsequently recalled. Recurrent learning is not established.
+
+Synthetic engineering rounds remain separate: round 01, 14 tests / 93 recorded workers; round 02, 15 tests / 102 workers. Initial initialize used revision 1. The reviewed revision 2 correction added original-input return before semantic indexing/continuation, without discarding or restarting the pilot. A pre-index diagnostic had a prospective plan but lacked a separate pre-call cue-span/review artifact and was not a scored continuation. The continuation choices use hash-bound pre-call span/review records; universal protocol compliance is not claimed.
+
+No human/private conversation content was fetched or used. Tool input/stdout/stderr and AI judgment bodies, private vendor code, native state/databases, feature/cue/trace bodies, actor IDs and local paths are excluded. Provider/model metadata remains unverified and null. Earlier nine studies, including the experience-retention page's immutable pending delayed endpoint, and four overview animations retain their bytes. This pilot makes no full Wake, speed, biological brain, AGI, consciousness or psychological-identity claim.
+
+[Saved-evidence verifier](https://yuu-honda.github.io/lux-spiria-results/experiments/tool-observation-loop-2026-10-28/README.md) / [ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/tool-observation-loop-2026-10-28.zip). This verifies disclosed hashes, schema and arithmetic only. It cannot reconstruct undisclosed native operations or independently prove exported claims; it is not a complete native replay or fresh AI regeneration. Hashes are local integrity identifiers, not external signatures or hardware attestation.
+<!-- TOOL_OBSERVATION_LOOP_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -203,6 +227,24 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B -m http.server 8769 --bind 127.0.0.1
 Optional `data/experience-retention-2026-10-28.json` activates the ninth JA/EN immediate study after exact schema/count/role/clock validation and matching original-source, replay manifest/README and external ZIP hashes. Missing export produces no new publication or placeholder results; invalid data/replay refuses writes. Only latest panels/listings, README and sitemap change alongside the new dated pair. Eight earlier dated studies/data/replay/downloads and four overview stories/assets remain unchanged. The delayed phase remains uncollected in this immutable immediate publication.
 
 `PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_experience_retention.py` rebuilds only its dated pair after the same checks. Public replay executes saved choices without fresh AI generation. GitHub Pages serves `main` at the repository root.
+
+<!-- TOOL_OBSERVATION_LOOP_BUILD_START -->
+### Tenth-study activation and saved-evidence verification
+
+To activate the tenth study from an independently audited export (Python 3 standard library only):
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_pages.py --tool-observation-loop /absolute/path/to/reports/public-export-v1.json
+```
+
+The same flag is accepted by `tools/build_tool_observation_loop.py`. Absent export produces no new study or placeholder; invalid data refuses writes. The public bundle contains only the exact allowlisted export, verifier, README and uppercase MANIFEST.json. Its external ZIP is deterministic. It recalculates disclosed evidence metadata, not private native execution. All nine earlier studies/data/replays/downloads, the separate delayed study and four overview animations remain unchanged. GitHub Pages serves `main` at the repository root.
+
+Optional JavaScript regression check with Node.js:
+
+```sh
+node tests/test_scroll_runtime.js
+```
+<!-- TOOL_OBSERVATION_LOOP_BUILD_END -->
 
 ## Preservation
 

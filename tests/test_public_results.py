@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import unittest
+import zipfile
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 
@@ -51,6 +52,25 @@ class Results(unittest.TestCase):
                       'downloads/conditional-revision-2026-10-27.zip':'data/conditional-revision-2026-10-27.json',
                       'downloads/experience-retention-2026-10-28.zip':'data/experience-retention-2026-10-28.json'}
     relative=p.relative_to(ROOT).as_posix()
+    if relative=='downloads/tool-observation-loop-2026-10-28.zip':
+     # This is a metadata verifier, not a private native execution replay.
+     schema_spec=importlib.util.spec_from_file_location('tool_public_boundary',ROOT/'tools/tool_observation_schema.py')
+     schema=importlib.util.module_from_spec(schema_spec);schema_spec.loader.exec_module(schema)
+     raw=(ROOT/'data/tool-observation-loop-2026-10-28.json').read_bytes()
+     schema.validate_summary(schema.parse_json(raw))
+     with zipfile.ZipFile(p) as archive:
+      names=archive.namelist()
+      self.assertEqual(len(names),4);self.assertEqual(set(names),{'MANIFEST.json','README.md','verify.py','evidence.json'})
+      self.assertEqual(archive.read('evidence.json'),raw)
+      self.assertEqual(archive.read('verify.py'),(ROOT/'tools/tool_observation_schema.py').read_bytes())
+      manifest=schema.parse_json(archive.read('MANIFEST.json'))
+      self.assertEqual(set(manifest),{'schema_version','files'})
+      self.assertEqual(set(manifest['files']),set(names)-{'MANIFEST.json'})
+      for name,row in manifest['files'].items():
+       self.assertEqual(set(row),{'bytes','sha256'})
+       self.assertEqual(len(archive.read(name)),row['bytes'])
+       self.assertEqual(hashlib.sha256(archive.read(name)).hexdigest(),row['sha256'])
+     continue
     self.assertIn(relative,allowed_archives)
     replay_summary=json.loads((ROOT/allowed_archives[relative]).read_text())
     self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),replay_summary['replay']['zip_sha256'])

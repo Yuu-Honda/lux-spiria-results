@@ -458,6 +458,7 @@ class ExperienceRetentionEngineering(unittest.TestCase):
             self.assertEqual(pub.integrate_home(after, lang, self.d), after)
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
             before = pub.CARD.sub('', (ROOT / name).read_text())
+            before = re.sub(r'<article class="study-card" data-study="tool-observation-loop">.*?</article>', '', before, flags=re.S)
             cards = re.findall(r'<article class="study-card".*?</article>', before, re.S)
             self.assertEqual(len(cards), 8)
             after = pub.integrate_listing(before, lang, self.d)
@@ -489,6 +490,8 @@ class ExperienceRetentionEngineering(unittest.TestCase):
         if not (ROOT / mod.DATA_FILE).is_file(): self.skipTest('Actual audited export not supplied')
         data = mod.load_summary(); mod.require_public_inputs(ROOT, data)
         for name, expected in pub.prepare_updates(ROOT, data).items():
+            if (ROOT / 'data/tool-observation-loop-2026-10-28.json').is_file() and not name.startswith(mod.STUDY):
+                continue  # The tenth study owns shared latest metadata; dated bytes stay exact.
             self.assertEqual((ROOT / name).read_text(encoding='utf-8'), expected, name)
         pages = module('experience_actual_main', 'tools/build_pages.py')
         for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
