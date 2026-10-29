@@ -50,7 +50,8 @@ class Results(unittest.TestCase):
     # Only exact audited public-data replay paths and matching summary hashes qualify.
     allowed_archives={'downloads/action-feedback-2026-10-27.zip':'data/action-feedback-2026-10-27.json',
                       'downloads/conditional-revision-2026-10-27.zip':'data/conditional-revision-2026-10-27.json',
-                      'downloads/experience-retention-2026-10-28.zip':'data/experience-retention-2026-10-28.json'}
+                      'downloads/experience-retention-2026-10-28.zip':'data/experience-retention-2026-10-28.json',
+                      'downloads/experience-retention-delayed-2026-10-29.zip':'data/experience-retention-delayed-2026-10-29.json'}
     relative=p.relative_to(ROOT).as_posix()
     if relative=='downloads/tool-observation-loop-2026-10-28.zip':
      # This is a metadata verifier, not a private native execution replay.

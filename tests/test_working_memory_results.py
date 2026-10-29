@@ -464,6 +464,7 @@ class WorkingMemoryEngineering(unittest.TestCase):
             html = re.sub(r'<article class="study-card" data-study="conditional-revision">.*?</article>', '', html, flags=re.S)
             html = re.sub(r'<article class="study-card" data-study="experience-retention">.*?</article>', '', html, flags=re.S)
             html = re.sub(r'<article class="study-card" data-study="tool-observation-loop">.*?</article>', '', html, flags=re.S)
+            html = re.sub(r'<article class="study-card" data-study="experience-retention-delayed">.*?</article>', '', html, flags=re.S)
             # If actual publication exists, its sixth card is replaced as intended.
             old_cards = [card for card in re.findall(r'<article class="study-card".*?</article>', html, re.S) if 'data-study="working-memory-source-fixed"' not in card]
             self.assertEqual(len(old_cards), 5)

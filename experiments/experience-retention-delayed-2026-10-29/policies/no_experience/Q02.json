@@ -1,0 +1,1 @@
+{"id":"Q02","decision":"inspect","rationale":"Need the actual conditions structure and identifiers to select each condition and its own denominators without assuming paths or array order."}

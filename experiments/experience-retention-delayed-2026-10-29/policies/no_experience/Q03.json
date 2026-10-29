@@ -1,0 +1,1 @@
+{"id":"Q03","decision":"inspect","rationale":"The source structure is not supplied. A structural inspection is needed to locate the legacy_gated and positive_union_gated workload counters before constructing the requested subtractions and unrounded ratios."}

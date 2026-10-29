@@ -1,0 +1,56 @@
+{
+  "Q01": {
+    "status": "ok",
+    "values": {
+      "strict_review_literal_hit_fraction": 1.0,
+      "strict_review_paraphrase_hit_fraction": 1.0,
+      "strict_review_minus_review_positive_hits": 0,
+      "strict_review_positive_wrong_scene_fraction": 0.0
+    }
+  },
+  "Q02": {
+    "status": "ok",
+    "values": {
+      "recovery_retrieval_failure_fraction": 0.1875,
+      "review_retrieval_failure_fraction": 0.125,
+      "recovery_reader_failure_fraction_given_support": 0.15384615384615385,
+      "review_reader_failure_fraction_given_support": 0.14285714285714285
+    }
+  },
+  "Q03": {
+    "status": "ok",
+    "values": {
+      "union_minus_legacy_native_searches": 12,
+      "union_minus_legacy_graph_expansions": 88,
+      "legacy_expansions_per_native_search": 8.8,
+      "union_expansions_per_native_search": 8.25
+    }
+  },
+  "Q04": {
+    "status": "ok",
+    "values": {
+      "strict_review_literal_hit_fraction": 1.0,
+      "strict_review_paraphrase_hit_fraction": 1.0,
+      "strict_review_minus_review_positive_hits": 0,
+      "strict_review_positive_wrong_scene_fraction": 0.0
+    }
+  },
+  "Q05": {
+    "status": "ok",
+    "values": {
+      "recovery_retrieval_failure_fraction": 0.1875,
+      "review_retrieval_failure_fraction": 0.125,
+      "recovery_reader_failure_fraction_given_support": 0.15384615384615385,
+      "review_reader_failure_fraction_given_support": 0.14285714285714285
+    }
+  },
+  "Q06": {
+    "status": "ok",
+    "values": {
+      "union_minus_legacy_native_searches": 12,
+      "union_minus_legacy_graph_expansions": 88,
+      "legacy_expansions_per_native_search": 8.8,
+      "union_expansions_per_native_search": 8.25
+    }
+  }
+}
