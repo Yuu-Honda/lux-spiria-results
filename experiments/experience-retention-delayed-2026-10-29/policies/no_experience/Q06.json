@@ -1,0 +1,1 @@
+{"id":"Q06","decision":"inspect","rationale":"The source structure is unknown. Inspect the sample and conditions branches to locate legacy_gated and positive_union_gated and their workload-counter paths before choosing exact expressions."}

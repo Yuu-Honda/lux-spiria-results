@@ -1,0 +1,1 @@
+{"id":"Q04","decision":"inspect","rationale":"The digest matches the recorded T02 source, but that experience only established recovery_raw and event_review_only false-return paths. Inspect to locate strict_and_event_review and event_review_only exactly and verify the requested hit and denominator paths and scalar types before constructing the expressions."}

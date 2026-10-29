@@ -1,0 +1,68 @@
+[
+  {
+    "id": "Q01",
+    "source": "A01",
+    "instruction": "Measure positive-query coverage for strict_and_event_review and compare its aggregate target hits with event_review_only. Return strict_review_literal_hit_fraction as strict_and_event_review literal_hits divided by sample.literal_queries, and strict_review_paraphrase_hit_fraction as strict_and_event_review paraphrase_hits divided by sample.paraphrase_queries. Return strict_review_minus_review_positive_hits as strict_and_event_review positive_hits minus event_review_only positive_hits. Return strict_review_positive_wrong_scene_fraction as strict_and_event_review positive_wrong_scene_returns divided by sample.positive_queries. Return fractions without rounding and retain an unchanged aggregate if that is what the counts show.",
+    "field_names": [
+      "strict_review_literal_hit_fraction",
+      "strict_review_paraphrase_hit_fraction",
+      "strict_review_minus_review_positive_hits",
+      "strict_review_positive_wrong_scene_fraction"
+    ]
+  },
+  {
+    "id": "Q02",
+    "source": "A02",
+    "instruction": "Compare retrieval failures and reader answer-use failures for conditions recovery_raw:normal and event_review_only:normal. Return recovery_retrieval_failure_fraction and review_retrieval_failure_fraction as each condition’s retrieval_failures_for_supported_queries divided by its primary_denominators.supported_queries. Return recovery_reader_failure_fraction_given_support and review_reader_failure_fraction_given_support as each condition’s reader_answer_use_failures_when_support_available divided by its own primary_denominators.fully_supporting_supported_queries. Return all fractions without rounding; each reader-failure denominator is restricted to that condition’s fully supporting supported queries.",
+    "field_names": [
+      "recovery_retrieval_failure_fraction",
+      "review_retrieval_failure_fraction",
+      "recovery_reader_failure_fraction_given_support",
+      "review_reader_failure_fraction_given_support"
+    ]
+  },
+  {
+    "id": "Q03",
+    "source": "A03",
+    "instruction": "Compare the recorded graph-search workload of legacy_gated and positive_union_gated. Return union_minus_legacy_native_searches as positive_union_gated native_searches minus legacy_gated native_searches; return union_minus_legacy_graph_expansions as the same subtraction for graph_expansions. Return legacy_expansions_per_native_search and union_expansions_per_native_search as each condition’s graph_expansions divided by its native_searches, without rounding. These are workload-counter ratios, not evidence of a graph contribution to answer quality.",
+    "field_names": [
+      "union_minus_legacy_native_searches",
+      "union_minus_legacy_graph_expansions",
+      "legacy_expansions_per_native_search",
+      "union_expansions_per_native_search"
+    ]
+  },
+  {
+    "id": "Q04",
+    "source": "A04",
+    "instruction": "Measure positive-query coverage for strict_and_event_review and compare its aggregate target hits with event_review_only. Return strict_review_literal_hit_fraction as strict_and_event_review literal_hits divided by sample.literal_queries, and strict_review_paraphrase_hit_fraction as strict_and_event_review paraphrase_hits divided by sample.paraphrase_queries. Return strict_review_minus_review_positive_hits as strict_and_event_review positive_hits minus event_review_only positive_hits. Return strict_review_positive_wrong_scene_fraction as strict_and_event_review positive_wrong_scene_returns divided by sample.positive_queries. Return fractions without rounding and retain an unchanged aggregate if that is what the counts show.",
+    "field_names": [
+      "strict_review_literal_hit_fraction",
+      "strict_review_paraphrase_hit_fraction",
+      "strict_review_minus_review_positive_hits",
+      "strict_review_positive_wrong_scene_fraction"
+    ]
+  },
+  {
+    "id": "Q05",
+    "source": "A05",
+    "instruction": "Compare retrieval failures and reader answer-use failures for conditions recovery_raw:normal and event_review_only:normal. Return recovery_retrieval_failure_fraction and review_retrieval_failure_fraction as each condition’s retrieval_failures_for_supported_queries divided by its primary_denominators.supported_queries. Return recovery_reader_failure_fraction_given_support and review_reader_failure_fraction_given_support as each condition’s reader_answer_use_failures_when_support_available divided by its own primary_denominators.fully_supporting_supported_queries. Return all fractions without rounding; each reader-failure denominator is restricted to that condition’s fully supporting supported queries.",
+    "field_names": [
+      "recovery_retrieval_failure_fraction",
+      "review_retrieval_failure_fraction",
+      "recovery_reader_failure_fraction_given_support",
+      "review_reader_failure_fraction_given_support"
+    ]
+  },
+  {
+    "id": "Q06",
+    "source": "A06",
+    "instruction": "Compare the recorded graph-search workload of legacy_gated and positive_union_gated. Return union_minus_legacy_native_searches as positive_union_gated native_searches minus legacy_gated native_searches; return union_minus_legacy_graph_expansions as the same subtraction for graph_expansions. Return legacy_expansions_per_native_search and union_expansions_per_native_search as each condition’s graph_expansions divided by its native_searches, without rounding. These are workload-counter ratios, not evidence of a graph contribution to answer quality.",
+    "field_names": [
+      "union_minus_legacy_native_searches",
+      "union_minus_legacy_graph_expansions",
+      "legacy_expansions_per_native_search",
+      "union_expansions_per_native_search"
+    ]
+  }
+]

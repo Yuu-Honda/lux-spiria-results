@@ -1,0 +1,1 @@
+{"id":"Q04","decision":"inspect","rationale":"The required counts are clear, but the source container paths and condition array order are unknown. Inspect the assigned source structure to locate sample and both named conditions before constructing the requested calculations."}

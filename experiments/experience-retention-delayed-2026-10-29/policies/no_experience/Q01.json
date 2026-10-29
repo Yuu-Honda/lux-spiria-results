@@ -1,0 +1,1 @@
+{"id":"Q01","decision":"inspect","rationale":"The source structure is not supplied; a structural inspection is needed to locate sample query totals and the strict_and_event_review and event_review_only aggregate counts without assuming paths or array order."}

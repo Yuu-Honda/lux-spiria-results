@@ -202,6 +202,37 @@ No human/private conversation content was fetched or used. Tool input/stdout/std
 [Saved-evidence verifier](https://yuu-honda.github.io/lux-spiria-results/experiments/tool-observation-loop-2026-10-28/README.md) / [ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/tool-observation-loop-2026-10-28.zip). This verifies disclosed hashes, schema and arithmetic only. It cannot reconstruct undisclosed native operations or independently prove exported claims; it is not a complete native replay or fresh AI regeneration. Hashes are local integrity identifiers, not external signatures or hardware attestation.
 <!-- TOOL_OBSERVATION_LOOP_STUDY_END -->
 
+<!-- EXPERIENCE_RETENTION_DELAYED_STUDY_START -->
+## Same frozen experience record — collected delayed trial, 2026-10-29
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-29-experience-retention-delayed/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-29-experience-retention-delayed/en.html)
+
+Three further objectives frozen before training × two formats give six items per arm, not six independent objectives or experiences. Twelve fresh arm/item contexts received the same unchanged 5627-character external record or no record. Both arms received the same current evidence and optional inspection opportunity. All twelve policies froze before inspection outputs; all twelve actions froze before execution outcomes. One action and at most one inspection per item; no probe repairs or feedback-driven record updates.
+
+| Delayed arm | Format | Accepted | Optional inspections | Inspection bytes | Projection chars |
+| --- | --- | ---: | ---: | ---: | ---: |
+| no_experience | all | 6/6 | 6 | 477221 | 168282 |
+| no_experience | original | 3/3 | 3 | 291696 | 84045 |
+| no_experience | changed | 3/3 | 3 | 185525 | 84237 |
+| experience_record | all | 6/6 | 6 | 477221 | 168282 |
+| experience_record | original | 3/3 | 3 | 291696 | 84045 |
+| experience_record | changed | 3/3 | 3 | 185525 | 84237 |
+
+Paired outcomes: corrected 0, regressed 0, both correct 6, both wrong 0. The predeclared equal-acceptance/fewer-inspections/no-added-errors criterion was not met; no accuracy or optional-inspection benefit is established. Optional-inspection bytes and projection characters are not total source I/O: both arms' executor reads the assigned source for every actual artifact. Speed, token, compute and spending savings are unmeasured.
+
+Actual first/last initial authoring authorization elapsed: 119050.481339–119190.942745 seconds after memory freeze, later than the 86400-second minimum, not exactly 24 hours. Memory freeze UTC: 2026-10-27T16:12:30.470580Z; preparation UTC: 2026-10-29T01:16:01.524373Z. Native item execution starts elapsed: 119642.809303–119644.124489 seconds. Initial/final authoring clocks are actual pre-call authorization receipts, not exposed provider sampling timestamps. Inspection and native execution clocks are recorded separately in the JSON and dated pages; direct submission has no second authoring call.
+
+The three stage-record local modification times use original state-file local filesystem mtimes (`stage_freeze_clock_basis=local_filesystem_mtime`). All three raw policy/inspection/action phase-entry authorization guards are separately recorded; phase-entry is not completion and may follow the last output. The clock-projection audit digest binds this reporting projection. These are not instrumented exact completion timestamps. Local metadata is not a provider timestamp, external signature or attestation; original trial records and times are unchanged.
+
+The immediate and delayed blocks use different objectives as well as different times. Differences between them do not identify a time-only retention effect or forgetting. Fresh contexts rereading an external record test persistence/portability, not one subject's psychological retention, continuous identity, weight learning, natural conversation memory or a forgetting curve. Provider/model/settings/token/compute metadata is unverified and null; roles use read allowlists on a shared host, not OS isolation. No private native LRE, SHIORI mechanism/speed, native Wake, Emotion, biological brain, AGI or consciousness claim is made.
+
+The training review template explicitly requested `legacy_scope`; this is not unprompted conceptual learning.
+
+The 17 synthetic transport-preparation checks are engineering evidence, separate from twelve actual delayed items. The 2026-10-28 immediate data/page retains its immutable at-publication pending state. This dated study/data/replay appends actual collected outcomes without changing any of the ten earlier studies, downloads or four overview animations.
+
+[Saved-action replay](https://yuu-honda.github.io/lux-spiria-results/experiments/experience-retention-delayed-2026-10-29/README.md) / [External ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/experience-retention-delayed-2026-10-29.zip). Exact public numeric sources, frozen record, saved policies/actions/gold and the unchanged executor support mechanical replay. This does not regenerate fresh AI judgment or repeat delayed actor collection. Only the newly collected delayed tasks/gold are included; private actor envelopes, receipts and local runtime paths are excluded.
+<!-- EXPERIENCE_RETENTION_DELAYED_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -245,6 +276,18 @@ Optional JavaScript regression check with Node.js:
 node tests/test_scroll_runtime.js
 ```
 <!-- TOOL_OBSERVATION_LOOP_BUILD_END -->
+
+<!-- EXPERIENCE_RETENTION_DELAYED_BUILD_START -->
+### Eleventh-study activation: actual delayed saved-action results
+
+Existing study/build instructions above remain applicable. To activate the independently audited delayed export and separately audited replay:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_pages.py --experience-retention-delayed /absolute/path/to/reports/public-export-v1.json --experience-retention-delayed-replay /absolute/path/to/reports/public-replay --experience-retention-delayed-zip /absolute/path/to/reports/public-replay.zip
+```
+
+The same flags are accepted by `tools/build_experience_retention_delayed.py`. Missing export produces no new publication or placeholder results. Invalid schema/counts/clocks, original source changes, MANIFEST case/hash/inventory changes or an external ZIP mismatch refuse publication writes. Repeat builds use the installed audited data/replay by default. The immediate phase-one page and its pending state are never rewritten as collected.
+<!-- EXPERIENCE_RETENTION_DELAYED_BUILD_END -->
 
 ## Preservation
 

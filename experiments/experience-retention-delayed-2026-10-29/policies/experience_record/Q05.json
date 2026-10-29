@@ -1,0 +1,1 @@
+{"id":"Q05","decision":"inspect","rationale":"The source digest matches the observed payload layout, but the recorded experience does not verify the retrieval-failure and reader-failure fields or the fully-supporting denominator required here. Inspect their exact paths and scalar types before constructing the four fractions."}
