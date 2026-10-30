@@ -233,6 +233,43 @@ The 17 synthetic transport-preparation checks are engineering evidence, separate
 [Saved-action replay](https://yuu-honda.github.io/lux-spiria-results/experiments/experience-retention-delayed-2026-10-29/README.md) / [External ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/experience-retention-delayed-2026-10-29.zip). Exact public numeric sources, frozen record, saved policies/actions/gold and the unchanged executor support mechanical replay. This does not regenerate fresh AI judgment or repeat delayed actor collection. Only the newly collected delayed tasks/gold are included; private actor envelopes, receipts and local runtime paths are excluded.
 <!-- EXPERIENCE_RETENTION_DELAYED_STUDY_END -->
 
+<!-- EXPERIENCE_ACTION_LOOP_STUDY_START -->
+## Experience to conditional judgment to another actual operation — 2026-10-30
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-30-experience-action-loop/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-10-30-experience-action-loop/en.html)
+
+Actual tool experience is captured as condition-bound LRE judgments, indexed through native SHIORI, returned to fresh AI contexts, and followed by one actual operation. New judgments after a change are reindexed and checked for later return. Three independently engineered histories use JSON/HTML/ZIP as format repetitions of the same ordering-policy mechanism, not three distinct cognitive abilities. Six teacher contexts, three semantic-reviewer contexts and 36 fresh probe contexts remain separate units.
+
+The four arms are full, hops0, no_writeback and no_history. R uses changed conditions; L returns to legacy conditions; N uses an unobserved opaque profile. All twelve choices within each phase freeze before one real operation per item. No probe repairs or outcome-driven reselection.
+
+| Phase | Arm | Accepted | Builds | Abstentions | Rejected artifacts | Operation errors | Indirect returns | New-judgment returns |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| R | full | 3/3 | 3 | 0 | 0 | 0 | 3 | 3 |
+| R | hops0 | 0/3 | 0 | 3 | 0 | 0 | 0 | 0 |
+| R | no_writeback | 3/3 | 3 | 0 | 0 | 0 | 3 | 0 |
+| R | no_history | 0/3 | 0 | 3 | 0 | 0 | 0 | 0 |
+| L | full | 3/3 | 3 | 0 | 0 | 0 | 3 | 3 |
+| L | hops0 | 0/3 | 0 | 3 | 0 | 0 | 0 | 0 |
+| L | no_writeback | 3/3 | 3 | 0 | 0 | 0 | 3 | 0 |
+| L | no_history | 0/3 | 0 | 3 | 0 | 0 | 0 | 0 |
+| N | full | 0/3 | 0 | 3 | 0 | 0 | 3 | 3 |
+| N | hops0 | 0/3 | 0 | 3 | 0 | 0 | 0 | 0 |
+| N | no_writeback | 0/3 | 0 | 3 | 0 | 0 | 3 | 0 |
+| N | no_history | 0/3 | 0 | 3 | 0 | 0 | 0 | 0 |
+
+Full loop and no new-judgment writeback had equal acceptance counts in each phase. Returning a new judgment and gaining an additional benefit are separate outcomes. These results do not show additional acceptance gains from a new judgment where raw evidence was sufficient. A returned judgment, a shared-feature path, accepted artifacts and appropriate abstention remain separate outcomes. The finite alias-to-shared-component network is engineered. `shared_feature_not_causal` denotes a shared-feature link, not a causal path. The dated pages retain all 36 actions, reasons, evidence, actual paths and outcomes, six teachers, and all 21 deduplicated public source messages. Empty-evidence abstention makes the empty-list quote check true; this is not evidence sufficiency. Independent audit separately assesses applicability, artifacts and protection.
+
+The eligible original-source check is true for 32/36 rows and false for 4 rows. The false rows quote actual returned unavailability notices. Independent audit confirmed that the notice text matches the actual packet. The check is false because a notice falls outside the preregistered eligible source types of original tool output and native judgment. It does not indicate fabricated quotations or mismatched notice text. The semantic appropriateness of abstention is audited separately. The JSON field `all_quotes_exact` retains its original name and values; the public table labels it “Eligible original-source check” to make its narrow contract clear. False outcomes are retained without repair.
+
+Evidence use, recalculated only from the 21 public sources and saved actions: 27 rows have nonempty eligible original-source evidence, 5 have empty evidence, and 4 cite out-of-type actual notices. There are 64 eligible original-tool verbatim quotations and 0 eligible native-judgment quotations across 0 native-judgment-citing rows. Full returns the new judgment in 9/9 items. Return establishes availability; adoption/use of that judgment and its additional benefit are not established. Raw original-tool evidence has the same acceptance counts. The verifier treats raw `obs-*` / `tool:obs-*` and `cand-*` / `judgment:cand-*` as source lookup aliases only; it never rewrites original ACTION source IDs, bytes or hashes.
+
+An author AI selected the vocabulary and an independent AI reviewed it. Full versus no_writeback compares incremental availability of new judgments; adding an episode can also change graph degree and scores. Native scores rank candidates, not confidence or probabilities of independent evidence. Automatic capture of all conversation, general Japanese understanding and production integration were not evaluated. Out-of-type notice quotations remain disclosed rather than being recoded as valid original tool/native-judgment evidence.
+
+The 21 synthetic engineering checks are separate from the 36 actual probe choices. Provider/model/settings/tokens/compute metadata remains unverified and null. Roles use instruction-based read allowlists on a shared filesystem, not OS isolation. This evaluates isolated native components; full Wake, Emotion, biological brains, AGI, natural conversation, weight learning, psychological retention and unrestricted semantic understanding are not established. Tool receipts and judgments about the same event are not independent experiences.
+
+[Public JSON](https://yuu-honda.github.io/lux-spiria-results/data/experience-action-loop-2026-10-30.json) / [Saved-evidence verifier](https://yuu-honda.github.io/lux-spiria-results/experiments/experience-action-loop-2026-10-30/README.md) / [Verifier ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/experience-action-loop-2026-10-30.zip). This public-data exception exposes only actual engineered-task tool outputs and AI judgments. It excludes private vendor source, native state, private repository source documents and conversations. The verifier checks disclosed schema, source hashes, quotation containment and arithmetic; it cannot rerun native execution, regenerate fresh AI choices, repeat the independent audit or independently prove every exported claim. Hashes identify local integrity, not external signatures or hardware attestation. All eleven earlier dated studies/data/replay/downloads and all four overview scroll stories retain their bytes.
+<!-- EXPERIENCE_ACTION_LOOP_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -288,6 +325,16 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_pages.py --experience-retention
 
 The same flags are accepted by `tools/build_experience_retention_delayed.py`. Missing export produces no new publication or placeholder results. Invalid schema/counts/clocks, original source changes, MANIFEST case/hash/inventory changes or an external ZIP mismatch refuse publication writes. Repeat builds use the installed audited data/replay by default. The immediate phase-one page and its pending state are never rewritten as collected.
 <!-- EXPERIENCE_RETENTION_DELAYED_BUILD_END -->
+
+<!-- EXPERIENCE_ACTION_LOOP_BUILD_START -->
+### Twelfth-study activation: audited experience-action public evidence
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_experience_action_loop.py --experience-action-loop /absolute/path/to/audited-public-export.json
+```
+
+The same `--experience-action-loop` flag is accepted by `tools/build_pages.py`; activate one new external study per command. Missing export creates no new publication, placeholder, numbers or conclusion. Before any publication write, the builder rejects extra schema keys, invalid context counts or profile bindings, source-text hash mismatches, misreported source-contract flags, graph/new-judgment flag mismatches, aggregate mismatches, unapproved audit, private absolute paths or changed protection boundaries. Actual source-contract deviations remain disclosed outcomes. It depends only on the audited public dataset and public builder/verifier code. The download has exactly evidence.json, verify.py, README.md and MANIFEST.json; its ZIP is deterministic. This is saved-evidence verification, not native replay. Repeat builds use the installed audited public JSON by default.
+<!-- EXPERIENCE_ACTION_LOOP_BUILD_END -->
 
 ## Preservation
 

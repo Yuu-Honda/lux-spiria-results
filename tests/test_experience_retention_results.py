@@ -460,6 +460,7 @@ class ExperienceRetentionEngineering(unittest.TestCase):
             before = pub.CARD.sub('', (ROOT / name).read_text())
             before = re.sub(r'<article class="study-card" data-study="tool-observation-loop">.*?</article>', '', before, flags=re.S)
             before = re.sub(r'<article class="study-card" data-study="experience-retention-delayed">.*?</article>', '', before, flags=re.S)
+            before = re.sub(r'<article class="study-card" data-study="experience-action-loop">.*?</article>', '', before, flags=re.S)
             cards = re.findall(r'<article class="study-card".*?</article>', before, re.S)
             self.assertEqual(len(cards), 8)
             after = pub.integrate_listing(before, lang, self.d)

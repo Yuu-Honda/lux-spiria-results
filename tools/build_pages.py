@@ -49,6 +49,10 @@ _delayed_spec = importlib.util.spec_from_file_location('experience_retention_del
 DELAYED_PUBLICATION = importlib.util.module_from_spec(_delayed_spec)
 _delayed_spec.loader.exec_module(DELAYED_PUBLICATION)
 DELAYED_D = DELAYED_PUBLICATION.optional_summary(ROOT)
+_experience_action_spec = importlib.util.spec_from_file_location('experience_action_publication', ROOT / 'tools/experience_action_publication.py')
+EXPERIENCE_ACTION_PUBLICATION = importlib.util.module_from_spec(_experience_action_spec)
+_experience_action_spec.loader.exec_module(EXPERIENCE_ACTION_PUBLICATION)
+EXPERIENCE_ACTION_D = EXPERIENCE_ACTION_PUBLICATION.optional_summary(ROOT)
 
 def T(ja, en, lang): return ja if lang == 'ja' else en
 
@@ -138,7 +142,8 @@ def landing(lang):
     html = CONDITIONAL_PUBLICATION.integrate_listing(html, lang, CONDITIONAL_D)
     html = EXPERIENCE_PUBLICATION.integrate_listing(html, lang, EXPERIENCE_D)
     html = TOOL_PUBLICATION.integrate_listing(html, lang, TOOL_D)
-    return DELAYED_PUBLICATION.integrate_listing(html, lang, DELAYED_D)
+    html = DELAYED_PUBLICATION.integrate_listing(html, lang, DELAYED_D)
+    return EXPERIENCE_ACTION_PUBLICATION.integrate_listing(html, lang, EXPERIENCE_ACTION_D)
 
 def study(lang):
     body = f'''<section class="study-hero"><p class="kicker">RUN 001 / RETROSPECTIVE PILOT / v1</p><h1>{T('SHIORI、手掛かりと<br>経路の比較。','SHIORI: cues, paths<br>and retrieval.',lang)}</h1><p class="lead">{T('実会話42メッセージを保存し、レビュー済みの意味特徴を延べ203件で索引を作成。別工程で作った24問を固定し、4条件で検索しました。','42 real-dialogue messages were captured and indexed with 203 reviewed semantic-feature occurrences. 24 queries authored in a separate step were frozen and tested under four retrieval conditions.',lang)}</p><p class="note"><time datetime="{D['date']}">{D['date']}</time> · {T('保存済みの実行結果。閲覧中のエンジン実行ではありません。','Stored execution results; no engine runs while you browse.',lang)}</p></section>
@@ -313,7 +318,13 @@ if __name__ == '__main__':
     parser.add_argument('--experience-retention-delayed', type=Path, help='Audited collected delayed public export')
     parser.add_argument('--experience-retention-delayed-replay', type=Path, help='Audited external delayed replay directory')
     parser.add_argument('--experience-retention-delayed-zip', type=Path, help='Audited delayed ZIP outside the replay directory')
+    parser.add_argument('--experience-action-loop', type=Path, help='Independently audited experience-action public export only')
     args = parser.parse_args()
+    if args.experience_action_loop is not None and any(value is not None for value in (args.tool_observation_loop, args.experience_retention_delayed, args.experience_retention_delayed_replay, args.experience_retention_delayed_zip)):
+        parser.error('Activate one new external study per command; experience-action cannot be combined with another export/replay flag.')
+    experience_action_updates = EXPERIENCE_ACTION_PUBLICATION.prepare_updates(ROOT, args.experience_action_loop)
+    if experience_action_updates:
+        EXPERIENCE_ACTION_D = EXPERIENCE_ACTION_PUBLICATION.study.validate_summary(EXPERIENCE_ACTION_PUBLICATION.study.schema.parse_json(experience_action_updates[EXPERIENCE_ACTION_PUBLICATION.study.DATA_FILE]))
     delayed_updates = DELAYED_PUBLICATION.prepare_updates(ROOT, args.experience_retention_delayed, args.experience_retention_delayed_replay, args.experience_retention_delayed_zip)
     if delayed_updates:
         DELAYED_D = DELAYED_PUBLICATION.study.validate_summary(DELAYED_PUBLICATION.study.parse_json(delayed_updates[DELAYED_PUBLICATION.study.DATA_FILE]))
@@ -365,4 +376,11 @@ if __name__ == '__main__':
         destination = ROOT / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_bytes(raw)
+    for relative, raw in experience_action_updates.items():
+        destination = ROOT / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(raw)
+    if experience_action_updates:
+        print('Built audited experience-action study from public saved evidence; earlier dated publications preserved.')
+        raise SystemExit(0)
     print('Built 26 public pages from eleven public summaries; collected delayed saved-action results.' if delayed_updates else 'Built 24 public pages from ten public summaries; saved-evidence metadata verified.' if tool_updates else 'Built 22 public pages from nine public summaries; README and sitemap updated.' if experience_updates else 'Built 20 public pages from eight public summaries; README and sitemap updated.' if conditional_updates else 'Built 18 public pages from seven public summaries; README and sitemap updated.' if action_updates else 'Built 16 public pages from six public summaries; README and sitemap updated.' if working_updates else 'Built 14 public pages from five public summaries; README and sitemap updated.' if adoption_updates else 'Built 10 public pages from four public summaries.')

@@ -53,17 +53,22 @@ class Results(unittest.TestCase):
                       'downloads/experience-retention-2026-10-28.zip':'data/experience-retention-2026-10-28.json',
                       'downloads/experience-retention-delayed-2026-10-29.zip':'data/experience-retention-delayed-2026-10-29.json'}
     relative=p.relative_to(ROOT).as_posix()
-    if relative=='downloads/tool-observation-loop-2026-10-28.zip':
+    verifier_studies={'downloads/tool-observation-loop-2026-10-28.zip':
+                     ('tools/tool_observation_schema.py','data/tool-observation-loop-2026-10-28.json'),
+                     'downloads/experience-action-loop-2026-10-30.zip':
+                     ('tools/experience_action_schema.py','data/experience-action-loop-2026-10-30.json')}
+    if relative in verifier_studies:
      # This is a metadata verifier, not a private native execution replay.
-     schema_spec=importlib.util.spec_from_file_location('tool_public_boundary',ROOT/'tools/tool_observation_schema.py')
+     schema_file,data_file=verifier_studies[relative]
+     schema_spec=importlib.util.spec_from_file_location('tool_public_boundary',ROOT/schema_file)
      schema=importlib.util.module_from_spec(schema_spec);schema_spec.loader.exec_module(schema)
-     raw=(ROOT/'data/tool-observation-loop-2026-10-28.json').read_bytes()
+     raw=(ROOT/data_file).read_bytes()
      schema.validate_summary(schema.parse_json(raw))
      with zipfile.ZipFile(p) as archive:
       names=archive.namelist()
       self.assertEqual(len(names),4);self.assertEqual(set(names),{'MANIFEST.json','README.md','verify.py','evidence.json'})
       self.assertEqual(archive.read('evidence.json'),raw)
-      self.assertEqual(archive.read('verify.py'),(ROOT/'tools/tool_observation_schema.py').read_bytes())
+      self.assertEqual(archive.read('verify.py'),(ROOT/schema_file).read_bytes())
       manifest=schema.parse_json(archive.read('MANIFEST.json'))
       self.assertEqual(set(manifest),{'schema_version','files'})
       self.assertEqual(set(manifest['files']),set(names)-{'MANIFEST.json'})
