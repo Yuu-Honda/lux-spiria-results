@@ -111,6 +111,16 @@ class ExperienceActionResults(unittest.TestCase):
             self.skipTest('Audited public export is not installed')
         d = study.optional_summary(ROOT)
         updates = publication.prepare_updates(ROOT)
+        # Later dated publications replace only current metadata; this twelfth
+        # study's dated pages/data/verifier/replay bytes remain checked below.
+        if (ROOT / 'data/judgment-transfer-2026-11-03.json').is_file():
+            later_spec = importlib.util.spec_from_file_location('later_judgment_metadata', ROOT / 'tools/judgment_transfer_publication.py')
+            later = importlib.util.module_from_spec(later_spec); later_spec.loader.exec_module(later)
+            current = later.optional_summary(ROOT)
+            for name, lang in [('index.html', 'ja'), ('index.en.html', 'en')]:
+                updates[name] = later.integrate_home(updates[name].decode('utf-8'), lang, current).encode('utf-8')
+            for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
+                updates[name] = later.integrate_listing(updates[name].decode('utf-8'), lang, current).encode('utf-8')
         for name, expected in updates.items():
             self.assertEqual((ROOT / name).read_bytes(), expected, name)
         use = schema.evidence_usage(d)

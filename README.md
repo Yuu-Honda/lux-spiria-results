@@ -270,6 +270,37 @@ The 21 synthetic engineering checks are separate from the 36 actual probe choice
 [Public JSON](https://yuu-honda.github.io/lux-spiria-results/data/experience-action-loop-2026-10-30.json) / [Saved-evidence verifier](https://yuu-honda.github.io/lux-spiria-results/experiments/experience-action-loop-2026-10-30/README.md) / [Verifier ZIP](https://yuu-honda.github.io/lux-spiria-results/downloads/experience-action-loop-2026-10-30.zip). This public-data exception exposes only actual engineered-task tool outputs and AI judgments. It excludes private vendor source, native state, private repository source documents and conversations. The verifier checks disclosed schema, source hashes, quotation containment and arithmetic; it cannot rerun native execution, regenerate fresh AI choices, repeat the independent audit or independently prove every exported claim. Hashes identify local integrity, not external signatures or hardware attestation. All eleven earlier dated studies/data/replay/downloads and all four overview scroll stories retain their bytes.
 <!-- EXPERIENCE_ACTION_LOOP_STUDY_END -->
 
+<!-- JUDGMENT_TRANSFER_STUDY_START -->
+## Does a saved judgment help with the next task? — 2026-11-03
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-11-03-judgment-transfer/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-11-03-judgment-transfer/en.html)
+
+Six engineered histories cover two mechanisms, three each: grouping by identifier identity and SQLite imports from staged partial states. These partial states are engineered inputs, not observed process crashes. Six teacher contexts run three cases over two rounds (36 training calls), then their own judgments about work results undergo native LRE capture, review and readback. Both retained and deferred text + status pass through to the treatment. This isolates judgment-candidate/native-status availability; SHIORI ranking is not used. Saved text is transferred; model weights are not updated.
+
+Thirty-six fresh probe contexts cover same_version/changed_version × raw_only/raw_plus_judgment/all_raw_upfront × six histories. Each phase freezes all 18 initial POLICY choices before feedback, offers identical six-original rights and one current toy diagnostic, then freezes all 18 FINAL choices in those same contexts before one target operation or abstention per item. Source order and rights match. All-originals-upfront is a diagnostic comparison, not a mathematical upper bound.
+
+| History | Mechanism | Raw only | Raw + judgment | All raw upfront | Paired difference |
+| --- | --- | ---: | ---: | ---: | ---: |
+| W01 | A | 1 | 1 | 1 | 0 |
+| W02 | A | 1 | 1 | 1 | 0 |
+| W03 | A | 1 | 1 | 1 | 0 |
+| W04 | B | 1 | 1 | 1 | 0 |
+| W05 | B | 1 | 1 | 1 | 0 |
+| W06 | B | 1 | 1 | 1 | 0 |
+
+On new tasks using the same version, 6/6 results were accepted with originals alone and 6/6 with a saved judgment added. With equal acceptance counts, the primary benefit of adding a judgment remains unconfirmed. The primary contrast is paired accepted real operations in the same version. Changed-version stale-only initial/final choices, diagnostic requests, final success and abstentions are separate outcomes. All 36 actual POLICY/FINAL reasons, predictions, typed quotations and false checks remain disclosed. Empty evidence remains citation status `none`, not a successful source check. A valid prior state after an SQL rollback is separate from operation completion; acceptance requires both.
+
+Every probe could inspect actual outputs of all three current operations in one diagnostic on toy input; 36/36 used it. The correct operation may be identifiable from that diagnostic alone, so this study does not isolate a judgment-based accuracy gain.
+
+From originals alone → originals + judgment: Same version: requested original reads 32 → 10; initial task + feedback 124,986 → 86,383 bytes. Changed version: requested original reads 36 → 8; initial task + feedback 135,634 → 80,335 bytes. A smaller aggregate does not mean every history was smaller. W04 (Changed version): requested reads 6 → 6, while the judgment arm delivered 2,070 more packet bytes.
+
+“Changed choice” counts only changes from a nonnull initial operation; initial null → selected final operation is excluded. Zero changes therefore does not imply no feedback-driven choice. Teacher practice acceptance is 8/18 → 16/18 on the same practice cases, rather than evidence of new-case transfer. Final evidence has 1 exact saved-judgment quotation(s); literal citation does not establish causal adoption or an accuracy gain.
+
+Reads, diagnostics and initial + feedback packet bytes are secondary delivered-model I/O. They do not measure backend integrity disk reads, tokens, compute, speed or cost, and exclude judgment construction/training amortization. Provider/model/settings/tokens/compute are null. Six matched histories generated with one seed are not 36 independent experiences. A held-out cases replace numbers/IDs within the same eight-key relations, not new structures.
+
+This small engineered trial covers two mechanisms with three histories each. It does not evaluate full Wake, Emotion, AGI, brains, natural conversation or weight learning. Roles use instruction-based allowlists on a shared filesystem, not OS isolation. Hashes identify local integrity, not external signatures or hardware attestation. The public verifier checks disclosed arithmetic, source-text hashes and typed quotation availability; it does not repeat the independent audit, private native execution or fresh AI choices. [Public JSON](https://yuu-honda.github.io/lux-spiria-results/data/judgment-transfer-2026-11-03.json). Twelve prior studies/data/replay/ZIP publications and all four scroll stories retain their bytes.
+<!-- JUDGMENT_TRANSFER_STUDY_END -->
+
 ## Public and private scope
 
 Public: study-specific method descriptions, target-hit aggregates, opaque per-query outcomes, verification flags and retained-bundle identifiers. The first study additionally reports MRR@5 and local timing; later studies report distinct positive, absent and confusable outcomes and pre-search abstentions. The retrieval-hypothesis and event-compatibility studies separately report wrong-scene returns on positive queries. The event-compatibility study includes native route coverage and separate fresh/known ablation outcomes without scene IDs. The answer-adoption study separately reports answer outcomes, item-level failure flags, answer reuse and four opaque source clusters. Query labels are local to each study.
@@ -335,6 +366,16 @@ PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_experience_action_loop.py --exp
 
 The same `--experience-action-loop` flag is accepted by `tools/build_pages.py`; activate one new external study per command. Missing export creates no new publication, placeholder, numbers or conclusion. Before any publication write, the builder rejects extra schema keys, invalid context counts or profile bindings, source-text hash mismatches, misreported source-contract flags, graph/new-judgment flag mismatches, aggregate mismatches, unapproved audit, private absolute paths or changed protection boundaries. Actual source-contract deviations remain disclosed outcomes. It depends only on the audited public dataset and public builder/verifier code. The download has exactly evidence.json, verify.py, README.md and MANIFEST.json; its ZIP is deterministic. This is saved-evidence verification, not native replay. Repeat builds use the installed audited public JSON by default.
 <!-- EXPERIENCE_ACTION_LOOP_BUILD_END -->
+
+<!-- JUDGMENT_TRANSFER_BUILD_START -->
+### Thirteenth-study activation: audited judgment-transfer export
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B tools/build_judgment_transfer.py --judgment-transfer /absolute/path/to/audited-public-export.json
+```
+
+The same flag is accepted by `tools/build_pages.py` through an isolated publication plan; do not combine it with another activation flag. No audited input means no new files, placeholders, numbers or conclusions. Before writes, strict validation checks all 36 records, 18 aggregates, 12 pairs, the six-pair primary contrast, typed quotation availability/exactness, disclosed source hashes, canonical packet I/O, native receipt bindings, audit approval and public protection boundaries. Only the overview latest panel, results listing, README and sitemap accompany the new dated study. Earlier dated study/data/replay/download bytes and scroll animation CSS/JS are preserved.
+<!-- JUDGMENT_TRANSFER_BUILD_END -->
 
 ## Preservation
 
