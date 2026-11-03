@@ -53,6 +53,26 @@ class Results(unittest.TestCase):
                       'downloads/experience-retention-2026-10-28.zip':'data/experience-retention-2026-10-28.json',
                       'downloads/experience-retention-delayed-2026-10-29.zip':'data/experience-retention-delayed-2026-10-29.json'}
     relative=p.relative_to(ROOT).as_posix()
+    if relative=='downloads/judgment-transfer-2026-11-03.zip':
+     # The only additional executable replay files are the audited own engines.
+     schema_file='tools/judgment_transfer_schema.py'
+     data_file='data/judgment-transfer-2026-11-03.json'
+     schema_spec=importlib.util.spec_from_file_location('judgment_public_boundary',ROOT/schema_file)
+     schema=importlib.util.module_from_spec(schema_spec);schema_spec.loader.exec_module(schema)
+     raw=(ROOT/data_file).read_bytes();schema.validate_summary(schema.parse_json(raw))
+     names={'README.md','MANIFEST.json','evidence.json','verify.py','common.py','world_engine.py','replay.py','worlds.json','plans.json'}
+     with zipfile.ZipFile(p) as archive:
+      self.assertEqual(set(archive.namelist()),names);self.assertEqual(len(archive.namelist()),len(names))
+      self.assertEqual(archive.read('evidence.json'),raw)
+      self.assertEqual(archive.read('verify.py'),(ROOT/schema_file).read_bytes())
+      manifest=schema.parse_json(archive.read('MANIFEST.json'))
+      self.assertEqual(set(manifest),{'schema','replay','files'});self.assertTrue(manifest['replay'])
+      self.assertEqual(set(manifest['files']),names-{'MANIFEST.json'})
+      for name,row in manifest['files'].items():
+       self.assertEqual(set(row),{'bytes','sha256'});self.assertEqual(len(archive.read(name)),row['bytes'])
+       self.assertEqual(hashlib.sha256(archive.read(name)).hexdigest(),row['sha256'])
+     schema.verify_bundle(ROOT/'experiments/judgment-transfer-2026-11-03')
+     continue
     verifier_studies={'downloads/tool-observation-loop-2026-10-28.zip':
                      ('tools/tool_observation_schema.py','data/tool-observation-loop-2026-10-28.json'),
                      'downloads/experience-action-loop-2026-10-30.zip':
