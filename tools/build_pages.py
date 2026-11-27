@@ -57,6 +57,9 @@ _judgment_spec = importlib.util.spec_from_file_location('judgment_transfer_listi
 JUDGMENT_PUBLICATION = importlib.util.module_from_spec(_judgment_spec)
 _judgment_spec.loader.exec_module(JUDGMENT_PUBLICATION)
 JUDGMENT_D = JUDGMENT_PUBLICATION.optional_summary(ROOT)
+_no_diagnostic_spec = importlib.util.spec_from_file_location('no_diagnostic_publication', ROOT / 'tools/no_diagnostic_publication.py')
+NO_DIAGNOSTIC_PUBLICATION = importlib.util.module_from_spec(_no_diagnostic_spec)
+_no_diagnostic_spec.loader.exec_module(NO_DIAGNOSTIC_PUBLICATION)
 
 def T(ja, en, lang): return ja if lang == 'ja' else en
 
@@ -148,7 +151,12 @@ def landing(lang):
     html = TOOL_PUBLICATION.integrate_listing(html, lang, TOOL_D)
     html = DELAYED_PUBLICATION.integrate_listing(html, lang, DELAYED_D)
     html = EXPERIENCE_ACTION_PUBLICATION.integrate_listing(html, lang, EXPERIENCE_ACTION_D)
-    return JUDGMENT_PUBLICATION.integrate_listing(html, lang, JUDGMENT_D) if JUDGMENT_D is not None else html
+    if JUDGMENT_D is not None:
+        html = JUDGMENT_PUBLICATION.integrate_listing(html, lang, JUDGMENT_D)
+        followup = NO_DIAGNOSTIC_PUBLICATION.installed_data(ROOT)
+        if followup is not None:
+            html = NO_DIAGNOSTIC_PUBLICATION.integrate_listing(html, lang, followup)
+    return html
 
 def study(lang):
     body = f'''<section class="study-hero"><p class="kicker">RUN 001 / RETROSPECTIVE PILOT / v1</p><h1>{T('SHIORI、手掛かりと<br>経路の比較。','SHIORI: cues, paths<br>and retrieval.',lang)}</h1><p class="lead">{T('実会話42メッセージを保存し、レビュー済みの意味特徴を延べ203件で索引を作成。別工程で作った24問を固定し、4条件で検索しました。','42 real-dialogue messages were captured and indexed with 203 reviewed semantic-feature occurrences. 24 queries authored in a separate step were frozen and tested under four retrieval conditions.',lang)}</p><p class="note"><time datetime="{D['date']}">{D['date']}</time> · {T('保存済みの実行結果。閲覧中のエンジン実行ではありません。','Stored execution results; no engine runs while you browse.',lang)}</p></section>
@@ -326,11 +334,19 @@ if __name__ == '__main__':
     parser.add_argument('--experience-action-loop', type=Path, help='Independently audited experience-action public export only')
     parser.add_argument('--judgment-transfer', type=Path, help='Independently audited judgment-transfer public export only')
     parser.add_argument('--judgment-transfer-replay', type=Path, help='Audited own-authored judgment-transfer saved-work package')
+    parser.add_argument('--no-diagnostic', type=Path, help='Independently audited November 27 public export')
     args = parser.parse_args()
     # Keep this activation isolated: validate a complete update plan before the
     # historical builders can write or replace any previously published bytes.
     judgment_requested = args.judgment_transfer is not None or args.judgment_transfer_replay is not None
     older_activation = any(value is not None for value in (args.tool_observation_loop, args.experience_retention_delayed, args.experience_retention_delayed_replay, args.experience_retention_delayed_zip, args.experience_action_loop))
+    if args.no_diagnostic is not None and (judgment_requested or older_activation):
+        parser.error('Use --no-diagnostic separately from earlier study activation flags.')
+    if args.no_diagnostic is not None or (not judgment_requested and not older_activation and (ROOT / NO_DIAGNOSTIC_PUBLICATION.DATA).is_file()):
+        followup_updates = NO_DIAGNOSTIC_PUBLICATION.prepare_updates(ROOT, args.no_diagnostic)
+        NO_DIAGNOSTIC_PUBLICATION.apply_updates(followup_updates, ROOT)
+        print('Built the audited November 27 follow-up.')
+        raise SystemExit(0)
     if judgment_requested and older_activation:
         parser.error('Activate one external study per command; judgment-transfer cannot be combined with another export/replay flag.')
     if judgment_requested or ((ROOT / 'data/judgment-transfer-2026-11-03.json').is_file() and not older_activation):

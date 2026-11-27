@@ -1,0 +1,696 @@
+{
+  "audit": {
+    "sha256": "103c76ba2c5ced7eaad0bf08ac7230cf6c4f483dabb182171b629a4e4fd75993",
+    "status": "approved"
+  },
+  "boundaries": [
+    "This is a four-history descriptive comparison. Fresh contexts share a host with instruction-based access limits; provider/model metadata and OS-isolated blinding are not attested.",
+    "The primary contrast is adding judgment text together with its existing self-review disposition. No new LRE or SHIORI calls, native state writes, or training of model weights.",
+    "Both arms receive all original records upfront; no original-read savings, provider cost, throughput, or latency estimates.",
+    "The prior study also differed in participants, cases, history count, and evidence delivery. Cross-study changes do not identify the causal effect of removing diagnostics.",
+    "New engineered grouping arrangements and staged SQLite inputs test only these contracts. No conclusion about natural conversation, biological brains, or autonomous memory."
+  ],
+  "case_pairs": [
+    {
+      "contract_text": "Group records if and only if their key strings are exactly identical, including whitespace, signs and leading zeros. Keep every original record and every member ID. Group labels and ordering are not scored.",
+      "input": {
+        "records": [
+          {
+            "id": "new-W01-00",
+            "key": "",
+            "value": "payload-00"
+          },
+          {
+            "id": "new-W01-01",
+            "key": " ",
+            "value": "payload-01"
+          },
+          {
+            "id": "new-W01-02",
+            "key": "",
+            "value": "payload-02"
+          },
+          {
+            "id": "new-W01-03",
+            "key": " +41 ",
+            "value": "payload-03"
+          },
+          {
+            "id": "new-W01-04",
+            "key": "+41",
+            "value": "payload-04"
+          },
+          {
+            "id": "new-W01-05",
+            "key": "041",
+            "value": "payload-05"
+          },
+          {
+            "id": "new-W01-06",
+            "key": "41",
+            "value": "payload-06"
+          },
+          {
+            "id": "new-W01-07",
+            "key": "41",
+            "value": "payload-07"
+          },
+          {
+            "id": "new-W01-08",
+            "key": "猫",
+            "value": "payload-08"
+          },
+          {
+            "id": "new-W01-09",
+            "key": "猫 ",
+            "value": "payload-09"
+          },
+          {
+            "id": "new-W01-10",
+            "key": "猫",
+            "value": "payload-10"
+          }
+        ]
+      },
+      "mechanism": "A",
+      "v1_acceptable_operations": [
+        "op-56a851acc427"
+      ],
+      "v2_acceptable_operations": [
+        "op-437293e17754"
+      ],
+      "world_id": "W01"
+    },
+    {
+      "contract_text": "Group records if and only if their key strings are identical after stripping outer Unicode whitespace. Do not perform numeric conversion. Keep every original record and every member ID. Group labels and ordering are not scored.",
+      "input": {
+        "records": [
+          {
+            "id": "new-W02-00",
+            "key": " 猫",
+            "value": "payload-00"
+          },
+          {
+            "id": "new-W02-01",
+            "key": "猫 ",
+            "value": "payload-01"
+          },
+          {
+            "id": "new-W02-02",
+            "key": "猫",
+            "value": "payload-02"
+          },
+          {
+            "id": "new-W02-03",
+            "key": "\t",
+            "value": "payload-03"
+          },
+          {
+            "id": "new-W02-04",
+            "key": "",
+            "value": "payload-04"
+          },
+          {
+            "id": "new-W02-05",
+            "key": " 00673 ",
+            "value": "payload-05"
+          },
+          {
+            "id": "new-W02-06",
+            "key": "00673",
+            "value": "payload-06"
+          },
+          {
+            "id": "new-W02-07",
+            "key": "673",
+            "value": "payload-07"
+          },
+          {
+            "id": "new-W02-08",
+            "key": "+673",
+            "value": "payload-08"
+          },
+          {
+            "id": "new-W02-09",
+            "key": "+673",
+            "value": "payload-09"
+          },
+          {
+            "id": "new-W02-10",
+            "key": "猫 猫",
+            "value": "payload-10"
+          }
+        ]
+      },
+      "mechanism": "A",
+      "v1_acceptable_operations": [
+        "op-8135b82a94b7"
+      ],
+      "v2_acceptable_operations": [
+        "op-6a6177cda758"
+      ],
+      "world_id": "W02"
+    },
+    {
+      "contract_text": "Complete the import so that every input ID is present and existing IDs outside the input remain present. Preserve the original committed value for every ID that existed before this operation; use the source value for genuinely new IDs. No input ID may be missing or duplicated.",
+      "input": {
+        "checkpoint": 4,
+        "initial_store": [
+          {
+            "id": "new-W04-1",
+            "value": "committed-1"
+          },
+          {
+            "id": "new-W04-3",
+            "value": "committed-3"
+          },
+          {
+            "id": "new-W04-5",
+            "value": "committed-5"
+          },
+          {
+            "id": "external-W04",
+            "value": "keep-existing"
+          }
+        ],
+        "records": [
+          {
+            "id": "new-W04-1",
+            "value": "source-1"
+          },
+          {
+            "id": "new-W04-2",
+            "value": "source-2"
+          },
+          {
+            "id": "new-W04-3",
+            "value": "source-3"
+          },
+          {
+            "id": "new-W04-4",
+            "value": "source-4"
+          },
+          {
+            "id": "new-W04-5",
+            "value": "source-5"
+          },
+          {
+            "id": "new-W04-6",
+            "value": "source-6"
+          },
+          {
+            "id": "new-W04-7",
+            "value": "source-7"
+          }
+        ]
+      },
+      "mechanism": "B",
+      "v1_acceptable_operations": [
+        "op-e30c8efa3b18"
+      ],
+      "v2_acceptable_operations": [
+        "op-dea403be5bde"
+      ],
+      "world_id": "W04"
+    },
+    {
+      "contract_text": "Complete the import so that every input ID is present and existing IDs outside the input remain present. The current source value is authoritative for every input ID, including previously committed IDs. No input ID may be missing or duplicated.",
+      "input": {
+        "checkpoint": 4,
+        "initial_store": [
+          {
+            "id": "new-W05-1",
+            "value": "committed-1"
+          },
+          {
+            "id": "new-W05-3",
+            "value": "committed-3"
+          },
+          {
+            "id": "new-W05-5",
+            "value": "committed-5"
+          },
+          {
+            "id": "external-W05",
+            "value": "keep-existing"
+          }
+        ],
+        "records": [
+          {
+            "id": "new-W05-1",
+            "value": "source-1"
+          },
+          {
+            "id": "new-W05-2",
+            "value": "source-2"
+          },
+          {
+            "id": "new-W05-3",
+            "value": "source-3"
+          },
+          {
+            "id": "new-W05-4",
+            "value": "source-4"
+          },
+          {
+            "id": "new-W05-5",
+            "value": "source-5"
+          },
+          {
+            "id": "new-W05-6",
+            "value": "source-6"
+          },
+          {
+            "id": "new-W05-7",
+            "value": "source-7"
+          }
+        ]
+      },
+      "mechanism": "B",
+      "v1_acceptable_operations": [
+        "op-74444a2e0829"
+      ],
+      "v2_acceptable_operations": [
+        "op-61a1ad3bbfbf"
+      ],
+      "world_id": "W05"
+    }
+  ],
+  "contexts": 16,
+  "date": "2026-11-27",
+  "independent_histories": 4,
+  "prior_public_sha256": "12d15bb1d956bffa140df498545c56cf209a45a6386c2119585e1184ffce9b66",
+  "protocol_sha256": "7c91be5bef7415d0c0175737d5585b4541caf85b313004f765fc2e663bddc22b",
+  "rows": [
+    {
+      "accepted": true,
+      "arm": "raw_only",
+      "artifact_sha256": "df308db096b8533f64ca8034bb4ba55ac37bbecfacad3296c00ca79fe1b3beb3",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "b0b0dc1714563a03be1289b17ba203f6bec4503b9995bc4f127903e6bfab1339",
+          "ff4de1c7e7f0d701caa088d7879edfcf067fca5ef01b5ae0bddea482fa992afa",
+          "cc0b1603643cb3a657862020e1980a1be4eee3f4425d296c228a4b4332c68f00"
+        ],
+        "operation": "op-56a851acc427",
+        "reason": "The packet confirms the same v1 implementation. The accepted receipt for this exact-string contract shows op-56a851acc427 preserved every record and kept whitespace, sign, and leading-zero variants separate. The other operations merged whitespace variants or integer equivalents. The earlier exact-string input had distinct keys, so merging identical keys in the new input is an inference from the observed mapping."
+      },
+      "final_sha256": "42b3ec6e1f6aa09943db38f46df783988d25ea8eb37578b08f83fbb2a9bae40a",
+      "id": "nd-94bd8e4b47a8",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "378f7e8d862a8ddb00173cac7303fcb04623c149049bea7c5e922ab39fce41d2",
+      "world_id": "W01"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "1ff3968f03bb3679da091403687db2ae23a68a8188f9ecf6882b0866c3a8698e",
+          "84014521732065d07e58a1b9117ccab112bec19dae0f795cca834c4679612dca",
+          "86a1ad398ccd250808018474603c1c3e8ecbf46a75042a257e939af65553804d"
+        ],
+        "operation": null,
+        "reason": "This import needs to fill the gaps at positions 2 and 4 before checkpoint 4, add positions 6 and 7, and preserve all four committed records. In the closest v1 case, op-e30c8efa3b18 filled a checkpoint gap while preserving committed values. In v1, op-dea403be5bde missed that gap and op-14abd3b15139 overwrote committed values in a source-authoritative case. The v2 notice says the same IDs may now have different effects, and the packet supplies no v2 mapping or result. The v1 evidence therefore does not justify executing any listed operation in v2."
+      },
+      "final_sha256": "b4c6412cb38af5566c11adb158eae594aad98dfa9fc53b73ca93e9d642b7758c",
+      "id": "nd-b59ae0ff2457",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "06202a5541f8f6a04423826035f68f114cfe92fa17b414823553c870637e192a",
+      "world_id": "W04"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_only",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "ed4129d2b8a5f6c95c669c585d6498df99b16e05c8dab8fb1f9ad83c3407266b",
+          "066f2c5dba9a222cd3e431b4b6c1b841fd49d7c39ead654b9c5fcc527139c0af",
+          "fc1f782f3a2cf1c81aeef373445e7f4067c5666da68f0fafc28fb10c4c14b2df"
+        ],
+        "operation": null,
+        "reason": "In v1, op-8135b82a94b7 trimmed surrounding ASCII spaces and preserved leading zeros and signs. The other two v1 operations used exact string equality and numeric grouping, respectively. The v2 notice allows those effects to change under the same IDs, and the packet supplies no v2 mapping or result. The historical whitespace example also leaves Unicode trimming untested, so I cannot establish which listed operation satisfies the current contract."
+      },
+      "final_sha256": "3fda461a0b8379528f78d730e33c0e40fd491e6554a181e5bded1f2842acee2d",
+      "id": "nd-819fec542475",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "4b0ec7f1e4bbcdf6d82ed67599489791d3fc4bea40bb1b81cdf536e920cbd5c7",
+      "world_id": "W02"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_only",
+      "artifact_sha256": "ad6d3945b8a45e47350b8731464c4ab5dbe44aa8c2bccaa2344ddd4949b7c80c",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "b7147528899c95c3a2ff28204a9e30cea389e63a71c9c35a31c878db3a6888ce",
+          "18dc10d7a6d43a161737d7b09bfd9b0509166cf47aa7ded4dffaa9e9a2f26fd7"
+        ],
+        "operation": "op-74444a2e0829",
+        "reason": "The packet identifies the same v1 implementation. Both receipts for this operation show that it applied the source values to every input ID, retained the outside row, and produced one row per ID. At checkpoint 3 it also filled a missing ID before the checkpoint. The source-authoritative receipt was accepted, and the other receipt failed under a contract that required retaining the committed values. This supports choosing the operation for the current input at checkpoint 4."
+      },
+      "final_sha256": "2639ff017e0703d25c4bfa48c3fda38356cb5a155fda1aa392818d9607798c7c",
+      "id": "nd-8f372c991c4e",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "da0a049bae2a02f1dfb1682577ff68747740330852b83bb8cc822db1f3215899",
+      "world_id": "W05"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": "ad6d3945b8a45e47350b8731464c4ab5dbe44aa8c2bccaa2344ddd4949b7c80c",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "b7147528899c95c3a2ff28204a9e30cea389e63a71c9c35a31c878db3a6888ce",
+          "18dc10d7a6d43a161737d7b09bfd9b0509166cf47aa7ded4dffaa9e9a2f26fd7"
+        ],
+        "operation": "op-74444a2e0829",
+        "reason": "On the same v1 implementation, this operation passed the source-authoritative contract with one entry per input ID and retained the outside ID. In the separate checkpoint-gap trial, its artifact also filled a missing prefix ID, wrote source values over committed values, inserted the missing suffix ID, and retained the outside ID. Together these results support replaying all seven records with source precedence, including the already-present suffix ID, whose specific position requires an inference."
+      },
+      "final_sha256": "8a930c1e3d1319a53e2f9980a2cdb8a4247e183f2e74f05cc3bf794a4ff59c1e",
+      "id": "nd-ee1935600265",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "37947e5e29ecc679c83728597e3496fe50d3a367ab10f3d8cf1c446854af6da4",
+      "world_id": "W05"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "b7147528899c95c3a2ff28204a9e30cea389e63a71c9c35a31c878db3a6888ce",
+          "18dc10d7a6d43a161737d7b09bfd9b0509166cf47aa7ded4dffaa9e9a2f26fd7"
+        ],
+        "operation": null,
+        "reason": "The v1 receipts show that op-74444a2e0829 applied source values, recovered a missing ID before the checkpoint in one trial, and retained the outside ID in both trials. The v2 input requires both source precedence and recovery of two missing IDs before the checkpoint. The packet says operation effects may have changed in v2 and supplies no evidence mapping any listed operation to those required effects in v2."
+      },
+      "final_sha256": "ef5ebc0a6751ea24510e02945645d2ed1ef1b704288fe5f3d01ca58115c7b3ef",
+      "id": "nd-596f81ae964a",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "07fc2d6929ff956f3490a4aec653d90cc94c97a5581f2017795b890250979987",
+      "world_id": "W05"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": "df308db096b8533f64ca8034bb4ba55ac37bbecfacad3296c00ca79fe1b3beb3",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "b0b0dc1714563a03be1289b17ba203f6bec4503b9995bc4f127903e6bfab1339",
+          "ff4de1c7e7f0d701caa088d7879edfcf067fca5ef01b5ae0bddea482fa992afa",
+          "cc0b1603643cb3a657862020e1980a1be4eee3f4425d296c228a4b4332c68f00"
+        ],
+        "operation": "op-56a851acc427",
+        "reason": "The packet specifies the same v1 implementation. The exact-match receipt for op-56a851acc427 passed validation and preserved all records and member IDs while keeping keys with different spaces, signs, and leading zeros separate. The other operations merged keys with different outer spaces or different integer spellings, both present in this input. The exact-match receipt used distinct, nonempty ASCII keys, so its evidence supports the operation mapping while handling duplicate, empty, and Unicode keys here remains an inference from that mapping."
+      },
+      "final_sha256": "f70cb88b0349a9886582dfb17d2a379763fbb6c44003ed91c27cc1fa79a99162",
+      "id": "nd-cf0f6d046d83",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "f338aa659e41b57c9af5571f99909624e60e7e8b90c56ac74c4c01e2cb2eea9e",
+      "world_id": "W01"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_only",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "b0b0dc1714563a03be1289b17ba203f6bec4503b9995bc4f127903e6bfab1339",
+          "7e06d2a2f4a23b895130124968bc0438dda1c1d3d175f35c85462f2af5e2b08a",
+          "a87dada96cbe8c4b98ef59fcd9c3ed5c4afe81832e4af3aa3ffb3a2706cbef6e"
+        ],
+        "operation": null,
+        "reason": "The v1 receipts support op-56a851acc427 for exact string grouping on the historical case and show whitespace stripping and numeric grouping for the other IDs. The v2 notice says IDs persist and effects may change. Without a v2 mapping or evidence that exact string grouping stayed bound to its v1 ID, I cannot identify a current operation that preserves all the distinctions the input requires."
+      },
+      "final_sha256": "2171b2c061d1c4102668c02e97498f4bf4a290efb4351a560394ff7decd2daf4",
+      "id": "nd-e0934ad034db",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "7dcc3a7a2d8724d1ff8cba4c5d0b802bbe0170eb5bf2b037ec7344d5f5c78b34",
+      "world_id": "W01"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_only",
+      "artifact_sha256": "76562d000c3a303277355bf8a8a850d2c6a7ca62fdf1d402450534fc4d3b4df8",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "1ff3968f03bb3679da091403687db2ae23a68a8188f9ecf6882b0866c3a8698e",
+          "74f111c18fa389b3792b8b64f9e4bb8d7f3c4218255057dcc85c222c5c2071c3"
+        ],
+        "operation": "op-e30c8efa3b18",
+        "reason": "The packet identifies the same v1 implementation. In the matching historical case, this operation inserted a new record before the checkpoint and another after it, preserved conflicting committed values, and retained the record outside the input. A second v1 case independently showed the same committed-value precedence. That behavior fits this input, which has new IDs before and after checkpoint 4."
+      },
+      "final_sha256": "0e6d494302c01850694451595a877007b504888fb9d6107a29450d9576983497",
+      "id": "nd-f0a7a4a26938",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "efb8c4cbc8c86e2630541c4393ec4cf638f8888080b50e78f8ad88d45eac69b5",
+      "world_id": "W04"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_only",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "18dc10d7a6d43a161737d7b09bfd9b0509166cf47aa7ded4dffaa9e9a2f26fd7",
+          "b7147528899c95c3a2ff28204a9e30cea389e63a71c9c35a31c878db3a6888ce"
+        ],
+        "operation": null,
+        "reason": "The v1 receipts show that op-74444a2e0829 gave source values precedence in both tested cases. The v2 notice preserves operation IDs while allowing their effects to change. Selecting that ID for v2 would require assuming it still updates previously committed values, fills gaps before the checkpoint, and retains the outside record."
+      },
+      "final_sha256": "1e07df0452e5db938fe26b24450b414fe9f688c418760e183639a976153d95f0",
+      "id": "nd-7f10700b7cb4",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "14e6e3fece7c055c7a42e89dbe5d196cca5a084bf5de88eea40a0eb787f81b17",
+      "world_id": "W05"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_only",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "1ff3968f03bb3679da091403687db2ae23a68a8188f9ecf6882b0866c3a8698e",
+          "84014521732065d07e58a1b9117ccab112bec19dae0f795cca834c4679612dca",
+          "86a1ad398ccd250808018474603c1c3e8ecbf46a75042a257e939af65553804d"
+        ],
+        "operation": null,
+        "reason": "The v1 receipts show that op-e30c8efa3b18 completed an import with differing committed and source values while preserving the committed values, op-dea403be5bde skipped a new ID before the checkpoint, and op-14abd3b15139 replaced committed values with source values. The v2 notice says the IDs carry over and their effects may have changed. The packet supplies no evidence that assigns the required preserve-and-insert behavior to any v2 operation."
+      },
+      "final_sha256": "4f8b58c3d0f6b150d28dbe808d818ed3b286fd2eb7cf8fea6ff6cc7a36d4f8b1",
+      "id": "nd-7e5c7fb2a3e2",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "74aec18c0d3064807c737210ef5b30c6df9db929249f74dcef950bc1a1b93725",
+      "world_id": "W04"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "59121453e21349633d1845e8f63968dc73d46b507a2365b2bb1a99a71a4488dc",
+          "ed4129d2b8a5f6c95c669c585d6498df99b16e05c8dab8fb1f9ad83c3407266b"
+        ],
+        "operation": null,
+        "reason": "The two accepted v1 results show the same case in which op-8135b82a94b7 grouped ASCII-space variants and preserved distinct numeric spellings and every record. The packet says v2 retains the IDs while allowing their effects to change and gives no evidence linking a current ID to the required behavior. The historical case also leaves the current em-space, nonbreaking-space, tab-versus-empty, and repeated-key cases untested. I cannot establish which v2 operation satisfies the contract."
+      },
+      "final_sha256": "f60b8c21ecdacb4e8433126a9bc16977d0a17ab523c19d620fe99618b9a9ebbf",
+      "id": "nd-2fc7e6aacbf5",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "17ab989e88cccdb7cb9bfef8047a162daca7d8cdc9e1d85c9532b44ab3538c62",
+      "world_id": "W02"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": "76562d000c3a303277355bf8a8a850d2c6a7ca62fdf1d402450534fc4d3b4df8",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "1ff3968f03bb3679da091403687db2ae23a68a8188f9ecf6882b0866c3a8698e",
+          "84014521732065d07e58a1b9117ccab112bec19dae0f795cca834c4679612dca",
+          "86a1ad398ccd250808018474603c1c3e8ecbf46a75042a257e939af65553804d"
+        ],
+        "operation": "op-e30c8efa3b18",
+        "reason": "The current v1 input has two missing IDs in the checkpoint prefix and three conflicts with committed values. In an independently validated run on the same implementation and contract, op-e30c8efa3b18 filled a checkpoint-prefix gap, inserted a later new ID with its source value, kept both conflicting committed values, and retained the outside record. One alternative left the prefix gap open in that case, and the other overwrote committed values in a source-authoritative case. The accepted run supports applying the same insert-and-preserve behavior to this larger input, including the existing ID after the checkpoint."
+      },
+      "final_sha256": "5ed138de904be540c54d2a8c9177b535dde804e0e00108b3bfb411e22ae5f7dc",
+      "id": "nd-580c469df245",
+      "mechanism": "B",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "bbf74e31d7e5de1a61fa401cc6d77008e8c6edc324bb3cbb2d73c335d850514a",
+      "world_id": "W04"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_only",
+      "artifact_sha256": "5f503e58eb3dd0c340e97c265bd82d1d95bd99e69f162381934d63986bbc2d56",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "ed4129d2b8a5f6c95c669c585d6498df99b16e05c8dab8fb1f9ad83c3407266b",
+          "066f2c5dba9a222cd3e431b4b6c1b841fd49d7c39ead654b9c5fcc527139c0af",
+          "fc1f782f3a2cf1c81aeef373445e7f4067c5666da68f0fafc28fb10c4c14b2df"
+        ],
+        "operation": "op-8135b82a94b7",
+        "reason": "The packet specifies the same v1 implementation. The accepted receipt for this contract grouped outer-space variants of 0039 together, kept 39 and +39 separate, and preserved all records and member IDs. The other two operations demonstrated exact-string grouping and integer grouping, both of which would fail on the padded and numeric keys here. The receipt demonstrates ASCII spaces, so I infer Unicode trimming from the same-version match to the contract."
+      },
+      "final_sha256": "e15cc605fb05c49e973111aae644d3f45f9acacaec3b2794ab190655a380450e",
+      "id": "nd-77271deed9e1",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "52d9f9d122e6a5f5372e41639517f67d773ce62e9d29190f0ea82c376f41cac8",
+      "world_id": "W02"
+    },
+    {
+      "accepted": false,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": null,
+      "final": {
+        "current_mapping": "uncertain",
+        "decision": "abstain",
+        "historical_source_ids": [
+          "b0b0dc1714563a03be1289b17ba203f6bec4503b9995bc4f127903e6bfab1339",
+          "7e06d2a2f4a23b895130124968bc0438dda1c1d3d175f35c85462f2af5e2b08a",
+          "a87dada96cbe8c4b98ef59fcd9c3ed5c4afe81832e4af3aa3ffb3a2706cbef6e"
+        ],
+        "operation": null,
+        "reason": "The v1 receipts support op-56a851acc427 for exact matching on the tested keys and show whitespace trimming and numeric grouping for the other IDs. The v2 notice says the same IDs may have changed effects, and the packet gives no evidence tying any v2 ID to exact matching. I therefore cannot justify an operation that will merge the duplicate empty, 41, and 猫 keys while keeping the whitespace, sign, and leading-zero variants distinct and preserving every record and member ID."
+      },
+      "final_sha256": "5f5101bba4f27e265e65a35c798aaa5d5229a5f8c905cdeefa6951682c2e7d09",
+      "id": "nd-a6f45e61777b",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "changed_version",
+      "process_completed": null,
+      "state_valid": null,
+      "status": null,
+      "task_sha256": "47785da2346370133d61780fc8d4a73541ecd5f62f6b1c1005544cb0ecad18f9",
+      "world_id": "W01"
+    },
+    {
+      "accepted": true,
+      "arm": "raw_plus_judgment",
+      "artifact_sha256": "5f503e58eb3dd0c340e97c265bd82d1d95bd99e69f162381934d63986bbc2d56",
+      "final": {
+        "current_mapping": "known",
+        "decision": "execute",
+        "historical_source_ids": [
+          "59121453e21349633d1845e8f63968dc73d46b507a2365b2bb1a99a71a4488dc",
+          "ed4129d2b8a5f6c95c669c585d6498df99b16e05c8dab8fb1f9ad83c3407266b"
+        ],
+        "operation": "op-8135b82a94b7",
+        "reason": "The operation twice passed the identical contract on the same v1 implementation, grouping outer-space variants, preserving all records and member IDs, and distinguishing signed and zero-padded strings. That supports transferring the operation mapping. The earlier case used ordinary spaces, so behavior for em spaces, nonbreaking spaces, and a tab-only key paired with an empty key remains inferred."
+      },
+      "final_sha256": "4f215661191e32122dabd8194ed1a2e74742386d0f31e6795c21aa603e9569c3",
+      "id": "nd-08d2eedc9b47",
+      "mechanism": "A",
+      "old_only_choice": false,
+      "phase": "same_version",
+      "process_completed": true,
+      "state_valid": true,
+      "status": "success",
+      "task_sha256": "9bbc043f7c5814a818d8be091b14d9b157c4b77047ee69f331eaf54616205590",
+      "world_id": "W02"
+    }
+  ],
+  "schema": "lux-spiria-no-diagnostic.v1"
+}
