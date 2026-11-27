@@ -15,6 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 _spec = importlib.util.spec_from_file_location('judgment_transfer_public_builder', ROOT / 'tools/build_judgment_transfer.py')
 study = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(study)
+_followup_spec = importlib.util.spec_from_file_location('no_diagnostic_publication', ROOT / 'tools/no_diagnostic_publication.py')
+followup_publication = importlib.util.module_from_spec(_followup_spec)
+_followup_spec.loader.exec_module(followup_publication)
 t = study.t
 LATEST = re.compile(r'<section class="latest-study"(?=\s).*?</section>', re.S)
 CARD = re.compile(r'<article class="study-card" data-study="judgment-transfer">.*?</article>', re.S)
@@ -252,8 +255,12 @@ def prepare_updates(root=ROOT, source=None, replay=None):
     updates.update({study.REPLAY + name: value for name, value in files.items()})
     for filename, lang in [('index.html', 'ja'), ('index.en.html', 'en')]:
         updates[filename] = integrate_home((root / filename).read_text(encoding='utf-8'), lang, d).encode('utf-8')
+    followup = followup_publication.installed_data(root)
     for filename, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
-        updates[filename] = integrate_listing((root / filename).read_text(encoding='utf-8'), lang, d).encode('utf-8')
+        html = integrate_listing((root / filename).read_text(encoding='utf-8'), lang, d)
+        if followup is not None:
+            html = followup_publication.integrate_listing(html, lang, followup)
+        updates[filename] = html.encode('utf-8')
     updates['README.md'] = integrate_readme((root / 'README.md').read_text(encoding='utf-8'), d, replay_enabled).encode('utf-8')
     updates['sitemap.xml'] = integrate_sitemap((root / 'sitemap.xml').read_text(encoding='utf-8')).encode('utf-8')
     return updates

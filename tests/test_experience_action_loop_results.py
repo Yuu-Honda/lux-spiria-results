@@ -120,7 +120,11 @@ class ExperienceActionResults(unittest.TestCase):
             for name, lang in [('index.html', 'ja'), ('index.en.html', 'en')]:
                 updates[name] = later.integrate_home(updates[name].decode('utf-8'), lang, current).encode('utf-8')
             for name, lang in [('results.html', 'ja'), ('results.en.html', 'en')]:
-                updates[name] = later.integrate_listing(updates[name].decode('utf-8'), lang, current).encode('utf-8')
+                html = later.integrate_listing(updates[name].decode('utf-8'), lang, current)
+                followup = later.followup_publication.installed_data(ROOT)
+                if followup is not None:
+                    html = later.followup_publication.integrate_listing(html, lang, followup)
+                updates[name] = html.encode('utf-8')
         for name, expected in updates.items():
             self.assertEqual((ROOT / name).read_bytes(), expected, name)
         use = schema.evidence_usage(d)

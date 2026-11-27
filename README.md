@@ -384,3 +384,19 @@ Study v1 pages and data retain their date and scope. Corrections must be documen
 ## Rights
 
 The existing project [LSP-1.0 license](LICENSE) is retained unchanged. Copyright attribution is legal metadata; public study narratives use **user / AI**.
+
+<!-- NO_DIAGNOSTIC_STUDY_START -->
+## Saved judgment without a current-operation diagnostic — 2026-11-27
+
+[日本語](https://yuu-honda.github.io/lux-spiria-results/studies/2026-11-27-no-diagnostic/) / [English](https://yuu-honda.github.io/lux-spiria-results/studies/2026-11-27-no-diagnostic/en.html) / [Public JSON](data/no-diagnostic-2026-11-27.json)
+
+Sixteen fresh AI contexts compared the same six original records, with or without an added LRE judgment, across four reused histories and two versions. The exercise withheld current-operation diagnostics and froze each choice before any target operation. On the unchanged version, 4/4 operations passed with originals alone and 4/4 with the saved judgment. The difference across the four matched histories was 0 accepted operations. After the version change, all four contexts in each condition abstained. No operation ran.
+
+The changed-version comparison documents choices, self-reported uncertainty and abstentions under an unknown mapping. Both conditions explicitly instructed the AI to abstain when evidence was insufficient. The study pages record all 16 choices and explain the limits of comparison with the November 3 study.
+
+Rebuild the dated pages and catalog update after independent approval:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -B tools/no_diagnostic_publication.py --no-diagnostic /absolute/path/to/approved-public-export.json
+```
+<!-- NO_DIAGNOSTIC_STUDY_END -->
